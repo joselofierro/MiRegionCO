@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Listado de categoria de mapas</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center;">ID</th>
+                                <th style="text-align: center;">Nombre</th>
+                                <th style="text-align: center">Imagen</th>
+                                <th style="text-align: center;">Acciones</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% if object_list %}
+                                {% for categoria_mapa in object_list %}
+                                    <tr>
+                                        <td>{{ categoria_mapa.id }}</td>
+                                        <td>{{ categoria_mapa.nombre }}</td>
+                                        <td>
+                                            <img src="{{ MEDIA_URL }}{{ categoria_mapa.imagen.url }}" width="100px" height="100px">
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary active"
+                                               href="{% url 'mapa:categoria_editar' categoria_mapa.id %}">Editar</a>
+                                            <a class="btn btn-danger active"
+                                               href="{% url 'mapa:categoria_eliminar' categoria_mapa.id %}">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <h2>No hay registros</h2>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

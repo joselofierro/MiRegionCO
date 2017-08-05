@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Estadisticas
+{% endblock %}
+{% block content %}
+    {% if opciones %}
+        <form method="post">
+            {% csrf_token %}
+            <select id="opciones" name="opciones" class="form-control" style="margin-bottom: 20px!important;">
+                {% for opcion in opciones %}
+                    <option value="{{ opcion }}">{{ opcion }}</option>
+                {% endfor %}
+            </select>
+            <button class="btn btn-youtube active" value="Graficar">Graficar</button>
+        </form>
+    {% endif %}
+    {% if labels and datos %}
+        <div class="chart-container center-block" style="position: relative; width: 50%;">
+            <canvas id="myChart"></canvas>
+        </div>
+
+
+        <script type="text/javascript">
+
+            var ctx = document.getElementById("myChart");
+            var list_labels = [];
+            list_colores = [];
+
+            {% for label in labels %}
+                list_labels.push("{{ label }}");
+            {% endfor %}
+            //'rgba(255, 99, 132, 0.2)'
+            for (var i = 0; i < list_labels.length; i++) {
+                var color1 = Math.floor((Math.random() * 255) + 1);
+                var color2 = Math.floor((Math.random() * 255) + 1);
+                var color3 = Math.floor((Math.random() * 255) + 1);
+                list_colores.push('rgba(' + color1 + ', ' + color2 + ', ' + color3 + ', 0.8)');
+            }
+            var data = {
+                datasets: [{
+                    data: {{ datos }},
+                    backgroundColor: list_colores
+                }],
+
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: list_labels
+            };
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: data,
+                options: {
+                    title: {
+                        display: true,
+                        text: '{{ titulo }}',
+                        fontSize: 28
+                    }
+                }
+            });
+        </script>
+    {% endif %}
+{% endblock %}

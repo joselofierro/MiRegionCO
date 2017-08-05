@@ -1,0 +1,111 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cotización</title>
+</head>
+<body style="background-image: url('{% static 'img/fondo.png' %}'); background-repeat: no-repeat; background-position: 50% 250px; background-size: 45%">
+
+<table style="margin: 0 auto; max-width: 70%; font-weight:bold;">
+    <thead>
+    <tr>
+        <th><img src="{% static 'img/miregion.png' %}" alt="Mi región" width="70%"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if cotizacion %}
+        <tr>
+            <td style="padding-top: 20px; font-size: 18px">{{ cotizacion.fecha }}</td>
+        </tr>
+    {% endif %}
+    <tr style="font-size: 18px;">
+        <td style="padding-top: 60px;">
+            {% if cliente %}
+                <p> Estimado señor(a)<br>
+                <span style="background-color: yellow">{{ cliente.nombre_contacto }}</span><br>
+                <span style="background-color: yellow">{{ cliente.nombre_empresa }}</span> <br>
+                <span style="background-color: yellow">{{ cliente.direccion }}</span><br>
+                <span style="background-color: yellow">{{ cliente.celular }}</span><br>
+            {% endif %}
+            </p>
+        </td>
+    </tr>
+    <tr style="text-align: justify; font-size: 18px;">
+        <td>
+            {% if cliente %}
+                <p>
+                    Reciba un cordial saludo, <br><br>
+                    En MIREGION.CO nos apasiona ser artifices de su estrategia de comunicación. <br> <br>
+                    Conocemos la importancia que <span
+                        style="background-color: yellow">{{ cliente.nombre_empresa }}</span> representa para usted y
+                    para el departamento del Huila. Nuestro objetivo es generar estrategias y herramientas que estén
+                    orientadas a la consecución de sus metas, crecimiento, reconocimiento, posicionamiento. <br> <br>
+
+                    Hemos creado estos productos diseñados especialmente en función de sus necesidades <br> <br>
+                    Recuerde que nuestra compañia le hará un completo acompañamiento durante todo el proceso. <br> <br>
+                    Si tiene alguna inquietud adicional o desea recibir mas información no dude en comunicarse con
+                    nosotros. A continuacion aparece nuetra cotización:
+                </p>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table style="width:100%;border-collapse: collapse;margin-top: 70px; border: 4px solid grey;">
+                <thead style="background-color: #74dc9c;">
+                <tr style="height: 50px; padding: 15px;">
+                    <th style="width: 33.3%">Producto</th>
+                    <th style="width: 33.3%">Tiempo</th>
+                    <th style="width: 33.3%">Precio</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for detalle in cotizacion_detalle %}
+                        <tr style="background-color: rgba(128, 128, 128, 0.08);">
+                            <td style="padding: 15px; text-align: center;">{{ detalle.categoria.nombre }},{{ detalle.subcategoria.nombre }}</td>
+                            <td style="padding: 15px; text-align: center;">{{ detalle.producto.tiempo }} {{ detalle.producto.medida }}</td>
+                            <td style="padding: 15px; text-align: center;" id="precio"> $ {{ detalle.producto.precio }}</td>
+                        </tr>
+                    {% endfor %}
+
+                        <tr>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td></td>
+                            <td colspan="1" style="border-left: 4px solid grey; border-top: 4px solid grey; border-right: 4px solid grey"></td>
+                        </tr>
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            {% if cotizacion %}
+                <p style="margin-top: 70px;">
+                Atentamente, <br> <br> <br>
+                <span style="background-color: yellow">{{ cotizacion.vendedor.nombre }} {{ cotizacion.vendedor.apellido }}</span>
+                <br>
+                Ejecutivo de ventas
+            {% endif %}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                Calle 8 Nº 7-63 Piso 2 Br. Centro Neiva-Huila <br>
+                Tel. 8718412 cel. 3102713631 <br>
+                www.miregion.co
+            </p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

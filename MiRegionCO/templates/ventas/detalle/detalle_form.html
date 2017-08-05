@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Detalle
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Registrar Detalle</h4>
+                </div>
+                <div class="content">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="botones" style="margin-top: 30px;">
+                            <button type="submit" class="btn btn-primary active">Registrar</button>
+                            <a class= "btn btn-default active" href="{% url 'detalle:listar_detalle' %}">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

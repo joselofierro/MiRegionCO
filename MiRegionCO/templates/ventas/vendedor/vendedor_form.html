@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Registrar Vendedor</h4>
+                </div>
+                <div class="content">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="botones" style="margin-top: 30px;">
+                            <button type="submit" class="btn btn-primary active">Registrar</button>
+                            <a class= "btn btn-default active" href="{% url 'vendedor:listar_vendedor' %}">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

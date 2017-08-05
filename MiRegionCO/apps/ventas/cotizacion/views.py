@@ -1,0 +1,63 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import render
+
+# Create your views here.
+from django.urls import reverse_lazy
+from django.views.generic import *
+
+from apps.ventas.cotizacion.forms import CotizacionForm
+from apps.ventas.cotizacion.models import Cotizacion
+from apps.ventas.detalle.models import Detalle
+
+
+class CotizacionCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
+    model = Cotizacion
+    form_class = CotizacionForm
+    template_name = 'ventas/cotizacion/cotizacion_form.html'
+    success_url = reverse_lazy('cotizacion:listar_cotizacion')
+    success_message = 'Se ha creado la cotización con exito'
+    permission_required = ('cotizacion.add_cotizacion', 'cotizacion.change_cotizacion')
+    # me devuelve al login si es falso y si es true arroja un exceptionError
+    raise_exception = False
+    # si no tengo los permisos me redirige al login
+    login_url = reverse_lazy('grupo:login')
+    redirect_field_name = 'redirect_to'
+
+
+class CotizacionList(PermissionRequiredMixin, ListView):
+    model = Cotizacion
+    template_name = 'ventas/cotizacion/cotizacion_list.html'
+    permission_required = ('cotizacion.add_cotizacion', 'cotizacion.change_cotizacion')
+    # me devuelve al login si es falso y si es true arroja un exceptionError
+    raise_exception = False
+    # si no tengo los permisos me redirige al login
+    login_url = reverse_lazy('grupo:login')
+    redirect_field_name = 'redirect_to'
+
+
+class CotizacionUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Cotizacion
+    form_class = CotizacionForm
+    template_name = 'ventas/cotizacion/cotizacion_form.html'
+    success_url = reverse_lazy('cotizacion:listar_cotizacion')
+    success_message = 'Se ha actualizado la cotización con exito'
+    permission_required = ('cotizacion.add_cotizacion', 'cotizacion.change_cotizacion')
+    # me devuelve al login si es falso y si es true arroja un exceptionError
+    raise_exception = False
+    # si no tengo los permisos me redirige al login
+    login_url = reverse_lazy('grupo:login')
+    redirect_field_name = 'redirect_to'
+
+
+class CotizacionDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
+    model = Cotizacion
+    template_name = 'ventas/cotizacion/cotizacion_delete.html'
+    success_url = reverse_lazy('cotizacion:listar_cotizacion')
+    success_message = 'Se ha eliminado la cotización con exito'
+    permission_required = ('cotizacion.add_cotizacion', 'cotizacion.change_cotizacion')
+    # me devuelve al login si es falso y si es true arroja un exceptionError
+    raise_exception = False
+    # si no tengo los permisos me redirige al login
+    login_url = reverse_lazy('grupo:login')
+    redirect_field_name = 'redirect_to'

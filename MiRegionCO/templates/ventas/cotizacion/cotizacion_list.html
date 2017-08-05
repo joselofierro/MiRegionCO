@@ -1,0 +1,91 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <h4>Listado de cotización</h4>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Listado de cotizaciones</h4>
+                    </div>
+
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped table-hover table-bordered">
+
+                            <thead>
+                            <tr role="row">
+                                <th>ID</th>
+                                <th>Descripcion</th>
+                                <th>Vendedor</th>
+                                <th>Cliente</th>
+                                <th>Productos</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% if object_list %}
+                                {% for cotizacion in object_list %}
+                                    <tr>
+                                        <td>{{ cotizacion.id }}</td>
+                                        <td>{{ cotizacion.descripcion }}</td>
+                                        <td>
+
+
+                                        </td>
+                                        <td>
+
+
+                                        </td>
+                                        <td>
+                                            <ul>{% for detalle in cotizacion.productos.all %}
+                                                {{ detalle.categoria.nombre }}{{ detalle.subcategoria.nombre }}
+                                                {{ detalle.producto.tiempo }}{{ detalle.producto.medida }}{{ detalle.producto.precio }}
+                                                </ul>{% endfor %}
+                                        </td>
+
+
+                                        <td>
+                                            {% if perms.cotizacion.delete_cotizacion %}
+                                                <div class="btn-group">
+                                                    <a class="btn btn-primary active"
+                                                       href="{% url 'cotizacion:editar_cotizacion' cotizacion.id %}">Editar</a>
+                                                    <button type="button"
+                                                            class=" btn btn-primary active dropdown-toggle"
+                                                            data-toggle="dropdown" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+
+                                                    <ul class="dropdown-menu" role="menu"
+                                                        style="min-width: 104px!important; text-align: center!important;">
+                                                        <li>
+                                                            <a class=" btn-danger btn-sm active" data-toggle=""
+                                                               href="{% url 'cotizacion:eliminar_cotizacion' cotizacion.id %}">Eliminar</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            {% else %}
+
+                                                <a class="btn btn-primary active"
+                                                   href="{% url 'cotizacion:editar_cotizacion' cotizacion.id %}">Editar</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <h4>No hay registros</h4>
+                            {% endif %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

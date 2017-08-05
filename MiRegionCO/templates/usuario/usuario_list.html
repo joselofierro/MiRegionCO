@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Listado de usuarios</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center;" class="col-sm-1">IdFacebook</th>
+                                <th style="text-align: center;" class="col-sm-1">Primer nombre</th>
+                                <th style="text-align: center;" class="col-sm-1">Segundo nombre</th>
+                                <th style="text-align: center;" class="col-sm-1">Nombre completo</th>
+                                <th style="text-align: center;" class="col-sm-1">Telefono</th>
+                                <th style="text-align: center;" class="col-sm-1">Correo</th>
+                                <th style="text-align: center;">Foto</th>
+                                <th style="text-align: center;">Noticias</th>
+                                <th style="text-align: center;">Sitios</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if object_list %}
+                                {% for usuario in object_list %}
+                                    <tr>
+                                        <td>{{ usuario.idFacebook }}</td>
+                                        <td>{{ usuario.primerNombre }}</td>
+                                        <td>{{ usuario.segundoNombre }}</td>
+                                        <td>{{ usuario.nombreCompleto }}</td>
+                                        <td>{{ usuario.telefono }}</td>
+                                        <td>{{ usuario.correo }}</td>
+                                        <td><img src="{{ MEDIA_URL }} {{ usuario.foto }}" width="100px" height="100px"></td>
+                                        <td>
+                                            <ul>{% for noticia in usuario.noticias.all %}
+                                                <li>{{ noticia.titular }}</li>
+                                                </ul>{% endfor %}
+                                        </td>
+                                        <td>
+                                            <ul>{% for sitio in usuario.sitios.all %}
+                                                <li>{{ sitio.nombre }}</li>
+                                                </ul>{% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <h2>No hay registros</h2>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    Cliente
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h4>Listado de clientes</h4>
+                    </div>
+
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr role="row">
+                                <th>ID</th>
+                                <th>Nombre empresa</th>
+                                <th>Dirección</th>
+                                <th>Nombre de contacto</th>
+                                <th>Telefono</th>
+                                <th>Celular</th>
+                                <th>Correo</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% if object_list %}
+                                {% for cliente in object_list %}
+                                    <tr role="row">
+                                        <td>{{ cliente.id }}</td>
+                                        <td>{{ cliente.nombre_empresa }}</td>
+                                        <td>{{ cliente.direccion }}</td>
+                                        <td>{{ cliente.nombre_contacto }}</td>
+                                        <td>{{ cliente.telefono }}</td>
+                                        <td>{{ cliente.celular }}</td>
+                                        <td>{{ cliente.correo }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <h4>No hay registros</h4>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

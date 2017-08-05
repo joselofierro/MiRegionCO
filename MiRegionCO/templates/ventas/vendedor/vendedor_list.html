@@ -1,0 +1,83 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    Vendedor
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Listado de vendedores</h4>
+                    </div>
+
+                    <div class="content table-full-width table-responsive">
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                            <tr role="row">
+                                <th>ID</th>
+                                <th>Cedula</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Correo</th>
+                                <th>telefono</th>
+                                <th>direccion</th>
+                                <th>contraseña</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% if object_list %}
+                                {% for vendedor in object_list %}
+                                    <tr role="row">
+                                        <td>{{ vendedor.id }}</td>
+                                        <td>{{ vendedor.cedula}}</td>
+                                        <td>{{ vendedor.nombre}}</td>
+                                        <td>{{vendedor.apellido }}</td>
+                                        <td>{{ vendedor.correo}}</td>
+                                        <td>{{ vendedor.telefono}}</td>
+                                        <td>{{ vendedor.direccion}}</td>
+                                        <td>{{ vendedor.contrasena }}</td>
+                                        <td>
+                                            {% if perms.vendedor.delete_vendedor %}
+                                                <div class="btn-group">
+                                                    <a class="btn btn-primary active"
+                                                       href="{% url 'vendedor:editar_vendedor' vendedor.id %}">Editar</a>
+                                                    <button type="button"
+                                                            class=" btn btn-primary active dropdown-toggle"
+                                                            data-toggle="dropdown" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+
+                                                    <ul class="dropdown-menu" role="menu"
+                                                        style="min-width: 104px!important; text-align: center!important;">
+                                                        <li>
+                                                            <a class=" btn-danger btn-sm active" data-toggle=""
+                                                               href="{% url 'vendedor:eliminar_vendedor' vendedor.id %}">Eliminar</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            {% else %}
+
+                                                <a class="btn btn-primary active"
+                                                   href="{% url 'vendedor:editar_vendedor' vendedor.id %}">Editar</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <h4>No hay registros</h4>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
