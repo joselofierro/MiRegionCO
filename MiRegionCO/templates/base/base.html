@@ -36,6 +36,13 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{% static 'css/pe-icon-7-stroke.css' %}" rel="stylesheet"/>
 
+    <style type="text/css">
+        .nav .titulo > i:hover {
+            transition: transform 0.5s ease;
+            transform: rotate(360deg);
+
+        }
+    </style>
 </head>
 
 <body>
@@ -604,7 +611,7 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="{% url 'grupo:logout' %}">
-                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        <i class="fa fa-sign-out"></i>
                                         <p>Salir</p>
                                     </a>
                                 </li>
