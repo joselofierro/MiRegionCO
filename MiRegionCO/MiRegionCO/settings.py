@@ -57,8 +57,6 @@ INSTALLED_APPS = [
     'apps.ventas.subcategoria_producto',
     'apps.ventas.vendedor',
     'rest_framework',
-    'wordpress_api',
-    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
