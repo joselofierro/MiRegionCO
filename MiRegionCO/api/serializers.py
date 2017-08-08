@@ -57,7 +57,7 @@ class NoticiasSerializerPOST(ModelSerializer):
 class CategoriaNoticiasSerializer(ModelSerializer):
     class Meta:
         model = Categoria
-        fields = ('id', 'nombre', 'color', 'rojo', 'verde', 'azul')
+        fields = ('id', 'nombre', 'color')
 
 
 class SitioSerializer(ModelSerializer):
