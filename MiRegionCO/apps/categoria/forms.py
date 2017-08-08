@@ -7,7 +7,8 @@ class CategoriaForm(forms.ModelForm):
         model = Categoria
 
         fields = [
-            'nombre'
+            'nombre',
+            'color'
         ]
 
         labels = {
@@ -15,5 +16,6 @@ class CategoriaForm(forms.ModelForm):
         }
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'})
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'color': forms.TextInput(attrs={'class': 'form-control'}),
         }

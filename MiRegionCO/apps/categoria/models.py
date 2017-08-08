@@ -5,9 +5,6 @@ from django.db import models
 class Categoria(models.Model):
     nombre = models.CharField(max_length=30, blank=False, null=False)
     color = models.CharField(max_length=10, blank=False, null=False)
-    rojo = models.IntegerField()
-    verde = models.IntegerField()
-    azul = models.IntegerField()
 
     def __str__(self):
         return self.nombre
