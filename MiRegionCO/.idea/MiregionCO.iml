@@ -15,6 +15,7 @@
     <orderEntry type="jdk" jdkName="Python 3.6.1 virtualenv at ~/Documents/Entornos/entMiregionCO_deploy" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

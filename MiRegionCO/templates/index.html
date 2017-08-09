@@ -14,6 +14,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -63,9 +64,9 @@
             </div>
         </div>
         {% if error %}
-            <div class="alert alert-success alert-dismissible">
+            <div class="alert alert-danger alert-dismissable fade in" style="width: 31%; margin: 0 auto; text-align: center;">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Success!</strong> This alert box could indicate a successful or positive action.
+                <strong>Error</strong> Usuario incorrecto!
             </div>
         {% endif %}
 
