@@ -74,13 +74,6 @@
                         </a>
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'categorias:categoria_crear' %}" style="display: inherit;">
-                                    <i class="pe-7s-ribbon"></i>
-                                    <p> Crear categoria</p>
-                                </a>
-                            </li>
-
-                            <li>
                                 <a href="{% url 'categorias:categoria_listar' %}" style="display: inherit;">
                                     <i class="pe-7s-ribbon"></i>
                                     <p>Listar categoria</p>
@@ -95,13 +88,6 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'mapa:categoria_crear' %}" style="display: inherit;">
-                                    <i class="pe-7s-map-2"></i>
-                                    <p>Crear categoria-mapa</p>
-                                </a>
-                            </li>
-
                             <li>
                                 <a href="{% url 'mapa:categoria_listar' %}" style="display: inherit;">
                                     <i class="pe-7s-map-2"></i>
@@ -119,12 +105,6 @@
 
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'tag:crear_tag' %}" style="display: inherit;">
-                                    <i class="pe-7s-way"></i>
-                                    <p>Crear Tag</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{% url 'tag:listar_tag' %}" style="display: inherit;">
                                     <i class="pe-7s-way"></i>
                                     <p>Listar Tag</p>
@@ -139,13 +119,6 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-
-                            <li>
-                                <a href="{% url 'imagen:imagen_crear' %}" style="display: inherit;">
-                                    <i class="pe-7s-photo"></i>
-                                    <p>Crear Imagen</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'imagen:imagen_listar' %}" style="display: inherit;">
                                     <i class="pe-7s-photo"></i>
@@ -162,12 +135,6 @@
                         </a>
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'noticia:crear_noticia' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Noticia</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{% url 'noticia:listar_noticia' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
                                     <p>Listar Noticia</p>
@@ -183,12 +150,6 @@
                         </a>
 
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'sitio:crear_sitio' %}" style="display: inherit;">
-                                    <i class="pe-7s-culture"></i>
-                                    <p>Crear Sitio</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'sitio:listar_sitio' %}" style="display: inherit;">
                                     <i class="pe-7s-culture"></i>
@@ -222,18 +183,11 @@
 
                     <li>
                         <a class="titulo">
-                            <p style="display: inline-block">CATEGORIA</p>
+                            <p style="display: inline-block">CATEGORIA PRODUCTOS</p>
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
 
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'categoria_producto:nueva_categoria_producto' %}"
-                                   style="display: inherit;">
-                                    <i class="pe-7s-way"></i>
-                                    <p>Crear Categoria</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
                                    style="display: inherit;">
@@ -250,13 +204,6 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-
-                            <li>
-                                <a href="{% url 'subcategoria_producto:crear_subcategoria' %}" style="display: inherit;">
-                                    <i class="pe-7s-photo"></i>
-                                    <p>Crear Subcategoria</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'subcategoria_producto:listar_subcategoria' %}" style="display: inherit;">
                                     <i class="pe-7s-photo"></i>
@@ -273,12 +220,6 @@
                         </a>
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'producto:crear_producto' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Producto</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{% url 'producto:listar_producto' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
                                     <p>Listar Producto</p>
@@ -294,12 +235,6 @@
                         </a>
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'detalle:crear_detalle' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Detalle</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{% url 'detalle:listar_detalle' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
                                     <p>Listar Detalle</p>
@@ -313,12 +248,6 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'cotizacion:crear_cotizacion' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Cotización</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'cotizacion:listar_cotizacion' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
@@ -334,12 +263,6 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'vendedor:crear_vendedor' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Vendedor</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'vendedor:listar_vendedor' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
@@ -367,19 +290,13 @@
 
             {% elif request.user|has_group:'Escritor' %}
                 <ul class="nav">
-                    <li>
+                     <li>
                         <a class="titulo">
                             <p style="display: inline-block">TAGS</p>
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
 
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'tag:crear_tag' %}" style="display: inherit;">
-                                    <i class="pe-7s-way"></i>
-                                    <p>Crear Tag</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'tag:listar_tag' %}" style="display: inherit;">
                                     <i class="pe-7s-way"></i>
@@ -395,13 +312,6 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-
-                            <li>
-                                <a href="{% url 'imagen:imagen_crear' %}" style="display: inherit;">
-                                    <i class="pe-7s-photo"></i>
-                                    <p>Crear Imagen</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'imagen:imagen_listar' %}" style="display: inherit;">
                                     <i class="pe-7s-photo"></i>
@@ -417,12 +327,6 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'noticia:crear_noticia' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Noticia</p>
-                                </a>
-                            </li>
                             <li>
                                 <a href="{% url 'noticia:listar_noticia' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
@@ -443,13 +347,6 @@
 
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'categoria_producto:nueva_categoria_producto' %}"
-                                   style="display: inherit;">
-                                    <i class="pe-7s-way"></i>
-                                    <p>Crear Categoria</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
                                    style="display: inherit;">
                                     <i class="pe-7s-way"></i>
@@ -467,12 +364,6 @@
                         <ul class="ul-child" style="display: none;">
 
                             <li>
-                                <a href="{% url 'subcategoria_producto:crear_subcategoria' %}" style="display: inherit;">
-                                    <i class="pe-7s-photo"></i>
-                                    <p>Crear Subcategoria</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{% url 'subcategoria_producto:listar_subcategoria' %}" style="display: inherit;">
                                     <i class="pe-7s-photo"></i>
                                     <p>Listar Subcategoria</p>
@@ -487,12 +378,7 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'producto:crear_producto' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Producto</p>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="{% url 'producto:listar_producto' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
@@ -509,12 +395,6 @@
                         </a>
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'detalle:crear_detalle' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Detalle</p>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{% url 'detalle:listar_detalle' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
                                     <p>Listar Detalle</p>
@@ -528,12 +408,7 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'cotizacion:crear_cotizacion' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Cotización</p>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="{% url 'cotizacion:listar_cotizacion' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>
@@ -549,12 +424,7 @@
                             <i class="pe-7s-angle-down-circle"></i>
                         </a>
                         <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'vendedor:crear_vendedor' %}" style="display: inherit;">
-                                    <i class="pe-7s-news-paper"></i>
-                                    <p>Crear Vendedor</p>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="{% url 'vendedor:listar_vendedor' %}" style="display: inherit;">
                                     <i class="pe-7s-news-paper"></i>

@@ -7,8 +7,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Listado de imagenes</h4>
+                        <h4 class="title" style="margin-bottom: 22px;">Listado de imagenes</h4>
                     </div>
+                    <a href="{% url 'imagen:imagen_crear' %}" class="btn btn-primary active">Crear Imagen</a>
 
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
@@ -23,7 +24,6 @@
                             <tbody>
                             {% if object_list %}
                                 {% for imagen in object_list %}
-
                                     <tr>
                                         <td>{{ imagen.id }}</td>
                                         <td>{{ imagen.nombre }}</td>

@@ -11,8 +11,10 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Listado de cotizaciones</h4>
+                        <h4 class="title" style="margin-bottom: 22px;">Listado de cotizaciones</h4>
                     </div>
+
+                    <a href="{% url 'cotizacion:crear_cotizacion' %}" class="btn btn-primary active">Crear cotización</a>
 
                     <div class="content table-responsive table-full-width">
                         <table class="table table-striped table-hover table-bordered">

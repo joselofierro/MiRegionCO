@@ -12,8 +12,10 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Listado de categoria de productos</h4>
+                        <h4 class="title" style="margin-bottom: 22px;">Listado de categoria de productos</h4>
                     </div>
+
+                    <a href="{% url 'categoria_producto:nueva_categoria_producto' %}" class="btn btn-primary active">Crear categoria producto</a>
 
                     <div class="content table-responsive table-full-width">
                         <table id="table_noticia" class="table table-striped table-hover"
