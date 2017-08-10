@@ -14,7 +14,7 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="botones" style="margin-top: 30px;">
-                            <button type="submit" class="btn btn-primary active">Registrar</button>
+                            <input type="submit" class="btn btn-primary active" value="Registrar">
                             <a class= "btn btn-default active" href="{% url 'imagen:imagen_listar' %}">Cancelar</a>
                         </div>
 

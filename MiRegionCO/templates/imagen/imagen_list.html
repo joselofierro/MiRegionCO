@@ -31,7 +31,7 @@
                                         <td>{{ imagen.id }}</td>
                                         <td>{{ imagen.nombre }}</td>
                                         <td><img src="{{ MEDIA_URL }}{{ imagen.imagen.url }}" alt="Imagen Server"
-                                                 width="100px" height="100px"></td>
+                                                 width="100px" height="100px" title="{{ imagen.nombre }}"></td>
                                         <td>
                                             <!--si tiene permisos para eliminar-->
                                             {% if perms.imagen.delete_imagen %}
