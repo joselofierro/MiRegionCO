@@ -19,10 +19,10 @@
 
                             <thead>
                             <tr role="row">
-                                <th>Categoria</th>
-                                <th>Subcategoria</th>
-                                <th>Producto</th>
-                                <th>Acciones</th>
+                                <th style="text-align: center;">Categoria</th>
+                                <th style="text-align: center;">Subcategoria</th>
+                                <th style="text-align: center;">Producto</th>
+                                <th style="text-align: center;">Acciones</th>
                             </tr>
                             </thead>
 
@@ -30,24 +30,10 @@
                             {% if object_list %}
                                 {% for detalle in object_list %}
                                     <tr role="row">
-                                        <th>
-                                            {% for categoria in detalle.categoria.all %}
-                                                {{ categoria.nombre }}
-                                            {% endfor %}
-                                        </th>
-                                        <th>
-                                            {% for subcategoria in detalle.subcategoria.all %}
-                                                {{ subcategoria.nombre }}
-                                            {% endfor %}
-                                        </th>
-                                        <th>
-                                            {% for producto in detalle.producto.all %}
-                                                {{ producto.tiempo }}
-                                                {{ producto.precio }}
-                                                {{ producto.medida }}
-                                            {% endfor %}
-                                        </th>
-                                        <th>
+                                        <td>{{ detalle.categoria }}</td>
+                                        <td>{{ detalle.subcategoria }}</td>
+                                        <td>{{ detalle.producto }}</td>
+                                        <td>
                                             {% if perms.detalle.delete_detalle %}
                                                 <div class="btn-group">
                                                     <a class="btn btn-primary active"
@@ -73,7 +59,7 @@
                                                    href="{% url 'detalle:editar_detalle' detalle.id %}">Editar</a>
                                             {% endif %}
 
-                                        </th>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                             {% else %}

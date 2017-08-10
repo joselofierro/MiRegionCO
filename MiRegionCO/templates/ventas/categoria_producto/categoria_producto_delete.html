@@ -3,7 +3,7 @@
         <form method="post">
             {% csrf_token %}
             <h3>¿Desea eliminar el registro de {{ object.titular }}?</h3>
-            <button class="btn btn-danger" type="submit">Sí, eliminar</button>
+            <input class="btn btn-danger" type="submit" value="Eliminar">
             <a class= "btn btn-default" href="{% url 'categoria_producto:listar_categoria_producto' %}">Cancelar</a>
         </form>
     {% endblock %}

@@ -7,16 +7,17 @@
     {% if opciones %}
         <form method="post">
             {% csrf_token %}
-            <select id="opciones" name="opciones" class="form-control" style="margin-bottom: 20px!important;">
+            <select id="opciones" name="opciones" class="form-control" style="margin-bottom: 20px;">
                 {% for opcion in opciones %}
                     <option value="{{ opcion }}">{{ opcion }}</option>
                 {% endfor %}
             </select>
-            <button class="btn btn-youtube active" value="Graficar">Graficar</button>
+            <button class="btn btn-primary active" value="Graficar">Graficar</button>
         </form>
     {% endif %}
     {% if labels and datos %}
         <div class="chart-container center-block" style="width: 50%;">
+            <a href="{% url 'estadistica:estadistica' %}" class="btn btn-default active">Volver</a>
             <canvas id="myChart"></canvas>
         </div>
 

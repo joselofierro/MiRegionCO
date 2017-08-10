@@ -1,5 +1,6 @@
 from django import forms
 
+from apps.ventas.categoria_producto.models import CategoriaProducto
 from apps.ventas.detalle.models import Detalle
 
 
@@ -20,7 +21,7 @@ class DetalleForm(forms.ModelForm):
         }
 
         widgets = {
-            'categoria': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
-            'subcategoria': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
-            'producto': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
+            'categoria': forms.Select(attrs={'class': 'form-control'}),
+            'subcategoria': forms.Select(attrs={'class': 'form-control '}),
+            'producto': forms.Select(attrs={'class': 'form-control'}),
         }
