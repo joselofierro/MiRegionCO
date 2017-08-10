@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="{% static 'img/regionico.ico' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>{% block title %}Base{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
@@ -41,6 +41,10 @@
 
         }
     </style>
+
+    {% block extracss %}
+
+    {% endblock %}
 </head>
 
 <body>
@@ -203,7 +207,8 @@
                         </a>
                         <ul class="ul-child" style="display: none;">
                             <li>
-                                <a href="{% url 'subcategoria_producto:listar_subcategoria' %}" style="display: inherit;">
+                                <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
+                                   style="display: inherit;">
                                     <i class="pe-7s-photo"></i>
                                     <p>Listar Subcategoria</p>
                                 </a>
@@ -288,7 +293,7 @@
 
             {% elif request.user|has_group:'Escritor' %}
                 <ul class="nav">
-                     <li>
+                    <li>
                         <a class="titulo">
                             <p style="display: inline-block">TAGS</p>
                             <i class="pe-7s-angle-down-circle"></i>
@@ -362,7 +367,8 @@
                         <ul class="ul-child" style="display: none;">
 
                             <li>
-                                <a href="{% url 'subcategoria_producto:listar_subcategoria' %}" style="display: inherit;">
+                                <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
+                                   style="display: inherit;">
                                     <i class="pe-7s-photo"></i>
                                     <p>Listar Subcategoria</p>
                                 </a>
@@ -529,10 +535,6 @@
 <script src="{% static 'js/light-bootstrap-dashboard.js' %}"></script>
 
 
-{% block extra_js %}
-
-{% endblock %}
-
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -556,7 +558,10 @@
                 "url": "{% static 'datatable/spanish.json' %}"
             }
         });
-
     });
 </script>
+
+
+{% block extra_js %}
+{% endblock %}
 </html>

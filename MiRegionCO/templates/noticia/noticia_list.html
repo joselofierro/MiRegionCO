@@ -3,6 +3,14 @@
 {% block title %}
     Noticias
 {% endblock %}
+
+{% block extracss %}
+    <style type="text/css">
+
+    </style>
+{% endblock %}
+
+
 {% block content %}
     <div class="container-fluid">
         <div class="row">
@@ -15,23 +23,23 @@
                     <div id="datatable-responsive_wrapper"
                          class="content table-responsive table-full-width">
 
-                        <table id="table_noticia" class="table table-striped table-bordered table-hover"
+                        <table id="boxes" class="table table-striped table-bordered table-hover"
                                cellspacing="0" role="grid" width="100%">
                             <thead>
-                                <tr role="row">
-                                    <th style="text-align: center;">ID</th>
-                                    <th style="text-align: center;">fecha</th>
-                                    <th style="text-align: center;">Hora</th>
-                                    <th style="text-align: center;">titular</th>
-                                    <th style="text-align: center;">lead</th>
-                                    <th style="text-align: center;">video</th>
-                                    <th style="text-align: center;">imagenes</th>
-                                    <th style="text-align: center;">autor</th>
-                                    <th style="text-align: center;">tag</th>
-                                    <th style="text-align: center;">categoria</th>
-                                    <th style="text-align: center;">destacada</th>
-                                    <th class="col-sm-2" style="text-align: center;">Acciones</th>
-                                </tr>
+                            <tr role="row">
+                                <th style="text-align: center;">ID</th>
+                                <th style="text-align: center;">fecha</th>
+                                <th style="text-align: center;">Hora</th>
+                                <th class="col-sm-2" style="text-align: center;">titular</th>
+                                <th style="text-align: center;">lead</th>
+                                <th style="text-align: center;">video</th>
+                                <th style="text-align: center;">imagenes</th>
+                                <th style="text-align: center;">autor</th>
+                                <th style="text-align: center;">tag</th>
+                                <th style="text-align: center;">categoria</th>
+                                <th style="text-align: center;">destacada</th>
+                                <th class="col-sm-1" style="text-align: center;">Acciones</th>
+                            </tr>
                             </thead>
 
                             <tbody>
@@ -41,7 +49,7 @@
                                         <td>{{ noticia.id }}</td>
                                         <td>{{ noticia.fecha }}</td>
                                         <td>{{ noticia.hora }}</td>
-                                        <td class="col-sm-2">{{ noticia.titular }}</td>
+                                        <td>{{ noticia.titular }}</td>
                                         <td>{{ noticia.lead }}</td>
                                         <td>
                                             {% if noticia.video %}
@@ -50,11 +58,11 @@
                                         </td>
 
                                         <td>
-
                                             {% for imagen in noticia.imagenes.all %}
-                                                <div class="carousel-item active">
-                                                    <img class="img-fluid" src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt="Imagenes" width="100px" height="100px">
-                                                </div>
+
+                                                <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt="Imagenes"
+                                                     width="100px" height="100px">
+
                                             {% endfor %}
                                         </td>
 
@@ -113,4 +121,10 @@
     </div>
 
 {% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}
+
+
 

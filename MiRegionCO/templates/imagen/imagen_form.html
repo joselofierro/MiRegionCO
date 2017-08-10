@@ -10,7 +10,7 @@
                     <h4 class="title">Registrar Imagen</h4>
                 </div>
                 <div class="content">
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="botones" style="margin-top: 30px;">
