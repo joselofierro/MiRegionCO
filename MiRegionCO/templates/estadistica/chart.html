@@ -16,8 +16,11 @@
         </form>
     {% endif %}
     {% if labels and datos %}
-        <div class="chart-container center-block" style="width: 50%;">
+        <div style="display: flex; justify-content: flex-start;">
             <a href="{% url 'estadistica:estadistica' %}" class="btn btn-default active">Volver</a>
+        </div>
+
+        <div class="chart-container center-block" style="width: 50%;">
             <canvas id="myChart"></canvas>
         </div>
 
