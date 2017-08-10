@@ -53,10 +53,7 @@
 
                                             {% for imagen in noticia.imagenes.all %}
                                                 <div class="carousel-item active">
-                                                    <img class="img-fluid"
-                                                         src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt=""
-                                                         width="100px"
-                                                         height="100px">
+                                                    <img class="img-fluid" src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt="Imagenes" width="100px" height="100px">
                                                 </div>
                                             {% endfor %}
                                         </td>
