@@ -460,8 +460,9 @@ def FCM_CREATE(request):
             fcm_devices_nuevo.save()
             return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
         else:
+            usuario = Usuario.objects.get(id=request.data['user'])
             # obtenemos el dispositivo por el usuario
-            fcm_devices = FCMDevice.objects.get(user=request.data['user'])
+            fcm_devices = FCMDevice.objects.get(user=usuario)
             # si el token es igual
             if fcm_devices.registration_id == request.data['registration_id']:
                 return Response({'data': 'usuario ya existe con este token'}, status=status.HTTP_200_OK)
