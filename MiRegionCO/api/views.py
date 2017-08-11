@@ -3,6 +3,8 @@ from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from fcm_django.api.rest_framework import FCMDeviceSerializer_New
+from fcm_django.models import FCMDevice
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.generics import *
@@ -27,7 +29,7 @@ class CrearUsuarioAPI(CreateAPIView):
         return Usuario.objects.all()
 
 
-# vista para obtener usuario por id de facebook
+# vista para listar usuario por id de facebook
 class ObtenerUsuarioAPI(APIView):
     def get(self, request, id_facebook):
         try:
@@ -446,3 +448,31 @@ def EnviarEmail(request):
         )
     except Exception as ex:
         print(ex)
+
+
+@api_view(['POST'])
+def FCM_CREATE(request):
+    try:
+        # obtenemos el dispositivo por el usuario
+        fcm_devices = FCMDevice.objects.get(user=request.data['user'])
+        # si el token es igual
+        if fcm_devices.registration_id == request.data['registration_id']:
+            return Response({'data': 'usuario ya existe con este token'}, status=status.HTTP_200_OK)
+        # actualizamos el token
+        else:
+            fcm_devices.registration_id = request.data['registration_id']
+            fcm_devices.save()
+            return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
+    # si no existe lo creamos
+    except FCMDevice.DoesNotExist:
+        try:
+            # obtenemos el Usuario por el id del user
+            fcm_user = Usuario.objects.get(id=request.data['user'])
+            # instancia del Modelo FCMDevice
+            fcm_devices_nuevo = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
+                                          type=request.data['type'])
+            fcm_devices_nuevo.save()
+            return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
+
+        except Usuario.DoesNotExist:
+            return Response({'data': 'Usuario no existe'}, status=status.HTTP_400_BAD_REQUEST)

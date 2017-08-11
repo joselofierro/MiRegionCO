@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from api.views import *
+from fcm_django.api.rest_framework import *
 
 urlpatterns = [
 
@@ -35,7 +36,7 @@ urlpatterns = [
     url(r'^visualizacion_noticia', ViewsNews.as_view(), name='visualizar_noticia_api'),
     url(r'^comparte_noticia', SharedNews.as_view(), name='comparte_noticia_api'),
     url(r'^guarda_noticia', SaveNews.as_view(), name='guardar_noticia_api'),
-    url(r'^visitar_sitio', VisitPlace.as_view(), name='visitar_sitio_api'),
+    url(r'^visita_sitio', VisitPlace.as_view(), name='visitar_sitio_api'),
     url(r'^llamada_sitio', CallPlace.as_view(), name='llamar_sitio_api'),
     url(r'^ingreso', Login.as_view(), name='ingreso_api'),
     url(r'^facebook_sitio', FacebookAPI.as_view(), name='ingreso_api'),
@@ -48,6 +49,8 @@ urlpatterns = [
     # crear cotizacion
     url(r'^cotizacion', CrearCotizacionAPI.as_view(), name='api_cotizacion'),
     # listado de cotizaciones por id del vendedor
-    url(r'^listado_vendedor/(?P<id_vendedor>.+)$', ListCotizaciones, name='cotizaciones_vendedor')
+    url(r'^listado_vendedor/(?P<id_vendedor>.+)$', ListCotizaciones, name='cotizaciones_vendedor'),
+    url(r'^fcm_create/$', FCM_CREATE, name='cotizaciones_vendedor'),
+    url(r'^fcm_list/$', FCMDeviceViewSet.as_view({'get': 'list'}), name='cotizaciones_vendedor'),
 
 ]

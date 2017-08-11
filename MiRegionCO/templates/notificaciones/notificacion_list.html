@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    Notificaciones
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Listado de notificaciones</h4>
+                    </div>
+
+                    <a href="{% url 'notificacion:crear_notificacion' %}" class="btn btn-primary active">Crear Notificación</a>
+
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Titulo</th>
+                                <th>Mensaje</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% if object_list %}
+                                    {% for notificacion in object_list %}
+                                        <tr>
+                                            <td>{{ notificacion.fecha }}</td>
+                                            <td>{{ notificacion.hora }}</td>
+                                            <td>{{ notificacion.titulo }}</td>
+                                            <td>{{ notificacion.mensaje}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <h3>No hay registros</h3>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

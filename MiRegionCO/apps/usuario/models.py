@@ -14,7 +14,7 @@ class Usuario(models.Model):
     nombreCompleto = models.CharField(max_length=50, blank=False, null=False)
     telefono = models.BigIntegerField(blank=True, null=False, default=0)
     correo = models.EmailField(unique=True, blank=False, null=False)
-    foto = models.URLField(blank=False, null=False)
+    foto = models.TextField(blank=False, null=False)
     noticias = models.ManyToManyField(Noticia)
     sitios = models.ManyToManyField(Sitio)
 

@@ -56,8 +56,10 @@ INSTALLED_APPS = [
     'apps.ventas.producto',
     'apps.ventas.subcategoria_producto',
     'apps.ventas.vendedor',
+    'apps.notificaciones',
     'rest_framework',
-    'storages'
+    'storages',
+    'fcm_django',
 ]
 
 MIDDLEWARE = [
@@ -189,3 +191,16 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
+# (Firebase Cloud Messaging)
+FCM_DJANGO_SETTINGS = {
+
+    "FCM_SERVER_KEY": "AAAAMa4kYOQ:APA91bG7VC1VzvvNAOnID38pC9LRivih0jqCa2KLM6cf0L5CiFE5aOa5h7f2c7sA-gCoRmSVws0XtFr2k5yGBy-Jbn-jtf0HiYmdjzVUQgqY4SASRscEs9HbH3hveczNPT5JOi2Jfu9A",
+    # true if you want to have only one active device per registered user at a time
+    # default: False
+    "ONE_DEVICE_PER_USER": True,
+    # devices to which notifications cannot be sent,
+    # are deleted upon receiving error response from FCM
+    # default: False
+    "DELETE_INACTIVE_DEVICES": False,
+}
