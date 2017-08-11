@@ -460,17 +460,23 @@ def FCM_CREATE(request):
             fcm_devices_nuevo.save()
             return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
         else:
-            usuario = Usuario.objects.get(id=request.data['user'])
-            # obtenemos el dispositivo por el usuario
-            fcm_devices = FCMDevice.objects.get(user=usuario)
-            # si el token es igual
-            if fcm_devices.registration_id == request.data['registration_id']:
-                return Response({'data': 'usuario ya existe con este token'}, status=status.HTTP_200_OK)
-            # actualizamos el token
-            else:
-                fcm_devices.registration_id = request.data['registration_id']
-                fcm_devices.save()
-                return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
+            # si el usuario existe
+            try:
+                # obtenemos el usuario por el id del user
+                usuario = Usuario.objects.get(id=request.data['user'])
+                # obtenemos el dispositivo por el usuario
+                fcm_devices = FCMDevice.objects.get(user=usuario)
+                # si el token es igual
+                if fcm_devices.registration_id == request.data['registration_id']:
+                    return Response({'data': 'usuario ya existe con este token'}, status=status.HTTP_200_OK)
+                # actualizamos el token
+                else:
+                    fcm_devices.registration_id = request.data['registration_id']
+                    fcm_devices.save()
+                    return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
+            # si el fcmdevice no existe
+            except FCMDevice.DoesNotExist:
+                return Response({'data': 'No existe usuario'}, status=status.HTTP_400_BAD_REQUEST)
     # si no existe lo creamos
     except FCMDevice.DoesNotExist:
         try:
