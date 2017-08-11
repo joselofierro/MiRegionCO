@@ -3,7 +3,6 @@ from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from fcm_django.api.rest_framework import FCMDeviceSerializer_New
 from fcm_django.models import FCMDevice
 from rest_framework import status
 from rest_framework.decorators import api_view
