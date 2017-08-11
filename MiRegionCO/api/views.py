@@ -452,17 +452,25 @@ def EnviarEmail(request):
 
 @api_view(['POST'])
 def FCM_CREATE(request):
+    # si el FCMDevice ya existe
     try:
-        # obtenemos el dispositivo por el usuario
-        fcm_devices = FCMDevice.objects.get(user=request.data['user'])
-        # si el token es igual
-        if fcm_devices.registration_id == request.data['registration_id']:
-            return Response({'data': 'usuario ya existe con este token'}, status=status.HTTP_200_OK)
-        # actualizamos el token
+        # si el usuario es null
+        if request.data['user'] is None:
+            fcm_devices_nuevo = FCMDevice(user=None, registration_id=request.data['registration_id'],
+                                          type=request.data['type'])
+            fcm_devices_nuevo.save()
+            return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
         else:
-            fcm_devices.registration_id = request.data['registration_id']
-            fcm_devices.save()
-            return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
+            # obtenemos el dispositivo por el usuario
+            fcm_devices = FCMDevice.objects.get(user=request.data['user'])
+            # si el token es igual
+            if fcm_devices.registration_id == request.data['registration_id']:
+                return Response({'data': 'usuario ya existe con este token'}, status=status.HTTP_200_OK)
+            # actualizamos el token
+            else:
+                fcm_devices.registration_id = request.data['registration_id']
+                fcm_devices.save()
+                return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
     # si no existe lo creamos
     except FCMDevice.DoesNotExist:
         try:
@@ -475,4 +483,7 @@ def FCM_CREATE(request):
             return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
 
         except Usuario.DoesNotExist:
-            return Response({'data': 'Usuario no existe'}, status=status.HTTP_400_BAD_REQUEST)
+            fcm_devices_nuevo = FCMDevice(user=None, registration_id=request.data['registration_id'],
+                                          type=request.data['type'])
+            fcm_devices_nuevo.save()
+            return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)

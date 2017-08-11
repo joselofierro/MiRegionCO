@@ -70,34 +70,20 @@
             {% if request.user|has_group:'Administrador' %}
                 <ul class="nav">
                     <li>
-                        <a class="titulo">
-                            <p style="display: inline-block">CATEGORIAS</p>
-                            <i class="pe-7s-angle-down-circle"></i>
+                        <a href="{% url 'categorias:categoria_listar' %}" style="display: inherit;">
+                            <i class="pe-7s-ribbon"></i>
+                            <p>Listar categoria</p>
                         </a>
-                        <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'categorias:categoria_listar' %}" style="display: inherit;">
-                                    <i class="pe-7s-ribbon"></i>
-                                    <p>Listar categoria</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
+
                     <li>
-                        <a class="titulo">
-                            <p style="display: inline-block">CATEGORIA DE MAPAS</p>
-                            <i class="pe-7s-angle-down-circle"></i>
+                        <a href="{% url 'mapa:categoria_listar' %}" style="display: inherit;">
+                            <i class="pe-7s-map-2"></i>
+                            <p>Listar categoria-mapa</p>
                         </a>
-                        <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'mapa:categoria_listar' %}" style="display: inherit;">
-                                    <i class="pe-7s-map-2"></i>
-                                    <p>Listar categoria-mapa</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
+
 
                     <li>
                         <a class="titulo">
@@ -289,6 +275,16 @@
                             </li>
                         </ul>
                     </li>
+
+
+                    <li>
+                        <a href="{% url 'notificacion:crear_notificacion' %}" style="display: inherit;">
+                            <i class="fa fa-bell-o" aria-hidden="true"></i>
+                            <p>Listar notificacion</p>
+                        </a>
+                    </li>
+
+
                 </ul>
 
             {% elif request.user|has_group:'Escritor' %}
