@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'apps.categoria_mapa',
     'apps.grupo',
     'apps.prueba_tag',
-    'apps.filter',
     'apps.estadistica',
     'apps.ventas.categoria_producto',
     'apps.ventas.cliente',

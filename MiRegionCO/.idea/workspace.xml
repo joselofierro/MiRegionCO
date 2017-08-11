@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="§">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/templatetags/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/templatetags/userfilter.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/filter/views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base.html" afterPath="$PROJECT_DIR$/templates/base/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" afterPath="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/usuario/usuario_list.html" afterPath="$PROJECT_DIR$/templates/usuario/usuario_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/settings.py" afterPath="$PROJECT_DIR$/MiRegionCO/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,7 +49,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
+            <state relative-caret-position="107">
               <caret line="451" column="19" lean-forward="true" selection-start-line="451" selection-start-column="19" selection-end-line="451" selection-end-column="19" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -70,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2968">
@@ -126,6 +114,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -228,7 +226,6 @@
         <option value="$PROJECT_DIR$/../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/fcm_django/api/rest_framework.py" />
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/MiRegionCO/urls.py" />
-        <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
         <option value="$PROJECT_DIR$/apps/notificaciones/urls.py" />
         <option value="$PROJECT_DIR$/apps/notificaciones/models.py" />
         <option value="$PROJECT_DIR$/apps/notificaciones/forms.py" />
@@ -240,6 +237,7 @@
         <option value="$PROJECT_DIR$/static/css/light-bootstrap-dashboard.css" />
         <option value="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" />
         <option value="$PROJECT_DIR$/templates/base/base.html" />
+        <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
       </list>
     </option>
   </component>
@@ -322,23 +320,7 @@
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
@@ -925,14 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="58" column="25" lean-forward="false" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/notificaciones/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1045,24 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/fcm_django/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="451" column="19" lean-forward="true" selection-start-line="451" selection-start-column="19" selection-end-line="451" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1139,6 +1095,32 @@
             <element signature="n#style#0;n#a#0;n#li#14;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#15;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="451" column="19" lean-forward="true" selection-start-line="451" selection-start-column="19" selection-end-line="451" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/fcm_django/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
