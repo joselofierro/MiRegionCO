@@ -476,7 +476,13 @@ def FCM_CREATE(request):
                     return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
             # si el fcmdevice no existe
             except FCMDevice.DoesNotExist:
-                return Response({'data': 'No existe usuario'}, status=status.HTTP_400_BAD_REQUEST)
+                # obtenemos el Usuario por el id del user
+                fcm_user = Usuario.objects.get(id=request.data['user'])
+                # instancia del Modelo FCMDevice
+                fcm_devices_nuevo = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
+                                              type=request.data['type'])
+                fcm_devices_nuevo.save()
+                return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
     # si no existe lo creamos
     except FCMDevice.DoesNotExist:
         try:
