@@ -88,14 +88,7 @@ class UsuarioSerializer(ModelSerializer):
 class UsuarioCrearSerializer(ModelSerializer):
     class Meta:
         model = Usuario
-        fields = (
-            'id',
-            'idFacebook',
-            'primerNombre',
-            'segundoNombre',
-            'nombreCompleto',
-            'correo',
-            'foto',)
+        fields = '__all__'
 
 
 class ViewsNewsSerializer(ModelSerializer):
