@@ -80,7 +80,7 @@ class FacebookAPI(CreateAPIView):
     serializer_class = FacebookSerializer
 
 
-#@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
+# @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
 class NewsFeed(ListAPIView):
     serializer_class = NoticiaSerializer
 
@@ -97,7 +97,7 @@ class NoticiasDestacadasAPI(ListAPIView):
         return Noticia.objects.filter(destacada=True).order_by('fecha', 'hora')
 
 
-#@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_NOTICIA), name='dispatch')
+# @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_NOTICIA), name='dispatch')
 class CategoriaNoticiasAPI(ListAPIView):
     serializer_class = CategoriaNoticiasSerializer
 
@@ -108,7 +108,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 
 # 2 maneras de obtener parametros de url con clases basadas en vistas
 # devolver las noticias asociadas a la categoria x id
-#@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
+# @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
 
@@ -116,7 +116,7 @@ class NoticiasCategoriaListId(ListAPIView):
         return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria']).order_by('fecha', 'hora')
 
 
-#@method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
+# @method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
 class SitiosList(ListAPIView):
     serializer_class = SitioSerializer
 
@@ -132,7 +132,7 @@ class MapaCategoriaList(ListAPIView):
         return Sitio.objects.filter(categoria__id=self.kwargs['id_categoria'])
 
 
-@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
+# @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
 class CategoriaMapaAPI(ListAPIView):
     serializer_class = CategoriaMapaSerializer
 
@@ -141,7 +141,7 @@ class CategoriaMapaAPI(ListAPIView):
         return CategoriaMapa.objects.all()
 
 
-#@method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
+# @method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
 class UsuariosAPI(ListAPIView):
     serializer_class = UsuarioSerializer
 
@@ -256,7 +256,7 @@ def login(request, p_correo, p_pass):
 
 
 # crear json del portafolio
-#@method_decorator(cache_page(None, cache=settings.CACHE_API_PORTAFOLIO), name='dispatch')
+# @method_decorator(cache_page(None, cache=settings.CACHE_API_PORTAFOLIO), name='dispatch')
 class PortafolioAPI(APIView):
     def get(self, request, format=None):
 
