@@ -224,42 +224,5 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/categoria_mapas',
         'TIMEOUT': None
-    },
-
-    CACHE_API_CATEGORIA_NOTICIA: {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache/api/categoria_noticias',
-        'TIMEOUT': None
-
-    },
-
-    CACHE_API_NOTICIAS: {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache/api/noticias',
-        'TIMEOUT': None
-    },
-
-    CACHE_API_SITIOS: {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache/api/sitios',
-        'TIMEOUT': None
-    },
-
-    CACHE_API_PORTAFOLIO: {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache/api/portafolio',
-        'TIMEOUT': None
-    },
-    CACHE_API_USUARIOS: {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache/api/usuarios',
-        'TIMEOUT': None
-    },
-
-    CACHE_API_NOTICIASXCATEGORIA:{
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache/api/noticiasxcategoria',
-        'TIMEOUT': None
     }
-
 }
