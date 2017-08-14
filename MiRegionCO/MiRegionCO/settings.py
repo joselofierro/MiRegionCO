@@ -219,4 +219,5 @@ CACHES = {
         'LOCATION': '/var/tmp/django_cache/default',
         'TIMEOUT': None
     }
+
 }
