@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^cotizacion', CrearCotizacionAPI.as_view(), name='api_cotizacion'),
     # listado de cotizaciones por id del vendedor
     url(r'^listado_vendedor/(?P<id_vendedor>.+)$', ListCotizaciones, name='cotizaciones_vendedor'),
+    # creacion de notificaciones
     url(r'^fcm_create/$', FCM_CREATE, name='cotizaciones_vendedor'),
     url(r'^fcm_list/$', FCMDeviceViewSet.as_view({'get': 'list'}), name='cotizaciones_vendedor'),
 

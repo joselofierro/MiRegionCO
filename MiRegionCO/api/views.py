@@ -3,6 +3,8 @@ from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from fcm_django.models import FCMDevice
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -10,6 +12,7 @@ from rest_framework.generics import *
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from MiRegionCO import settings
 from api.serializers import *
 from apps.categoria.models import Categoria
 from apps.categoria_mapa.models import CategoriaMapa
@@ -77,10 +80,12 @@ class FacebookAPI(CreateAPIView):
     serializer_class = FacebookSerializer
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
 class NewsFeed(ListAPIView):
     serializer_class = NoticiaSerializer
 
     def get_queryset(self):
+        print('Aun no se ha cacheado')
         return Noticia.objects.all().order_by('fecha', 'hora')
 
 
@@ -92,10 +97,12 @@ class NoticiasDestacadasAPI(ListAPIView):
         return Noticia.objects.filter(destacada=True).order_by('fecha', 'hora')
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_NOTICIA), name='dispatch')
 class CategoriaNoticiasAPI(ListAPIView):
     serializer_class = CategoriaNoticiasSerializer
 
     def get_queryset(self):
+        print('Aun no se ha cacheado')
         return Categoria.objects.all()
 
 
@@ -108,10 +115,12 @@ class NoticiasCategoriaListId(ListAPIView):
         return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria']).order_by('fecha', 'hora')
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
 class SitiosList(ListAPIView):
     serializer_class = SitioSerializer
 
     def get_queryset(self):
+        print('Aun no se a cacheado')
         return Sitio.objects.all().order_by('nombre')
 
 
@@ -122,13 +131,16 @@ class MapaCategoriaList(ListAPIView):
         return Sitio.objects.filter(categoria__id=self.kwargs['id_categoria'])
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
 class CategoriaMapaAPI(ListAPIView):
     serializer_class = CategoriaMapaSerializer
 
     def get_queryset(self):
+        print('Aun no se a cacheado')
         return CategoriaMapa.objects.all()
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
 class UsuariosAPI(ListAPIView):
     serializer_class = UsuarioSerializer
 
@@ -242,8 +254,8 @@ def login(request, p_correo, p_pass):
             return Response({'data': False}, status=status.HTTP_200_OK)
 
 
-# podemos hacer de dos formas la creacion de la peticion de la clase del api ()
 # crear json del portafolio
+@method_decorator(cache_page(None, cache=settings.CACHE_API_PORTAFOLIO), name='dispatch')
 class PortafolioAPI(APIView):
     def get(self, request, format=None):
 

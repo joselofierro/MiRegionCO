@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.elasticbeanstalk.com',
-    '192.168.10.235',
+    '192.168.10.13',
 ]
 
 # Application definition
@@ -202,4 +202,57 @@ FCM_DJANGO_SETTINGS = {
     # are deleted upon receiving error response from FCM
     # default: False
     "DELETE_INACTIVE_DEVICES": False,
+}
+
+# Cache
+CACHE_API_CATEGORIA_MAPA = 'api_categoria_mapa'
+CACHE_API_CATEGORIA_NOTICIA = 'api_categoria_noticia'
+CACHE_API_NOTICIAS = 'api_noticias'
+CACHE_API_SITIOS = 'api_sitios'
+CACHE_API_PORTAFOLIO = 'api_portafolio'
+CACHE_API_USUARIOS = 'api_usuarios'
+CACHES = {
+
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/default',
+        'TIMEOUT': None
+    },
+
+    CACHE_API_CATEGORIA_MAPA: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/categoria_mapas',
+        'TIMEOUT': None
+    },
+
+    CACHE_API_CATEGORIA_NOTICIA: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/categoria_noticias',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_NOTICIAS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias',
+        'TIMEOUT': None
+    },
+
+    CACHE_API_SITIOS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/sitios',
+        'TIMEOUT': None
+    },
+
+    CACHE_API_PORTAFOLIO: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/portafolio',
+        'TIMEOUT': None
+    },
+    CACHE_API_USUARIOS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/usuarios',
+        'TIMEOUT': None
+    }
+
 }
