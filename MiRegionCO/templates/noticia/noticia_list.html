@@ -38,7 +38,7 @@
                                 <th style="text-align: center;">tag</th>
                                 <th style="text-align: center;">categoria</th>
                                 <th style="text-align: center;">destacada</th>
-                                <th class="col-sm-1" style="text-align: center;">Acciones</th>
+                                <th class="col-sm-2" style="text-align: center;">Acciones</th>
                             </tr>
                             </thead>
 
@@ -63,12 +63,6 @@
                                                 <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt="Imagenes"
                                                      width="100px" height="100px">
                                             {% endfor %}
-                                            <button class="w3-button w3-black w3-display-left"
-                                                    onclick="plusDivs(-1)">&#10094;
-                                            </button>
-                                            <button class="w3-button w3-black w3-display-right"
-                                                    onclick="plusDivs(1)">&#10095;
-                                            </button>
                                         </td>
 
                                         <td>{{ noticia.autor }}</td>
@@ -129,7 +123,7 @@
 
 {% block extra_js %}
     <script type="text/javascript">
-        var slideIndex = 1;
+        /*var slideIndex = 1;
         showDivs(slideIndex);
 
         function plusDivs(n) {
@@ -155,7 +149,7 @@
             x[slideIndex - 1].style.display = "block";
 
 
-        }
+        }*/
     </script>
 {% endblock %}
 
