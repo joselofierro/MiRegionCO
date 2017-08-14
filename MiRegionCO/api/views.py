@@ -108,6 +108,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 
 # 2 maneras de obtener parametros de url con clases basadas en vistas
 # devolver las noticias asociadas a la categoria x id
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
 

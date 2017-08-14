@@ -211,6 +211,7 @@ CACHE_API_NOTICIAS = 'api_noticias'
 CACHE_API_SITIOS = 'api_sitios'
 CACHE_API_PORTAFOLIO = 'api_portafolio'
 CACHE_API_USUARIOS = 'api_usuarios'
+CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
 CACHES = {
 
     'default': {
@@ -252,6 +253,12 @@ CACHES = {
     CACHE_API_USUARIOS: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/usuarios',
+        'TIMEOUT': None
+    },
+
+    CACHE_API_NOTICIASXCATEGORIA:{
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticiasxcategoria',
         'TIMEOUT': None
     }
 
