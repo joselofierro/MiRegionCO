@@ -59,7 +59,7 @@
 
         -->
 
-        <div class="sidebar-wrapper">
+        <div class="sidebar-wrapper" style="max-height:100px;overflow:scroll;">
 
             <div class="logo">
                 <a href="http://www.miregion.co" class="simple-text">
@@ -70,57 +70,57 @@
             {% if request.user|has_group:'Administrador' %}
                 <ul class="nav">
                     <li>
-                        <a href="{% url 'categorias:categoria_listar' %}" style="display: inherit;">
+                        <a href="{% url 'categorias:categoria_listar' %}" class="titulo">
                             <i class="pe-7s-ribbon"></i>
-                            <p>Listar categoria</p>
+                            <p>CATEGORIAS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'mapa:categoria_listar' %}" style="display: inherit;">
+                        <a href="{% url 'mapa:categoria_listar' %}" class="titulo">
                             <i class="pe-7s-map-2"></i>
-                            <p>Listar categoria-mapa</p>
+                            <p>CATEGORIA DE MAPAS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'tag:listar_tag' %}" style="display: inherit;">
+                        <a href="{% url 'tag:listar_tag' %}" class="titulo">
                             <i class="pe-7s-way"></i>
-                            <p>Listar Tag</p>
+                            <p>TAG'S</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'imagen:imagen_listar' %}" style="display: inherit;">
+                        <a href="{% url 'imagen:imagen_listar' %}" class="titulo">
                             <i class="pe-7s-photo"></i>
-                            <p>Listar imagenes</p>
+                            <p>IMAGENES</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'noticia:listar_noticia' %}" style="display: inherit;">
+                        <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Noticia</p>
+                            <p>NOTICIAS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'sitio:listar_sitio' %}" style="display: inherit;">
+                        <a href="{% url 'sitio:listar_sitio' %}" class="titulo">
                             <i class="pe-7s-culture"></i>
-                            <p>Listar Sitio</p>
+                            <p>SITIOS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'usuario:listar_usuario' %}" style="display: inherit;">
+                        <a href="{% url 'usuario:listar_usuario' %}" class="titulo">
                             <i class="pe-7s-user"></i>
-                            <p style="float: none; vertical-align:top;">Listar usuario</p>
+                            <p style="float: none; vertical-align:top;">USUARIOS</p>
                         </a>
                     </li>
 
@@ -135,66 +135,66 @@
 
                     <li>
                         <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
-                           style="display: inherit;">
+                         class="titulo">
                             <i class="pe-7s-way"></i>
-                            <p>Listar categoria-producto</p>
+                            <p>CATEGORIA PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
                         <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
-                           style="display: inherit;">
+                         class="titulo">
                             <i class="fa fa-archive" aria-hidden="true"></i>
-                            <p>Listar Subcategoria</p>
+                            <p>SUBCATEGORIAS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'producto:listar_producto' %}" style="display: inherit;">
+                        <a href="{% url 'producto:listar_producto' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Producto</p>
+                            <p>PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'detalle:listar_detalle' %}" style="display: inherit;">
+                        <a href="{% url 'detalle:listar_detalle' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Detalle</p>
+                            <p>DETALLES PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'cotizacion:listar_cotizacion' %}" style="display: inherit;">
+                        <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Cotización</p>
+                            <p>COTIZACION</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'vendedor:listar_vendedor' %}" style="display: inherit;">
+                        <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo">
                             <i class="fa fa-male" aria-hidden="true"></i>
-                            <p>Listar Vendedor</p>
+                            <p>VENDEDOR</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'cliente:listar_cliente' %}" style="display: inherit;">
+                        <a href="{% url 'cliente:listar_cliente' %}" class="titulo">
                             <i class="fa fa-users" aria-hidden="true"></i>
-                            <p>Listar cliente</p>
+                            <p>CLIENTES</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'notificacion:crear_notificacion' %}" style="display: inherit;">
+                        <a href="{% url 'notificacion:crear_notificacion' %}" class="titulo">
                             <i class="fa fa-bell-o" aria-hidden="true"></i>
-                            <p>Listar notificacion</p>
+                            <p>NOTIFICACIONES</p>
                         </a>
                     </li>
                 </ul>
@@ -202,26 +202,26 @@
             {% elif request.user|has_group:'Escritor' %}
                 <ul class="nav">
 
-                    <li>
-                        <a href="{% url 'tag:listar_tag' %}" style="display: inherit;">
+                     <li>
+                        <a href="{% url 'tag:listar_tag' %}" class="titulo">
                             <i class="pe-7s-way"></i>
-                            <p>Listar Tag</p>
+                            <p>TAG'S</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'imagen:imagen_listar' %}" style="display: inherit;">
+                        <a href="{% url 'imagen:imagen_listar' %}" class="titulo">
                             <i class="pe-7s-photo"></i>
-                            <p>Listar imagenes</p>
+                            <p>IMAGENES</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'noticia:listar_noticia' %}" style="display: inherit;">
+                        <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Noticia</p>
+                            <p>NOTICIAS</p>
                         </a>
                     </li>
                 </ul>
@@ -233,58 +233,58 @@
 
                     <li>
                         <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
-                           style="display: inherit;">
+                         class="titulo">
                             <i class="pe-7s-way"></i>
-                            <p>Listar Categoria</p>
+                            <p>CATEGORIA PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
                         <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
-                           style="display: inherit;">
-                            <i class="pe-7s-photo"></i>
-                            <p>Listar Subcategoria</p>
+                         class="titulo">
+                            <i class="fa fa-archive" aria-hidden="true"></i>
+                            <p>SUBCATEGORIAS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'producto:listar_producto' %}" style="display: inherit;">
+                        <a href="{% url 'producto:listar_producto' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Producto</p>
+                            <p>PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'detalle:listar_detalle' %}" style="display: inherit;">
+                        <a href="{% url 'detalle:listar_detalle' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Detalle</p>
+                            <p>DETALLES PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'cotizacion:listar_cotizacion' %}" style="display: inherit;">
+                        <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Listar Cotización</p>
+                            <p>COTIZACION</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'vendedor:listar_vendedor' %}" style="display: inherit;">
+                        <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo">
                             <i class="fa fa-male" aria-hidden="true"></i>
-                            <p>Listar Vendedor</p>
+                            <p>VENDEDOR</p>
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'cliente:listar_cliente' %}" style="display: inherit;">
+                        <a href="{% url 'cliente:listar_cliente' %}" class="titulo">
                             <i class="fa fa-users" aria-hidden="true"></i>
-                            <p>Listar cliente</p>
+                            <p>CLIENTES</p>
                         </a>
                     </li>
                 </ul>

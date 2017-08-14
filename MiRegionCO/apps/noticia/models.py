@@ -9,7 +9,7 @@ class Noticia(models.Model):
     fecha = models.DateField(blank=False)
     hora = models.TimeField(blank=False)
     titular = models.CharField(max_length=150)
-    lead = models.CharField(max_length=30)
+    lead = models.CharField(max_length=220)
     texto = models.TextField(blank=False, null=False)
     imagen_video = models.ImageField(blank=True, null=False)
     url = models.URLField(blank=False, null=False)
