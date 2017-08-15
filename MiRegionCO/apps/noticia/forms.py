@@ -15,8 +15,6 @@ class NoticiaForm(forms.ModelForm):
             'texto',
             'video',
             'duracion',
-            'autor',
-            'tag',
             'categoria',
             'destacada'
         ]
@@ -29,8 +27,6 @@ class NoticiaForm(forms.ModelForm):
             'texto': 'Texto',
             'video': 'Video',
             'duracion': 'Duracion',
-            'autor': 'Autor',
-            'tag': 'Tag',
             'categoria': 'Categoria',
             'destacada': '¿Es destacada?'
 
@@ -44,8 +40,6 @@ class NoticiaForm(forms.ModelForm):
             'texto': forms.Textarea(attrs={'class': 'form-control'}),
             'video': forms.URLInput(attrs={'class': 'form-control'}),
             'duracion': forms.TextInput(attrs={'class': 'form-control'}),
-            'autor': forms.Select(attrs={'class': 'form-control'}),
-            'tag': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
             'categoria': forms.SelectMultiple(attrs={'class': 'form-control'}),
             'destacada': forms.CheckboxInput(attrs={'class': 'form-control'})
         }

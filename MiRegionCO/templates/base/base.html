@@ -206,23 +206,6 @@
 
             {% elif request.user|has_group:'Escritor' %}
                 <ul class="nav">
-
-                     <li>
-                        <a href="{% url 'tag:listar_tag' %}" class="titulo">
-                            <i class="pe-7s-way"></i>
-                            <p>TAG'S</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'imagen:imagen_listar' %}" class="titulo">
-                            <i class="pe-7s-photo"></i>
-                            <p>IMAGENES</p>
-                        </a>
-                    </li>
-
-
                     <li>
                         <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
                             <i class="pe-7s-news-paper"></i>

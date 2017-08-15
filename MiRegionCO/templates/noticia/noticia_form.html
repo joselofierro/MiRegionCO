@@ -75,9 +75,8 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    {{ form.autor.errors }}
-                                    <label for="{{ form.autor.id_for_label }}">Autor</label>
-                                    {{ form.autor }}
+                                    <label for="autor">Autor</label>
+                                    <input class="form-control" value="{{ user.first_name }} {{ user.last_name }}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -85,9 +84,8 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    {{ form.tag.errors }}
-                                    <label for="{{ form.tag.id_for_label }}">Tag</label>
-                                    {{ form.tag }}
+                                    <label for="id_tags">Tags</label>
+                                    <input id="id_tags" name="tags" class="form-control" maxlength="9999" required>
                                 </div>
                             </div>
                             <div class="col-md-5">

@@ -9,12 +9,15 @@ from apps.imagen.forms import ImagenForm
 from apps.imagen.models import Imagen
 from apps.noticia.forms import NoticiaForm
 from apps.noticia.models import Noticia
+from apps.tag.forms import TagForm
+from apps.tag.models import Tag
 
 
 class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     model = Noticia
     form_class = NoticiaForm
     second_form_class = ImagenForm
+    third_form_class = TagForm
     template_name = 'noticia/noticia_form.html'
     success_url = reverse_lazy('noticia:listar_noticia')
     success_message = "Se ha creado la noticia satisfactoriamente."
@@ -48,7 +51,27 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 imagen.save()
                 list_id_imagenes.append(imagen)
 
-            noticia = form.save()
+            noticia = form.save(commit=False)
+            usuario_sesion = request.user
+            noticia.autor = usuario_sesion
+
+            noticia.save()
+
+            tags = request.POST['tags']
+            # cortaré los tags por cona y espacio ', '
+            list_tags = tags.split(', ')
+            for tag in list_tags:
+                tag = tag.title()
+
+                # busco si el Tag está creado
+                try:
+                    tag_object = Tag.objects.get(nombre=tag)
+                    noticia.tag.add(tag_object)
+                except Tag.DoesNotExist:
+                    tag_creado = Tag(nombre=tag)
+                    tag_creado.save()
+                    noticia.tag.add(tag_creado)
+
             for imagen_id in list_id_imagenes:
                 noticia.imagenes.add(imagen_id)
             return HttpResponseRedirect(self.get_success_url())
