@@ -312,7 +312,7 @@ input:focus {
 
 .sidebar .nav li > a {
     color: #FFFFFF;
-    margin: 14px 15px!important;
+    margin: 5px 15px;
     opacity: .86;
     border-radius: 4px;
 }
