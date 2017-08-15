@@ -1,8 +1,12 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import *
 
+from apps.imagen.forms import ImagenForm
+from apps.imagen.models import Imagen
 from apps.noticia.forms import NoticiaForm
 from apps.noticia.models import Noticia
 
@@ -10,6 +14,7 @@ from apps.noticia.models import Noticia
 class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     model = Noticia
     form_class = NoticiaForm
+    second_form_class = ImagenForm
     template_name = 'noticia/noticia_form.html'
     success_url = reverse_lazy('noticia:listar_noticia')
     success_message = "Se ha creado la noticia satisfactoriamente."
@@ -19,6 +24,52 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     # si no tengo los permisos me redirige al login
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def get_context_data(self, **kwargs):
+        context = super(NoticiaCreate, self).get_context_data(**kwargs)
+
+        if 'form' not in context:
+            context['form'] = self.form_class()
+        if 'form2' not in context:
+            context['form2'] = self.second_form_class()
+
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object
+        form = self.form_class(request.POST)
+        form2 = self.second_form_class(request.POST)
+        files = request.FILES.getlist('imagen')
+
+        if form.is_valid() and form2.is_valid():
+            list_id_imagenes = []
+            for index, f in enumerate(files):
+                imagen = Imagen(nombre=form.data['titular'], imagen=f)
+                imagen.save()
+                list_id_imagenes.append(imagen)
+
+            noticia = form.save()
+            for imagen_id in list_id_imagenes:
+                noticia.imagenes.add(imagen_id)
+            return HttpResponseRedirect(self.get_success_url())
+
+        else:
+            return render(request, self.template_name, {'form': form, 'form2': form2})
+
+        """form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        files = request.FILES.getlist('imagenes')
+        list_id_imagenes = []
+        for index, f in enumerate(files):
+            imagen = Imagen(nombre=form.data['titular'], imagen=f)
+            imagen.save()
+            list_id_imagenes.append(imagen.id)
+        print(list_id_imagenes)
+        if form.is_valid():
+            print("form valido")
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)"""
 
 
 class NoticiaList(PermissionRequiredMixin, ListView):

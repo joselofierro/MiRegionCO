@@ -1,11 +1,13 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.cache import caches
 from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import *
 
+from MiRegionCO import settings
 from apps.categoria_mapa.forms import MapaForm
 from apps.categoria_mapa.models import CategoriaMapa
 
@@ -21,6 +23,10 @@ class CategoriaMapaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVi
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def form_valid(self, form):
+        caches[settings.CACHE_API_CATEGORIA_MAPA].clear()
+        return super(CategoriaMapaCreate, self).form_valid(form)
 
 
 class CategoriaMapaList(PermissionRequiredMixin, ListView):
@@ -45,6 +51,10 @@ class CategoriaMapaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateVi
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_CATEGORIA_MAPA].clear()
+        return super(CategoriaMapaUpdate, self).form_valid(self)
+
 
 class CategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = CategoriaMapa
@@ -56,3 +66,6 @@ class CategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteVi
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def post(self, request, *args, **kwargs):
+        pass

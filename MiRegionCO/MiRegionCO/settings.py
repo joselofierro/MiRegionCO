@@ -218,6 +218,16 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/default',
         'TIMEOUT': None
+
+    }, CACHE_API_CATEGORIA_MAPA: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/categoria_mapa',
+        'TIMEOUT': None
+
+    }, CACHE_API_NOTICIAS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/default',
+        'TIMEOUT': None
     }
 
 }
