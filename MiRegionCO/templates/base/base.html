@@ -77,27 +77,140 @@
 
             {% if request.user|has_group:'Administrador' %}
                 <ul class="nav">
-
-                <li>
-                    <div class="titulo">
-                        <p style="display: inline-block">CATEGORIAS</p>
-                        <i class="pe-7s-angle-down-circle"></i>
-                    </div>
-                </li>
                     <li>
-                        <a href="{% url 'categorias:categoria_listar' %}" class="titulo">
-                            <i class="fa fa-folder-open-o"></i>
-                            <p>CATEGORIAS-NOTICIA</p>
+                        <a class="titulo">
+
+                            <p style="display: inline-block">MI REGIÓN</p>
+                            <i class="fa fa-arrow-circle-down"></i>
+
                         </a>
+
+                        <ul class="ul-child" style="display:none;">
+                            <li>
+                                <a href="{% url 'categorias:categoria_listar' %}" class="titulo"
+                                   style="display: inherit;">
+                                    <i class="fa fa-folder-open-o"></i>
+                                    <p>CATEGORIAS-NOTICIA</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'tag:listar_tag' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-tag"></i>
+                                    <p>TAG'S</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'noticia:listar_noticia' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <p>NOTICIAS</p>
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
 
                     <li>
-                        <a href="{% url 'tag:listar_tag' %}" class="titulo">
-                            <i class="fa fa-tag"></i>
-                            <p>TAG'S</p>
+                        <a class="titulo">
+
+                            <p style="display: inline-block">MI CIUDAD</p>
+                            <i class="fa fa-arrow-circle-down"></i>
                         </a>
+
+                        <ul class="ul-child" style="display:none;">
+
+                            <li>
+                                <a href="{% url 'mapa:categoria_listar' %}" class="titulo" style="display: inherit">
+                                    <i class="fa fa-map-marker"></i>
+                                    <p>CATEGORIA DE MAPAS</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo"
+                                   style="display: inherit">
+                                    <i class="fa fa-map-marker"></i>
+                                    <p>SUBCA-MAPAS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'sitio:listar_sitio' %}" class="titulo" style="display: inherit">
+                                    <i class="fa fa-globe"></i>
+                                    <p>SITIOS</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
+                    <li>
+                        <a class="titulo">
+                            <p style="display: inline-block">VENTAS</p>
+                            <i class="fa fa-arrow-circle-down"></i>
+                        </a>
+
+                        <ul class="ul-child" style="display: none;">
+                            <li>
+                                <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
+                                   class="titulo" style="display: inherit;">
+                                    <i class="fa fa-folder-open-o"></i>
+                                    <p>CATEGORIA-PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
+                                   class="titulo" style="display: inherit;">
+                                    <i class="fa fa-archive"></i>
+                                    <p>SUB-PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'producto:listar_producto' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-suitcase"></i>
+                                    <p>PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'detalle:listar_detalle' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-info"></i>
+                                    <p>DETALLES-PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo"
+                                   style="display: inherit;">
+                                    <i class="fa fa-file-text-o"></i>
+                                    <p>COTIZACION</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-male"></i>
+                                    <p>VENDEDOR</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'cliente:listar_cliente' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-users"></i>
+                                    <p>CLIENTES</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li>
                         <a href="{% url 'imagen:imagen_listar' %}" class="titulo">
@@ -106,42 +219,9 @@
                         </a>
                     </li>
 
-
-                    <li>
-                        <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
-                            <i class="fa fa-newspaper-o"></i>
-                            <p>NOTICIAS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'mapa:categoria_listar' %}" class="titulo">
-                            <i class="fa fa-map-marker"></i>
-
-                            <p>CATEGORIA DE MAPAS</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo">
-                            <i class="fa fa-map-marker"></i>
-                            <p>SUBCATEGORIA DE MAPAS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'sitio:listar_sitio' %}" class="titulo">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                            <p>SITIOS</p>
-                        </a>
-                    </li>
-
-
                     <li>
                         <a href="{% url 'usuario:listar_usuario' %}" class="titulo">
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i class="fa fa-user"></i>
                             <p style="float: none; vertical-align:top;">USUARIOS</p>
                         </a>
                     </li>
@@ -153,65 +233,6 @@
                             <i class="fa fa-bar-chart"></i>
                         </a>
                     </li>
-
-
-                    <li>
-                        <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
-                           class="titulo">
-                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>
-                            <p>CATEGORIA-PRODUCTOS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
-                           class="titulo">
-                            <i class="fa fa-archive"></i>
-                            <p>SUB-PRODUCTOS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'producto:listar_producto' %}" class="titulo">
-                            <i class="fa fa-suitcase" aria-hidden="true"></i>
-                            <p>PRODUCTOS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'detalle:listar_detalle' %}" class="titulo">
-                            <i class="fa fa-info" aria-hidden="true"></i>
-                            <p>DETALLES-PRODUCTOS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo">
-                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            <p>COTIZACION</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo">
-                            <i class="fa fa-male"></i>
-                            <p>VENDEDOR</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'cliente:listar_cliente' %}" class="titulo">
-                            <i class="fa fa-users"></i>
-                            <p>CLIENTES</p>
-                        </a>
-                    </li>
-
 
                     <li>
                         <a href="{% url 'notificacion:crear_notificacion' %}" class="titulo">
@@ -225,76 +246,158 @@
                 <ul class="nav">
                     <li>
                         <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
-                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                            <i class="fa fa-newspaper-o"></i>
                             <p>NOTICIAS</p>
                         </a>
                     </li>
                 </ul>
 
 
-            {% elif request.user|has_group:'SupervisorVendedor' %}
+            {% elif request.user|has_group:'SupervisorEscritor' %}
+
                 <ul class="nav">
-
                     <li>
-                        <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
-                           class="titulo">
-                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>
-                            <p>CATEGORIA-PRODUCTOS</p>
+                        <a class="titulo">
+
+                            <p style="display: inline-block">MI REGIÓN</p>
+                            <i class="fa fa-arrow-circle-down"></i>
+
                         </a>
-                    </li>
 
+                        <ul class="ul-child" style="display:none;">
+                            <li>
+                                <a href="{% url 'categorias:categoria_listar' %}" class="titulo"
+                                   style="display: inherit;">
+                                    <i class="fa fa-folder-open-o"></i>
+                                    <p>CATEGORIAS-NOTICIA</p>
+                                </a>
+                            </li>
 
-                    <li>
-                        <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
-                           class="titulo">
-                            <i class="fa fa-archive"></i>
-                            <p>SUB-PRODUCTOS</p>
-                        </a>
-                    </li>
+                            <li>
+                                <a href="{% url 'tag:listar_tag' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-tag"></i>
+                                    <p>TAG'S</p>
+                                </a>
+                            </li>
 
+                            <li>
+                                <a href="{% url 'noticia:listar_noticia' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <p>NOTICIAS</p>
+                                </a>
+                            </li>
 
-                    <li>
-                        <a href="{% url 'producto:listar_producto' %}" class="titulo">
-                            <i class="fa fa-suitcase" aria-hidden="true"></i>
-                            <p>PRODUCTOS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'detalle:listar_detalle' %}" class="titulo">
-                            <i class="fa fa-info" aria-hidden="true"></i>
-                            <p>DETALLES-PRODUCTOS</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo">
-                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            <p>COTIZACION</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo">
-                            <i class="fa fa-male"></i>
-                            <p>VENDEDOR</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'cliente:listar_cliente' %}" class="titulo">
-                            <i class="fa fa-users"></i>
-                            <p>CLIENTES</p>
-                        </a>
+                        </ul>
                     </li>
                 </ul>
 
-            {% endif %}
 
+            {% elif request.user|has_group:'SupervisorVendedor' %}
+                <ul class="nav">
+                    <li>
+                        <a class="titulo">
+                            <p style="display: inline-block">VENTAS</p>
+                            <i class="fa fa-arrow-circle-down"></i>
+                        </a>
+
+                        <ul class="ul-child" style="display: none;">
+                            <li>
+                                <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
+                                   class="titulo" style="display: inherit;">
+                                    <i class="fa fa-folder-open-o"></i>
+                                    <p>CATEGORIA-PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
+                                   class="titulo" style="display: inherit;">
+                                    <i class="fa fa-archive"></i>
+                                    <p>SUB-PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'producto:listar_producto' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-suitcase"></i>
+                                    <p>PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'detalle:listar_detalle' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-info"></i>
+                                    <p>DETALLES-PRODUCTOS</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo"
+                                   style="display: inherit;">
+                                    <i class="fa fa-file-text-o"></i>
+                                    <p>COTIZACION</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-male"></i>
+                                    <p>VENDEDOR</p>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{% url 'cliente:listar_cliente' %}" class="titulo" style="display: inherit;">
+                                    <i class="fa fa-users"></i>
+                                    <p>CLIENTES</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            {% elif request.user|has_group:'AdministradorCuentas' %}
+
+                <li>
+                    <a class="titulo">
+
+                        <p style="display: inline-block">MI CIUDAD</p>
+                        <i class="fa fa-arrow-circle-down"></i>
+                    </a>
+
+                    <ul class="ul-child" style="display:none;">
+
+                        <li>
+                            <a href="{% url 'mapa:categoria_listar' %}" class="titulo" style="display: inherit">
+                                <i class="fa fa-map-marker"></i>
+                                <p>CATEGORIA DE MAPAS</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo"
+                               style="display: inherit">
+                                <i class="fa fa-map-marker"></i>
+                                <p>SUBCA-MAPAS</p>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="{% url 'sitio:listar_sitio' %}" class="titulo" style="display: inherit">
+                                <i class="fa fa-globe"></i>
+                                <p>SITIOS</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            {% endif %}
         </div>
     </div>
 
@@ -374,6 +477,18 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+
+        var $menu = $('.sidebar-wrapper').find('ul').find('li');
+
+        $menu.hover(function () {
+            $(this).children('ul').stop();
+            $(this).children('ul').slideDown();
+
+        }, function () {
+            $(this).children('ul').stop();
+            $(this).children('ul').slideUp();
+        });
+
 
         $('.table').dataTable({
             "ordering": false,
