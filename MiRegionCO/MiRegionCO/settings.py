@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.tag',
     'apps.sitio',
     'apps.categoria_mapa',
+    'apps.subcategoria_mapa',
     'apps.grupo',
     'apps.prueba_tag',
     'apps.estadistica',

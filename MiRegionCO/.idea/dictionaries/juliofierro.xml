@@ -19,6 +19,7 @@
       <w>asociadas</w>
       <w>autentificado</w>
       <w>authtoken</w>
+      <w>autoclose</w>
       <w>autor</w>
       <w>azul</w>
       <w>basadas</w>
@@ -57,6 +58,8 @@
       <w>datasets</w>
       <w>datatable</w>
       <w>datatables</w>
+      <w>datepicker</w>
+      <w>datetimepicker</w>
       <w>datos</w>
       <w>dejan</w>
       <w>desctacada</w>
@@ -84,7 +87,9 @@
       <w>enlace</w>
       <w>enviado</w>
       <w>escogida</w>
+      <w>escribe</w>
       <w>escritor</w>
+      <w>espacio</w>
       <w>estadistica</w>
       <w>estadisticas</w>
       <w>este</w>
@@ -185,6 +190,7 @@
       <w>semanticui</w>
       <w>serializado</w>
       <w>serializamos</w>
+      <w>sesion</w>
       <w>sesión</w>
       <w>señor</w>
       <w>siguiente</w>

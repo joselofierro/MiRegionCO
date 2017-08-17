@@ -67,16 +67,23 @@ class SitioSerializer(ModelSerializer):
         model = Sitio
         fields = (
             'id', 'nombre', 'titulo', 'descripcion', 'logo', 'horario', 'direccion', 'instagram', 'facebook',
-            'telefono',
-            'imagenes', 'latitud', 'longitud')
+            'imagenes', 'telefono', 'latitud', 'longitud')
 
 
-class CategoriaMapaSerializer(ModelSerializer):
-    categoria_sitio = SitioSerializer(many=True)
+class SubcategoriaSitioSerializer(ModelSerializer):
+    sitio = SitioSerializer(many=True)
+
+    class Meta:
+        model = Subcategoria
+        fields = ('nombre', 'sitio')
+
+
+class CategoriaSitioSerializer(ModelSerializer):
+    subcategoria_mapa = SubcategoriaSitioSerializer(many=True)
 
     class Meta:
         model = CategoriaMapa
-        fields = ('id', 'nombre', 'imagen', 'categoria_sitio')
+        fields = ('id', 'nombre', 'imagen', 'subcategoria_mapa')
 
 
 class UsuarioSerializer(ModelSerializer):
@@ -147,12 +154,6 @@ class ProductoSerializer(ModelSerializer):
         fields = ('tiempo', 'precio', 'medida',)
 
 
-class SubcategoriaSerializer(ModelSerializer):
-    class Meta:
-        model = Subcategoria
-        fields = ('nombre',)
-
-
 class CategoriaSerializer(ModelSerializer):
     class Meta:
         model = Categoria
@@ -181,5 +182,3 @@ class FacebookSerializer(ModelSerializer):
     class Meta:
         model = FacebookSitio
         fields = ('usuario', 'sitio', 'dispositivo')
-
-

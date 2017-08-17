@@ -1,123 +1,152 @@
 {% extends 'base/base.html' %}
+{% load staticfiles %}
 {% block content %}
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Registrar noticia</h4>
-                </div>
-                <div class="content">
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Registrar noticia</h4>
+            </div>
+            <div class="content">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class="input-group date" id="datepicker1">
                                     {{ form.fecha.errors }}
                                     <label for="{{ form.fecha.id_for_label }}">Fecha</label>
                                     {{ form.fecha }}
+                                    <span class="">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
                                 </div>
-
                             </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class='input-group date'>
                                     {{ form.hora.errors }}
                                     <label for="{{ form.hora.id_for_label }}">Hora</label>
                                     {{ form.hora }}
-                                </div>
 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    {{ form.titular.errors }}
-                                    <label for="{{ form.titular.id_for_label }}">Titular</label>
-                                    {{ form.titular }}
+                                    <span class="">
+                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        </span>
                                 </div>
-
                             </div>
 
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    {{ form.lead.errors }}
-                                    <label for="{{ form.lead.id_for_label }}">Lead</label>
-                                    {{ form.lead }}
-                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.titular.errors }}
+                                <label for="{{ form.titular.id_for_label }}">Titular</label>
+                                {{ form.titular }}
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                {{ form.lead.errors }}
+                                <label for="{{ form.lead.id_for_label }}">Lead</label>
+                                {{ form.lead }}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form.texto.errors }}
+                                <label for="{{ form.texto.id_for_label }}">Texto</label>
+                                {{ form.texto }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form2.imagen.errors }}
+                                <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
+                                {{ form2.imagen }}
                             </div>
                         </div>
 
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    {{ form.texto.errors }}
-                                    <label for="{{ form.texto.id_for_label }}">Texto</label>
-                                    {{ form.texto }}
-                                </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form.video.errors }}
+                                <label for="{{ form.video.id_for_label }}">Video</label>
+                                {{ form.video }}
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    {{ form2.imagen.errors }}
-                                    <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
-                                    {{ form2.imagen }}
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    {{ form.video.errors }}
-                                    <label for="{{ form.video.id_for_label }}">Video</label>
-                                    {{ form.video }}
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="autor">Autor</label>
-                                    <input class="form-control" value="{{ user.first_name }} {{ user.last_name }}" disabled>
-                                </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="autor">Autor</label>
+                                <input class="form-control" value="{{ user.first_name }} {{ user.last_name }}"
+                                       disabled>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="id_tags">Tags</label>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="id_tags">Tags</label>
+                                {% if noticia.tag %}
+                                    <input id="id_tags" name="tags" class="form-control" maxlength="9999" required
+                                           value="{{ noticia.tag.all|join:", " }}">
+                                {% else %}
                                     <input id="id_tags" name="tags" class="form-control" maxlength="9999" required>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                {{ form.categoria.errors }}
+                                <label for="{{ form.categoria.id_for_label }}">Categoria</label>
+                                {{ form.categoria }}
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3" style="margin-top: 2%;">
+                            <div class="form-group">
+                                <div class="checkbox-inline">
+                                    {{ form.destacada.errors }}
+                                    {{ form.destacada }}<label for="{{ form.destacada.id_for_label }}">¿Es<br>
+                                    destacada?</label>
+
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    {{ form.categoria.errors }}
-                                    <label for="{{ form.categoria.id_for_label }}">Categoria</label>
-                                    {{ form.categoria }}
-                                </div>
-                            </div>
 
-
-                            <div class="col-md-3" style="margin-top: 2%;">
-                                <div class="form-group">
-                                    <div class="checkbox-inline">
-                                        {{ form.destacada.errors }}
-                                        {{ form.destacada }}<label for="{{ form.destacada.id_for_label }}">¿Es<br>
-                                        destacada?</label>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
 
                         </div>
-                        <div class="botones" style="margin-top: 30px;">
-                            <button type="submit" class="btn btn-primary active">Registrar</button>
-                            <a class="btn btn-default active" href="{% url 'noticia:listar_noticia' %}">Cancelar</a>
-                        </div>
-                    </form>
-                </div>
+
+                    </div>
+                    <div class="botones" style="margin-top: 30px;">
+                        <input type="submit" class="btn btn-primary active" value="Registrar">
+                        <a class="btn btn-default active" href="{% url 'noticia:listar_noticia' %}">Cancelar</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function () {
+            $('#datepicker1').datepicker({
+                language: "es",
+                autoclose: true,
+                todayHighlight: true
+            });
+
+        });
+    </script>
 {% endblock %}

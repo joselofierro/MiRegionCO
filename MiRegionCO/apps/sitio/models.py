@@ -1,6 +1,7 @@
 from django.db import models
 from apps.categoria_mapa.models import CategoriaMapa
 from apps.imagen.models import Imagen
+from apps.subcategoria_mapa.models import SubcategoriaMapa
 
 
 class Sitio(models.Model):
@@ -13,10 +14,10 @@ class Sitio(models.Model):
     instagram = models.CharField(blank=True, null=False, max_length=200)
     facebook = models.CharField(blank=True, null=False, max_length=200)
     telefono = models.CharField(max_length=30, blank=False, null=False)
-    imagenes = models.ManyToManyField(Imagen)
-    categoria = models.ManyToManyField(CategoriaMapa, related_name='categoria_sitio')
+    subcategoria = models.ManyToManyField(SubcategoriaMapa, related_name='sitio')
     latitud = models.FloatField(max_length=30, blank=False, null=False)
     longitud = models.FloatField(max_length=30, blank=False, null=False)
+    imagenes = models.ManyToManyField(Imagen)
 
     def __str__(self):
         return self.nombre

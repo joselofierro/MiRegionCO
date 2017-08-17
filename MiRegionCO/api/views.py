@@ -12,7 +12,7 @@ from rest_framework.generics import *
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from MiRegionCO import settings
+
 from api.serializers import *
 from apps.categoria.models import Categoria
 from apps.categoria_mapa.models import CategoriaMapa
@@ -86,7 +86,7 @@ class NewsFeed(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Noticia.objects.all().order_by('fecha', 'hora')
+        return Noticia.objects.all().order_by('-fecha', '-hora')
 
 
 class NoticiasDestacadasAPI(ListAPIView):
@@ -113,7 +113,7 @@ class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
 
     def get_queryset(self):
-        return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria']).order_by('fecha', 'hora')
+        return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria']).order_by('-fecha', '-hora')
 
 
 # @method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
@@ -134,7 +134,7 @@ class MapaCategoriaList(ListAPIView):
 
 # @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
 class CategoriaMapaAPI(ListAPIView):
-    serializer_class = CategoriaMapaSerializer
+    serializer_class = CategoriaSitioSerializer
 
     def get_queryset(self):
         print('Aun no se a cacheado')
