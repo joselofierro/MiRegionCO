@@ -79,8 +79,8 @@
                 <ul class="nav">
                     <li>
                         <a href="{% url 'categorias:categoria_listar' %}" class="titulo">
-                            <i class="pe-7s-ribbon"></i>
-                            <p>CATEGORIAS</p>
+                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                            <p>CATEGORIAS-NOTICIA</p>
                         </a>
                     </li>
 
@@ -102,7 +102,7 @@
 
                     <li>
                         <a href="{% url 'tag:listar_tag' %}" class="titulo">
-                            <i class="pe-7s-way"></i>
+                            <i class="fa fa-tag" aria-hidden="true"></i>
                             <p>TAG'S</p>
                         </a>
                     </li>
@@ -110,7 +110,7 @@
 
                     <li>
                         <a href="{% url 'imagen:imagen_listar' %}" class="titulo">
-                            <i class="pe-7s-photo"></i>
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
                             <p>IMAGENES</p>
                         </a>
                     </li>
@@ -118,7 +118,7 @@
 
                     <li>
                         <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                             <p>NOTICIAS</p>
                         </a>
                     </li>
@@ -126,7 +126,7 @@
 
                     <li>
                         <a href="{% url 'sitio:listar_sitio' %}" class="titulo">
-                            <i class="pe-7s-culture"></i>
+                            <i class="fa fa-globe" aria-hidden="true"></i>
                             <p>SITIOS</p>
                         </a>
                     </li>
@@ -134,7 +134,7 @@
 
                     <li>
                         <a href="{% url 'usuario:listar_usuario' %}" class="titulo">
-                            <i class="pe-7s-user"></i>
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             <p style="float: none; vertical-align:top;">USUARIOS</p>
                         </a>
                     </li>
@@ -151,8 +151,8 @@
                     <li>
                         <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
                            class="titulo">
-                            <i class="pe-7s-way"></i>
-                            <p>CATEGORIA PRODUCTOS</p>
+                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                            <p>CATEGORIA-PRODUCTOS</p>
                         </a>
                     </li>
 
@@ -161,14 +161,14 @@
                         <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
                            class="titulo">
                             <i class="fa fa-archive"></i>
-                            <p>SUBCATEGORIAS</p>
+                            <p>SUB-PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
                         <a href="{% url 'producto:listar_producto' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
+                            <i class="fa fa-suitcase" aria-hidden="true"></i>
                             <p>PRODUCTOS</p>
                         </a>
                     </li>
@@ -176,15 +176,15 @@
 
                     <li>
                         <a href="{% url 'detalle:listar_detalle' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
-                            <p>DETALLES PRODUCTOS</p>
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                            <p>DETALLES-PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
                         <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
                             <p>COTIZACION</p>
                         </a>
                     </li>
@@ -218,12 +218,11 @@
                 <ul class="nav">
                     <li>
                         <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                             <p>NOTICIAS</p>
                         </a>
                     </li>
                 </ul>
-
 
 
             {% elif request.user|has_group:'SupervisorVendedor' %}
@@ -232,8 +231,8 @@
                     <li>
                         <a href="{% url 'categoria_producto:listar_categoria_producto' %}"
                            class="titulo">
-                            <i class="pe-7s-way"></i>
-                            <p>CATEGORIA PRODUCTOS</p>
+                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                            <p>CATEGORIA-PRODUCTOS</p>
                         </a>
                     </li>
 
@@ -242,14 +241,14 @@
                         <a href="{% url 'subcategoria_producto:listar_subcategoria' %}"
                            class="titulo">
                             <i class="fa fa-archive"></i>
-                            <p>SUBCATEGORIAS</p>
+                            <p>SUB-PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
                         <a href="{% url 'producto:listar_producto' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
+                            <i class="fa fa-suitcase" aria-hidden="true"></i>
                             <p>PRODUCTOS</p>
                         </a>
                     </li>
@@ -257,15 +256,15 @@
 
                     <li>
                         <a href="{% url 'detalle:listar_detalle' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
-                            <p>DETALLES PRODUCTOS</p>
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                            <p>DETALLES-PRODUCTOS</p>
                         </a>
                     </li>
 
 
                     <li>
                         <a href="{% url 'cotizacion:listar_cotizacion' %}" class="titulo">
-                            <i class="pe-7s-news-paper"></i>
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
                             <p>COTIZACION</p>
                         </a>
                     </li>
