@@ -36,7 +36,7 @@ class NoticiaForm(forms.ModelForm):
             'fecha': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'dd/mm/yyyy'}, ),
             'hora': forms.TimeInput(attrs={'class': 'form-control', 'placeholder': '24:00 '}),
             'titular': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe el titular'}),
-            'lead': forms.TextInput(attrs={'class': 'form-control'}),
+            'lead': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe el lead'}),
             'texto': forms.Textarea(attrs={'class': 'form-control'}),
             'video': forms.URLInput(attrs={'class': 'form-control'}),
             'duracion': forms.TextInput(attrs={'class': 'form-control'}),

@@ -131,7 +131,7 @@
                                 <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo"
                                    style="display: inherit">
                                     <i class="fa fa-map-marker"></i>
-                                    <p>SUBCA-MAPAS</p>
+                                    <p>SUBCATEGORIAS</p>
                                 </a>
                             </li>
 
@@ -287,6 +287,13 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="{% url 'imagen:imagen_listar' %}" class="titulo" style="display: inherit">
+                                    <i class="fa fa-picture-o"></i>
+                                    <p>IMAGENES</p>
+                                </a>
+                            </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -384,7 +391,7 @@
                             <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo"
                                style="display: inherit">
                                 <i class="fa fa-map-marker"></i>
-                                <p>SUBCA-MAPAS</p>
+                                <p>SUBCATEGORIAS</p>
                             </a>
                         </li>
 
@@ -393,6 +400,13 @@
                             <a href="{% url 'sitio:listar_sitio' %}" class="titulo" style="display: inherit">
                                 <i class="fa fa-globe"></i>
                                 <p>SITIOS</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'imagen:imagen_listar' %}" class="titulo" style="display: inherit">
+                                <i class="fa fa-picture-o"></i>
+                                <p>IMAGENES</p>
                             </a>
                         </li>
                     </ul>
@@ -462,6 +476,7 @@
 <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
 <script src="{% static 'js/moment.min.js' %}" type="text/javascript"></script>
 <script src="{% static 'bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+
 
 <!--  DATA TABLE -->
 <script src="{% static 'datatable/jquery.dataTables.min.js' %}"></script>
