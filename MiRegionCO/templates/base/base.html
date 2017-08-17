@@ -77,32 +77,23 @@
 
             {% if request.user|has_group:'Administrador' %}
                 <ul class="nav">
+
+                <li>
+                    <div class="titulo">
+                        <p style="display: inline-block">CATEGORIAS</p>
+                        <i class="pe-7s-angle-down-circle"></i>
+                    </div>
+                </li>
                     <li>
                         <a href="{% url 'categorias:categoria_listar' %}" class="titulo">
-                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                            <i class="fa fa-folder-open-o"></i>
                             <p>CATEGORIAS-NOTICIA</p>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="{% url 'mapa:categoria_listar' %}" class="titulo">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-
-                            <p>CATEGORIA DE MAPAS</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <p>SUBCATEGORIA DE MAPAS</p>
                         </a>
                     </li>
 
                     <li>
                         <a href="{% url 'tag:listar_tag' %}" class="titulo">
-                            <i class="fa fa-tag" aria-hidden="true"></i>
+                            <i class="fa fa-tag"></i>
                             <p>TAG'S</p>
                         </a>
                     </li>
@@ -110,7 +101,7 @@
 
                     <li>
                         <a href="{% url 'imagen:imagen_listar' %}" class="titulo">
-                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <i class="fa fa-picture-o"></i>
                             <p>IMAGENES</p>
                         </a>
                     </li>
@@ -118,8 +109,24 @@
 
                     <li>
                         <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
-                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                            <i class="fa fa-newspaper-o"></i>
                             <p>NOTICIAS</p>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="{% url 'mapa:categoria_listar' %}" class="titulo">
+                            <i class="fa fa-map-marker"></i>
+
+                            <p>CATEGORIA DE MAPAS</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo">
+                            <i class="fa fa-map-marker"></i>
+                            <p>SUBCATEGORIA DE MAPAS</p>
                         </a>
                     </li>
 
