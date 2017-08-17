@@ -16,13 +16,13 @@ urlpatterns = [
     # listado de todos los sitios
     url(r'^sitios', SitiosList.as_view(), name='list_sitio_api'),
     # listado de sitios por el id de la categoria del mapa
-    url(r'^mapa/(?P<id_categoria>.+)$', MapaCategoriaList.as_view(), name='noticias_api'),
+    # url(r'^mapa/(?P<id_categoria>.+)$', MapaCategoriaList.as_view(), name='noticias_api'),
     # noticias destacadas
     url(r'^noticias_destacadas', NoticiasDestacadasAPI.as_view(), name='noticias_destacadas_api'),
     # listado de categoria de noticias
     url(r'^categoria', CategoriaNoticiasAPI.as_view(), name='noticias_destacadas_api'),
     # categoria, subcategoria y sitios del mapa
-    url(r'^listado_mapa', MapaListAPI.as_view(), name='categorias_mapa_api'),
+    url(r'^mapa_categoria', MapaListAPI.as_view(), name='categorias_mapa_api'),
     # crear noticias
     url(r'^crear_noticia', NoticiasAPI.as_view(), name='noticia_api'),
     # guardar noticia al usuario

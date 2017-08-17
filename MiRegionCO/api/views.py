@@ -125,11 +125,11 @@ class SitiosList(ListAPIView):
         return Sitio.objects.all().order_by('nombre')
 
 
-class MapaCategoriaList(ListAPIView):
+"""class MapaCategoriaList(ListAPIView):
     serializer_class = SitioSerializer
 
     def get_queryset(self):
-        return Sitio.objects.filter(categoria__id=self.kwargs['id_categoria'])
+        return Sitio.objects.filter(categoria__id=self.kwargs['id_categoria'])"""
 
 
 # @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
