@@ -21,5 +21,5 @@ class MapaForm(forms.ModelForm):
 
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'subcategoria_mapa':forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'})
+            'subcategoria_mapa': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'})
         }

@@ -52,7 +52,7 @@ class SitioForm(forms.ModelForm):
             'facebook': forms.TextInput(attrs={'class': 'form-control'}),
             'telefono': forms.NumberInput(attrs={'class': 'form-control'}),
             'imagenes': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
-            'subcategoria': forms.SelectMultiple(attrs={'class': 'form-control'}),
+            'subcategoria': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
             'latitud': forms.NumberInput(attrs={'class': 'form-control'}),
             'longitud': forms.NumberInput(attrs={'class': 'form-control'})
         }

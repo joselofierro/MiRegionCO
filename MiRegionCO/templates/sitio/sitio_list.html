@@ -31,7 +31,7 @@
                         <th style="text-align: center;">Facebook</th>
                         <th style="text-align: center;">Telefono</th>
                         <th style="text-align: center;">Imagenes</th>
-                        <th style="text-align: center;">Categoria</th>
+                        <th style="text-align: center;">Subcategoria</th>
                         <th style="text-align: center;">Latitud</th>
                         <th style="text-align: center;">Longitud</th>
                         <th class="col-sm-2" style="text-align: center;">Acciones</th>
@@ -66,8 +66,8 @@
                                     {% endfor %}
                                 </td>
                                 <td>
-                                    {% for categoria in sitio.categoria.all %}
-                                        {{ categoria.nombre }}
+                                    {% for subcategoria in sitio.subcategoria.all%}
+                                        {{ subcategoria.nombre }}
                                     {% endfor %}
                                 </td>
                                 <td>{{ sitio.latitud }}</td>
