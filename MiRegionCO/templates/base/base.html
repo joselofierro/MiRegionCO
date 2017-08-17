@@ -38,7 +38,7 @@
     <link href="{% static 'css/pe-icon-7-stroke.css' %}" rel="stylesheet"/>
 
     <style type="text/css">
-        ul.nav a > i:hover {
+        ul.nav li > a:hover > i {
             transition: transform 0.5s ease;
             transform: rotate(360deg);
 
@@ -87,14 +87,15 @@
 
                     <li>
                         <a href="{% url 'mapa:categoria_listar' %}" class="titulo">
-                            <i class="pe-7s-map-2"></i>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+
                             <p>CATEGORIA DE MAPAS</p>
                         </a>
                     </li>
 
                     <li>
                         <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo">
-                            <i class="pe-7s-map-2"></i>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <p>SUBCATEGORIA DE MAPAS</p>
                         </a>
                     </li>
