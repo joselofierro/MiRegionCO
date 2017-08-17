@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    Formulario de subcategoria
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Registrar Subcategoria de sitios</h4>
+                </div>
+                <div class="content">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="botones" style="margin-top: 30px;">
+                            <input type="submit" class="btn btn-primary active" value="Registrar">
+                            <a class= "btn btn-default active" href="{% url 'sub_mapa:listar_subcategoria_mapa' %}">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
