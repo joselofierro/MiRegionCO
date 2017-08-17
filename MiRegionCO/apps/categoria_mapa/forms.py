@@ -9,14 +9,17 @@ class MapaForm(forms.ModelForm):
 
         fields = [
             'nombre',
-            'imagen'
+            'imagen',
+            'subcategoria_mapa'
         ]
 
         labels = {
             'nombre': 'Nombre',
-            'imagen': 'Imagen'
+            'imagen': 'Imagen',
+            'subcategoria_mapa': 'Subcategoria'
         }
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'})
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'subcategoria_mapa':forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'})
         }

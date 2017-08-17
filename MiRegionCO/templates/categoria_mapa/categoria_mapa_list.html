@@ -17,6 +17,7 @@
                                 <th style="text-align: center;">ID</th>
                                 <th style="text-align: center;">Nombre</th>
                                 <th style="text-align: center">Imagen</th>
+                                <th style="text-align: center;">Subcategorias</th>
                                 <th style="text-align: center;">Acciones</th>
                             </tr>
                             </thead>
@@ -29,6 +30,10 @@
                                         <td>{{ categoria_mapa.nombre }}</td>
                                         <td>
                                             <img src="{{ MEDIA_URL }}{{ categoria_mapa.imagen.url }}" width="100px" height="100px">
+                                        </td>
+                                        <td>{% for subcategoria in categoria_mapa.subcategoria_mapa.all  %}
+                                                {{ subcategoria.nombre }}
+                                            {% endfor %}
                                         </td>
                                         <td>
                                             <a class="btn btn-primary active"
