@@ -133,7 +133,7 @@ class MapaCategoriaList(ListAPIView):
 
 
 # @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
-class CategoriaMapaAPI(ListAPIView):
+class MapaListAPI(ListAPIView):
     serializer_class = CategoriaSitioSerializer
 
     def get_queryset(self):

@@ -22,7 +22,7 @@ urlpatterns = [
     # listado de categoria de noticias
     url(r'^categoria', CategoriaNoticiasAPI.as_view(), name='noticias_destacadas_api'),
     # categoria, subcategoria y sitios del mapa
-    url(r'^mapas', CategoriaMapaAPI.as_view(), name='categorias_mapa_api'),
+    url(r'^listado_mapa', MapaListAPI.as_view(), name='categorias_mapa_api'),
     # crear noticias
     url(r'^crear_noticia', NoticiasAPI.as_view(), name='noticia_api'),
     # guardar noticia al usuario
