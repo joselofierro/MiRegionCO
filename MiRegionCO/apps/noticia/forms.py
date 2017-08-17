@@ -33,8 +33,8 @@ class NoticiaForm(forms.ModelForm):
         }
 
         widgets = {
-            'fecha': forms.TextInput(attrs={'class': 'form-control'}),
-            'hora': forms.TimeInput(attrs={'class': 'form-control'}),
+            'fecha': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'dd/mm/yyyy'}, ),
+            'hora': forms.TimeInput(attrs={'class': 'form-control', 'placeholder': '24:00 '}),
             'titular': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe el titular'}),
             'lead': forms.TextInput(attrs={'class': 'form-control'}),
             'texto': forms.Textarea(attrs={'class': 'form-control'}),
