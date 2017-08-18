@@ -149,12 +149,10 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
                         tag_creado.save()
                         noticia.tag.add(tag_creado)
 
+            """
             noticia = form_noticia.save(commit=False)
-            noticia.autor = self.request.user"""
-            noticia = form_noticia.save()
-            usuario_sesion = request.user
-            noticia.autor = usuario_sesion
-            noticia.imagenes = form2.save()
+            noticia.autor = self.request.user
+            form2.save()
 
             return HttpResponseRedirect(self.get_success_url())
         else:

@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group">
-                                <div class="input-group date" id="datepicker1">
+                                <div class="input-group date">
                                     {{ form.fecha.errors }}
                                     <label for="{{ form.fecha.id_for_label }}">Fecha</label>
                                     {{ form.fecha }}
@@ -29,10 +29,9 @@
                                     {{ form.hora.errors }}
                                     <label for="{{ form.hora.id_for_label }}">Hora</label>
                                     {{ form.hora }}
-
                                     <span class="">
                                             <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                        </span>
+                                    </span>
                                 </div>
                             </div>
 
@@ -136,16 +135,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block extra_js %}
-    <script type="text/javascript">
-        /*$(function () {
-            $('#datepicker1').datepicker({
-                language: "es",
-                autoclose: true,
-                todayHighlight: true
-            });
-        });*/
-    </script>
 {% endblock %}
