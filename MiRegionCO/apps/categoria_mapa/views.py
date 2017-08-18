@@ -23,6 +23,7 @@ class CategoriaMapaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVi
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+
 class CategoriaMapaList(PermissionRequiredMixin, ListView):
     model = CategoriaMapa
     template_name = 'categoria_mapa/categoria_mapa_list.html'

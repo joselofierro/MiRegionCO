@@ -151,7 +151,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
             """
             noticia = form_noticia.save(commit=False)
-            noticia.autor = self.request.user
+            noticia.autor = self.request.user.id
             form2.save()
 
             return HttpResponseRedirect(self.get_success_url())

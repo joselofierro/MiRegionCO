@@ -4,6 +4,6 @@
             {% csrf_token %}
             <h3>¿Desea eliminar el registro de {{ object.nombre }}?</h3>
             <input class="btn btn-danger" type="submit" value="Sí, eliminar">
-            <a class= "btn btn-default" href="{% url 'categorias:categoria_listar' %}">Cancelar</a>
+            <a class= "btn btn-default" href="{% url 'sub_mapa:listar_subcategoria_mapa' %}">Cancelar</a>
         </form>
     {% endblock %}
