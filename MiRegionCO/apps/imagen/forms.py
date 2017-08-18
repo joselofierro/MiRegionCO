@@ -9,10 +9,12 @@ class ImagenForm(forms.ModelForm):
         model = Imagen
 
         fields = [
+            'nombre',
             'imagen'
         ]
 
         labels = {
+            'nombre': 'Nombre',
             'imagen': 'Imagen'
         }
 
