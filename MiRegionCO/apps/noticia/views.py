@@ -108,6 +108,8 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(NoticiaUpdate, self).get_context_data(**kwargs)
+        # noticia = self.model.objects.get()
+        # imagen = self.second_model.objects.get()
 
         if 'form' not in context:
             context['form'] = self.form_class()
@@ -117,7 +119,6 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         return context
 
     def post(self, request, *args, **kwargs):
-
         self.object = self.get_object
 
         form_noticia = self.form_class(request.POST)
@@ -125,7 +126,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
         if form_noticia.is_valid() and form2.is_valid():
             """tags = request.POST['tags']
-            # cortaré los tags por cona y espacio ', '
+            # cortaré los tags por coma y espacio ', '
             list_tags = tags.split(', ')
 
             # Obtengo la noticia
@@ -151,7 +152,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
             """
             noticia = form_noticia.save(commit=False)
-            noticia.autor = self.request.user.id
+            noticia.autor = self.request.user
             form2.save()
 
             return HttpResponseRedirect(self.get_success_url())
