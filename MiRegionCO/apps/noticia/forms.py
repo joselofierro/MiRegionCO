@@ -1,5 +1,4 @@
 from django import forms
-
 from apps.noticia.models import Noticia
 
 
@@ -35,7 +34,7 @@ class NoticiaForm(forms.ModelForm):
         widgets = {
             'fecha': forms.DateInput(
                 attrs={'class': 'form-control', 'placeholder': 'dd/mm/yyyy', 'id': 'datetimepicker1'}),
-            'hora': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '24:00 ', 'id': 'datetimepicker3'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control', 'placeholder': '24:00 '}),
             'titular': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe el titular'}),
             'lead': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe el lead'}),
             'texto': forms.Textarea(attrs={'class': 'form-control'}),

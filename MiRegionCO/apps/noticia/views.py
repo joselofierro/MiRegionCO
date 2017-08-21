@@ -31,9 +31,9 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         context = super(NoticiaCreate, self).get_context_data(**kwargs)
 
         if 'form' not in context:
-            context['form'] = self.form_class()
+            context['form'] = self.form_class(self.request.GET)
         if 'form2' not in context:
-            context['form2'] = self.second_form_class()
+            context['form2'] = self.second_form_class(self.request.GET)
 
         return context
 
@@ -118,14 +118,14 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
         return context
 
-    def post(self, request, *args, **kwargs):
+    """def post(self, request, *args, **kwargs):
         self.object = self.get_object
 
         form_noticia = self.form_class(request.POST)
         form2 = self.second_form_class(request.POST)
 
         if form_noticia.is_valid() and form2.is_valid():
-            """tags = request.POST['tags']
+            tags = request.POST['tags']
             # cortaré los tags por coma y espacio ', '
             list_tags = tags.split(', ')
 
@@ -150,12 +150,24 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
                         tag_creado.save()
                         noticia.tag.add(tag_creado)
 
-            """
+            
             noticia = form_noticia.save(commit=False)
             noticia.autor = self.request.user
             form2.save()
 
             return HttpResponseRedirect(self.get_success_url())
+        else:
+            return render(request, self.template_name, {'form': form_noticia, 'form2': form2})"""
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form_noticia = self.form_class(request.POST)
+        form2 = self.second_form_class(request.POST)
+
+        if form_noticia.is_valid() and form2.is_valid():
+
+            pass
+
         else:
             return render(request, self.template_name, {'form': form_noticia, 'form2': form2})
 
