@@ -88,7 +88,13 @@ class NoticiaList(PermissionRequiredMixin, ListView):
     redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
-        return Noticia.objects.filter(autor=self.request.user)
+        if self.request.user.groups.filter(name="Administrador"):
+            return Noticia.objects.all()
+
+        elif self.request.user.groups.filter(name="SupervisorEscritor"):
+            return Noticia.objects.all()
+        else:
+            return Noticia.objects.filter(autor=self.request.user)
 
 
 class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -118,13 +124,13 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
         return context
 
-    """def post(self, request, *args, **kwargs):
-        self.object = self.get_object
-
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
         form_noticia = self.form_class(request.POST)
         form2 = self.second_form_class(request.POST)
 
         if form_noticia.is_valid() and form2.is_valid():
+            # tags que vienen del formulario
             tags = request.POST['tags']
             # cortaré los tags por coma y espacio ', '
             list_tags = tags.split(', ')
@@ -133,9 +139,13 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
             noticia = Noticia.objects.get(id=self.kwargs['pk'])
             noticia.autor = self.request.user
 
+            # si los tags del formulario son menores a los tags de la noticia en la BD
             if len(list_tags) < noticia.tag.count():
+                # recorro los tags de la noticia en la BD
                 for tag_noticia in noticia.tag.all():
+                    # si el tag de la BD no esta en la lista de tags
                     if tag_noticia.nombre not in list_tags:
+                        # borre el tag de la BD
                         noticia.tag.remove(tag_noticia)
             else:
                 for tag in list_tags:
@@ -145,28 +155,17 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
                     try:
                         tag_object = Tag.objects.get(nombre=tag)
                         noticia.tag.add(tag_object)
+                    # si no esta creado
                     except Tag.DoesNotExist:
                         tag_creado = Tag(nombre=tag)
                         tag_creado.save()
                         noticia.tag.add(tag_creado)
 
-            
             noticia = form_noticia.save(commit=False)
             noticia.autor = self.request.user
             form2.save()
 
             return HttpResponseRedirect(self.get_success_url())
-        else:
-            return render(request, self.template_name, {'form': form_noticia, 'form2': form2})"""
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form_noticia = self.form_class(request.POST)
-        form2 = self.second_form_class(request.POST)
-
-        if form_noticia.is_valid() and form2.is_valid():
-
-            pass
 
         else:
             return render(request, self.template_name, {'form': form_noticia, 'form2': form2})
