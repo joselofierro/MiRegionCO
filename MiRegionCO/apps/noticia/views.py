@@ -126,7 +126,9 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        form_noticia = self.form_class(request.POST)
+        noticia_id = self.kwargs['pk']
+        noticia = self.model.objects.get(id=noticia_id)
+        form_noticia = self.form_class(request.POST, instance=noticia)
         form2 = self.second_form_class(request.POST)
 
         if form_noticia.is_valid() and form2.is_valid():
@@ -161,8 +163,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
                         tag_creado.save()
                         noticia.tag.add(tag_creado)
 
-            noticia = form_noticia.save(commit=False)
-            noticia.autor = self.request.user
+            form_noticia.save()
             form2.save()
 
             return HttpResponseRedirect(self.get_success_url())
