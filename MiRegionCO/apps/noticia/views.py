@@ -88,6 +88,7 @@ class NoticiaList(PermissionRequiredMixin, ListView):
     redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
+
         if self.request.user.groups.filter(name="Administrador"):
             return Noticia.objects.all()
 
@@ -136,10 +137,6 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
             tags = request.POST['tags']
             # cortaré los tags por coma y espacio ', '
             list_tags = tags.split(', ')
-
-            # Obtengo la noticia
-            noticia = Noticia.objects.get(id=self.kwargs['pk'])
-            noticia.autor = self.request.user
 
             # si los tags del formulario son menores a los tags de la noticia en la BD
             if len(list_tags) < noticia.tag.count():

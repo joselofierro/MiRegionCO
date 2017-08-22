@@ -20,7 +20,7 @@ def login_view(request):
             if user_auth.is_active:
                 # lo dejan ingresar
                 login(request, user_auth)
-                if user_auth.groups.filter(name='Escritor').exists():
+                if user_auth.groups.filter(name='Escritor').exists() or user_auth.groups.filter(name='SupervisorEscritor').exists():
                     return redirect('noticia:listar_noticia')
 
                 elif user_auth.groups.filter(name='Administrador').exists():
