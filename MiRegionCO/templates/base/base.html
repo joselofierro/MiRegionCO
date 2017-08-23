@@ -373,46 +373,50 @@
 
             {% elif request.user|has_group:'AdministradorCuentas' %}
 
-                <li>
-                    <a class="titulo">
+                <ul class="nav">
+                    <li>
+                        <a class="titulo">
 
-                        <p style="display: inline-block">MI CIUDAD</p>
-                        <i class="fa fa-arrow-circle-down"></i>
-                    </a>
+                            <p style="display: inline-block">MI CIUDAD</p>
+                            <i class="fa fa-arrow-circle-down"></i>
+                        </a>
 
-                    <ul class="ul-child" style="display:none;">
+                        <ul class="ul-child" style="display:none;">
 
-                        <li>
-                            <a href="{% url 'mapa:categoria_listar' %}" class="titulo" style="display: inherit">
-                                <i class="fa fa-map-marker"></i>
-                                <p>CATEGORIA DE MAPAS</p>
-                            </a>
-                        </li>
+                            <li>
+                                <a href="{% url 'mapa:categoria_listar' %}" class="titulo" style="display: inherit">
+                                    <i class="fa fa-map-marker"></i>
+                                    <p>CATEGORIA DE MAPAS</p>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo"
-                               style="display: inherit">
-                                <i class="fa fa-map-marker"></i>
-                                <p>SUBCATEGORIAS</p>
-                            </a>
-                        </li>
+                            <li>
+                                <a href="{% url 'sub_mapa:listar_subcategoria_mapa' %}" class="titulo"
+                                   style="display: inherit">
+                                    <i class="fa fa-map-marker"></i>
+                                    <p>SUBCATEGORIAS</p>
+                                </a>
+                            </li>
 
 
-                        <li>
-                            <a href="{% url 'sitio:listar' %}" class="titulo" style="display: inherit">
-                                <i class="fa fa-globe"></i>
-                                <p>SITIOS</p>
-                            </a>
-                        </li>
+                            <li>
+                                <a href="{% url 'sitio:listar' %}" class="titulo" style="display: inherit">
+                                    <i class="fa fa-globe"></i>
+                                    <p>SITIOS</p>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="{% url 'imagen:imagen_listar' %}" class="titulo" style="display: inherit">
-                                <i class="fa fa-picture-o"></i>
-                                <p>IMAGENES</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                            <li>
+                                <a href="{% url 'imagen:imagen_listar' %}" class="titulo" style="display: inherit">
+                                    <i class="fa fa-picture-o"></i>
+                                    <p>IMAGENES</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+
             {% endif %}
         </div>
     </div>
