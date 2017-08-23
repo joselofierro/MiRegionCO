@@ -28,6 +28,7 @@ def login_view(request):
 
                 elif user_auth.groups.filter(name='SupervisorVendedor').exists():
                     return redirect('cotizacion:listar_cotizacion')
+
                 elif user_auth.groups.filter(name='AdministradorCuentas').exists():
                     return redirect('sitio:listar')
             else:

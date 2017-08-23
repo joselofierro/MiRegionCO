@@ -90,10 +90,10 @@ class NoticiaList(PermissionRequiredMixin, ListView):
     def get_queryset(self):
 
         if self.request.user.groups.filter(name="Administrador"):
-            return Noticia.objects.all()
+            return Noticia.objects.all().order_by('-fecha')
 
         elif self.request.user.groups.filter(name="SupervisorEscritor"):
-            return Noticia.objects.all()
+            return Noticia.objects.all().order_by('-fecha')
         else:
             return Noticia.objects.filter(autor=self.request.user)
 
