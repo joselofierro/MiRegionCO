@@ -14,7 +14,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     model = Sitio
     form_class = SitioForm
     template_name = 'sitio/sitio_form.html'
-    success_url = reverse_lazy('sitio:listar_sitio')
+    success_url = reverse_lazy('sitio:listar')
     success_message = 'Se ha creado el sitio correctamente.'
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False
@@ -35,7 +35,7 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Sitio
     form_class = SitioForm
     template_name = 'sitio/sitio_form.html'
-    success_url = reverse_lazy('sitio:listar_sitio')
+    success_url = reverse_lazy('sitio:listar')
     success_message = 'Se ha actualizado el sitio correctamente.'
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False
@@ -46,7 +46,7 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Sitio
     template_name = 'sitio/sitio_delete.html'
-    success_url = reverse_lazy('sitio:listar_sitio')
+    success_url = reverse_lazy('sitio:listar')
     success_message = 'Se ha eliminado el sitio correctamente.'
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False

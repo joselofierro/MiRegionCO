@@ -28,6 +28,8 @@ def login_view(request):
 
                 elif user_auth.groups.filter(name='SupervisorVendedor').exists():
                     return redirect('cotizacion:listar_cotizacion')
+                elif user_auth.groups.filter(name='AdministradorCuentas').exists():
+                    return redirect('sitio:listar')
             else:
                 return render(request, 'index.html', {'error': 'Usuario no activo'}, content_type='text/html')
         else:

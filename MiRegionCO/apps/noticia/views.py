@@ -18,7 +18,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     form_class = NoticiaForm
     second_form_class = ImagenForm
     template_name = 'noticia/noticia_form.html'
-    success_url = reverse_lazy('noticia:listar_noticia')
+    success_url = reverse_lazy('noticia:listar')
     success_message = "Se ha creado la noticia satisfactoriamente."
     permission_required = ('noticia.add_noticia', 'noticia.change_noticia')
     # me devuelve al login si es falso y si es true arroja un exceptionError
@@ -106,7 +106,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     second_form_class = ImagenForm
     third_form_class = TagForm
     template_name = 'noticia/noticia_form.html'
-    success_url = reverse_lazy('noticia:listar_noticia')
+    success_url = reverse_lazy('noticia:listar')
     success_message = "Se ha actualizado  la noticia satisfactoriamente."
     permission_required = ('noticia.add_noticia', 'noticia.change_noticia')
     # me devuelve al login si es falso y si es true arroja un exceptionError
@@ -175,7 +175,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Noticia
     template_name = 'noticia/noticia_delete.html'
-    success_url = reverse_lazy('noticia:listar_noticia')
+    success_url = reverse_lazy('noticia:listar')
     success_message = "Se ha eliminado la noticia satisfactoriamente."
     permission_required = ('noticia.add_noticia', 'noticia.change_noticia')
     # me devuelve al login si es falso y si es true arroja un exceptionError

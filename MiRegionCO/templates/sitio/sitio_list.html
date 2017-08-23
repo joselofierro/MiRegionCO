@@ -12,7 +12,7 @@
                 <h4 class="title" style="margin-bottom: 22px;">Listado de sitios</h4>
             </div>
 
-            <a href="{% url 'sitio:crear_sitio' %}" class="btn btn-primary active">Crear sitio</a>
+            <a href="{% url 'sitio:crear' %}" class="btn btn-primary active">Crear sitio</a>
 
             <div id="datatable-responsive_wrapper" class="content table-responsive table-full-width">
                 <table id="boxes" class="table table-striped table-bordered table-hover" cellspacing="0"
@@ -76,7 +76,7 @@
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-primary active"
-                                           href="{% url 'sitio:editar_sitio' sitio.id %}">Editar</a>
+                                           href="{% url 'sitio:editar' sitio.id %}">Editar</a>
                                         <button type="button" class=" btn btn-primary active dropdown-toggle"
                                                 data-toggle="dropdown" aria-expanded="false">
                                             <span class="caret"></span>
@@ -87,7 +87,7 @@
                                             style="min-width: 104px!important; text-align: center;">
                                             <li>
                                                 <a class=" btn-danger btn-sm active" data-toggle=""
-                                                   href="{% url 'sitio:eliminar_sitio' sitio.id %}">Eliminar</a>
+                                                   href="{% url 'sitio:eliminar' sitio.id %}">Eliminar</a>
                                             </li>
                                         </ul>
                                     </div>

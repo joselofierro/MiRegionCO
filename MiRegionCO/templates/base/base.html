@@ -104,7 +104,7 @@
                             </li>
 
                             <li>
-                                <a href="{% url 'noticia:listar_noticia' %}" class="titulo" style="display: inherit;">
+                                <a href="{% url 'noticia:listar' %}" class="titulo" style="display: inherit;">
                                     <i class="fa fa-newspaper-o"></i>
                                     <p>NOTICIAS</p>
                                 </a>
@@ -139,7 +139,7 @@
 
 
                             <li>
-                                <a href="{% url 'sitio:listar_sitio' %}" class="titulo" style="display: inherit">
+                                <a href="{% url 'sitio:listar' %}" class="titulo" style="display: inherit">
                                     <i class="fa fa-globe"></i>
                                     <p>SITIOS</p>
                                 </a>
@@ -247,7 +247,7 @@
             {% elif request.user|has_group:'Escritor' %}
                 <ul class="nav">
                     <li>
-                        <a href="{% url 'noticia:listar_noticia' %}" class="titulo">
+                        <a href="{% url 'noticia:listar' %}" class="titulo">
                             <i class="fa fa-newspaper-o"></i>
                             <p>NOTICIAS</p>
                         </a>
@@ -283,7 +283,7 @@
                             </li>
 
                             <li>
-                                <a href="{% url 'noticia:listar_noticia' %}" class="titulo" style="display: inherit;">
+                                <a href="{% url 'noticia:listar' %}" class="titulo" style="display: inherit;">
                                     <i class="fa fa-newspaper-o"></i>
                                     <p>NOTICIAS</p>
                                 </a>
@@ -399,7 +399,7 @@
 
 
                         <li>
-                            <a href="{% url 'sitio:listar_sitio' %}" class="titulo" style="display: inherit">
+                            <a href="{% url 'sitio:listar' %}" class="titulo" style="display: inherit">
                                 <i class="fa fa-globe"></i>
                                 <p>SITIOS</p>
                             </a>
