@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 # si no estoy autentificado me manda al login
 def index(request):
     if request.user.is_authenticated():
-        return redirect('noticia:listar_noticia')
+        return redirect('noticia:listar')
     else:
         return redirect('grupo:login')
 
