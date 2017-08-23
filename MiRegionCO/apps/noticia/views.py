@@ -101,8 +101,10 @@ class NoticiaList(PermissionRequiredMixin, ListView):
 class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Noticia
     second_model = Imagen
+    third_model = Tag
     form_class = NoticiaForm
     second_form_class = ImagenForm
+    third_form_class = TagForm
     template_name = 'noticia/noticia_form.html'
     success_url = reverse_lazy('noticia:listar_noticia')
     success_message = "Se ha actualizado  la noticia satisfactoriamente."
@@ -133,32 +135,33 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         form2 = self.second_form_class(request.POST)
 
         if form_noticia.is_valid() and form2.is_valid():
-            # tags que vienen del formulario
+            # Obtenemos los tags que vienen del form = String
             tags = request.POST['tags']
-            # cortaré los tags por coma y espacio ', '
+            # Los convertimos a una lista de strings cortándolos por la coma y espacio (', ')
             list_tags = tags.split(', ')
 
-            # si los tags del formulario son menores a los tags de la noticia en la BD
-            if len(list_tags) < noticia.tag.count():
-                # recorro los tags de la noticia en la BD
-                for tag_noticia in noticia.tag.all():
-                    # si el tag de la BD no esta en la lista de tags
-                    if tag_noticia.nombre not in list_tags:
-                        # borre el tag de la BD
-                        noticia.tag.remove(tag_noticia)
-            else:
-                for tag in list_tags:
-                    tag = tag.title()
+            # Este listado nos servirá para tener las instancias de tag de la BD
+            list_tags_bd = []
 
-                    # busco si el Tag está creado
-                    try:
-                        tag_object = Tag.objects.get(nombre=tag)
-                        noticia.tag.add(tag_object)
-                    # si no esta creado
-                    except Tag.DoesNotExist:
-                        tag_creado = Tag(nombre=tag)
-                        tag_creado.save()
-                        noticia.tag.add(tag_creado)
+            # Recorremos el listado de tags string para consultar si existen en la BD y si no crearlos
+            for tag in list_tags:
+                try:
+                    tag_bd = Tag.objects.get(nombre=tag.title())
+                    # Si existe el tag lo agrego al listado de tags de la BD
+                    list_tags_bd.append(tag_bd)
+                except Tag.DoesNotExist:
+                    # Si no existe el tag lo creo
+                    tag_bd = Tag(nombre=tag.title())
+                    tag_bd.save()
+                    # Lo agrego al listado de tags de la BD
+                    list_tags_bd.append(tag_bd)
+
+            # Borramos los tags de la noticia
+            noticia.tag.clear()
+
+            # Asignamos los tags a la noticia
+            for tag in list_tags_bd:
+                noticia.tag.add(tag)
 
             form_noticia.save()
             form2.save()
