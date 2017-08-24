@@ -52,7 +52,7 @@
 
                                         <td>
 
-                                            {% for indx , imagen in enumerate (noticia.imagenes.all)%}
+                                            {% for imagen in noticia.imagenes.all%}
                                                 <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt="Imagenes"
                                                      width="100px" height="100px">
                                             {% endfor %}
