@@ -21,10 +21,10 @@ def login_view(request):
                 # lo dejan ingresar
                 login(request, user_auth)
                 if user_auth.groups.filter(name='Escritor').exists() or user_auth.groups.filter(name='SupervisorEscritor').exists():
-                    return redirect('noticia:listar_noticia')
+                    return redirect('noticia:listar')
 
                 elif user_auth.groups.filter(name='Administrador').exists():
-                    return redirect('noticia:listar_noticia')
+                    return redirect('noticia:listar')
 
                 elif user_auth.groups.filter(name='SupervisorVendedor').exists():
                     return redirect('cotizacion:listar_cotizacion')
