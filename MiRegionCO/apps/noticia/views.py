@@ -41,12 +41,13 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         self.object = self.get_object
         form = self.form_class(request.POST)
         form2 = self.second_form_class(request.POST)
+        # guardamos las imagenes del formulario
         files = request.FILES.getlist('imagen')
 
         if form.is_valid() and form2.is_valid():
             list_id_imagenes = []
-            for f in files:
-                imagen = Imagen(nombre=form.data['titular'], imagen=f)
+            for index, f in enumerate(files):
+                imagen = Imagen(nombre=form.data['titular']+"_"+str(index), imagen=f)
                 imagen.save()
                 list_id_imagenes.append(imagen)
 
@@ -74,7 +75,6 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
             for imagen_id in list_id_imagenes:
                 noticia.imagenes.add(imagen_id)
             return HttpResponseRedirect(self.get_success_url())
-
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
@@ -93,6 +93,9 @@ class NoticiaList(PermissionRequiredMixin, ListView):
             return Noticia.objects.all().order_by('-fecha')
 
         elif self.request.user.groups.filter(name="SupervisorEscritor"):
+            return Noticia.objects.all().order_by('-fecha')
+
+        elif self.request.user.groups.filter(name='Escritor'):
             return Noticia.objects.all().order_by('-fecha')
         else:
             return Noticia.objects.filter(autor=self.request.user)

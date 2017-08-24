@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'storages',
     'fcm_django',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -191,6 +192,7 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+THUMBNAIL_DEFAULT_STORAGE = 'custom_storages.MediaStorage'
 
 # (Firebase Cloud Messaging)
 FCM_DJANGO_SETTINGS = {
