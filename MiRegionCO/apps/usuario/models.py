@@ -15,8 +15,8 @@ class Usuario(models.Model):
     telefono = models.BigIntegerField(blank=True, null=False, default=0)
     correo = models.EmailField(unique=True, blank=False, null=False)
     foto = models.TextField(blank=False, null=False)
-    noticias = models.ManyToManyField(Noticia)
-    sitios = models.ManyToManyField(Sitio)
+    noticias = models.ManyToManyField(Noticia, blank=True )
+    sitios = models.ManyToManyField(Sitio, blank=True)
 
     def __str__(self):
         return self.nombreCompleto

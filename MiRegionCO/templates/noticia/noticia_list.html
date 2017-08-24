@@ -4,142 +4,163 @@
     Noticias
 {% endblock %}
 
+{% block extracss %}
+
+    <style type="text/css">
+        .fadein{
+
+        }
+    </style>
+{% endblock %}
+
 
 {% block content %}
 
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h4 style="margin-bottom: 22px;">Listado de noticias</h4>
-                    </div>
-                    <a href="{% url 'noticia:crear' %}" class="btn btn-primary active">Crear noticia</a>
-                    <div id="datatable-responsive_wrapper"
-                         class="content table-responsive table-full-width">
-
-                        <table id="boxes" class="table table-striped table-bordered table-hover"
-                               cellspacing="0" role="grid" width="100%">
-                            <thead>
-                            <tr role="row">
-                                <th style="text-align: center;">ID</th>
-                                <th style="text-align: center;">fecha</th>
-                                <th style="text-align: center;">Hora</th>
-                                <th class="col-sm-2" style="text-align: center;">titular</th>
-                                <th style="text-align: center;">lead</th>
-                                <th style="text-align: center;">video</th>
-                                <th style="text-align: center;">imagenes</th>
-                                <th style="text-align: center;">autor</th>
-                                <th style="text-align: center;">tag</th>
-                                <th style="text-align: center;">categoria</th>
-                                <th style="text-align: center;">destacada</th>
-                                <th class="col-sm-2" style="text-align: center;">Acciones</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            {% if object_list %}
-                                {% for noticia in object_list %}
-                                    <tr role="row">
-                                        <td>{{ noticia.id }}</td>
-                                        <td>{{ noticia.fecha }}</td>
-                                        <td>{{ noticia.hora }}</td>
-                                        <td>{{ noticia.titular }}</td>
-                                        <td>{{ noticia.lead }}</td>
-                                        <td>
-                                            {% if noticia.video %}
-                                                <a href="{{ noticia.video }}" target="_blank">Video</a>
-                                            {% endif %}
-                                        </td>
-
-                                        <td>
-
-                                            {% for imagen in noticia.imagenes.all%}
-                                                <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt="Imagenes"
-                                                     width="100px" height="100px">
-                                            {% endfor %}
-                                        </td>
-
-                                        <td>{{ noticia.autor.first_name }}</td>
-                                        <td>
-                                            <ul>{% for tag in noticia.tag.all %}
-                                                <li>{{ tag.nombre }}</li>
-                                            {% endfor %}
-                                            </ul>
-                                        </td>
-
-                                        <td>
-                                            <ul>{% for categoria in noticia.categoria.all %}
-                                                <li>{{ categoria.nombre }}</li>
-                                            {% endfor %}
-                                            </ul>
-                                        </td>
-                                        <td>{{ noticia.destacada }}</td>
-                                        <td>
-                                            {% if perms.noticia.delete_noticia %}
-                                                <div class="btn-group">
-                                                    <a class="btn btn-primary active"
-                                                       href="{% url 'noticia:actualizar' noticia.id %}">Editar</a>
-                                                    <button type="button"
-                                                            class=" btn btn-primary active dropdown-toggle"
-                                                            data-toggle="dropdown" aria-expanded="false">
-                                                        <span class="caret"></span>
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-
-                                                    <ul class="dropdown-menu" role="menu"
-                                                        style="min-width: 104px!important; text-align: center!important;">
-                                                        <li>
-                                                            <a class=" btn-danger btn-sm active" data-toggle=""
-                                                               href="{% url 'noticia:eliminar' noticia.id %}">Eliminar</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            {% else %}
-
-                                                <a class="btn btn-primary active"
-                                                   href="{% url 'noticia:actualizar' noticia.id %}">Editar</a>
-                                            {% endif %}
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            {% else %}
-                                <h2>No hay registros</h2>
-                            {% endif %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h4 style="margin-bottom: 22px;">Listado de noticias</h4>
             </div>
+            <a href="{% url 'noticia:crear' %}" class="btn btn-primary active">Crear noticia</a>
+            <div id="datatable-responsive_wrapper"
+                 class="content table-responsive table-full-width">
+
+                <table id="boxes" class="table table-striped table-bordered table-hover"
+                       cellspacing="0" role="grid" width="100%">
+                    <thead>
+                    <tr role="row">
+                        <th style="text-align: center;">ID</th>
+                        <th style="text-align: center;">fecha</th>
+                        <th style="text-align: center;">Hora</th>
+                        <th class="col-sm-2" style="text-align: center;">titular</th>
+                        <th style="text-align: center;">lead</th>
+                        <th style="text-align: center;">video</th>
+                        <th style="text-align: center;">imagenes</th>
+                        <th style="text-align: center;">autor</th>
+                        <th style="text-align: center;">tag</th>
+                        <th style="text-align: center;">categoria</th>
+                        <th style="text-align: center;">destacada</th>
+                        <th class="col-sm-2" style="text-align: center;">Acciones</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% if object_list %}
+                        {% for noticia in object_list %}
+                            <tr role="row">
+                                <td>{{ noticia.id }}</td>
+                                <td>{{ noticia.fecha }}</td>
+                                <td>{{ noticia.hora }}</td>
+                                <td>{{ noticia.titular }}</td>
+                                <td>{{ noticia.lead }}</td>
+                                <td>
+                                    {% if noticia.video %}
+                                        <a href="{{ noticia.video }}" target="_blank">Video</a>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+
+                                    {% for imagen in noticia.imagenes.all %}
+                                        <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" alt="Imagenes"
+                                             name="imagen_{{ imagen.id }}"
+                                             width="100px" height="100px">
+                                    {% endfor %}
+                                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">
+                                        &#10094;
+                                    </button>
+                                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">
+                                        &#10095;
+                                    </button>
+
+                                </td>
+
+                                <td>{{ noticia.autor.first_name }}</td>
+                                <td>
+                                    <ul>{% for tag in noticia.tag.all %}
+                                        <li>{{ tag.nombre }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </td>
+
+                                <td>
+                                    <ul>{% for categoria in noticia.categoria.all %}
+                                        <li>{{ categoria.nombre }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>{{ noticia.destacada }}</td>
+                                <td>
+                                    {% if perms.noticia.delete_noticia %}
+                                        <div class="btn-group">
+                                            <a class="btn btn-primary active"
+                                               href="{% url 'noticia:actualizar' noticia.id %}">Editar</a>
+                                            <button type="button"
+                                                    class=" btn btn-primary active dropdown-toggle"
+                                                    data-toggle="dropdown" aria-expanded="false">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+
+                                            <ul class="dropdown-menu" role="menu"
+                                                style="min-width: 104px; text-align: center;">
+                                                <li>
+                                                    <a class=" btn-danger btn-sm active" data-toggle=""
+                                                       href="{% url 'noticia:eliminar' noticia.id %}">Eliminar</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    {% else %}
+
+                                        <a class="btn btn-primary active"
+                                           href="{% url 'noticia:actualizar' noticia.id %}">Editar</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <h2>No hay registros</h2>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block extra_js %}
     <script type="text/javascript">
+
         /*var slideIndex = 1;
         showDivs(slideIndex);
 
         function plusDivs(n) {
-            showDivs(slideIndex += n);
+            showDivs(slideIndex += n)
         }
 
         function showDivs(n) {
-            var i;
+
             var x = document.getElementsByTagName('img');
 
-
             if (n > x.length) {
-                slideIndex = 1
+                slideIndex = 1;
             }
+
             if (n < 1) {
                 slideIndex = x.length
             }
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+
+            for (var i = 0; i < x.length; i++) {
+
+                x[i].style.display = 'none';
 
             }
 
-            x[slideIndex - 1].style.display = "block";
+            x[slideIndex - 1].style.display = 'block';
 
 
         }*/
+
     </script>
 {% endblock %}
 
