@@ -81,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="307">
-              <caret line="59" column="210" lean-forward="false" selection-start-line="59" selection-start-column="210" selection-end-line="59" selection-end-column="210" />
+              <caret line="59" column="193" lean-forward="false" selection-start-line="59" selection-start-column="193" selection-end-line="59" selection-end-column="193" />
               <folding />
             </state>
           </provider>
@@ -1090,7 +1090,7 @@
     <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
-          <caret line="59" column="210" lean-forward="false" selection-start-line="59" selection-start-column="210" selection-end-line="59" selection-end-column="210" />
+          <caret line="59" column="193" lean-forward="false" selection-start-line="59" selection-start-column="193" selection-end-line="59" selection-end-column="193" />
           <folding />
         </state>
       </provider>

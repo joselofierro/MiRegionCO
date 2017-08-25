@@ -57,7 +57,7 @@
                                         <div class="carousel-inner" role="listbox">
                                             {% for imagen in noticia.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
-                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" class="d-block img-fluid" name="imagen_{{ imagen.id }}" style="display: block; max-width: 100%; height:auto;">
+                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" class="d-block img-fluid" name="imagen_{{ imagen.id }}" style="display: block; max-width: 200px; height:auto;">
                                                 </div>
                                             {% endfor %}
                                         </div>
