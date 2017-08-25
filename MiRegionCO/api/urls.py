@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^eliminar_noticia/(?P<id_facebook>.+)/(?P<id_noticia>.+)$', eliminarnoticia, name='eliminar_noticia_usuario'),
     url(r'^guardar_sitio', sitiousuario, name='guardar_noticia_usuario'),
     url(r'^eliminar_sitio/(?P<id_facebook>.+)/(?P<id_sitio>.+)$', eliminarsitio, name='eliminar_noticia_usuario'),
-    # actualizar numero del sitio
+    # actualizar numero del usuario
     url(r'^actualizar_telefono', actualizartelefono, name='actualizar_telefono_sitio'),
     # estadistica (visualizar noticia)
     url(r'^visualizacion_noticia', ViewsNews.as_view(), name='visualizar_noticia_api'),
