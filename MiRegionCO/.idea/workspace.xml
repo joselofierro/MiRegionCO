@@ -80,8 +80,8 @@
       <file leaf-file-name="noticia_list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="60" column="125" lean-forward="true" selection-start-line="60" selection-start-column="125" selection-end-line="60" selection-end-column="125" />
+            <state relative-caret-position="307">
+              <caret line="59" column="210" lean-forward="false" selection-start-line="59" selection-start-column="210" selection-end-line="59" selection-end-column="210" />
               <folding />
             </state>
           </provider>
@@ -1089,8 +1089,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="60" column="125" lean-forward="true" selection-start-line="60" selection-start-column="125" selection-end-line="60" selection-end-column="125" />
+        <state relative-caret-position="307">
+          <caret line="59" column="210" lean-forward="false" selection-start-line="59" selection-start-column="210" selection-end-line="59" selection-end-column="210" />
           <folding />
         </state>
       </provider>
