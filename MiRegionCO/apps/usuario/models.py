@@ -1,7 +1,5 @@
 
 from django.db import models
-
-
 # Create your models here.
 from apps.noticia.models import Noticia
 from apps.sitio.models import Sitio
@@ -15,7 +13,7 @@ class Usuario(models.Model):
     telefono = models.BigIntegerField(blank=True, null=False, default=0)
     correo = models.EmailField(unique=True, blank=False, null=False)
     foto = models.TextField(blank=False, null=False)
-    noticias = models.ManyToManyField(Noticia, blank=True )
+    noticias = models.ManyToManyField(Noticia, blank=True)
     sitios = models.ManyToManyField(Sitio, blank=True)
 
     def __str__(self):

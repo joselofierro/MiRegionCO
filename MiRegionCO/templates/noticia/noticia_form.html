@@ -1,5 +1,13 @@
 {% extends 'base/base.html' %}
 {% load staticfiles %}
+
+{% block extracss %}
+    <style type="text/css">
+        .chkbox{
+            width: 20px;
+        }
+    </style>
+{% endblock %}
 {% block content %}
 
     <div class="col-md-12">
@@ -11,9 +19,9 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <div class="input-group date">
+                                <div class="input-group date" style="display: block;">
                                     {{ form.fecha.errors }}
                                     <label for="{{ form.fecha.id_for_label }}">Fecha</label>
                                     {{ form.fecha }}
@@ -23,9 +31,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <div class='input-group date'>
+                                <div class='input-group date' style="display:block;">
                                     {{ form.hora.errors }}
                                     <label for="{{ form.hora.id_for_label }}">Hora</label>
                                     {{ form.hora }}
