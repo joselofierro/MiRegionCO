@@ -4,6 +4,20 @@
     Noticias
 {% endblock %}
 
+{% block extracss %}
+    <style type="text/css">
+        @media screen and (max-width: 1446px ) {
+            .btn-group, .btn-group-vertical {
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                width:100px;
+            }
+
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -16,20 +30,20 @@
                 <table id="boxes" class="table table-striped table-bordered table-hover"
                        cellspacing="0" role="grid" width="100%">
                     <thead>
-                        <tr role="row">
-                            <th style="text-align: center;">ID</th>
-                            <th style="text-align: center;">fecha</th>
-                            <th style="text-align: center;">Hora</th>
-                            <th class="col-sm-2" style="text-align: center;">titular</th>
-                            <th style="text-align: center;">lead</th>
-                            <th style="text-align: center;">video</th>
-                            <th style="text-align: center;">imagenes</th>
-                            <th style="text-align: center;">autor</th>
-                            <th style="text-align: center;">tag</th>
-                            <th style="text-align: center;">categoria</th>
-                            <th style="text-align: center;">destacada</th>
-                            <th class="col-sm-3" style="text-align: center;">Acciones</th>
-                        </tr>
+                    <tr role="row">
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">ID</th>
+                        <th style="text-align: center;">fecha</th>
+                        <th style="text-align: center;">Hora</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">titular</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">lead</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">video</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">imagenes</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">autor</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">tag</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">categoria</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">destacada</th>
+                        <th class="col-md-3 col-sm-3 col-xs-3" style="text-align: center;">Acciones</th>
+                    </tr>
                     </thead>
 
                     <tbody>
@@ -55,7 +69,9 @@
                                         <div class="carousel-inner" role="listbox">
                                             {% for imagen in noticia.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
-                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" class="d-block img-fluid" name="imagen_{{ imagen.id }}" style="display: block; max-width: 200px; height:auto;">
+                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"
+                                                         class="d-block img-fluid" name="imagen_{{ imagen.id }}"
+                                                         style="display: block; max-width: 200px; height:auto;">
                                                 </div>
                                             {% endfor %}
                                         </div>
@@ -89,7 +105,7 @@
                                     </ul>
                                 </td>
                                 <td>{{ noticia.destacada }}</td>
-                                <td>
+                                <td role="row">
                                     {% if perms.noticia.delete_noticia %}
                                         <div class="btn-group">
                                             <a class="btn btn-primary active"
@@ -104,7 +120,7 @@
                                             <ul class="dropdown-menu" role="menu"
                                                 style="min-width: 104px; text-align: center;">
                                                 <li>
-                                                    <a class=" btn-danger btn-sm active" data-toggle=""
+                                                    <a class=" btn btn-danger btn-xs active" data-toggle=""
                                                        href="{% url 'noticia:eliminar' noticia.id %}">Eliminar</a>
                                                 </li>
                                             </ul>
