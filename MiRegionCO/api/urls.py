@@ -53,5 +53,6 @@ urlpatterns = [
     # creacion de notificaciones
     url(r'^fcm_create/$', FCM_CREATE, name='cotizaciones_vendedor'),
     url(r'^fcm_list/$', FCMDeviceViewSet.as_view({'get': 'list'}), name='cotizaciones_vendedor'),
+    url(r'^crear_sitio/$', CrearSitio, name='crear_sitio'),
 
 ]

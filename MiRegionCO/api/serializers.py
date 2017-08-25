@@ -70,6 +70,12 @@ class SitioSerializer(ModelSerializer):
             'imagenes', 'telefono', 'latitud', 'longitud')
 
 
+class CrearSitioSerializer(ModelSerializer):
+    class Meta:
+        model = Sitio
+        fields = '__all__'
+
+
 class SubcategoriaSitioSerializer(ModelSerializer):
     sitio = SitioSerializer(many=True)
 

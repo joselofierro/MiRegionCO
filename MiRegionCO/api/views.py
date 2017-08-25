@@ -3,15 +3,12 @@ from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 from fcm_django.models import FCMDevice
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.generics import *
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 
 from api.serializers import *
 from apps.categoria.models import Categoria
@@ -512,3 +509,15 @@ def FCM_CREATE(request):
                                           type=request.data['type'])
             fcm_devices_nuevo.save()
             return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def CrearSitio(request):
+    if request.method == 'POST':
+        serializer = CrearSitioSerializer(data=request.data, many=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data': 'OK'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'data': 'False', 'Errores': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
