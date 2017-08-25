@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Agregar autor que está en actual sesión y los tags en un solo campo">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/categoria/admin.py" afterPath="$PROJECT_DIR$/apps/categoria/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noticia/noticia_list.html" afterPath="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/views.py" afterPath="$PROJECT_DIR$/apps/noticia/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +35,23 @@
       <file leaf-file-name="noticia_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
+            <state relative-caret-position="330">
               <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="98" column="67" lean-forward="false" selection-start-line="98" selection-start-column="67" selection-end-line="98" selection-end-column="67" />
+              <folding>
+                <element signature="e#0#62#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,7 +77,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="noticia_list.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="noticia_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
@@ -178,7 +189,6 @@
         <option value="$PROJECT_DIR$/templates/sitio/sitio_form.html" />
         <option value="$PROJECT_DIR$/apps/sitio/views.py" />
         <option value="$PROJECT_DIR$/apps/grupo/views.py" />
-        <option value="$PROJECT_DIR$/apps/noticia/views.py" />
         <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
         <option value="$PROJECT_DIR$/apps/tag/models.py" />
         <option value="$PROJECT_DIR$/apps/imagen/admin.py" />
@@ -190,6 +200,7 @@
         <option value="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
         <option value="$PROJECT_DIR$/apps/categoria/admin.py" />
         <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
+        <option value="$PROJECT_DIR$/apps/noticia/views.py" />
       </list>
     </option>
   </component>
@@ -277,7 +288,7 @@
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="categoria" type="462c0819:PsiDirectoryNode" />
+              <item name="noticia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
@@ -995,24 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1476">
-          <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/sitio/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1057,17 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7230">
@@ -1081,6 +1063,35 @@
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="98" column="67" lean-forward="false" selection-start-line="98" selection-start-column="67" selection-end-line="98" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
