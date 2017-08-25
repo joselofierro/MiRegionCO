@@ -68,8 +68,7 @@
                                             {% for imagen in noticia.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
                                                     <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"
-                                                         class="d-block img-fluid" name="imagen_{{ imagen.id }}"
-                                                         width="100px" height="100px">
+                                                         class="d-block img-fluid" name="imagen_{{ imagen.id }}">
                                                 </div>
                                             {% endfor %}
                                         </div>
