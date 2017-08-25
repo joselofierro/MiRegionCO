@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Agregar autor que está en actual sesión y los tags en un solo campo">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/views.py" afterPath="$PROJECT_DIR$/apps/noticia/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noticia/noticia_list.html" afterPath="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="98" column="67" lean-forward="false" selection-start-line="98" selection-start-column="67" selection-end-line="98" selection-end-column="67" />
+            <state relative-caret-position="261">
+              <caret line="92" column="53" lean-forward="true" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="53" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -77,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="noticia_list.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="noticia_list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="60" column="125" lean-forward="true" selection-start-line="60" selection-start-column="125" selection-end-line="60" selection-end-column="125" />
               <folding />
             </state>
           </provider>
@@ -199,8 +199,8 @@
         <option value="$PROJECT_DIR$/templates/noticia/noticia_form.html" />
         <option value="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
         <option value="$PROJECT_DIR$/apps/categoria/admin.py" />
-        <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
         <option value="$PROJECT_DIR$/apps/noticia/views.py" />
+        <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
       </list>
     </option>
   </component>
@@ -1029,7 +1029,7 @@
         <state relative-caret-position="45">
           <caret line="3" column="43" lean-forward="false" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1058,14 +1058,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1087,11 +1079,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="98" column="67" lean-forward="false" selection-start-line="98" selection-start-column="67" selection-end-line="98" selection-end-column="67" />
+        <state relative-caret-position="261">
+          <caret line="92" column="53" lean-forward="true" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="53" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="60" column="125" lean-forward="true" selection-start-line="60" selection-start-column="125" selection-end-line="60" selection-end-column="125" />
+          <folding />
         </state>
       </provider>
     </entry>
