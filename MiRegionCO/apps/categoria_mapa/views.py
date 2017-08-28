@@ -23,6 +23,10 @@ class CategoriaMapaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVi
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_CATEGORIA_MAPA].clear()
+        return super(CategoriaMapaCreate, self).form_valid(form)
+
 
 class CategoriaMapaList(PermissionRequiredMixin, ListView):
     model = CategoriaMapa
@@ -49,6 +53,10 @@ class CategoriaMapaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateVi
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_CATEGORIA_MAPA].clear()
+        return super(CategoriaMapaUpdate, self).form_valid(form)
+
 
 class CategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = CategoriaMapa
@@ -60,5 +68,8 @@ class CategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteVi
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def post(self, request, *args, **kwargs):
+        caches[settings.CACHE_API_CATEGORIA_MAPA].clear()
 
 
