@@ -3,6 +3,8 @@ from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from fcm_django.models import FCMDevice
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -10,6 +12,7 @@ from rest_framework.generics import *
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from MiRegionCO import settings
 from api.serializers import *
 from apps.categoria.models import Categoria
 from apps.categoria_mapa.models import CategoriaMapa
@@ -77,7 +80,7 @@ class FacebookAPI(CreateAPIView):
     serializer_class = FacebookSerializer
 
 
-# @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
 class NewsFeed(ListAPIView):
     serializer_class = NoticiaSerializer
 
@@ -86,15 +89,17 @@ class NewsFeed(ListAPIView):
         return Noticia.objects.all().order_by('-fecha', '-hora')
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS_DESTACADAS), name='dispatch')
 class NoticiasDestacadasAPI(ListAPIView):
     serializer_class = NoticiaSerializer
 
     def get_queryset(self):
         # devuelva las noticias con destacado =  True
+        print('Aun no se ha cacheado')
         return Noticia.objects.filter(destacada=True).order_by('fecha', 'hora')
 
 
-# @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_NOTICIA), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_NOTICIAS), name='dispatch')
 class CategoriaNoticiasAPI(ListAPIView):
     serializer_class = CategoriaNoticiasSerializer
 
@@ -105,20 +110,21 @@ class CategoriaNoticiasAPI(ListAPIView):
 
 # 2 maneras de obtener parametros de url con clases basadas en vistas
 # devolver las noticias asociadas a la categoria x id
-# @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
 
     def get_queryset(self):
+        print('Aun no se ha cacheado')
         return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria']).order_by('-fecha', '-hora')
 
 
-# @method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
 class SitiosList(ListAPIView):
     serializer_class = SitioSerializer
 
     def get_queryset(self):
-        print('Aun no se a cacheado')
+        print('Aun no se ha cacheado')
         return Sitio.objects.all().order_by('nombre')
 
 
@@ -129,20 +135,21 @@ class SitiosList(ListAPIView):
         return Sitio.objects.filter(categoria__id=self.kwargs['id_categoria'])"""
 
 
-# @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
 class MapaListAPI(ListAPIView):
     serializer_class = CategoriaSitioSerializer
 
     def get_queryset(self):
-        print('Aun no se a cacheado')
+        print('Aun no se ha cacheado')
         return CategoriaMapa.objects.all()
 
 
-# @method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
 class UsuariosAPI(ListAPIView):
     serializer_class = UsuarioSerializer
 
     def get_queryset(self):
+        print('Aun no se ha cacheado')
         return Usuario.objects.all()
 
 
@@ -253,7 +260,7 @@ def login(request, p_correo, p_pass):
 
 
 # crear json del portafolio
-# @method_decorator(cache_page(None, cache=settings.CACHE_API_PORTAFOLIO), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_PORTAFOLIO), name='dispatch')
 class PortafolioAPI(APIView):
     def get(self, request, format=None):
 
@@ -363,6 +370,7 @@ def CrearCotizacion(id_cliente, request):
 
 
 # JSON DE COTIZACIONES
+@cache_page(None, cache=settings.CACHE_API_COTIZACIONES)
 @api_view(['GET'])
 def ListCotizaciones(request, id_vendedor):
     if request.method == 'GET':
@@ -520,4 +528,3 @@ def CrearSitio(request):
             return Response({'data': 'OK'}, status=status.HTTP_200_OK)
         else:
             return Response({'data': 'False', 'Errores': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
-

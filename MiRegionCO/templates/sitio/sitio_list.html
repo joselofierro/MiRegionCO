@@ -4,8 +4,22 @@
 {% block title %}
     Sitios
 {% endblock %}
-{% block content %}
 
+{% block extracss %}
+    <style type="text/css">
+        @media screen and (max-width: 1446px ) {
+            .btn-group, .btn-group-vertical {
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                width:100px;
+            }
+
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
@@ -45,8 +59,11 @@
                                 <td>{{ sitio.nombre }}</td>
                                 <td>{{ sitio.titulo }}</td>
                                 <td>{{ sitio.descripcion }}</td>
-                                <td><img src="{{ MEDIA_URL }} {{ sitio.logo.url }}" width="100px"
-                                         height="100px"></td>
+                                <td>
+                                    {% if sitio.logo %}
+                                        <img class="img-fluid d-block" src="{{ MEDIA_URL }} {{ sitio.logo.url }}" width="100px" height="100px">
+                                    {% endif %}
+                                </td>
                                 <td>{{ sitio.horario }}</td>
                                 <td>{{ sitio.direccion }}</td>
                                 <td>
@@ -66,7 +83,7 @@
                                         <div class="carousel-inner" role="listbox">
                                             {% for imagen in sitio.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
-                                                    <img class="d-block img-fluid" src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" width="100px" height="100px" name="imagen_{{ imagen.id }}">
+                                                    <img class="d-block img-fluid" src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"name="imagen_{{ imagen.id }}" style="display: block; max-width: 200px; height:auto;">
                                                 </div>
                                             {% endfor %}
                                         </div>
@@ -82,9 +99,9 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td>
-
-
+                                <td>{% for sitio in sitio.subcategoria.all %}
+                                        {{ sitio.nombre }}
+                                    {% endfor %}
                                 </td>
                                 <td>{{ sitio.latitud }}</td>
                                 <td>{{ sitio.longitud }}</td>

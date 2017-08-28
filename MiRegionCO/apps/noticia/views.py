@@ -1,10 +1,12 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.cache import caches
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import *
 
+from MiRegionCO import settings
 from apps.imagen.forms import ImagenForm
 from apps.imagen.models import Imagen
 from apps.noticia.forms import NoticiaForm
@@ -47,7 +49,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         if form.is_valid() and form2.is_valid():
             list_id_imagenes = []
             for index, f in enumerate(files):
-                imagen = Imagen(nombre=form.data['titular']+"_"+str(index), imagen=f)
+                imagen = Imagen(nombre=form.data['titular'] + "_" + str(index), imagen=f)
                 imagen.save()
                 list_id_imagenes.append(imagen)
 

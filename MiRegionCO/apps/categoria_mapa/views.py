@@ -33,6 +33,9 @@ class CategoriaMapaList(PermissionRequiredMixin, ListView):
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def get_queryset(self):
+        return CategoriaMapa.objects.order_by('nombre')
+
 
 class CategoriaMapaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     model = CategoriaMapa
@@ -57,3 +60,5 @@ class CategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteVi
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+

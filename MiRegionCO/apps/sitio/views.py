@@ -1,11 +1,13 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render
+from django.core.cache import caches
+
 
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import *
 
+from MiRegionCO import settings
 from apps.sitio.forms import SitioForm
 from apps.sitio.models import Sitio
 
@@ -29,6 +31,9 @@ class SitioList(PermissionRequiredMixin, ListView):
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def get_queryset(self):
+        return Sitio.objects.order_by('nombre')
 
 
 class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):

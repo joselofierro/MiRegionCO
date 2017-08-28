@@ -1,8 +1,10 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.cache import caches
 from django.urls import reverse_lazy
 from django.views.generic import *
 
+from MiRegionCO import settings
 from apps.categoria.forms import CategoriaForm
 from apps.categoria.models import Categoria
 
@@ -26,6 +28,9 @@ class CategoriaList(ListView):
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def get_queryset(self):
+        return Categoria.objects.order_by('nombre')
 
 
 class CategoriaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):

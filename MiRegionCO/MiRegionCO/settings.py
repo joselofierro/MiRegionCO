@@ -207,18 +207,77 @@ FCM_DJANGO_SETTINGS = {
 
 # Cache
 CACHE_API_CATEGORIA_MAPA = 'api_categoria_mapa'
-CACHE_API_CATEGORIA_NOTICIA = 'api_categoria_noticia'
+CACHE_API_CATEGORIA_NOTICIAS = 'api_categoria_noticias'
 CACHE_API_NOTICIAS = 'api_noticias'
+CACHE_API_NOTICIAS_DESTACADAS = 'api_noticias_destacadas'
+CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
 CACHE_API_SITIOS = 'api_sitios'
 CACHE_API_PORTAFOLIO = 'api_portafolio'
+CACHE_API_COTIZACIONES = 'api_cotizaciones'
 CACHE_API_USUARIOS = 'api_usuarios'
-CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
 CACHES = {
 
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/default',
         'TIMEOUT': None
+    },
+
+    CACHE_API_CATEGORIA_MAPA: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/categoria_mapa',
+        'TIMEOUT': None
+
+    },
+    CACHE_API_NOTICIAS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_NOTICIAS_DESTACADAS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias_destacadas',
+        'TIMEOUT': None
+
+    },
+    CACHE_API_NOTICIASXCATEGORIA: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticiasxcategoria',
+        'TIMEOUT': None
+    },
+    CACHE_API_CATEGORIA_NOTICIAS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/categoria_noticias',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_SITIOS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/sitios',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_PORTAFOLIO: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/portafolio',
+        'TIMEOUT': None
+
+    },
+    CACHE_API_COTIZACIONES: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/cotizaciones',
+        'TIMEOUT': None
+
+    },
+    CACHE_API_USUARIOS: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/usuarios',
+        'TIMEOUT': None
 
     }
+
 }
