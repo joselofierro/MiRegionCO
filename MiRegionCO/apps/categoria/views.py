@@ -20,6 +20,10 @@ class CategoriaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_CATEGORIA_NOTICIAS].clear()
+        return super(CategoriaCreate, self).form_valid(form)
+
 
 class CategoriaList(ListView):
     model = Categoria
@@ -44,6 +48,10 @@ class CategoriaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_CATEGORIA_NOTICIAS].clear()
+        return super(CategoriaUpdate, self).form_valid(form)
+
 
 class CategoriaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Categoria
@@ -54,3 +62,7 @@ class CategoriaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def post(self, request, *args, **kwargs):
+        caches[settings.CACHE_API_CATEGORIA_NOTICIAS].clear()
+        return super(CategoriaDelete, self).post(args, kwargs)

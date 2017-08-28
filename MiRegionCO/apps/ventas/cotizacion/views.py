@@ -26,6 +26,10 @@ class CotizacionCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView)
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_COTIZACIONES].clear()
+        return super(CotizacionCreate, self).form_valid(form)
+
 
 class CotizacionList(PermissionRequiredMixin, ListView):
     model = Cotizacion
@@ -51,6 +55,10 @@ class CotizacionUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView)
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_COTIZACIONES].clear()
+        return super(CotizacionUpdate, self).form_valid(form)
+
 
 class CotizacionDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Cotizacion
@@ -63,3 +71,7 @@ class CotizacionDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView)
     # si no tengo los permisos me redirige al login
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def post(self, request, *args, **kwargs):
+        caches[settings.CACHE_API_COTIZACIONES].clear()
+        return super(CotizacionDelete, self).post(args, kwargs)

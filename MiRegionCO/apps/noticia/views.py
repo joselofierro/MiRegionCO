@@ -80,6 +80,10 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_NOTICIAS].clear()
+        return super(NoticiaCreate, self).form_valid(form)
+
 
 class NoticiaList(PermissionRequiredMixin, ListView):
     model = Noticia
@@ -176,6 +180,10 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         else:
             return render(request, self.template_name, {'form': form_noticia, 'form2': form2})
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_NOTICIAS].clear()
+        return super(NoticiaUpdate, self).form_valid(form)
+
 
 class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Noticia
@@ -188,3 +196,7 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     # si no tengo los permisos me redirige al login
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def post(self, request, *args, **kwargs):
+        caches[settings.CACHE_API_NOTICIAS].clear()
+        return super(NoticiaDelete, self).post(args, kwargs)

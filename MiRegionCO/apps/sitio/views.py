@@ -23,6 +23,10 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_SITIOS].clear()
+        return super(SitioCreate, self).form_valid(form)
+
 
 class SitioList(PermissionRequiredMixin, ListView):
     model = Sitio
@@ -47,6 +51,10 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
 
+    def form_valid(self, form):
+        caches[settings.CACHE_API_SITIOS].clear()
+        return super(SitioUpdate, self).form_valid(form)
+
 
 class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Sitio
@@ -57,3 +65,7 @@ class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def post(self, request, *args, **kwargs):
+        caches[settings.CACHE_API_SITIOS].clear()
+        return super(SitioDelete, self).post(args, kwargs)

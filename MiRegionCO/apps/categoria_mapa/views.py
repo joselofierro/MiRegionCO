@@ -71,5 +71,6 @@ class CategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteVi
 
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_CATEGORIA_MAPA].clear()
+        return super(CategoriaMapaDelete, self).post(args, kwargs)
 
 
