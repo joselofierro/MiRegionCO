@@ -5,7 +5,7 @@ from apps.subcategoria_mapa.models import SubcategoriaMapa
 
 
 class Sitio(models.Model):
-    nombre = models.CharField(max_length=30, blank=False, null=False)
+    nombre = models.CharField(max_length=100, blank=False, null=False)
     titulo = models.CharField(max_length=150, blank=False, null=False)
     descripcion = models.TextField(max_length=100, blank=False, null=False)
     logo = models.ImageField(blank=True, null=True)
