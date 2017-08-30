@@ -16,7 +16,7 @@ class NoticiaForm(forms.ModelForm):
             'video',
             'duracion',
             'categoria',
-            'destacada'
+            'destacada',
         ]
 
         labels = {
@@ -29,7 +29,8 @@ class NoticiaForm(forms.ModelForm):
             'video': 'Video',
             'duracion': 'Duracion',
             'categoria': 'Categoria',
-            'destacada': '¿Es destacada?'
+            'destacada': '¿Es destacada?',
+
 
         }
 

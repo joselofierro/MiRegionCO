@@ -21,6 +21,7 @@ class Noticia(models.Model):
     tag = models.ManyToManyField(Tag)
     categoria = models.ManyToManyField(Categoria, related_name='categoria')
     destacada = models.BooleanField(default=False, blank=False, null=False)
+    visible = models.BooleanField(default=True)
 
     def __str__(self):
         return self.titular

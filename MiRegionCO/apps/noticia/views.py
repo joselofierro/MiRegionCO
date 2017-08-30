@@ -1,8 +1,9 @@
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import *
 
@@ -96,15 +97,15 @@ class NoticiaList(PermissionRequiredMixin, ListView):
     def get_queryset(self):
 
         if self.request.user.groups.filter(name="Administrador"):
-            return Noticia.objects.all().order_by('-fecha', '-hora')
+            return Noticia.objects.filter(visible=True).order_by('-fecha', '-hora')
 
         elif self.request.user.groups.filter(name="SupervisorEscritor"):
-            return Noticia.objects.all().order_by('-fecha', '-hora')
+            return Noticia.objects.filter(visible=True).order_by('-fecha', '-hora')
 
         elif self.request.user.groups.filter(name='Escritor'):
-            return Noticia.objects.all().order_by('-fecha', '-hora')
+            return Noticia.objects.filter(autor=self.request.user, visible=True).order_by('-fecha', '-hora')
         else:
-            return Noticia.objects.filter(autor=self.request.user)
+            return Noticia.objects.filter(autor=self.request.user, visible=True)
 
 
 class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -200,3 +201,14 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_NOTICIAS].clear()
         return super(NoticiaDelete, self).post(args, kwargs)
+
+
+@permission_required(login_url='/', perm='noticia.add_noticia, noticia.change_noticia',
+                     raise_exception=False)
+def eliminarnoticia(request, pk):
+    if request.method == 'POST':
+        caches[settings.CACHE_API_NOTICIAS].clear()
+        noticia_obj = Noticia.objects.get(id=pk)
+        noticia_obj.visible = False
+        noticia_obj.save()
+        return redirect('noticia:listar')

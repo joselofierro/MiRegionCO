@@ -86,7 +86,7 @@ class NewsFeed(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Noticia.objects.all().order_by('-fecha', '-hora')
+        return Noticia.objects.filter(visible=True).order_by('-fecha', '-hora')
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS_DESTACADAS), name='dispatch')
@@ -116,7 +116,7 @@ class NoticiasCategoriaListId(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria']).order_by('-fecha', '-hora')
+        return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria'], visible=True).order_by('-fecha', '-hora')
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
