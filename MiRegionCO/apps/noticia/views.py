@@ -95,7 +95,6 @@ class NoticiaList(PermissionRequiredMixin, ListView):
     redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
-
         if self.request.user.groups.filter(name="Administrador"):
             return Noticia.objects.filter(visible=True).order_by('-fecha', '-hora')
 

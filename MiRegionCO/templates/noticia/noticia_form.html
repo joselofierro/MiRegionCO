@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 {{ form2.imagen.errors }}
                                 <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 {{ form.url.errors }}
                                 <label for="{{ form.url.id_for_label }}">URL</label>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 {{ form.video.errors }}
                                 <label for="{{ form.video.id_for_label }}">Video</label>
@@ -98,7 +98,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="id_tags">Tags</label>
                                 {% if noticia.tag %}
@@ -113,7 +113,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 {{ form.categoria.errors }}
                                 <label for="{{ form.categoria.id_for_label }}">Categoria</label>
@@ -121,7 +121,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="autor">Autor</label>
                                 <input class="form-control" value="{{ user.first_name }} {{ user.last_name }}"
@@ -130,7 +130,7 @@
                         </div>
 
 
-                        <div class="col-md-3" style="margin-top: 2%;">
+                        <div class="col-md-4" style="margin-top: 2%;">
                             <div class="form-group">
                                 <div class="checkbox-inline">
                                     {{ form.destacada.errors }}
