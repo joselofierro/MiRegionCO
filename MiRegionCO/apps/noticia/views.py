@@ -202,6 +202,7 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
         return super(NoticiaDelete, self).post(args, kwargs)
 
 
+# ACCION PARA OCULTAR NOTICIA
 @permission_required(login_url='/', perm='noticia.add_noticia, noticia.change_noticia',
                      raise_exception=False)
 def eliminarnoticia(request, pk):
