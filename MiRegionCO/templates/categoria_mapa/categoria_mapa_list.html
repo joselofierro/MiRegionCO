@@ -9,7 +9,8 @@
                         <h4 class="title" style="margin-bottom: 22px;">Listado de categoria de mapas</h4>
                     </div>
 
-                    <a href="{% url 'mapa:categoria_crear' %}" class="btn btn-primary active">Crear categoria de mapa</a>
+                    <a href="{% url 'mapa:categoria_crear' %}" class="btn btn-primary active">Crear categoria de
+                        mapa</a>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
                             <thead>
@@ -29,11 +30,15 @@
                                         <td>{{ categoria_mapa.id }}</td>
                                         <td>{{ categoria_mapa.nombre }}</td>
                                         <td>
-                                            <img src="{{ MEDIA_URL }}{{ categoria_mapa.imagen.url }}" width="100px" height="100px">
+                                            <img src="{{ MEDIA_URL }}{{ categoria_mapa.imagen.url }}" width="100px"
+                                                 height="100px">
                                         </td>
-                                        <td>{% for subcategoria in categoria_mapa.subcategoria_mapa.all  %}
-                                                {{ subcategoria.nombre }}
-                                            {% endfor %}
+                                        <td>
+                                            <ul>
+                                                {% for subcategoria in categoria_mapa.subcategoria_mapa.all %}
+                                                    <li>{{ subcategoria.id }}-{{ subcategoria.nombre }}</li>
+                                                {% endfor %}
+                                            </ul>
                                         </td>
                                         <td>
                                             <a class="btn btn-primary active"
