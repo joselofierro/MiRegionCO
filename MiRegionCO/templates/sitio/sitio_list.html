@@ -38,17 +38,17 @@
                         <th style="text-align: center;">Nombre</th>
                         <th style="text-align: center;">Titulo</th>
                         <th style="text-align: center;">Descripcion</th>
-                        <th style="text-align: center;">Logo</th>
-                        <th style="text-align: center;">Horario</th>
-                        <th style="text-align: center;">Direccion</th>
-                        <th style="text-align: center;">Instagram</th>
-                        <th style="text-align: center;">Facebook</th>
-                        <th style="text-align: center;">Telefono</th>
-                        <th style="text-align: center;">Imagenes</th>
-                        <th style="text-align: center;">Subcategoria</th>
-                        <th style="text-align: center;">Latitud</th>
-                        <th style="text-align: center;">Longitud</th>
-                        <th class="col-sm-3" style="text-align: center;">Acciones</th>
+                        <th class="col-md-1" style="text-align: center;">Logo</th>
+                        <th class="col-md-1" style="text-align: center;">Horario</th>
+                        <th class="col-md-1" style="text-align: center;">Direccion</th>
+                        <th class="col-md-1" style="text-align: center;">Instagram</th>
+                        <th class="col-md-1" style="text-align: center;">Facebook</th>
+                        <th class="col-md-1" style="text-align: center;">Telefono</th>
+                        <th class="col-md-1" style="text-align: center;">Imagenes</th>
+                        <th class="col-md-1" style="text-align: center;">Subcategoria</th>
+                        <th class="col-md-1" style="text-align: center;">Latitud</th>
+                        <th class="col-md-1" style="text-align: center;">Longitud</th>
+                        <th  class="col-md-3" style="text-align: center;">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -83,7 +83,7 @@
                                         <div class="carousel-inner" role="listbox">
                                             {% for imagen in sitio.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
-                                                    <img class="d-block img-fluid" src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"name="imagen_{{ imagen.id }}" style="display: block; max-width: 200px; height:auto;">
+                                                    <img class="d-block img-fluid" src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"name="imagen_{{ imagen.id }}" style="display: block; max-width: 100px; height:auto;">
                                                 </div>
                                             {% endfor %}
                                         </div>
