@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'storages',
     'fcm_django',
+    'watermarker',
+
 ]
 
 MIDDLEWARE = [

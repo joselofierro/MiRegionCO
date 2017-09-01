@@ -1,5 +1,8 @@
 {% extends 'base/base.html' %}
+{% load watermark %}
 {% load staticfiles %}
+
+
 {% block title %}
     Noticias
 {% endblock %}
@@ -62,15 +65,13 @@
                                 </td>
 
                                 <td>
-
                                     <div id="carouselExampleControls{{ noticia.id }}" class="carousel slide"
                                          data-ride="carousel">
 
                                         <div class="carousel-inner" role="listbox">
                                             {% for imagen in noticia.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
-                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"
-                                                         class="d-block img-fluid" name="imagen_{{ imagen.id }}"
+                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url|watermark:'regionco,position=50%x50%,opacity=45' }}" class="d-block img-fluid" name="imagen_{{ imagen.id }}"
                                                          style="display: block; max-width: 200px; height:auto;">
                                                 </div>
                                             {% endfor %}
@@ -120,9 +121,12 @@
                                             <ul class="dropdown-menu" role="menu"
                                                 style="min-width: 104px; text-align: center;">
                                                 <li>
-                                                    <form action="{% url 'noticia:eliminar' noticia.id %}" method="post">
+                                                    <form action="{% url 'noticia:eliminar' noticia.id %}"
+                                                          method="post">
                                                         {% csrf_token %}
-                                                        <input type="submit" class=" btn btn-danger btn-xs active" data-toggle="" value="Eliminar" style="width: 100%; height: 38px; border-radius: 10px">
+                                                        <input type="submit" class=" btn btn-danger btn-xs active"
+                                                               data-toggle="" value="Eliminar"
+                                                               style="width: 100%; height: 38px; border-radius: 10px">
                                                     </form>
                                                 </li>
                                             </ul>
