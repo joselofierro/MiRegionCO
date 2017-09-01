@@ -193,5 +193,4 @@ class FacebookSerializer(ModelSerializer):
 class IngresoLoginSerializer(ModelSerializer):
     class Meta:
         model = IngresoLogin
-        fields = ('usuario', 'sitio', 'dispositivo')
-
+        fields = ('usuario', 'dispositivo')
