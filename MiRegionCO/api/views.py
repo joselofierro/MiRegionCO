@@ -80,6 +80,10 @@ class FacebookAPI(CreateAPIView):
     serializer_class = FacebookSerializer
 
 
+class LoginUserAPI(CreateAPIView):
+    serializer_class = IngresoLoginSerializer
+
+
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
 class NewsFeed(ListAPIView):
     serializer_class = NoticiaSerializer
@@ -116,7 +120,8 @@ class NoticiasCategoriaListId(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria'], visible=True).order_by('-fecha', '-hora')
+        return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria'], visible=True).order_by('-fecha',
+                                                                                                        '-hora')
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
@@ -187,6 +192,18 @@ def eliminarnoticia(request, id_facebook, id_noticia):
     except Exception as ex:
 
         return Response({'data': ex}, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Crear Sitios
+@api_view(['POST'])
+def CrearSitio(request):
+    if request.method == 'POST':
+        serializer = CrearSitioSerializer(data=request.data, many=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data': 'OK'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'data': 'False', 'Errores': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
 # agregar el sitio al usuario
@@ -517,16 +534,3 @@ def FCM_CREATE(request):
                                           type=request.data['type'])
             fcm_devices_nuevo.save()
             return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
-
-
-@api_view(['POST'])
-def CrearSitio(request):
-    if request.method == 'POST':
-        serializer = CrearSitioSerializer(data=request.data, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({'data': 'OK'}, status=status.HTTP_200_OK)
-        else:
-            return Response({'data': 'False', 'Errores': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
-
-

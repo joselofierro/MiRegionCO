@@ -56,6 +56,13 @@ def Ingresos(opcion_escogida):
     return {'labels': labels, 'datos': [cantidad_ingresos], 'titulo': opcion_escogida}
 
 
+def IngresoLogin(opcion_escogida):
+    cantidad_ingresos = IngresoLogin.objects.all().count()
+    labels = ['IngresoLogin']
+
+    return {'labels': labels, 'datos': [cantidad_ingresos], 'titulo': opcion_escogida}
+
+
 def IngresosVSFacebook(opcion_escogida):
     cantidad_ingresos = Ingreso.objects.all().count()
     cantidad_facebook = FacebookSitio.objects.all().count()
@@ -76,7 +83,7 @@ def IngresosVSInstagram(opcion_escogida):
 def Estadisticas(request):
     lista_opciones = ['Ingreso Vs Visualizaciones', 'Ingresos Vs Comparten', 'Ingresos Vs Guardan',
                       'Ingresos Vs Visitan', 'Ingresos Vs Llaman', 'Ingresos Vs Facebook', 'Ingresos Vs Instagram',
-                      'Ingresos']
+                      'Ingresos', 'IngresoLogin']
 
     if request.method == 'GET':
         return render(request, 'estadistica/chart.html', {'opciones': lista_opciones}, content_type='text/html')
@@ -105,5 +112,7 @@ def Estadisticas(request):
             diccionario = IngresosVSInstagram(opcion_escogida)
         elif index == 7:
             diccionario = Ingresos(opcion_escogida)
+        elif index == 8:
+            diccionario = IngresoLogin(opcion_escogida)
 
         return render(request, 'estadistica/chart.html', diccionario, content_type='text/html')
