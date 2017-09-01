@@ -48,7 +48,7 @@
                         <th  style="text-align: center;">Subcategoria</th>
                         <th  style="text-align: center;">Latitud</th>
                         <th style="text-align: center;">Longitud</th>
-                        <th style="text-align: center; width: 100%!important;">Acciones</th>
+                        <th style="text-align: center; width: 100%;">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -106,7 +106,7 @@
                                 <td>{{ sitio.latitud }}</td>
                                 <td>{{ sitio.longitud }}</td>
 
-                                <td>
+                                <td style="width: 100%;">
                                     <div class="btn-group">
                                         <a class="btn btn-primary active"
                                            href="{% url 'sitio:editar' sitio.id %}">Editar</a>
