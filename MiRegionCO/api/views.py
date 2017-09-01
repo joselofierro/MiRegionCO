@@ -528,3 +528,5 @@ def CrearSitio(request):
             return Response({'data': 'OK'}, status=status.HTTP_200_OK)
         else:
             return Response({'data': 'False', 'Errores': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+

@@ -89,7 +89,7 @@ class CategoriaSitioSerializer(ModelSerializer):
 
     class Meta:
         model = CategoriaMapa
-        fields = ('id', 'nombre', 'imagen', 'subcategoria_mapa')
+        fields = ('id', 'nombre', 'imagen', 'subcategoria_mapa', 'icono_marcador')
 
 
 class UsuarioSerializer(ModelSerializer):
