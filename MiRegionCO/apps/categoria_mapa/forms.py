@@ -11,14 +11,16 @@ class MapaForm(forms.ModelForm):
             'nombre',
             'imagen',
             'subcategoria_mapa',
-            'icono_marcador'
+            'icono_marcador',
+            'icono'
         ]
 
         labels = {
             'nombre': 'Nombre',
             'imagen': 'Imagen',
             'subcategoria_mapa': 'Subcategoria',
-            'icono_marcador': 'Marcador'
+            'icono_marcador': 'Marcador',
+            'icono':'Icono'
         }
 
         widgets = {

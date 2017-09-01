@@ -18,6 +18,7 @@ class CategoriaMapa(models.Model):
     imagen = models.ImageField(blank=False, null=False, upload_to=upload_location)
     subcategoria_mapa = models.ManyToManyField(SubcategoriaMapa)
     icono_marcador = models.ImageField(blank=False, null=False, upload_to=upload_location_2)
+    icono = models.ImageField(blank=False, null=False, upload_to=upload_location_2)
 
     def __str__(self):
         return self.nombre
