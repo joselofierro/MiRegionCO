@@ -10,13 +10,15 @@ class MapaForm(forms.ModelForm):
         fields = [
             'nombre',
             'imagen',
-            'subcategoria_mapa'
+            'subcategoria_mapa',
+            'icono_marcador'
         ]
 
         labels = {
             'nombre': 'Nombre',
             'imagen': 'Imagen',
-            'subcategoria_mapa': 'Subcategoria'
+            'subcategoria_mapa': 'Subcategoria',
+            'icono_marcador': 'Marcador'
         }
 
         widgets = {
