@@ -28,6 +28,7 @@ urlpatterns = [
     # guardar noticia al usuario
     url(r'^guardar_noticia', noticiausuario, name='guardar_noticia_usuario'),
     url(r'^eliminar_noticia/(?P<id_facebook>.+)/(?P<id_noticia>.+)$', eliminarnoticia, name='eliminar_noticia_usuario'),
+    url(r'^crear_sitio/$', CrearSitio, name='crear_sitio'),
     url(r'^guardar_sitio', sitiousuario, name='guardar_noticia_usuario'),
     url(r'^eliminar_sitio/(?P<id_facebook>.+)/(?P<id_sitio>.+)$', eliminarsitio, name='eliminar_noticia_usuario'),
     # actualizar numero del usuario
@@ -41,6 +42,7 @@ urlpatterns = [
     url(r'^ingreso', Login.as_view(), name='ingreso_api'),
     url(r'^facebook_sitio', FacebookAPI.as_view(), name='ingreso_api'),
     url(r'^instagram_sitio', InstagramAPI.as_view(), name='ingreso_api'),
+    url(r'^usuario_vista_login/$', LoginUserAPI.as_view(), name='usuario_vista_login'),
 
     # urls de Apis mi region_ventas
     url(r'^login/(?P<p_correo>.+)/(?P<p_pass>.+)$', login, name='login_vendedor'),
@@ -53,7 +55,5 @@ urlpatterns = [
     # creacion de notificaciones
     url(r'^fcm_create/$', FCM_CREATE, name='cotizaciones_vendedor'),
     url(r'^fcm_list/$', FCMDeviceViewSet.as_view({'get': 'list'}), name='cotizaciones_vendedor'),
-    url(r'^crear_sitio/$', CrearSitio, name='crear_sitio'),
-    url(r'^usuario_vista_login/$', LoginUserAPI.as_view(), name='usuario_vista_login'),
 
 ]
