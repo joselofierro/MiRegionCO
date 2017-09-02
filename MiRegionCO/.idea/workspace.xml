@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Agregar autor que está en actual sesión y los tags en un solo campo">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" afterPath="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,12 +22,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
               <caret line="148" column="54" lean-forward="false" selection-start-line="148" selection-start-column="54" selection-end-line="148" selection-end-column="54" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoria_mapa_list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="36" column="71" lean-forward="false" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+              <folding>
+                <element signature="e#1890#1914#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -193,7 +205,6 @@
         <option value="$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/watermarker/templatetags/watermark.py" />
         <option value="$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/watermarker/models.py" />
         <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
-        <option value="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" />
         <option value="$PROJECT_DIR$/apps/estadistica/models.py" />
         <option value="$PROJECT_DIR$/apps/estadistica/views.py" />
         <option value="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
@@ -205,6 +216,7 @@
         <option value="$PROJECT_DIR$/templates/noticia/noticia_form.html" />
         <option value="$PROJECT_DIR$/apps/categoria_mapa/models.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" />
       </list>
     </option>
   </component>
@@ -289,12 +301,18 @@
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="categoria_mapa" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -975,14 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="38" column="78" lean-forward="false" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/ventas/cliente/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1125,6 +1135,16 @@
         <state relative-caret-position="261">
           <caret line="148" column="54" lean-forward="false" selection-start-line="148" selection-start-column="54" selection-end-line="148" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="36" column="71" lean-forward="false" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+          <folding>
+            <element signature="e#1890#1914#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -34,7 +34,7 @@
                                                  height="100px">
                                         </td>
                                         <td>
-                                            <ul>
+                                            <ul style="list-style: none">
                                                 {% for subcategoria in categoria_mapa.subcategoria_mapa.all %}
                                                     <li>{{ subcategoria.id }}-{{ subcategoria.nombre }}</li>
                                                 {% endfor %}
