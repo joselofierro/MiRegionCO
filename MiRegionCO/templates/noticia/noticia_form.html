@@ -37,7 +37,7 @@
         }(document, 'script', 'facebook-jssdk'));
 
         function ConsultarVideo() {
-            idVideo = document.getElementById("id_video");
+            var idVideo = document.getElementById("id_video");
             FB.api(
                 '/' + idVideo.value,
                 'GET',
