@@ -43,9 +43,9 @@
                 'GET',
                 {"fields": "source"},
                 function (response) {
-                    if (response.source === undefined){
+                    if (response.source === undefined) {
                         idVideo.value = "No se ha encontrado video"
-                    }else{
+                    } else {
                         idVideo.value = response.source
                     }
                 }
@@ -53,10 +53,11 @@
         }
     </script>
 
-    <div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="login_with"
-         data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+
     <div class="col-md-12">
         <div class="card">
+            <div style="margin-top: 10px;" class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="login_with"
+                 data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
             <div class="header">
                 <h4 class="title">Registrar noticia</h4>
             </div>
@@ -139,7 +140,10 @@
                             <div class="form-group">
                                 {{ form.video.errors }}
                                 <label for="{{ form.video.id_for_label }}">Video</label>
-                                {{ form.video }}<button style="margin-top: 9px; border-radius: 13px;" class="btn btn-sm btn-danger active" onclick="ConsultarVideo()">Agregar URL</button>
+                                {{ form.video }}
+                                <button style="margin-top: 9px; border-radius: 13px;"
+                                        class="btn btn-sm btn-danger active" onclick="ConsultarVideo()">Agregar URL
+                                </button>
                             </div>
                         </div>
 
