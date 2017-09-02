@@ -146,7 +146,7 @@ class MapaListAPI(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return CategoriaMapa.objects.all()
+        return CategoriaMapa.objects.order_by('nombre')
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
