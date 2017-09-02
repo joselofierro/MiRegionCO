@@ -100,7 +100,7 @@ class NoticiasDestacadasAPI(ListAPIView):
     def get_queryset(self):
         # devuelva las noticias con destacado =  True
         print('Aun no se ha cacheado')
-        return Noticia.objects.filter(destacada=True).order_by('fecha', 'hora')
+        return Noticia.objects.filter(destacada=True, visible=True).order_by('fecha', 'hora')
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_NOTICIAS), name='dispatch')
