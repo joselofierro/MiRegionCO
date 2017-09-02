@@ -13,12 +13,17 @@ def upload_location_2(instance, filename):
     return "%s/%s.%s" % ('Icono_marcador_Categoria_mapa', instance.nombre, extension)
 
 
+def upload_location_3(instance, filename):
+    filebase, extension = filename.split(".")
+    return "%s/%s.%s" % ('Iconos', instance.nombre, extension)
+
+
 class CategoriaMapa(models.Model):
     nombre = models.CharField(max_length=30, blank=False, null=False)
     imagen = models.ImageField(blank=False, null=False, upload_to=upload_location)
     subcategoria_mapa = models.ManyToManyField(SubcategoriaMapa)
     icono_marcador = models.ImageField(blank=False, null=False, upload_to=upload_location_2)
-    icono = models.ImageField(blank=False, null=False, upload_to=upload_location_2)
+    icono = models.ImageField(blank=False, null=False, upload_to=upload_location_3)
 
     def __str__(self):
         return self.nombre
