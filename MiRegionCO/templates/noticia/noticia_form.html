@@ -13,12 +13,15 @@
     <script>
         window.fbAsyncInit = function () {
             FB.init({
-                appId: 'your-app-id',
+                appId: '311007229311399',
                 autoLogAppEvents: true,
                 xfbml: true,
                 version: 'v2.10'
             });
             FB.AppEvents.logPageView();
+            FB.login(function (response) {
+            });
+
         };
 
         (function (d, s, id) {
@@ -26,13 +29,32 @@
             if (d.getElementById(id)) {
                 return;
             }
+
             js = d.createElement(s);
             js.id = id;
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+        function ConsultarVideo() {
+            idVideo = document.getElementById("id_video");
+            FB.api(
+                '/' + idVideo.value,
+                'GET',
+                {"fields": "source"},
+                function (response) {
+                    if (response.source === undefined){
+                        idVideo.value = "No se ha encontrado video"
+                    }else{
+                        idVideo.value = response.source
+                    }
+                }
+            );
+        }
     </script>
 
+    <div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="login_with"
+         data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
     <div class="col-md-12">
         <div class="card">
             <div class="header">
@@ -118,6 +140,7 @@
                                 {{ form.video.errors }}
                                 <label for="{{ form.video.id_for_label }}">Video</label>
                                 {{ form.video }}
+                                <button onclick="ConsultarVideo()">Prueba</button>
                             </div>
                         </div>
 
