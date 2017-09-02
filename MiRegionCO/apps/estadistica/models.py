@@ -69,7 +69,6 @@ class Ingreso(models.Model):
 
 
 class IngresoLogin(models.Model):
-    usuario = models.ForeignKey(Usuario, blank=True, null=True)
     fecha = models.DateField(auto_now_add=True, blank=False)
     hora = models.TimeField(auto_now_add=True, blank=False)
     dispositivo = models.IntegerField(blank=False, null=False)
