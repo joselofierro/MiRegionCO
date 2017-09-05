@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'storages',
     'fcm_django',
-    'watermarker',
 
 ]
 
@@ -215,6 +214,7 @@ CACHE_API_CATEGORIA_NOTICIAS = 'api_categoria_noticias'
 CACHE_API_NOTICIAS = 'api_noticias'
 CACHE_API_NOTICIAS_DESTACADAS = 'api_noticias_destacadas'
 CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
+CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA = 'api_noticias_destacadas_categoria'
 CACHE_API_SITIOS = 'api_sitios'
 CACHE_API_PORTAFOLIO = 'api_portafolio'
 CACHE_API_COTIZACIONES = 'api_cotizaciones'
@@ -282,6 +282,11 @@ CACHES = {
         'LOCATION': '/var/tmp/django_cache/api/usuarios',
         'TIMEOUT': None
 
+    },
+    CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA:{
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias_destacadas_categoria',
+        'TIMEOUT': None
     }
 
 }

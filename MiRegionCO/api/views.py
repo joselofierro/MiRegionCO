@@ -104,6 +104,18 @@ class NoticiasDestacadasAPI(ListAPIView):
         return Noticia.objects.filter(destacada=True, visible=True).order_by('fecha', 'hora')
 
 
+# Mostrar las noticias destacadas por categoria
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA), name='dispatch')
+class NoticiasDestacadasCategoriaAPI(ListAPIView):
+    serializer_class = NoticiaSerializer
+
+    def get_queryset(self):
+        # devuelva las noticias con destacado =  True
+        print('Aun no se ha cacheado')
+        return Noticia.objects.filter(destacada=True, visible=True, categoria=self.kwargs['id_categoria']).order_by(
+            'fecha', 'hora')
+
+
 @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_NOTICIAS), name='dispatch')
 class CategoriaNoticiasAPI(ListAPIView):
     serializer_class = CategoriaNoticiasSerializer

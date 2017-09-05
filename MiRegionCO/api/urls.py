@@ -19,6 +19,7 @@ urlpatterns = [
     # url(r'^mapa/(?P<id_categoria>.+)$', MapaCategoriaList.as_view(), name='noticias_api'),
     # noticias destacadas
     url(r'^noticias_destacadas', NoticiasDestacadasAPI.as_view(), name='noticias_destacadas_api'),
+    url(r'^noticias_destacadas_categoria/(?P<id_categoria>.+)/$', NoticiasDestacadasCategoriaAPI.as_view(), name='noticias_destacadas_categoria_api'),
     # listado de categoria de noticias
     url(r'^categoria', CategoriaNoticiasAPI.as_view(), name='noticias_destacadas_api'),
     # categoria, subcategoria y sitios del mapa
