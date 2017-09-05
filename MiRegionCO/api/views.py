@@ -2,6 +2,7 @@ from threading import Thread
 
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
+from django.forms import model_to_dict
 from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -139,14 +140,82 @@ class SitiosList(ListAPIView):
     def get_queryset(self):
         return Sitio.objects.filter(categoria__id=self.kwargs['id_categoria'])"""
 
-
-@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
+"""@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
 class MapaListAPI(ListAPIView):
     serializer_class = CategoriaSitioSerializer
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return CategoriaMapa.objects.order_by('nombre')
+        return CategoriaMapa.objects.order_by('nombre')"""
+
+
+@cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA)
+@api_view(['GET'])
+def MapaListAPI(request):
+    if request.method == "GET":
+        print("Mapa_Categoria no cacheado")
+        list_dict_categorias = []
+        # Consultamos las categorias
+        categorias = CategoriaMapa.objects.all().order_by('nombre')
+
+        # Recorremos las categorias para consultar las subcategorias
+        for categoria in categorias:
+            dict_categoria = OrderedDict()
+            dict_categoria['id'] = categoria.id
+            dict_categoria['nombre'] = categoria.nombre
+            dict_categoria['imagen'] = categoria.imagen.url
+            dict_categoria['icono_marcador'] = categoria.icono_marcador.url
+            dict_categoria['icono'] = categoria.icono.url
+
+            list_dict_subcategoria = []
+            for subcategoria in categoria.subcategoria_mapa.all():
+                dict_subcategoria = OrderedDict()
+                dict_subcategoria['nombre'] = subcategoria.nombre
+
+                list_dict_sitios = []
+                # Consultamos los sitios que tiene esta subcategoria
+                sitios = Sitio.objects.filter(subcategoria=subcategoria.id).order_by('nombre')
+                if sitios:
+                    for sitio in sitios:
+                        dict_sitio = OrderedDict()
+                        dict_sitio['id'] = sitio.id
+                        dict_sitio['nombre'] = sitio.nombre
+                        dict_sitio['titulo'] = sitio.titulo
+                        dict_sitio['descripcion'] = sitio.descripcion
+                        dict_sitio['logo'] = sitio.logo.url
+                        dict_sitio['horario'] = sitio.horario
+                        dict_sitio['direccion'] = sitio.direccion
+                        dict_sitio['instagram'] = sitio.instagram
+                        dict_sitio['facebook'] = sitio.facebook
+                        list_dict_imagenes = []
+                        for imagen in sitio.imagenes.all():
+                            dict_imagen = OrderedDict()
+                            dict_imagen['imagen'] = imagen.imagen.url
+                            list_dict_imagenes.append(dict_imagen)
+                        dict_sitio['imagenes'] = list_dict_imagenes
+                        dict_sitio['telefono'] = sitio.telefono
+                        dict_sitio['latitud'] = sitio.latitud
+                        dict_sitio['longitud'] = sitio.longitud
+
+                        # Agregamos el sitio al listato de dict
+                        list_dict_sitios.append(dict_sitio)
+
+                    dict_subcategoria['sitio'] = list_dict_sitios
+
+                    # Agregamos la subcategoria al listado de dict de subcategorias
+                    list_dict_subcategoria.append(dict_subcategoria)
+
+            # Agregamos el listado de subcategorias a la categoria
+            dict_categoria['subcategoria_mapa'] = list_dict_subcategoria
+
+            # Si hay subcategorias agregamos la categoria al list
+            if list_dict_subcategoria:
+                list_dict_categorias.append(dict_categoria)
+
+        return Response(list_dict_categorias, status=status.HTTP_200_OK)
+
+    else:
+        return Response({'data': 'error'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
