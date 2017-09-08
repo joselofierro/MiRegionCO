@@ -56,7 +56,7 @@ def Ingresos(opcion_escogida):
     return {'labels': labels, 'datos': [cantidad_ingresos], 'titulo': opcion_escogida}
 
 
-def IngresoLogin(opcion_escogida):
+def IngresoLoginE(opcion_escogida):
     cantidad_ingresos = IngresoLogin.objects.all().count()
     labels = ['IngresoLogin']
 
@@ -113,6 +113,6 @@ def Estadisticas(request):
         elif index == 7:
             diccionario = Ingresos(opcion_escogida)
         elif index == 8:
-            diccionario = IngresoLogin(opcion_escogida)
+            diccionario = IngresoLoginE(opcion_escogida)
 
         return render(request, 'estadistica/chart.html', diccionario, content_type='text/html')

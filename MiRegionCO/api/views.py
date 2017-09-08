@@ -2,7 +2,6 @@ from threading import Thread
 
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
-from django.forms import model_to_dict
 from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -161,6 +160,7 @@ class MapaListAPI(ListAPIView):
         return CategoriaMapa.objects.order_by('nombre')"""
 
 
+# Se hace el cambio para que solo aparezcan las categorias que tengan subcategorias y sus subcategorias tengan sitios
 @cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA)
 @api_view(['GET'])
 def MapaListAPI(request):
