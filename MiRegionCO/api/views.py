@@ -204,6 +204,7 @@ def MapaListAPI(request):
                             dict_imagen = OrderedDict()
                             dict_imagen['imagen'] = imagen.imagen.url
                             list_dict_imagenes.append(dict_imagen)
+
                         dict_sitio['imagenes'] = list_dict_imagenes
                         dict_sitio['telefono'] = sitio.telefono
                         dict_sitio['latitud'] = sitio.latitud
@@ -415,7 +416,7 @@ class PortafolioAPI(APIView):
             return Response({'data': 'No hay datos'}, status=status.HTTP_400_BAD_REQUEST)
 
 
-# recibir POST DE COTIZACION  y almacenar la cotizacion
+# POST DE COTIZACION  y almacenar la cotizacion
 class CrearCotizacionAPI(CreateAPIView):
     serializer_class = CotizacionSerializer
 

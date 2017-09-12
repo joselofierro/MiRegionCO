@@ -13,5 +13,7 @@ def static(path):
 
 @register.filter(name='has_group')
 def has_group(user, group_name):
+    # obtengo el nombre del grupo
     group = Group.objects.get(name=group_name)
+    # retorno el grupo en todos los grupos del usuario
     return group in user.groups.all()
