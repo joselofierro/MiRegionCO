@@ -77,6 +77,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 
             for imagen_id in list_id_imagenes:
                 noticia.imagenes.add(imagen_id)
+
                 caches[settings.CACHE_API_NOTICIAS].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
