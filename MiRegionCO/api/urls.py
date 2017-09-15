@@ -11,10 +11,10 @@ urlpatterns = [
     url(r'^usuarios', UsuariosAPI.as_view(), name='usuario_api'),
     # listado de todas las noticias
     url(r'^news_feed', NewsFeed.as_view(), name='news_feed_api'),
-    url(r'^news_feed_2', NewsFeed2.as_view(), name='news_feed2_api'),
+    url(r'^pagination_news_feed', NewsFeed2.as_view(), name='news_feed2_api'),
     # listado de noticias por id de la categoria
     url(r'^noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId.as_view(), name='noticias_api'),
-    url(r'^noticias_2/(?P<id_categoria>.+)$', NoticiasCategoriaListId2.as_view(), name='noticias2_api'),
+    url(r'^pagination_noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId2.as_view(), name='noticias2_api'),
     # listado de todos los sitios
     url(r'^sitios', SitiosList.as_view(), name='list_sitio_api'),
     # listado de sitios por el id de la categoria del mapa
