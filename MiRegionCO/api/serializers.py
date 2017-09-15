@@ -1,7 +1,7 @@
+from apps.subcategoria_mapa.models import SubcategoriaMapa
 from apps.ventas.cliente.models import Cliente
 from apps.ventas.cotizacion.models import Cotizacion
 from apps.ventas.producto.models import Producto
-from apps.ventas.subcategoria_producto.models import Subcategoria
 from django.contrib.auth.models import User
 from rest_framework.serializers import *
 
@@ -80,7 +80,7 @@ class SubcategoriaSitioSerializer(ModelSerializer):
     sitio = SitioSerializer(many=True)
 
     class Meta:
-        model = Subcategoria
+        model = SubcategoriaMapa
         fields = ('nombre', 'sitio')
 
 

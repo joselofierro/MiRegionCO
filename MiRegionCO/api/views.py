@@ -9,6 +9,7 @@ from fcm_django.models import FCMDevice
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.generics import *
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -84,9 +85,16 @@ class LoginUserAPI(CreateAPIView):
     serializer_class = IngresoLoginSerializer
 
 
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+
+
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
 class NewsFeed(ListAPIView):
     serializer_class = NoticiaSerializer
+    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
@@ -121,7 +129,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Categoria.objects.all()
+        return Categoria.objects.all().order_by('orden')
 
 
 # 2 maneras de obtener parametros de url con clases basadas en vistas
@@ -129,6 +137,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
+    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
