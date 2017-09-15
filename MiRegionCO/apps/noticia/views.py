@@ -79,8 +79,11 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 noticia.imagenes.add(imagen_id)
 
                 caches[settings.CACHE_API_NOTICIAS].clear()
+                caches[settings.CACHE_API_NOTICIAS2].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+                caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+                caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
             return HttpResponseRedirect(self.get_success_url())
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
@@ -173,8 +176,11 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
             form2.save()
 
             caches[settings.CACHE_API_NOTICIAS].clear()
+            caches[settings.CACHE_API_NOTICIAS2].clear()
             caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
             caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+            caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+            caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
             return HttpResponseRedirect(self.get_success_url())
 
         else:
@@ -195,8 +201,11 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
 
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_NOTICIAS].clear()
+        caches[settings.CACHE_API_NOTICIAS2].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+        caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+        caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
         return super(NoticiaDelete, self).post(args, kwargs)
 
 
