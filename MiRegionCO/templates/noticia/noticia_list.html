@@ -35,10 +35,7 @@
                     <tr role="row">
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">ID</th>
                         <th style="text-align: center;">fecha</th>
-                        <th style="text-align: center;">Hora</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">titular</th>
-                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">lead</th>
-                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">video</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">imagenes</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">autor</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">tag</th>
@@ -54,14 +51,7 @@
                             <tr role="row">
                                 <td>{{ noticia.id }}</td>
                                 <td>{{ noticia.fecha }}</td>
-                                <td>{{ noticia.hora }}</td>
                                 <td>{{ noticia.titular }}</td>
-                                <td>{{ noticia.lead }}</td>
-                                <td>
-                                    {% if noticia.video %}
-                                        <a href="{{ noticia.video }}" target="_blank">Video</a>
-                                    {% endif %}
-                                </td>
 
                                 <td>
                                     <div id="carouselExampleControls{{ noticia.id }}" class="carousel slide"
