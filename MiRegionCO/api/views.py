@@ -94,7 +94,7 @@ class StandardResultsSetPagination(PageNumberPagination):
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
 class NewsFeed(ListAPIView):
     serializer_class = NoticiaSerializer
-    pagination_class = StandardResultsSetPagination
+    # pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
@@ -137,7 +137,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
-    pagination_class = StandardResultsSetPagination
+    # pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
