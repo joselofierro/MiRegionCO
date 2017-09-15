@@ -24,6 +24,9 @@ from apps.ventas.detalle.models import Detalle
 
 
 # API CREAR USUARIO POST
+from apps.ventas.subcategoria_producto.models import Subcategoria
+
+
 class CrearUsuarioAPI(CreateAPIView):
     # serializamos el modelo Usuario
     serializer_class = UsuarioCrearSerializer
@@ -101,6 +104,16 @@ class NewsFeed(ListAPIView):
         return Noticia.objects.filter(visible=True).order_by('-fecha', '-hora')
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS2), name='dispatch')
+class NewsFeed2(ListAPIView):
+    serializer_class = NoticiaSerializer
+    pagination_class = StandardResultsSetPagination
+
+    def get_queryset(self):
+        print('Aun no se ha cacheado')
+        return Noticia.objects.filter(visible=True).order_by('-fecha', '-hora')
+
+
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS_DESTACADAS), name='dispatch')
 class NoticiasDestacadasAPI(ListAPIView):
     serializer_class = NoticiaSerializer
@@ -138,6 +151,17 @@ class CategoriaNoticiasAPI(ListAPIView):
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
     # pagination_class = StandardResultsSetPagination
+
+    def get_queryset(self):
+        print('Aun no se ha cacheado')
+        return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria'], visible=True).order_by('-fecha',
+                                                                                                        '-hora')
+
+
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA2), name='dispatch')
+class NoticiasCategoriaListId2(ListAPIView):
+    serializer_class = NoticiaSerializer
+    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         print('Aun no se ha cacheado')

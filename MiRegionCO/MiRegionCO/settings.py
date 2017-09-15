@@ -212,8 +212,10 @@ FCM_DJANGO_SETTINGS = {
 CACHE_API_CATEGORIA_MAPA = 'api_categoria_mapa'
 CACHE_API_CATEGORIA_NOTICIAS = 'api_categoria_noticias'
 CACHE_API_NOTICIAS = 'api_noticias'
+CACHE_API_NOTICIAS2 = 'api_noticias2'
 CACHE_API_NOTICIAS_DESTACADAS = 'api_noticias_destacadas'
 CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
+CACHE_API_NOTICIASXCATEGORIA2 = 'api_noticiasxcategoria2'
 CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA = 'api_noticias_destacadas_categoria'
 CACHE_API_SITIOS = 'api_sitios'
 CACHE_API_PORTAFOLIO = 'api_portafolio'
@@ -240,6 +242,13 @@ CACHES = {
 
     },
 
+    CACHE_API_NOTICIAS2: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias2',
+        'TIMEOUT': None
+
+    },
+
     CACHE_API_NOTICIAS_DESTACADAS: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/noticias_destacadas',
@@ -249,6 +258,11 @@ CACHES = {
     CACHE_API_NOTICIASXCATEGORIA: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/noticiasxcategoria',
+        'TIMEOUT': None
+    },
+    CACHE_API_NOTICIASXCATEGORIA2: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticiasxcategoria2',
         'TIMEOUT': None
     },
     CACHE_API_CATEGORIA_NOTICIAS: {
@@ -283,7 +297,7 @@ CACHES = {
         'TIMEOUT': None
 
     },
-    CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA:{
+    CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/noticias_destacadas_categoria',
         'TIMEOUT': None
