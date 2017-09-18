@@ -218,7 +218,14 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
                      raise_exception=False)
 def eliminarnoticia(request, pk):
     if request.method == 'POST':
+
         caches[settings.CACHE_API_NOTICIAS].clear()
+        caches[settings.CACHE_API_NOTICIAS2].clear()
+        caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
+        caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+        caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+        caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
+
         noticia_obj = Noticia.objects.get(id=pk)
         noticia_obj.visible = False
         noticia_obj.destacada = False
