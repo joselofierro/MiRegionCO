@@ -185,7 +185,7 @@ class MapaListAPI(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return CategoriaMapa.objects.order_by('nombre', 'subcategoria_mapa__nombre')
+        return CategoriaMapa.objects.order_by('nombre')
 
 
 # Se hace el cambio para que solo aparezcan las categorias que tengan subcategorias y sus subcategorias tengan sitios
