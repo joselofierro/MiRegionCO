@@ -22,7 +22,6 @@ from apps.sitio.models import Sitio
 from apps.usuario.models import Usuario
 from apps.ventas.detalle.models import Detalle
 
-
 # API CREAR USUARIO POST
 from apps.ventas.subcategoria_producto.models import Subcategoria
 
@@ -97,6 +96,7 @@ class StandardResultsSetPagination(PageNumberPagination):
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS), name='dispatch')
 class NewsFeed(ListAPIView):
     serializer_class = NoticiaSerializer
+
     # pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
@@ -150,6 +150,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASXCATEGORIA), name='dispatch')
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
+
     # pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
@@ -178,23 +179,17 @@ class SitiosList(ListAPIView):
         return Sitio.objects.all().order_by('nombre')
 
 
-"""class MapaCategoriaList(ListAPIView):
-    serializer_class = SitioSerializer
-
-    def get_queryset(self):
-        return Sitio.objects.filter(categoria__id=self.kwargs['id_categoria'])"""
-
-"""@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
+@method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
 class MapaListAPI(ListAPIView):
     serializer_class = CategoriaSitioSerializer
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return CategoriaMapa.objects.order_by('nombre')"""
+        return CategoriaMapa.objects.order_by('nombre', 'subcategoria_mapa__nombre')
 
 
 # Se hace el cambio para que solo aparezcan las categorias que tengan subcategorias y sus subcategorias tengan sitios
-@cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA)
+"""@cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA)
 @api_view(['GET'])
 def MapaListAPI(request):
     if request.method == "GET":
@@ -261,7 +256,7 @@ def MapaListAPI(request):
         return Response(list_dict_categorias, status=status.HTTP_200_OK)
 
     else:
-        return Response({'data': 'error'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'data': 'error'}, status=status.HTTP_400_BAD_REQUEST)"""
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_USUARIOS), name='dispatch')
