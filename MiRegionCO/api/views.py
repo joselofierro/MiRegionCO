@@ -151,8 +151,6 @@ class CategoriaNoticiasAPI(ListAPIView):
 class NoticiasCategoriaListId(ListAPIView):
     serializer_class = NoticiaSerializer
 
-    # pagination_class = StandardResultsSetPagination
-
     def get_queryset(self):
         print('Aun no se ha cacheado')
         return Noticia.objects.filter(categoria__id=self.kwargs['id_categoria'], visible=True).order_by('-fecha',
