@@ -48,43 +48,47 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         files = request.FILES.getlist('imagen')
 
         if form.is_valid() and form2.is_valid():
-            list_id_imagenes = []
-            for index, f in enumerate(files):
-                imagen = Imagen(nombre=form.data['titular'] + "_" + str(index), imagen=f)
-                imagen.save()
-                list_id_imagenes.append(imagen)
+            if len(request.FILES) != 0:
+                list_id_imagenes = []
+                for index, f in enumerate(files):
+                    imagen = Imagen(nombre=form.data['titular'] + "_" + str(index), imagen=f)
+                    imagen.save()
+                    list_id_imagenes.append(imagen)
 
-            noticia = form.save(commit=False)
-            usuario_sesion = request.user
-            noticia.autor = usuario_sesion
+                noticia = form.save(commit=False)
+                usuario_sesion = request.user
+                noticia.autor = usuario_sesion
 
-            noticia.save()
+                noticia.save()
 
-            tags = request.POST['tags']
-            # cortaré los tags por coma y espacio ', '
-            list_tags = tags.split(', ')
-            for tag in list_tags:
-                tag = tag.title()
+                tags = request.POST['tags']
+                # cortaré los tags por coma y espacio ', '
+                list_tags = tags.split(', ')
+                for tag in list_tags:
+                    tag = tag.title()
 
-                # busco si el Tag está creado
-                try:
-                    tag_object = Tag.objects.get(nombre=tag)
-                    noticia.tag.add(tag_object)
-                except Tag.DoesNotExist:
-                    tag_creado = Tag(nombre=tag)
-                    tag_creado.save()
-                    noticia.tag.add(tag_creado)
+                    # busco si el Tag está creado
+                    try:
+                        tag_object = Tag.objects.get(nombre=tag)
+                        noticia.tag.add(tag_object)
+                    except Tag.DoesNotExist:
+                        tag_creado = Tag(nombre=tag)
+                        tag_creado.save()
+                        noticia.tag.add(tag_creado)
 
-            for imagen_id in list_id_imagenes:
-                noticia.imagenes.add(imagen_id)
+                for imagen_id in list_id_imagenes:
+                    noticia.imagenes.add(imagen_id)
 
-                caches[settings.CACHE_API_NOTICIAS].clear()
-                caches[settings.CACHE_API_NOTICIAS2].clear()
-                caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
-                caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
-                caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
-                caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
-            return HttpResponseRedirect(self.get_success_url())
+                    caches[settings.CACHE_API_NOTICIAS].clear()
+                    caches[settings.CACHE_API_NOTICIAS2].clear()
+                    caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
+                    caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+                    caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+                    caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
+                return HttpResponseRedirect(self.get_success_url())
+            else:
+                return render(request, self.template_name,
+                              {'form': form, 'form2': form2, 'error': 'La noticia no tiene imagen'})
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
@@ -201,8 +205,11 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
 
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_NOTICIAS].clear()
+        caches[settings.CACHE_API_NOTICIAS2].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+        caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+        caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
         return super(NoticiaDelete, self).post(args, kwargs)
 
 
@@ -214,5 +221,6 @@ def eliminarnoticia(request, pk):
         caches[settings.CACHE_API_NOTICIAS].clear()
         noticia_obj = Noticia.objects.get(id=pk)
         noticia_obj.visible = False
+        noticia_obj.destacada = False
         noticia_obj.save()
         return redirect('noticia:listar')
