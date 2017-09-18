@@ -88,7 +88,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 return HttpResponseRedirect(self.get_success_url())
             else:
                 return render(request, self.template_name,
-                              {'form': form, 'form2': form2, 'error': 'La noticia no tiene imagen'})
+                              {'form': form, 'form2': form2, 'error': '¡La noticia no tiene imagen!'})
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
@@ -218,7 +218,6 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
                      raise_exception=False)
 def eliminarnoticia(request, pk):
     if request.method == 'POST':
-
         caches[settings.CACHE_API_NOTICIAS].clear()
         caches[settings.CACHE_API_NOTICIAS2].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
