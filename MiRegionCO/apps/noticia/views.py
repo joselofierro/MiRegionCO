@@ -228,6 +228,5 @@ def eliminarnoticia(request, pk):
 
         noticia_obj = Noticia.objects.get(id=pk)
         noticia_obj.visible = False
-        noticia_obj.destacada = False
         noticia_obj.save()
         return redirect('noticia:listar')
