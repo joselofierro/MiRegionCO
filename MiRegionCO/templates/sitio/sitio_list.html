@@ -36,7 +36,6 @@
                     <tr role="row">
                         <th style="text-align: center;">ID</th>
                         <th style="text-align: center;">Nombre</th>
-                        <th style="text-align: center;">Titulo</th>
                         <th style="text-align: center;">Logo</th>
                         <th style="text-align: center;">Direccion</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">Instagram</th>
@@ -44,7 +43,7 @@
                         <th style="text-align: center;">Telefono</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">Imagenes</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">Subcategoria</th>
-                        <th style="text-align: center;">Acciones</th>
+                        <th class="col-md-2 col-sm-2 col-xs-2" style="text-align: center;">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,7 +52,6 @@
                             <tr role="row">
                                 <td>{{ sitio.id }}</td>
                                 <td>{{ sitio.nombre }}</td>
-                                <td>{{ sitio.titulo }}</td>
                                 <td>
                                     {% if sitio.logo %}
                                         <img class="img-fluid d-block" src="{{ MEDIA_URL }} {{ sitio.logo.url }}" width="100px" height="100px">
