@@ -19,6 +19,7 @@ class ImagenForm(forms.ModelForm):
         }
 
         widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'imagen': forms.FileInput(attrs={'class': 'form-control', 'multiple': True})
         }
 

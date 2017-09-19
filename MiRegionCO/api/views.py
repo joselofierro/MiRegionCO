@@ -375,7 +375,7 @@ def login(request, p_correo, p_pass):
     if request.method == 'GET':
         try:
             vendedor = Vendedor.objects.get(correo=p_correo)
-            if check_password(p_pass, vendedor.contraseña):
+            if check_password(p_pass, vendedor.contrasena):
                 return Response({'data': True, 'user_id': vendedor.id}, status=status.HTTP_200_OK)
             else:
                 return Response({'data': False}, status=status.HTTP_200_OK)
