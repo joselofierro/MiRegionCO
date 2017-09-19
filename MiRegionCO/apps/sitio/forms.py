@@ -59,5 +59,5 @@ class SitioForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(SitioForm, self).__init__(self, *args, **kwargs)
+        super(SitioForm, self).__init__(*args, **kwargs)
         self.fields['imagenes'].queryset = Imagen.objects.order_by('nombre')
