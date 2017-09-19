@@ -7,7 +7,7 @@ def upload_location(instance, filename):
 
 
 class Imagen(models.Model):
-    nombre = models.CharField(max_length=150, null=False, blank=False, default='Imagen')
+    nombre = models.CharField(max_length=150, null=True, blank=True, default='Imagen')
     imagen = models.ImageField(upload_to=upload_location, null=False, blank=False)
 
     def __str__(self):
