@@ -132,7 +132,7 @@ class NoticiasDestacadasCategoriaAPI(ListAPIView):
     def get_queryset(self):
         # devuelva las noticias con destacado =  True
         print('Aun no se ha cacheado')
-        return Noticia.objects.filter(destacada=True, visible=True, categoria=self.kwargs['id_categoria']).order_by(
+        return Noticia.objects.filter(destacada=True, visible=True, categoria__id=self.kwargs['id_categoria']).order_by(
             'fecha', 'hora')
 
 

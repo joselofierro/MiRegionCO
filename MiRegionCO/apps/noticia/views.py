@@ -47,7 +47,9 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         # guardamos las imagenes del formulario
         files = request.FILES.getlist('imagen')
 
+        # si la noticia es valida
         if form.is_valid() and form2.is_valid():
+            # si tiene imagenes
             if len(request.FILES) != 0:
                 list_id_imagenes = []
                 for index, f in enumerate(files):
