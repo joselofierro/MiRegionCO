@@ -1,5 +1,6 @@
 from django import forms
 
+from apps.imagen.models import Imagen
 from apps.sitio.models import Sitio
 
 
@@ -51,7 +52,9 @@ class SitioForm(forms.ModelForm):
             'instagram': forms.TextInput(attrs={'class': 'form-control'}),
             'facebook': forms.TextInput(attrs={'class': 'form-control'}),
             'telefono': forms.NumberInput(attrs={'class': 'form-control'}),
-            'imagenes': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
+            # 'imagenes': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
+            'imagenes': forms.ModelChoiceField(queryset=Imagen.objects.order_by('nombre'),
+                                               attrs={'class': 'form-control select2_multiple'}),
             'subcategoria': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
             'latitud': forms.NumberInput(attrs={'class': 'form-control'}),
             'longitud': forms.NumberInput(attrs={'class': 'form-control'})
