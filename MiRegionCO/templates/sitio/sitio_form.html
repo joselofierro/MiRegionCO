@@ -103,11 +103,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    {{ form.imagenes.errors }}
-                                    <label for="{{ form.imagenes.id_form_label }}">imagenes</label>
-                                    {{ form.imagenes }}
+                                    {{ form2.imagen.errors }}
+                                    <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
+                                    {{ form2.imagen }}
+                                    <strong class="text-danger">{{ error }}</strong>
                                 </div>
                             </div>
 
