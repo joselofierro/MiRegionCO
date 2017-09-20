@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Agregar autor que está en actual sesión y los tags en un solo campo">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/sitio/forms.py" afterPath="$PROJECT_DIR$/apps/sitio/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/sitio/views.py" afterPath="$PROJECT_DIR$/apps/sitio/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +22,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/sitio/forms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="487">
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/sitio/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="461">
+              <caret line="63" column="80" lean-forward="false" selection-start-line="63" selection-start-column="80" selection-end-line="63" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -54,20 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="308" column="39" lean-forward="false" selection-start-line="308" selection-start-column="39" selection-end-line="308" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sitio_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="271">
               <caret line="107" column="52" lean-forward="false" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
               <folding />
             </state>
@@ -77,11 +67,9 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2634">
+            <state relative-caret-position="2209">
               <caret line="195" column="37" lean-forward="false" selection-start-line="195" selection-start-column="37" selection-end-line="195" selection-end-column="37" />
-              <folding>
-                <marker date="1505922659000" expanded="true" signature="3198:3665" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -205,11 +193,11 @@
         <option value="$PROJECT_DIR$/apps/grupo/views.py" />
         <option value="$PROJECT_DIR$/apps/subcategoria_mapa/forms.py" />
         <option value="$PROJECT_DIR$/apps/noticia/views.py" />
-        <option value="$PROJECT_DIR$/apps/sitio/views.py" />
         <option value="$PROJECT_DIR$/apps/subcategoria_mapa/models.py" />
         <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
         <option value="$PROJECT_DIR$/templates/sitio/sitio_form.html" />
         <option value="$PROJECT_DIR$/apps/sitio/forms.py" />
+        <option value="$PROJECT_DIR$/apps/sitio/views.py" />
       </list>
     </option>
   </component>
@@ -1074,40 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2634">
-          <caret line="195" column="37" lean-forward="false" selection-start-line="195" selection-start-column="37" selection-end-line="195" selection-end-column="37" />
-          <folding>
-            <marker date="1505922659000" expanded="true" signature="3198:3665" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/subcategoria_mapa/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="44" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="308" column="39" lean-forward="false" selection-start-line="308" selection-start-column="39" selection-end-line="308" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/sitio/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/noticia/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -1124,14 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="107" column="52" lean-forward="false" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/sitio/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -1139,6 +1085,46 @@
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="308" column="39" lean-forward="false" selection-start-line="308" selection-start-column="39" selection-end-line="308" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/subcategoria_mapa/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="44" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="107" column="52" lean-forward="false" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2209">
+          <caret line="195" column="37" lean-forward="false" selection-start-line="195" selection-start-column="37" selection-end-line="195" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sitio/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="63" column="80" lean-forward="false" selection-start-line="63" selection-start-column="80" selection-end-line="63" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>

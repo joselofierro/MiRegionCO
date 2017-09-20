@@ -61,7 +61,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 return HttpResponseRedirect(self.get_success_url())
             else:
                 return render(request, self.template_name,
-                              {'form': form, 'form2': form2, 'error': '¡La noticia no tiene imagen!'})
+                              {'form': form, 'form2': form2, 'error': '¡El sitio no tiene imagen!'})
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
