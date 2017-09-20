@@ -307,6 +307,5 @@ CACHES = {
 }
 
 LOGIN_URL = reverse_lazy('grupo:login')
-SESSION_COOKIE_AGE: 120
 
 
