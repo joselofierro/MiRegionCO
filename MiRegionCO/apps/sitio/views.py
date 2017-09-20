@@ -47,6 +47,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 list_img = []
                 for indx, file in enumerate(files):
                     imagen = Imagen(nombre=form.data['nombre'] + "_" + str(indx), imagen=file)
+                    imagen.save()
                     list_img.append(imagen)
 
                 sitio = form.save(commit=False)
