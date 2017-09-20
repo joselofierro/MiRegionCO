@@ -2,6 +2,7 @@ from django import forms
 
 from apps.imagen.models import Imagen
 from apps.sitio.models import Sitio
+from apps.subcategoria_mapa.models import SubcategoriaMapa
 
 
 class SitioForm(forms.ModelForm):
@@ -18,7 +19,7 @@ class SitioForm(forms.ModelForm):
             'instagram',
             'facebook',
             'telefono',
-            'imagenes',
+            # 'imagenes',
             'subcategoria',
             'latitud',
             'longitud'
@@ -35,7 +36,7 @@ class SitioForm(forms.ModelForm):
             'instagram': 'Instagram',
             'facebook': 'Facebook',
             'telefono': 'Telefono',
-            'imagenes': 'Imagenes',
+            # 'imagenes': 'Imagenes',
             'subcategoria': 'Subcategoria',
             'latitud': 'Latitud',
             'longitud': 'Longitud'
@@ -52,7 +53,7 @@ class SitioForm(forms.ModelForm):
             'instagram': forms.TextInput(attrs={'class': 'form-control'}),
             'facebook': forms.TextInput(attrs={'class': 'form-control'}),
             'telefono': forms.NumberInput(attrs={'class': 'form-control'}),
-            'imagenes': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
+            # 'imagenes': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
             'subcategoria': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
             'latitud': forms.NumberInput(attrs={'class': 'form-control'}),
             'longitud': forms.NumberInput(attrs={'class': 'form-control'})
@@ -62,3 +63,4 @@ class SitioForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(SitioForm, self).__init__(*args, **kwargs)
         self.fields['imagenes'].queryset = Imagen.objects.order_by('nombre')
+        self.fields['subcategoria'].queryset = SubcategoriaMapa.objects.order_by('nombre')

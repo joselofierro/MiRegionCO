@@ -81,12 +81,12 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 for imagen_id in list_id_imagenes:
                     noticia.imagenes.add(imagen_id)
 
-                    caches[settings.CACHE_API_NOTICIAS].clear()
-                    caches[settings.CACHE_API_NOTICIAS2].clear()
-                    caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
-                    caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
-                    caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
-                    caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
+                caches[settings.CACHE_API_NOTICIAS].clear()
+                caches[settings.CACHE_API_NOTICIAS2].clear()
+                caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
+                caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+                caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+                caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
                 return HttpResponseRedirect(self.get_success_url())
             else:
                 return render(request, self.template_name,
@@ -136,9 +136,9 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super(NoticiaUpdate, self).get_context_data(**kwargs)
         if 'form' not in context:
-            context['form'] = self.form_class()
+            context['form'] = self.form_class(self.request.GET)
         if 'form2' not in context:
-            context['form2'] = self.second_form_class()
+            context['form2'] = self.second_form_class(self.request.GET)
 
         return context
 
