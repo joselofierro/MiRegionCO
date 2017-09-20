@@ -62,5 +62,5 @@ class SitioForm(forms.ModelForm):
     # sobreescribimos el metodo
     def __init__(self, *args, **kwargs):
         super(SitioForm, self).__init__(*args, **kwargs)
-        self.fields['imagenes'].queryset = Imagen.objects.order_by('nombre')
-        self.fields['subcategoria'].queryset = SubcategoriaMapa.objects.order_by('nombre')
+        # git self.fields['imagenes'].queryset = Imagen.objects.order_by('nombre')
+        # self.fields['subcategoria'].queryset = SubcategoriaMapa.objects.order_by('nombre')
