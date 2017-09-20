@@ -39,7 +39,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object
         form = self.form_class(request.POST)
-        form2 = self.form_class(request.POST)
+        form2 = self.second_form_class(request.POST)
         files = request.FILES.getlist('imagen')
 
         if form.is_valid() and form2.is_valid():
@@ -49,13 +49,12 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                     imagen = Imagen(nombre=form.data['nombre'] + "_" + str(indx), imagen=file)
                     list_img.append(imagen)
 
-                noticia = form.save(commit=False)
-                user = request.user
-                noticia.autor = user
-                noticia.save()
+                sitio = form.save(commit=False)
+                # user = request.user
+                sitio.save()
 
                 for imagen in list_img:
-                    noticia.imagenes.add(imagen)
+                    sitio.imagenes.add(imagen)
 
                 caches[settings.CACHE_API_SITIOS].clear()
                 return HttpResponseRedirect(self.get_success_url())
@@ -90,10 +89,6 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
-
-    """def form_valid(self, form):
-        caches[settings.CACHE_API_SITIOS].clear()
-        return super(SitioUpdate, self).form_valid(form)"""
 
     def get_context_data(self, **kwargs):
         context = super(SitioUpdate, self).get_context_data(**kwargs)
