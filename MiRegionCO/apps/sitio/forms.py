@@ -46,7 +46,7 @@ class SitioForm(forms.ModelForm):
 
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
-            'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'cols': 6}),
             'horario': forms.TextInput(attrs={'class': 'form-control'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control'}),
             'instagram': forms.TextInput(attrs={'class': 'form-control'}),
@@ -58,6 +58,7 @@ class SitioForm(forms.ModelForm):
             'longitud': forms.NumberInput(attrs={'class': 'form-control'})
         }
 
+    # sobreescribimos el metodo
     def __init__(self, *args, **kwargs):
         super(SitioForm, self).__init__(*args, **kwargs)
         self.fields['imagenes'].queryset = Imagen.objects.order_by('nombre')

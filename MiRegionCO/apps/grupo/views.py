@@ -20,6 +20,7 @@ def login_view(request):
             if user_auth.is_active:
                 # lo dejan ingresar
                 login(request, user_auth)
+                request.session.set_expiry(120)
                 if user_auth.groups.filter(name='Escritor').exists() or user_auth.groups.filter(
                         name='SupervisorEscritor').exists():
                     return redirect('noticia:listar')

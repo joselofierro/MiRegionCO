@@ -12,38 +12,30 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     {{ form.nombre.errors }}
                                     <label for="{{ form.nombre.id_for_label }}">Nombre</label>
                                     {{ form.nombre }}
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     {{ form.titulo.errors }}
                                     <label for="{{ form.titulo.id_form_label }}">Titulo</label>
                                     {{ form.titulo }}
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    {{ form.descripcion.errors }}
-                                    <label for="{{ form.descripcion.id_form_label }}">Descripcion</label>
-                                    {{ form.descripcion }}
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
+                            <div class="col-md-3">
+                                <div class="form-group" style="margin-top:3%;">
                                     {{ form.logo.errors }}
-                                    <label for="{{ form.logo.id_form_label }}">Logo</label>
+                                    <label for="{{ form.logo.id_form_label }}">Logo</label><br>
                                     {{ form.logo }}
                                 </div>
                             </div>
-                            <div class="col-md-4">
+
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     {{ form.horario.errors }}
                                     <label for="{{ form.horario.id_form_label }}">Horario</label>
@@ -51,11 +43,45 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    {{ form.telefono.errors }}
+                                    <label for="{{ form.telefono.id_form_label }}">Telefono</label>
+                                    {{ form.telefono }}
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {{ form.descripcion.errors }}
+                                    <label for="{{ form.descripcion.id_form_label }}">Descripcion</label>
+                                    {{ form.descripcion }}
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     {{ form.direccion.errors }}
                                     <label for="{{ form.direccion.id_form_label }}">Direccion</label>
                                     {{ form.direccion }}
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {{ form.latitud.errors }}
+                                    <label for="{{ form.latitud.id_form_label }}">Latitud</label>
+                                    {{ form.latitud }}
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {{ form.longitud.errors }}
+                                    <label for="{{ form.longitud.id_form_label }}">Longitud</label>
+                                    {{ form.longitud }}
                                 </div>
                             </div>
                         </div>
@@ -75,13 +101,7 @@
                                     {{ form.facebook }}
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    {{ form.telefono.errors }}
-                                    <label for="{{ form.telefono.id_form_label }}">Telefono</label>
-                                    {{ form.telefono }}
-                                </div>
-                            </div>
+
                             <div class="col-md-3">
                                 <div class="form-group">
                                     {{ form.imagenes.errors }}
@@ -89,28 +109,12 @@
                                     {{ form.imagenes }}
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     {{ form.subcategoria.errors }}
                                     <label for="{{ form.subcategoria.id_form_label }}">Subcategoria</label>
                                     {{ form.subcategoria }}
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    {{ form.latitud.errors }}
-                                    <label for="{{ form.latitud.id_form_label }}">Latitud</label>
-                                    {{ form.latitud }}
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    {{ form.longitud.errors }}
-                                    <label for="{{ form.longitud.id_form_label }}">Longitud</label>
-                                    {{ form.longitud }}
                                 </div>
                             </div>
                         </div>
