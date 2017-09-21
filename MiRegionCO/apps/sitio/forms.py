@@ -19,7 +19,6 @@ class SitioForm(forms.ModelForm):
             'instagram',
             'facebook',
             'telefono',
-            # 'imagenes',
             'subcategoria',
             'latitud',
             'longitud'
@@ -30,13 +29,11 @@ class SitioForm(forms.ModelForm):
             'nombre': 'Nombre',
             'titulo': 'Titulo',
             'descripcion': 'Descripcion',
-            'logo': 'Logo',
             'horario': 'Horario',
             'direccion': 'Direccion',
             'instagram': 'Instagram',
             'facebook': 'Facebook',
             'telefono': 'Telefono',
-            # 'imagenes': 'Imagenes',
             'subcategoria': 'Subcategoria',
             'latitud': 'Latitud',
             'longitud': 'Longitud'
@@ -53,7 +50,6 @@ class SitioForm(forms.ModelForm):
             'instagram': forms.TextInput(attrs={'class': 'form-control'}),
             'facebook': forms.TextInput(attrs={'class': 'form-control'}),
             'telefono': forms.NumberInput(attrs={'class': 'form-control'}),
-            # 'imagenes': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
             'subcategoria': forms.SelectMultiple(attrs={'class': 'form-control select2_multiple'}),
             'latitud': forms.NumberInput(attrs={'class': 'form-control'}),
             'longitud': forms.NumberInput(attrs={'class': 'form-control'})
