@@ -14,7 +14,8 @@
                         <h4 class="title" style="margin-bottom: 22px;">Listado de cotizaciones</h4>
                     </div>
 
-                    <a href="{% url 'cotizacion:crear_cotizacion' %}" class="btn btn-primary active">Crear cotización</a>
+                    <a href="{% url 'cotizacion:crear_cotizacion' %}" class="btn btn-primary active">Crear
+                        cotización</a>
 
                     <div class="content table-responsive table-full-width">
                         <table class="table table-striped table-hover table-bordered">
@@ -83,8 +84,30 @@
                                 <h4>No hay registros</h4>
                             {% endif %}
                             </tbody>
-
                         </table>
+                        {% if is_paginated %}
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;/a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in paginator.page_range %}
+                                    {% if page_obj.number == i %}
+                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+                                        </li>
+                                    {% else %}
+                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div>

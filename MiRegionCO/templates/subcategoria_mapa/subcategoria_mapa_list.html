@@ -16,35 +16,56 @@
                 <table class="table table-hover table-striped">
 
                     <thead>
-                        <tr>
-                            <th style="text-align: center;">ID</th>
-                            <th style="text-align: center;">Nombre</th>
-                            <th style="text-align: center;">Acciones</th>
-                        </tr>
+                    <tr>
+                        <th style="text-align: center;">ID</th>
+                        <th style="text-align: center;">Nombre</th>
+                        <th style="text-align: center;">Acciones</th>
+                    </tr>
                     </thead>
 
                     <tbody>
-                        {% if object_list %}
-                            {% for subcategoria_mapa in object_list %}
-                                <tr>
-                                    <td>{{ subcategoria_mapa.id }}</td>
-                                    <td>{{ subcategoria_mapa.nombre }}</td>
-                                    <td>
+                    {% if object_list %}
+                        {% for subcategoria_mapa in object_list %}
+                            <tr>
+                                <td>{{ subcategoria_mapa.id }}</td>
+                                <td>{{ subcategoria_mapa.nombre }}</td>
+                                <td>
 
-                                        <a class="btn btn-primary active"
-                                           href="{% url 'sub_mapa:actualizar_subcategoria_mapa' subcategoria_mapa.id %}">Editar</a>
-                                        <a class="btn btn-danger active"
-                                           href="{% url 'sub_mapa:eliminar_subcategoria_mapa' subcategoria_mapa.id %}">Eliminar</a>
+                                    <a class="btn btn-primary active"
+                                       href="{% url 'sub_mapa:actualizar_subcategoria_mapa' subcategoria_mapa.id %}">Editar</a>
+                                    <a class="btn btn-danger active"
+                                       href="{% url 'sub_mapa:eliminar_subcategoria_mapa' subcategoria_mapa.id %}">Eliminar</a>
 
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        {% else %}
-                            <h2>No hay registros</h2>
-                        {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <h2>No hay registros</h2>
+                    {% endif %}
                     </tbody>
-
                 </table>
+                {% if is_paginated %}
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;/a></li>
+                        {% else %}
+                            <li class="disabled"><span>&laquo;</span></li>
+                        {% endif %}
+                        {% for i in paginator.page_range %}
+                            {% if page_obj.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                            {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
 
             </div>
         </div>

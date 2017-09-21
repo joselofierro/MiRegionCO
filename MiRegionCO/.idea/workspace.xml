@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Agregar autor que está en actual sesión y los tags en un solo campo">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noticia/noticia_list.html" afterPath="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/categoria/categoria_list.html" afterPath="$PROJECT_DIR$/templates/categoria/categoria_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" afterPath="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/imagen/imagen_list.html" afterPath="$PROJECT_DIR$/templates/imagen/imagen_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" afterPath="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/sitio/sitio_list.html" afterPath="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/subcategoria_mapa/subcategoria_mapa_list.html" afterPath="$PROJECT_DIR$/templates/subcategoria_mapa/subcategoria_mapa_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tag/tag_list.html" afterPath="$PROJECT_DIR$/templates/tag/tag_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/usuario/usuario_list.html" afterPath="$PROJECT_DIR$/templates/usuario/usuario_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ventas/categoria_producto/categoria_producto_list.html" afterPath="$PROJECT_DIR$/templates/ventas/categoria_producto/categoria_producto_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ventas/cliente/cliente_list.html" afterPath="$PROJECT_DIR$/templates/ventas/cliente/cliente_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ventas/cotizacion/cotizacion_list.html" afterPath="$PROJECT_DIR$/templates/ventas/cotizacion/cotizacion_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ventas/detalle/detalle_list.html" afterPath="$PROJECT_DIR$/templates/ventas/detalle/detalle_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ventas/producto/producto_list.html" afterPath="$PROJECT_DIR$/templates/ventas/producto/producto_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ventas/subcategoria_producto/subcategoria_producto_list.html" afterPath="$PROJECT_DIR$/templates/ventas/subcategoria_producto/subcategoria_producto_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ventas/vendedor/vendedor_list.html" afterPath="$PROJECT_DIR$/templates/ventas/vendedor/vendedor_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,35 +36,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="noticia_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="154" column="74" lean-forward="false" selection-start-line="154" selection-start-column="74" selection-end-line="154" selection-end-column="74" />
-              <folding>
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#7849#7856#0#HTML" expanded="true" />
-                <element signature="e#7955#7962#1#HTML" expanded="true" />
-                <element signature="e#8570#8577#1#HTML" expanded="true" />
-                <element signature="e#8677#8684#1#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sitio_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-578">
-              <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-              <folding>
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -85,7 +71,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
+            <state relative-caret-position="176">
               <caret line="528" column="0" lean-forward="true" selection-start-line="528" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
               <folding />
             </state>
@@ -165,19 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/subcategoria_mapa/subcategoria_mapa_form.html" />
-        <option value="$PROJECT_DIR$/apps/subcategoria_mapa/views.py" />
-        <option value="$PROJECT_DIR$/apps/subcategoria_mapa/urls.py" />
-        <option value="$PROJECT_DIR$/templates/categoria/categoria_list.html" />
-        <option value="$PROJECT_DIR$/templates/subcategoria_mapa/subcategoria_mapa_list.html" />
-        <option value="$PROJECT_DIR$/templates/subcategoria_mapa/subcategoria_mapa_delete.html" />
-        <option value="$PROJECT_DIR$/apps/sitio/urls.py" />
-        <option value="$PROJECT_DIR$/templates/noticia/noticia_delete.html" />
-        <option value="$PROJECT_DIR$/templates/sitio/sitio_delete.html" />
-        <option value="$PROJECT_DIR$/apps/tag/models.py" />
-        <option value="$PROJECT_DIR$/apps/imagen/admin.py" />
-        <option value="$PROJECT_DIR$/apps/usuario/views.py" />
-        <option value="$PROJECT_DIR$/apps/usuario/models.py" />
         <option value="$PROJECT_DIR$/apps/categoria/admin.py" />
         <option value="$PROJECT_DIR$/apps/categoria/views.py" />
         <option value="$PROJECT_DIR$/apps/ventas/cotizacion/views.py" />
@@ -189,7 +162,6 @@
         <option value="$PROJECT_DIR$/apps/categoria_mapa/views.py" />
         <option value="$PROJECT_DIR$/apps/categoria_mapa/forms.py" />
         <option value="$PROJECT_DIR$/apps/categoria_mapa/models.py" />
-        <option value="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" />
         <option value="$PROJECT_DIR$/apps/estadistica/models.py" />
         <option value="$PROJECT_DIR$/apps/noticia/models.py" />
         <option value="$PROJECT_DIR$/apps/estadistica/views.py" />
@@ -208,7 +180,6 @@
         <option value="$PROJECT_DIR$/apps/subcategoria_mapa/models.py" />
         <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
         <option value="$PROJECT_DIR$/apps/imagen/models.py" />
-        <option value="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
         <option value="$PROJECT_DIR$/apps/sitio/models.py" />
         <option value="$PROJECT_DIR$/apps/sitio/forms.py" />
         <option value="$PROJECT_DIR$/templates/sitio/sitio_form.html" />
@@ -216,6 +187,21 @@
         <option value="$PROJECT_DIR$/apps/sitio/views.py" />
         <option value="$PROJECT_DIR$/templates/base/base.html" />
         <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
+        <option value="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
+        <option value="$PROJECT_DIR$/templates/categoria/categoria_list.html" />
+        <option value="$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html" />
+        <option value="$PROJECT_DIR$/templates/imagen/imagen_list.html" />
+        <option value="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" />
+        <option value="$PROJECT_DIR$/templates/subcategoria_mapa/subcategoria_mapa_list.html" />
+        <option value="$PROJECT_DIR$/templates/tag/tag_list.html" />
+        <option value="$PROJECT_DIR$/templates/usuario/usuario_list.html" />
+        <option value="$PROJECT_DIR$/templates/ventas/categoria_producto/categoria_producto_list.html" />
+        <option value="$PROJECT_DIR$/templates/ventas/cliente/cliente_list.html" />
+        <option value="$PROJECT_DIR$/templates/ventas/cotizacion/cotizacion_list.html" />
+        <option value="$PROJECT_DIR$/templates/ventas/detalle/detalle_list.html" />
+        <option value="$PROJECT_DIR$/templates/ventas/producto/producto_list.html" />
+        <option value="$PROJECT_DIR$/templates/ventas/subcategoria_producto/subcategoria_producto_list.html" />
+        <option value="$PROJECT_DIR$/templates/ventas/vendedor/vendedor_list.html" />
       </list>
     </option>
   </component>
@@ -304,8 +290,20 @@
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="noticia" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="ventas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="ventas" type="462c0819:PsiDirectoryNode" />
+              <item name="vendedor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -710,126 +708,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/estadistica/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ventas/producto/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ventas/cotizacion/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ventas/categoria_producto/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ventas/subcategoria_producto/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ventas/detalle/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/os.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="753" column="10" lean-forward="false" selection-start-line="753" selection-start-column="10" selection-end-line="753" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MiRegionCO/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="28" column="49" lean-forward="false" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-          <folding>
-            <element signature="e#644#685#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/categoria/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/notificaciones/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/collections/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="11" selection-end-line="88" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/categoria/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/categoria/categoria_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1096,16 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1147,34 +1015,230 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
+        <state relative-caret-position="176">
           <caret line="528" column="0" lean-forward="true" selection-start-line="528" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/categoria/categoria_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="65" column="27" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding>
+            <element signature="e#2066#2073#0#HTML" expanded="false" />
+            <element signature="e#2172#2179#1#HTML" expanded="false" />
+            <element signature="e#2787#2794#1#HTML" expanded="false" />
+            <element signature="e#2894#2901#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="150" column="27" lean-forward="false" selection-start-line="150" selection-start-column="27" selection-end-line="150" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#7451#7458#0#HTML" expanded="true" />
+            <element signature="e#7557#7564#1#HTML" expanded="true" />
+            <element signature="e#8172#8179#1#HTML" expanded="true" />
+            <element signature="e#8279#8286#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/categoria_mapa/categoria_mapa_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="77" column="35" lean-forward="false" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+          <folding>
+            <element signature="e#3324#3331#0#HTML" expanded="false" />
+            <element signature="e#3446#3453#1#HTML" expanded="false" />
+            <element signature="e#4182#4189#1#HTML" expanded="false" />
+            <element signature="e#4305#4312#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/imagen/imagen_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="76" column="35" lean-forward="false" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+          <folding>
+            <element signature="e#3163#3170#0#HTML" expanded="false" />
+            <element signature="e#3285#3292#1#HTML" expanded="false" />
+            <element signature="e#4021#4028#1#HTML" expanded="false" />
+            <element signature="e#4144#4151#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/notificaciones/notificacion_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
+          <folding>
+            <element signature="e#2161#2168#0#HTML" expanded="false" />
+            <element signature="e#2283#2290#1#HTML" expanded="false" />
+            <element signature="e#3019#3026#1#HTML" expanded="false" />
+            <element signature="e#3142#3149#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/subcategoria_mapa/subcategoria_mapa_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="e#2095#2102#0#HTML" expanded="false" />
+            <element signature="e#2201#2208#1#HTML" expanded="false" />
+            <element signature="e#2816#2823#1#HTML" expanded="false" />
+            <element signature="e#2923#2930#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tag/tag_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="70" column="35" lean-forward="false" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+          <folding>
+            <element signature="e#2658#2665#0#HTML" expanded="false" />
+            <element signature="e#2780#2787#1#HTML" expanded="false" />
+            <element signature="e#3516#3523#1#HTML" expanded="false" />
+            <element signature="e#3639#3646#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/usuario/usuario_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="79" column="35" lean-forward="false" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+          <folding>
+            <element signature="e#3499#3506#0#HTML" expanded="false" />
+            <element signature="e#3621#3628#1#HTML" expanded="false" />
+            <element signature="e#4357#4364#1#HTML" expanded="false" />
+            <element signature="e#4480#4487#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="154" column="74" lean-forward="false" selection-start-line="154" selection-start-column="74" selection-end-line="154" selection-end-column="74" />
+        <state relative-caret-position="463">
+          <caret line="157" column="27" lean-forward="true" selection-start-line="136" selection-start-column="16" selection-end-line="157" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="e#7849#7856#0#HTML" expanded="true" />
             <element signature="e#7955#7962#1#HTML" expanded="true" />
             <element signature="e#8570#8577#1#HTML" expanded="true" />
             <element signature="e#8677#8684#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ventas/categoria_producto/categoria_producto_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="94" column="35" lean-forward="false" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+          <folding>
+            <element signature="e#4353#4360#0#HTML" expanded="false" />
+            <element signature="e#4475#4482#1#HTML" expanded="false" />
+            <element signature="e#5211#5218#1#HTML" expanded="false" />
+            <element signature="e#5334#5341#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ventas/cliente/cliente_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="70" column="35" lean-forward="false" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+          <folding>
+            <element signature="e#2325#2332#0#HTML" expanded="false" />
+            <element signature="e#2447#2454#1#HTML" expanded="false" />
+            <element signature="e#3183#3190#1#HTML" expanded="false" />
+            <element signature="e#3306#3313#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ventas/cotizacion/cotizacion_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="85" column="36" lean-forward="false" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+          <folding>
+            <element signature="e#4769#4776#0#HTML" expanded="false" />
+            <element signature="e#4891#4898#1#HTML" expanded="false" />
+            <element signature="e#5627#5634#1#HTML" expanded="false" />
+            <element signature="e#5750#5757#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ventas/detalle/detalle_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="91" column="35" lean-forward="false" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
+          <folding>
+            <element signature="e#4139#4146#0#HTML" expanded="false" />
+            <element signature="e#4261#4268#1#HTML" expanded="false" />
+            <element signature="e#4997#5004#1#HTML" expanded="false" />
+            <element signature="e#5120#5127#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ventas/producto/producto_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="91" column="35" lean-forward="false" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
+          <folding>
+            <element signature="e#4153#4160#0#HTML" expanded="false" />
+            <element signature="e#4275#4282#1#HTML" expanded="false" />
+            <element signature="e#5011#5018#1#HTML" expanded="false" />
+            <element signature="e#5134#5141#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ventas/subcategoria_producto/subcategoria_producto_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#4134#4141#0#HTML" expanded="false" />
+            <element signature="e#4256#4263#1#HTML" expanded="false" />
+            <element signature="e#4992#4999#1#HTML" expanded="false" />
+            <element signature="e#5115#5122#1#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ventas/vendedor/vendedor_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="77" column="32" lean-forward="true" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+          <folding>
+            <element signature="e#4635#4642#0#HTML" expanded="true" />
+            <element signature="e#4757#4764#1#HTML" expanded="true" />
+            <element signature="e#5493#5500#1#HTML" expanded="true" />
+            <element signature="e#5616#5623#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

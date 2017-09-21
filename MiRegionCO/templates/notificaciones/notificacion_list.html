@@ -12,7 +12,8 @@
                         <h4 class="title">Listado de notificaciones</h4>
                     </div>
 
-                    <a href="{% url 'notificacion:crear_notificacion' %}" class="btn btn-primary active">Crear Notificación</a>
+                    <a href="{% url 'notificacion:crear_notificacion' %}" class="btn btn-primary active">Crear
+                        Notificación</a>
 
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
@@ -25,20 +26,43 @@
                             </tr>
                             </thead>
                             <tbody>
-                                {% if object_list %}
-                                    {% for notificacion in object_list %}
-                                        <tr>
-                                            <td>{{ notificacion.fecha }}</td>
-                                            <td>{{ notificacion.hora }}</td>
-                                            <td>{{ notificacion.titulo }}</td>
-                                            <td>{{ notificacion.mensaje}}</td>
-                                        </tr>
-                                    {% endfor %}
-                                {% else %}
-                                    <h3>No hay registros</h3>
-                                {% endif %}
+                            {% if object_list %}
+                                {% for notificacion in object_list %}
+                                    <tr>
+                                        <td>{{ notificacion.fecha }}</td>
+                                        <td>{{ notificacion.hora }}</td>
+                                        <td>{{ notificacion.titulo }}</td>
+                                        <td>{{ notificacion.mensaje }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <h3>No hay registros</h3>
+                            {% endif %}
                             </tbody>
                         </table>
+                        {% if is_paginated %}
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;/a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in paginator.page_range %}
+                                    {% if page_obj.number == i %}
+                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+                                        </li>
+                                    {% else %}
+                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div>
