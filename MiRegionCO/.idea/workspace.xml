@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Agregar autor que está en actual sesión y los tags en un solo campo">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/views.py" afterPath="$PROJECT_DIR$/apps/noticia/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/sitio/views.py" afterPath="$PROJECT_DIR$/apps/sitio/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base.html" afterPath="$PROJECT_DIR$/templates/base/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noticia/noticia_list.html" afterPath="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
     </list>
@@ -28,53 +26,10 @@
       <file leaf-file-name="noticia_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="118" column="30" lean-forward="false" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+            <state relative-caret-position="337">
+              <caret line="144" column="71" lean-forward="false" selection-start-line="144" selection-start-column="71" selection-end-line="144" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sitio_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="132" column="36" lean-forward="false" selection-start-line="132" selection-start-column="36" selection-end-line="132" selection-end-column="36" />
-              <folding>
-                <element signature="e#6401#6426#0#HTML" expanded="true" />
-                <marker date="1505949606000" expanded="false" signature="464:2471" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="515:856" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="572:821" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="907:1249" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="964:1214" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="1301:1639" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="1358:1604" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="1691:2037" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="1748:2002" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="2089:2439" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="2146:2404" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="2514:4163" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="2565:2927" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="2622:2892" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="2979:3333" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="3036:3298" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="3385:3731" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="3442:3696" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="3782:4132" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="3839:4097" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="4206:5943" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="4257:4611" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="4314:4576" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="4663:5013" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="4720:4978" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="5065:5494" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="5122:5459" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="5546:5912" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="5603:5877" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="5998:6015" ph="..." />
-                <marker date="1505949606000" expanded="false" signature="6016:6254" ph="..." />
               </folding>
             </state>
           </provider>
@@ -104,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/sitio/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="72" column="20" lean-forward="false" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+            <state relative-caret-position="-473">
+              <caret line="72" column="4" lean-forward="false" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -124,21 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/base/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="530" column="30" lean-forward="false" selection-start-line="530" selection-start-column="30" selection-end-line="530" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/sitio/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="15" selection-end-column="19" />
+            <state relative-caret-position="121">
+              <caret line="528" column="0" lean-forward="true" selection-start-line="528" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -265,9 +210,9 @@
         <option value="$PROJECT_DIR$/apps/sitio/forms.py" />
         <option value="$PROJECT_DIR$/templates/sitio/sitio_form.html" />
         <option value="$PROJECT_DIR$/apps/noticia/views.py" />
-        <option value="$PROJECT_DIR$/templates/base/base.html" />
-        <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
         <option value="$PROJECT_DIR$/apps/sitio/views.py" />
+        <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
+        <option value="$PROJECT_DIR$/templates/base/base.html" />
       </list>
     </option>
   </component>
@@ -1124,26 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -1152,12 +1077,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
+    <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="118" column="30" lean-forward="false" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+        <state relative-caret-position="241">
+          <caret line="100" column="20" lean-forward="false" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sitio/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-473">
+          <caret line="72" column="4" lean-forward="false" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
           <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1203,26 +1144,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sitio/sitio_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-578">
+          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="144" column="71" lean-forward="false" selection-start-line="144" selection-start-column="71" selection-end-line="144" selection-end-column="71" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="530" column="30" lean-forward="false" selection-start-line="530" selection-start-column="30" selection-end-line="530" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="100" column="20" lean-forward="false" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/sitio/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="72" column="20" lean-forward="false" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+        <state relative-caret-position="121">
+          <caret line="528" column="0" lean-forward="true" selection-start-line="528" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
           <folding />
         </state>
       </provider>
