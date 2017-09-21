@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="content">
-                    <!--<form method="post" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-3">
@@ -126,13 +126,7 @@
                             <button type="submit" class="btn btn-primary active">Registrar</button>
                             <a class="btn btn-default active" href="{% url 'sitio:listar' %}">Cancelar</a>
                         </div>
-                    </form>-->
-                    {{ form.as_p }}
-                    {{ form2.as_p }}
-                    <div class="botones" style="margin-top: 30px;">
-                            <button class="btn btn-primary active">Registrar</button>
-                            <a class="btn btn-default active" href="{% url 'sitio:listar' %}">Cancelar</a>
-                        </div>
+                    </form>
                 </div>
             </div>
         </div>

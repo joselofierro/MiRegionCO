@@ -1,6 +1,5 @@
 from django import forms
 
-from apps.imagen.models import Imagen
 from apps.sitio.models import Sitio
 from apps.subcategoria_mapa.models import SubcategoriaMapa
 
@@ -29,6 +28,7 @@ class SitioForm(forms.ModelForm):
             'nombre': 'Nombre',
             'titulo': 'Titulo',
             'descripcion': 'Descripcion',
+            'logo': 'Logo',
             'horario': 'Horario',
             'direccion': 'Direccion',
             'instagram': 'Instagram',
@@ -45,6 +45,7 @@ class SitioForm(forms.ModelForm):
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'cols': 6}),
+            'logo': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'horario': forms.TextInput(attrs={'class': 'form-control'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control'}),
             'instagram': forms.TextInput(attrs={'class': 'form-control'}),

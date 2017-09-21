@@ -37,7 +37,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST, request.FILES)
         form2 = self.second_form_class(request.POST, request.FILES)
         files = request.FILES.getlist('imagen')
 
@@ -49,11 +49,8 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                     imagen.save()
                     list_img.append(imagen)
 
-                print(form.data['logo'])
                 sitio = form.save(commit=False)
                 sitio.save()
-
-                print(sitio.logo)
 
                 for imagen in list_img:
                     sitio.imagenes.add(imagen)
@@ -102,12 +99,11 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        print(request)
         self.object = self.get_object()
         pk = self.kwargs['pk']
         sitio = self.model.objects.get(id=pk)
-        form_sitio = self.form_class(request.POST, instance=sitio)
-        form_imagen = self.second_form_class(request.POST)
+        form_sitio = self.form_class(request.POST, request.FILES, instance=sitio)
+        form_imagen = self.second_form_class(request.POST, request.FILES)
 
         print(request.POST)
 
