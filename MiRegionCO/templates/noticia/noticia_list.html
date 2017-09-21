@@ -139,21 +139,6 @@
     </div>
 {% endblock %}
 
-{% block extra_js %}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.table').dataTable({
-                "ordering": false,
-                "pagingType": "simple_numbers",
-                "language": {
-                    "url": "{% static 'datatable/spanish.json' %}"
-                }
-            });
-        })
-    </script>
-
-{% endblock %}
-
 
 
 

@@ -98,6 +98,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 class NoticiaList(PermissionRequiredMixin, ListView):
     model = Noticia
     template_name = 'noticia/noticia_list.html'
+    paginate_by = 10
     permission_required = ('noticia.add_noticia', 'noticia.change_noticia')
     raise_exception = False
     login_url = reverse_lazy('grupo:login')

@@ -70,6 +70,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 class SitioList(PermissionRequiredMixin, ListView):
     model = Sitio
     template_name = 'sitio/sitio_list.html'
+    paginate_by = 10
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
