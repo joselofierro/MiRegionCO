@@ -61,7 +61,8 @@
                                         <div class="carousel-inner" role="listbox">
                                             {% for imagen in noticia.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
-                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}" class="d-block img-fluid" name="imagen_{{ imagen.id }}"
+                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"
+                                                         class="d-block img-fluid" name="imagen_{{ imagen.id }}"
                                                          style="display: block; max-width: 200px; height:auto;">
                                                 </div>
                                             {% endfor %}
@@ -101,7 +102,8 @@
                                         <div class="btn-group">
                                             <a class="btn btn-primary active"
                                                href="{% url 'noticia:actualizar' noticia.id %}">Editar</a>
-                                            <button type="button" class=" btn btn-primary active dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <button type="button" class=" btn btn-primary active dropdown-toggle"
+                                                    data-toggle="dropdown" aria-expanded="false">
                                                 <span class="caret"></span>
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
@@ -135,6 +137,21 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table').dataTable({
+                "ordering": false,
+                "pagingType": "simple_numbers",
+                "language": {
+                    "url": "{% static 'datatable/spanish.json' %}"
+                }
+            });
+        })
+    </script>
+
 {% endblock %}
 
 

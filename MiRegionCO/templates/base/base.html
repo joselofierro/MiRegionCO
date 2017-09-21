@@ -527,13 +527,7 @@
             $(this).children('ul').slideUp();
         });
 
-        $('.table').dataTable({
-            "ordering": false,
-            "pagingType": "simple_numbers",
-            "language": {
-                "url": "{% static 'datatable/spanish.json' %}"
-            }
-        });
+
 
         $.datepicker.regional['es'] = {
             closeText: 'Cerrar',
