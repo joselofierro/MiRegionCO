@@ -57,14 +57,17 @@
       <file leaf-file-name="notificacion_list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/notificaciones/notificacion_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="45" column="100" lean-forward="false" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
+            <state relative-caret-position="360">
+              <caret line="21" column="69" lean-forward="false" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+              <caret line="22" column="69" lean-forward="false" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+              <caret line="23" column="69" lean-forward="false" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+              <caret line="24" column="69" lean-forward="false" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
               <folding>
-                <element signature="e#783#810#0#HTML" expanded="true" />
-                <element signature="e#858#885#0#HTML" expanded="true" />
-                <element signature="e#932#959#0#HTML" expanded="true" />
-                <element signature="e#1008#1035#0#HTML" expanded="true" />
-                <element signature="e#2161#2168#1#HTML" expanded="true" />
+                <element signature="e#818#845#0#HTML" expanded="true" />
+                <element signature="e#928#955#0#HTML" expanded="true" />
+                <element signature="e#1037#1064#0#HTML" expanded="true" />
+                <element signature="e#1148#1175#0#HTML" expanded="true" />
+                <element signature="e#2301#2308#1#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1141,14 +1144,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/notificaciones/notificacion_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="45" column="100" lean-forward="false" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
+        <state relative-caret-position="360">
+          <caret line="21" column="69" lean-forward="false" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+          <caret line="22" column="69" lean-forward="false" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <caret line="23" column="69" lean-forward="false" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+          <caret line="24" column="69" lean-forward="false" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
           <folding>
-            <element signature="e#783#810#0#HTML" expanded="true" />
-            <element signature="e#858#885#0#HTML" expanded="true" />
-            <element signature="e#932#959#0#HTML" expanded="true" />
-            <element signature="e#1008#1035#0#HTML" expanded="true" />
-            <element signature="e#2161#2168#1#HTML" expanded="true" />
+            <element signature="e#818#845#0#HTML" expanded="true" />
+            <element signature="e#928#955#0#HTML" expanded="true" />
+            <element signature="e#1037#1064#0#HTML" expanded="true" />
+            <element signature="e#1148#1175#0#HTML" expanded="true" />
+            <element signature="e#2301#2308#1#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
