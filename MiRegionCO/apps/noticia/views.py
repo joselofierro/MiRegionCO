@@ -154,7 +154,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         noticia_id = self.kwargs['pk']
         noticia = self.model.objects.get(id=noticia_id)
         form_noticia = self.form_class(request.POST, instance=noticia)
-        form2 = self.second_form_class(request.POST)
+        form2 = self.second_form_class(request.POST, request.FILES)
 
         if form_noticia.is_valid() and form2.is_valid():
             # Obtenemos los tags que vienen del form = String

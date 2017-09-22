@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% load staticfiles %}
+{% load watermark %}
 
 {% block extracss %}
     <style type="text/css">
@@ -63,9 +64,8 @@
             </div>
 
             <div class="content">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post"  enctype="multipart/form-data" action="{% url 'noticia:listar' %}">
                     {% csrf_token %}
-
                     <div class="row">
                         <div class="col-md-2 col-sm-12 col-xs-12">
                             <div class="form-group">
@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 {{ form2.imagen.errors }}
                                 <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
-                                {{ form2.imagen }}
+                                {{ form2.imagen.url|watermark:'Watermark,position=50%x50%,opacity=75' }}
                                 <strong class="text-danger">{{ error }}</strong>
                             </div>
                         </div>

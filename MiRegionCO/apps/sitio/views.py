@@ -1,3 +1,4 @@
+from PIL import Image
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
@@ -40,7 +41,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object
         form = self.form_class(request.POST, request.FILES)
-        form2 = self.second_form_class(request.POST, request.FILES)
+        form2 = self.second_form_class(request.POST)
         files = request.FILES.getlist('imagen')
 
         if form.is_valid() and form2.is_valid():
@@ -113,10 +114,10 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         form_imagen = self.second_form_class(request.POST, request.FILES)
 
         print(request.POST)
+        print(request.FILES)
 
         if form_sitio.is_valid() and form_imagen.is_valid():
 
-            print(request.POST)
             form_sitio.save()
             form_imagen.save()
 
