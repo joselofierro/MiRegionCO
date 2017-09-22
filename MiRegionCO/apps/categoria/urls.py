@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_page
+
 from apps.categoria.views import *
 
 urlpatterns = [

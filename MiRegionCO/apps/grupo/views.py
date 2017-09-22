@@ -1,11 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
+from MiRegionCO import settings
 
 
 # si no estoy autentificado me manda al login
 def index(request):
     if request.user.is_authenticated():
-        return redirect('noticia:listar')
+        login_view(request)
     else:
         return redirect('grupo:login')
 
@@ -20,6 +21,7 @@ def login_view(request):
             if user_auth.is_active:
                 # lo dejan ingresar
                 login(request, user_auth)
+                request.session.set_expiry(settings.SESSION_COOKIE_AGE)
                 if user_auth.groups.filter(name='Escritor').exists() or user_auth.groups.filter(
                         name='SupervisorEscritor').exists():
                     return redirect('noticia:listar')

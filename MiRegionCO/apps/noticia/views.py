@@ -1,10 +1,12 @@
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.views.generic import *
 
 from MiRegionCO import settings
@@ -93,6 +95,10 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                               {'form': form, 'form2': form2, 'error': '¡La noticia no tiene imagen!'})
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
+
+    @method_decorator(cache_page(None))
+    def dispatch(self, request, *args, **kwargs):
+        return super(NoticiaCreate, self).dispatch(request, *args, **kwargs)
 
 
 class NoticiaList(PermissionRequiredMixin, ListView):
@@ -193,6 +199,10 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         else:
             return render(request, self.template_name, {'form': form_noticia, 'form2': form2})
 
+    @method_decorator(cache_page(None))
+    def dispatch(self, request, *args, **kwargs):
+        return super(NoticiaUpdate, self).dispatch(request, *args, **kwargs)
+
 
 class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Noticia
@@ -215,10 +225,15 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
         caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
         return super(NoticiaDelete, self).post(args, kwargs)
 
+    @method_decorator(cache_page(None))
+    def dispatch(self, request, *args, **kwargs):
+        return super(NoticiaDelete, self).dispatch(request, *args, **kwargs)
+
 
 # ACCION PARA OCULTAR NOTICIA
 @permission_required(login_url='/', perm='noticia.delete_noticia',
                      raise_exception=False)
+@cache_page(None)
 def eliminarnoticia(request, pk):
     if request.method == 'POST':
         caches[settings.CACHE_API_NOTICIAS].clear()

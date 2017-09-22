@@ -39,6 +39,7 @@ class NotificacionCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVie
 
 class NotificacionList(PermissionRequiredMixin, ListView):
     model = Notificacion
+    paginate_by = 10
     template_name = 'notificaciones/notificacion_list.html'
     permission_required = ('notificacion.add_notificacion', 'notificacion.change_notificacion')
     # me devuelve al login si es falso y si es true arroja un exceptionError

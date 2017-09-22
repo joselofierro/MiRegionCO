@@ -6,6 +6,8 @@ from django.core.cache import caches
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.views.generic import *
 
 from MiRegionCO import settings
@@ -63,6 +65,11 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
+    # tiempo de vida del cache 15min o infinito
+    @method_decorator(cache_page(None))
+    def dispatch(self, request, *args, **kwargs):
+        return super(SitioCreate, self).dispatch(request, *args, **kwargs)
+
 
 class SitioList(PermissionRequiredMixin, ListView):
     model = Sitio
@@ -118,6 +125,10 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         else:
             return render(request, self.template_name, {'form': form_sitio, 'form2': form_imagen})
 
+    @method_decorator(cache_page(None))
+    def dispatch(self, request, *args, **kwargs):
+        return super(SitioUpdate, self).dispatch(request, *args, **kwargs)
+
 
 class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Sitio
@@ -132,3 +143,7 @@ class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_SITIOS].clear()
         return super(SitioDelete, self).post(args, kwargs)
+
+    @method_decorator(cache_page(None))
+    def dispatch(self, request, *args, **kwargs):
+        return super(SitioDelete, self).dispatch(request, *args, **kwargs)
