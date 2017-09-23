@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 {{ form2.imagen.errors }}
                                 <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
-                                {{ form2.imagen.url|watermark:'Watermark,position=50%x50%,opacity=75' }}
+                                {{ form2.imagen }}
                                 <strong class="text-danger">{{ error }}</strong>
                             </div>
                         </div>
