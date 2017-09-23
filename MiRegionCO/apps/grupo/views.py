@@ -6,7 +6,8 @@ from MiRegionCO import settings
 # si no estoy autentificado me manda al login
 def index(request):
     if request.user.is_authenticated():
-        login_view(request)
+        # login_view(request)
+        return redirect('noticia:listar')
     else:
         return redirect('grupo:login')
 
