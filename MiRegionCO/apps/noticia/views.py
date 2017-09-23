@@ -96,9 +96,9 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
-    @method_decorator(cache_page(None))
+    """@method_decorator(cache_page(None))
     def dispatch(self, request, *args, **kwargs):
-        return super(NoticiaCreate, self).dispatch(request, *args, **kwargs)
+        return super(NoticiaCreate, self).dispatch(request, *args, **kwargs)"""
 
 
 class NoticiaList(PermissionRequiredMixin, ListView):

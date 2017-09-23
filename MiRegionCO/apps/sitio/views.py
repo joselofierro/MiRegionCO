@@ -126,9 +126,9 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         else:
             return render(request, self.template_name, {'form': form_sitio, 'form2': form_imagen})
 
-    @method_decorator(cache_page(None))
+    """@method_decorator(cache_page(None))
     def dispatch(self, request, *args, **kwargs):
-        return super(SitioUpdate, self).dispatch(request, *args, **kwargs)
+        return super(SitioUpdate, self).dispatch(request, *args, **kwargs)"""
 
 
 class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
