@@ -117,20 +117,18 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         print(request.FILES)
 
         if form_sitio.is_valid() and form_imagen.is_valid():
-            sitio = form_sitio.save(commit=False)
-            sitio.imagenes = form_imagen.save()
-            sitio.save()
+
+            form_sitio.save()
+            form_imagen.save()
 
             caches[settings.CACHE_API_SITIOS].clear()
             return HttpResponseRedirect(self.get_success_url())
-
         else:
             return render(request, self.template_name, {'form': form_sitio, 'form2': form_imagen})
 
-
-"""@method_decorator(cache_page(None))
-def dispatch(self, request, *args, **kwargs):
-    return super(SitioUpdate, self).dispatch(request, *args, **kwargs)"""
+    """@method_decorator(cache_page(None))
+    def dispatch(self, request, *args, **kwargs):
+        return super(SitioUpdate, self).dispatch(request, *args, **kwargs)"""
 
 
 class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
