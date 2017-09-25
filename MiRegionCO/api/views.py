@@ -174,7 +174,7 @@ class SitiosList(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Sitio.objects.all().order_by('nombre','-imagenes__nombre')
+        return Sitio.objects.all().order_by('nombre','imagenes__nombre')
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
