@@ -80,8 +80,10 @@
                                 {{ form2.imagen.errors }}
                                 <label for="{{ form2.imagen.id_for_label }}">Imagen</label><br>
                                 <select name="imagenes" multiple required id="{{ form2.imagen.id_for_label }}">
-                                    {% for form2 in noticia.imagenes.all %}
-                                        <option value="{{ form2.id }}">{{ form2.imagen }}</option>
+                                    {% for imagen in noticia.imagenes.all %}
+                                         <img src="{{ MEDIA_URL }} {{ imagen.imagen.url}}"
+                                                         class="d-block img-fluid" name="imagen_{{ imagen.id }}"
+                                                         style="display: block; max-width: 200px; height:auto;">
                                     {% endfor %}
                                 </select>
                             </div>

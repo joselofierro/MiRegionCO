@@ -57,14 +57,15 @@
 
     <div class="col-md-12">
         <div class="card">
-            <div style="margin-top: 10px;" class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="login_with"
+            <div style="margin-top: 10px;" class="fb-login-button" data-max-rows="1" data-size="small"
+                 data-button-type="login_with"
                  data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
             <div class="header">
                 <h4 class="title">Registrar noticia</h4>
             </div>
 
             <div class="content">
-                <form method="post"  enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-2 col-sm-12 col-xs-12">
@@ -122,7 +123,19 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-4">
+                            {% if noticia.imagenes.all %}
+                                <div class="contenedor" style="border: 1px solid #2539ff; display: flex; flex-direction: row; padding: 20px;">
+
+                                        {% for imagen in noticia.imagenes.all %}
+                                            <img src="{{ MEDIA_URL }} {{ imagen.imagen.url}}"
+                                                         class="img-fluid" name="imagen_{{ imagen.id }}"
+                                                         style="display: block; max-width: 100px; height:100px;">
+                                        {% endfor %}
+
+                                </div>
+                            {% endif %}
+
                             <div class="form-group">
                                 {{ form2.imagen.errors }}
                                 <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
@@ -131,7 +144,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 {{ form.url.errors }}
                                 <label for="{{ form.url.id_for_label }}">URL</label>
@@ -150,7 +163,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 <label for="id_tags">Tags</label>
                                 {% if noticia.tag %}

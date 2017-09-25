@@ -199,9 +199,9 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
         else:
             return render(request, self.template_name, {'form': form_noticia, 'form2': form2})
 
-    @method_decorator(cache_page(None))
+    """@method_decorator(cache_page(None))
     def dispatch(self, request, *args, **kwargs):
-        return super(NoticiaUpdate, self).dispatch(request, *args, **kwargs)
+        return super(NoticiaUpdate, self).dispatch(request, *args, **kwargs)"""
 
 
 class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
