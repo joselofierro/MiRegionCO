@@ -118,7 +118,7 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
         if form_sitio.is_valid() and form_imagen.is_valid():
 
-            form_sitio.save()
+            form_sitio.save(commit=False)
             form_imagen.save()
 
             caches[settings.CACHE_API_SITIOS].clear()

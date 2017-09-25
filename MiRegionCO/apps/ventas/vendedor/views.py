@@ -1,5 +1,7 @@
+from django.contrib.auth.hashers import check_password, make_password
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect, request
 from django.shortcuts import render
 
 # Create your views here.
@@ -22,6 +24,14 @@ class VendedorCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     # si no tengo los permisos me redirige al login
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def form_valid(self, form):
+        contra = form.data['contrasena']
+        contra_cifrada = make_password(contra, salt=None, hasher='sha1')
+        if check_password(contra, contra_cifrada):
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return render(request, self.template_name, {'form': form})
 
 
 class VendedorList(PermissionRequiredMixin, ListView):
@@ -60,4 +70,3 @@ class VendedorDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     # si no tengo los permisos me redirige al login
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
-

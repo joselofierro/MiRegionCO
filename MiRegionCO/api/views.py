@@ -174,7 +174,7 @@ class SitiosList(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Sitio.objects.all().order_by('nombre')
+        return Sitio.objects.all().order_by('nombre', 'imagenes__nombre')
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_CATEGORIA_MAPA), name='dispatch')
@@ -400,7 +400,6 @@ class PortafolioAPI(APIView):
             json_categoria['medida'] = categoria.medida
 
             # obtenemos las subcategorias
-
             subcategorias = Subcategoria.objects.all().order_by('nombre')
             listado_subcategoria = []
 
