@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Agregar autor que está en actual sesión y los tags en un solo campo">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/migrations/0002_auto_20170926_1545.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/migrations/0003_auto_20170926_1558.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/imagen/migrations/0014_auto_20170926_1056.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/imagen/migrations/0015_auto_20170926_1101.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/imagen/migrations/0016_auto_20170926_1104.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/youtuber/youtuber_delete.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/youtuber/youtuber_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/youtuber/youtuber_list.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/noticia/noticia_update.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/juliofierro.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/juliofierro.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/settings.py" afterPath="$PROJECT_DIR$/MiRegionCO/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/urls.py" afterPath="$PROJECT_DIR$/MiRegionCO/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/serializers.py" afterPath="$PROJECT_DIR$/api/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/urls.py" afterPath="$PROJECT_DIR$/api/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/urls.py" afterPath="$PROJECT_DIR$/apps/noticia/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/views.py" afterPath="$PROJECT_DIR$/apps/noticia/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/usuario/admin.py" afterPath="$PROJECT_DIR$/apps/usuario/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base.html" afterPath="$PROJECT_DIR$/templates/base/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noticia/noticia_form.html" afterPath="$PROJECT_DIR$/templates/noticia/noticia_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/imagen/admin.py" afterPath="$PROJECT_DIR$/apps/imagen/admin.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -94,11 +69,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="-25">
               <caret line="651" column="16" lean-forward="true" selection-start-line="651" selection-start-column="16" selection-end-line="651" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/imagen/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/imagen/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -193,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/imagen/forms.py" />
         <option value="$PROJECT_DIR$/apps/subcategoria_mapa/forms.py" />
         <option value="$PROJECT_DIR$/apps/subcategoria_mapa/models.py" />
         <option value="$PROJECT_DIR$/apps/sitio/models.py" />
@@ -244,6 +238,7 @@
         <option value="$PROJECT_DIR$/apps/activacion_youtuber/admin.py" />
         <option value="$PROJECT_DIR$/templates/noticia/noticia_form.html" />
         <option value="$PROJECT_DIR$/api/views.py" />
+        <option value="$PROJECT_DIR$/apps/imagen/admin.py" />
       </list>
     </option>
   </component>
@@ -326,7 +321,13 @@
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="imagen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
@@ -1025,14 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/imagen/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/noticia/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1103,16 +1096,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/imagen/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/usuario/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1162,8 +1145,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
+        <state relative-caret-position="-25">
           <caret line="651" column="16" lean-forward="true" selection-start-line="651" selection-start-column="16" selection-end-line="651" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/imagen/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/imagen/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>

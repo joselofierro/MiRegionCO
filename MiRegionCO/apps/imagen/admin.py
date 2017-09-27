@@ -5,7 +5,7 @@ from apps.imagen.models import Imagen
 
 
 class ImagenAdmin(admin.ModelAdmin):
-    list_filter = ('nombre',)
+    list_filter = ('nombre', 'imagen')
 
 
 admin.site.register(Imagen, ImagenAdmin)
