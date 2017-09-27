@@ -44,6 +44,7 @@ urlpatterns = [
         include('apps.ventas.subcategoria_producto.urls', namespace='subcategoria_producto')),
     url(r'^vendedor/', include('apps.ventas.vendedor.urls', namespace='vendedor')),
     url(r'notificacion/', include('apps.notificaciones.urls', namespace='notificacion')),
+    url(r'youtuber/', include('apps.activacion_youtuber.urls', namespace='youtuber')),
     url(r'^reset/password_reset', password_reset,
         {'template_name': 'password/password_reset_form.html',
          'email_template_name': 'password/password_reset_email.html'},

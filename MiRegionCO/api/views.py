@@ -641,3 +641,52 @@ def FCM_CREATE(request):
                                           type=request.data['type'])
             fcm_devices_nuevo.save()
             return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
+
+
+class VotarYoutuber(CreateAPIView):
+    serializer_class = VotacionSerializer
+
+    def post(self, request, *args, **kwargs):
+        if 'accessToken' in request.data:
+            if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data[
+                'accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
+                request.data.pop('accessToken')
+                obj_votacion = VotacionSerializer(data=request.data)
+                if obj_votacion.is_valid():
+                    obj_votacion.save()
+                    return Response({'data': True}, status=status.HTTP_201_CREATED)
+                else:
+                    try:
+                        obj_usuario = Usuario.objects.get(id=request.data['usuario'])
+                        try:
+                            obj_votacion_codigo = Votaciones.objects.get(codigo=request.data['codigo'])
+                            try:
+                                obj_votacion_disp = Votaciones.objects.get(
+                                    dispositivo_id=request.data['dispositivo_id'])
+                                return Response(
+                                    {'data': 'Este dispositivo ya ha votado por ' + obj_votacion_disp.codigo.nombre},
+                                    status=status.HTTP_400_BAD_REQUEST)
+                            except Votaciones.DoesNotExist:
+                                try:
+                                    obj_votacion_usuario = Votaciones.objects.get(usuario=request.data['usuario'])
+                                    return Response(
+                                        {'data': 'Este usuario ya ha votado por ' + obj_votacion_usuario.codigo.nombre},
+                                        status=status.HTTP_400_BAD_REQUEST)
+                                except Votaciones.DoesNotExist:
+                                    try:
+                                        obj_votacion.save()
+                                        return Response({'data': True}, status=status.HTTP_201_CREATED)
+                                    except Usuario.DoesNotExist:
+                                        return Response({'data': 'Este usuario no existe'},
+                                                        status=status.HTTP_400_BAD_REQUEST)
+                        except Votaciones.DoesNotExist:
+                            return Response({'data': 'No existe participante con el código ingresado'},
+                                            status=status.HTTP_400_BAD_REQUEST)
+                    except Usuario.DoesNotExist:
+                        return Response({'data': 'Este usuario no existe'}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
+                                status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
+                            status=status.HTTP_400_BAD_REQUEST)

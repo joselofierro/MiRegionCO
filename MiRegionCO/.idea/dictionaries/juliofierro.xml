@@ -51,6 +51,7 @@
       <w>ciudad</w>
       <w>clases</w>
       <w>clickjacking</w>
+      <w>codigo</w>
       <w>comparte</w>
       <w>comparten</w>
       <w>compartida</w>
@@ -70,12 +71,14 @@
       <w>cortándolos</w>
       <w>cotizaciòn</w>
       <w>creacion</w>
+      <w>creadas</w>
       <w>creado</w>
       <w>creamos</w>
       <w>crearlos</w>
       <w>creelo</w>
       <w>creo</w>
       <w>csrf</w>
+      <w>csrfmiddlewaretoken</w>
       <w>cuentas</w>
       <w>datasets</w>
       <w>datatable</w>
@@ -84,6 +87,8 @@
       <w>datetimepicker</w>
       <w>datos</w>
       <w>dejan</w>
+      <w>deleteimage</w>
+      <w>deleteimagen</w>
       <w>desctacada</w>
       <w>desea</w>
       <w>destacada</w>
@@ -98,6 +103,7 @@
       <w>diccionario</w>
       <w>dirección</w>
       <w>dismissable</w>
+      <w>disp</w>
       <w>dispositivo</w>
       <w>dropdown</w>
       <w>duracion</w>
@@ -265,6 +271,7 @@
       <w>touchlist</w>
       <w>touchstart</w>
       <w>uidb</w>
+      <w>ultima</w>
       <w>urlpattern</w>
       <w>userfil</w>
       <w>usuario</w>
@@ -281,11 +288,16 @@
       <w>visualizaciones</w>
       <w>visualizar</w>
       <w>volver</w>
+      <w>votacion</w>
+      <w>votaciones</w>
+      <w>votado</w>
+      <w>votar</w>
       <w>watermarker</w>
       <w>wickedpicker</w>
       <w>wordpress</w>
       <w>wsgi</w>
       <w>xfbml</w>
+      <w>youtuber</w>
       <w>yyyy</w>
     </words>
   </dictionary>

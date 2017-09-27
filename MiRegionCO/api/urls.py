@@ -22,7 +22,8 @@ urlpatterns = [
     # noticias destacadas
     url(r'^noticias_destacadas', NoticiasDestacadasAPI.as_view(), name='noticias_destacadas_api'),
     # noticias destacadas por el id de la categoria
-    url(r'^destacados_categoria/(?P<id_categoria>.+)/$', NoticiasDestacadasCategoriaAPI.as_view(), name='noticias_destacadas_categoria_api'),
+    url(r'^destacados_categoria/(?P<id_categoria>.+)/$', NoticiasDestacadasCategoriaAPI.as_view(),
+        name='noticias_destacadas_categoria_api'),
     # listado de categoria de noticias
     url(r'^categoria', CategoriaNoticiasAPI.as_view(), name='noticias_destacadas_api'),
     # categoria, subcategoria y sitios del mapa
@@ -59,5 +60,7 @@ urlpatterns = [
     # creacion de notificaciones
     url(r'^fcm_create/$', FCM_CREATE, name='fcm_create'),
     url(r'^fcm_list/$', FCMDeviceViewSet.as_view({'get': 'list'}), name='fcm_list'),
+    # Votaciones Youtuber
+    url(r'^votar_youtuber/$', VotarYoutuber.as_view(), name='votar_youtuber'),
 
 ]

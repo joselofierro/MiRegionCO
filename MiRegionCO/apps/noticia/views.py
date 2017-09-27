@@ -1,13 +1,16 @@
+from uuid import UUID
+
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.generic import *
+from requests import Response
 
 from MiRegionCO import settings
 from apps.imagen.forms import ImagenForm
@@ -57,6 +60,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 for index, f in enumerate(files):
                     imagen = Imagen(nombre=form.data['titular'] + "_" + str(index), imagen=f)
                     imagen.save()
+
                     list_id_imagenes.append(imagen)
 
                 noticia = form.save(commit=False)
@@ -142,19 +146,23 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(NoticiaUpdate, self).get_context_data(**kwargs)
+        # pk = self.kwargs.get('pk', 0)
+        # noticia = self.model.objects.get(id=pk)
         if 'form' not in context:
-            context['form'] = self.form_class(self.request.GET)
+            context['form'] = self.form_class()
         if 'form2' not in context:
-            context['form2'] = self.second_form_class(self.request.GET)
+            context['form2'] = self.second_form_class()
 
         return context
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        noticia_id = self.kwargs['pk']
+        noticia_id = kwargs['pk']
         noticia = self.model.objects.get(id=noticia_id)
+
         form_noticia = self.form_class(request.POST, instance=noticia)
         form2 = self.second_form_class(request.POST, request.FILES)
+        files = request.FILES.getlist('imagen')
 
         if form_noticia.is_valid() and form2.is_valid():
             # Obtenemos los tags que vienen del form = String
@@ -185,8 +193,16 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
             for tag in list_tags_bd:
                 noticia.tag.add(tag)
 
+            # las imagenes recien creadas
+            ultima_imagen = Imagen.objects.last()
+            for index, f in enumerate(files):
+                imagen = Imagen(nombre=form_noticia.data['titular'] + "_" + str(ultima_imagen.id + (index + 1)),
+                                imagen=f)
+                imagen.save()
+                noticia.imagenes.add(imagen)
+
+            noticia.save()
             form_noticia.save()
-            form2.save()
 
             caches[settings.CACHE_API_NOTICIAS].clear()
             caches[settings.CACHE_API_NOTICIAS2].clear()
@@ -195,7 +211,6 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
             caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
             caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
             return HttpResponseRedirect(self.get_success_url())
-
         else:
             return render(request, self.template_name, {'form': form_noticia, 'form2': form2})
 
@@ -231,8 +246,7 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
 
 
 # ACCION PARA OCULTAR NOTICIA
-@permission_required(login_url='/', perm='noticia.delete_noticia',
-                     raise_exception=False)
+@permission_required(login_url='/', perm='noticia.delete_noticia', raise_exception=False)
 @cache_page(None)
 def eliminarnoticia(request, pk):
     if request.method == 'POST':
@@ -248,3 +262,21 @@ def eliminarnoticia(request, pk):
         noticia_obj.destacada = False
         noticia_obj.save()
         return redirect('noticia:listar')
+
+
+def deleteimage(request):
+    if request.method == 'POST':
+        try:
+            id_imagen = request.POST['imagen_id']
+            id_noticia = request.POST['noticia']
+
+            obj_imagen = Imagen.objects.get(id=id_imagen)
+            obj_noticia = Noticia.objects.get(id=id_noticia)
+
+            obj_noticia.imagenes.remove(obj_imagen)
+            obj_noticia.save()
+
+            return HttpResponse("Eliminado la imagen de la noticia")
+
+        except Imagen.DoesNotExist or Noticia.DoesNotExist:
+            return HttpResponse("Error! Imagen o Noticia incorrecta")

@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title" style="margin-bottom: 22px;">Listado de Youtubers</h4>
+                    </div>
+
+                    <a href="{% url 'youtuber:crear' %}" class="btn btn-primary active">Crear Youtuber</a>
+
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center;">Codigo</th>
+                                <th style="text-align: center;">Nombre</th>
+                                <th style="text-align: center;">Foto</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% if object_list %}
+                                {% for youtuber in object_list %}
+                                    <tr>
+                                        <td>{{ youtuber.codigo }}</td>
+                                        <td>{{ youtuber.nombre }}</td>
+                                        <td><img src="{{ youtuber.foto }}" style="width: 100px; height: 100px"></td>
+                                        <td>
+                                            {% if perms.youtuber.delete_youtuber %}
+                                                <a class="btn btn-primary active"
+                                                   href="{% url 'youtuber:editar' youtuber.codigo %}">Editar</a>
+                                                <a class="btn btn-danger active"
+                                                   href="{% url 'youtuber:eliminar' youtuber.codigo %}">Eliminar</a>
+                                            {% else %}
+                                                <a class="btn btn-primary active"
+                                                   href="{% url 'youtuber:editar' youtuber.codigo %}">Editar</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+
+                                {% endfor %}
+                            {% else %}
+                                <h2>No hay registros</h2>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                        {% if is_paginated %}
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in paginator.page_range %}
+                                    {% if page_obj.number == i %}
+                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+                                        </li>
+                                    {% else %}
+                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

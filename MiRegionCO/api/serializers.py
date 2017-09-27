@@ -1,3 +1,4 @@
+from apps.activacion_youtuber.models import Votaciones
 from apps.subcategoria_mapa.models import SubcategoriaMapa
 from apps.ventas.cliente.models import Cliente
 from apps.ventas.cotizacion.models import Cotizacion
@@ -194,3 +195,9 @@ class IngresoLoginSerializer(ModelSerializer):
     class Meta:
         model = IngresoLogin
         fields = ('dispositivo',)
+
+
+class VotacionSerializer(ModelSerializer):
+    class Meta:
+        model = Votaciones
+        fields = ('codigo', 'dispositivo_id', 'so', 'usuario')
