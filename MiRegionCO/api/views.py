@@ -657,19 +657,22 @@ class VotarYoutuber(CreateAPIView):
                 else:
                     try:
                         obj_usuario = Usuario.objects.get(id=request.data['usuario'])
-                        try:
-                            obj_votacion_codigo = Votaciones.objects.get(codigo=request.data['codigo'])
+                        obj_votacion_codigo = Votaciones.objects.filter(codigo=request.data['codigo'])
+
+                        if obj_votacion_codigo:
                             try:
                                 obj_votacion_disp = Votaciones.objects.get(
                                     dispositivo_id=request.data['dispositivo_id'])
                                 return Response(
-                                    {'data': 'Este dispositivo ya ha votado por ' + obj_votacion_disp.codigo.nombre},
+                                    {
+                                        'data': 'Este dispositivo ya ha votado por ' + obj_votacion_disp.codigo.nombre},
                                     status=status.HTTP_400_BAD_REQUEST)
                             except Votaciones.DoesNotExist:
                                 try:
                                     obj_votacion_usuario = Votaciones.objects.get(usuario=request.data['usuario'])
                                     return Response(
-                                        {'data': 'Este usuario ya ha votado por ' + obj_votacion_usuario.codigo.nombre},
+                                        {
+                                            'data': 'Este usuario ya ha votado por ' + obj_votacion_usuario.codigo.nombre},
                                         status=status.HTTP_400_BAD_REQUEST)
                                 except Votaciones.DoesNotExist:
                                     try:
@@ -678,7 +681,7 @@ class VotarYoutuber(CreateAPIView):
                                     except Usuario.DoesNotExist:
                                         return Response({'data': 'Este usuario no existe'},
                                                         status=status.HTTP_400_BAD_REQUEST)
-                        except Votaciones.DoesNotExist:
+                        else:
                             return Response({'data': 'No existe participante con el código ingresado'},
                                             status=status.HTTP_400_BAD_REQUEST)
                     except Usuario.DoesNotExist:
