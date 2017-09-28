@@ -226,20 +226,11 @@
                     </li>
 
                     <li class="lista">
-                        <a class="titulo">
-                            <i class="fa fa-arrow-circle-down"></i>
-                            <p style="display: inline-block">ACTIVACION YOUTUBERS</p>
-                        </a>
 
-                        <ul class="ul-child" style="display: none;">
-                            <li>
-                                <a href="{% url 'youtuber:listar' %}"
-                                   class="titulo" style="display: inherit;">
-                                    <i class="fa fa-user"></i>
-                                    <p>YOUTUBERS</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="{% url 'youtuber:listar' %}" class="titulo">
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                            <p>YOUTUBERS</p>
+                        </a>
                     </li>
 
                     <li>
@@ -546,7 +537,7 @@
 
         $('.table').dataTable({
             "ordering": false,
-            "paging":false,
+            "paging": false,
             "language": {
                 "url": "{% static 'datatable/spanish.json' %}"
             }
