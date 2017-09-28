@@ -1,10 +1,10 @@
-from PIL import Image
+
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
 
 # Create your views here.
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -108,18 +108,26 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        pk = self.kwargs['pk']
+        pk = kwargs['pk']
         sitio = self.model.objects.get(id=pk)
         form_sitio = self.form_class(request.POST, request.FILES, instance=sitio)
         form_imagen = self.second_form_class(request.POST, request.FILES)
-
-        print(request.POST)
-        print(request.FILES)
+        files = request.FILES.getlist('imagen')
 
         if form_sitio.is_valid() and form_imagen.is_valid():
 
+            imagen_new = Imagen.objects.last()
+            # recorremos las imagenes por indice y archivo que vienen del formulario
+            for indx, file in enumerate(files):
+                # creamos una instancia del modelo imagen
+                imagen = Imagen(nombre=form_sitio.data['nombre'] + "_" + str(imagen_new.id + (indx + 1)), imagen=file)
+                # guardamos el objeto
+                imagen.save()
+                # asignamos esas imagenes al sitio
+                sitio.imagenes.add(imagen)
+
+            sitio.save()
             form_sitio.save()
-            form_imagen.save()
 
             caches[settings.CACHE_API_SITIOS].clear()
             return HttpResponseRedirect(self.get_success_url())
@@ -148,3 +156,19 @@ class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     @method_decorator(cache_page(None))
     def dispatch(self, request, *args, **kwargs):
         return super(SitioDelete, self).dispatch(request, *args, **kwargs)
+
+
+def deleteimagen(request):
+    if request.method == 'POST':
+        try:
+            id_imagen = request.POST['imagen_id']
+            id_sitio = request.POST['sitio']
+
+            obj_imagen = Imagen.objects.get(id=id_imagen)
+            obj_sitio = Sitio.objects.get(id=id_sitio)
+
+            obj_sitio.imagenes.remove(obj_imagen)
+
+            return HttpResponse('Imagen eliminada del sitio exitosamente!')
+        except Imagen.DoesNotExist or Sitio.DoesNotExist:
+            return HttpResponse('Error! Imagen o Sitio incorrecto')

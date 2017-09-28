@@ -11,9 +11,9 @@
         div.form-group-image {
             display: flex;
             overflow: scroll;
-            -webkit-box-shadow: 0px 13px 25px -5px rgba(0, 0, 0, 0.15);
-            -moz-box-shadow: 0px 13px 25px -5px rgba(0, 0, 0, 0.15);
-            box-shadow: 0px 13px 25px -5px rgba(0, 0, 0, 0.15);
+            -webkit-box-shadow: 0px 13px 25px -5px rgba(0, 0, 0, 0.17);
+            -moz-box-shadow: 0px 13px 25px -5px rgba(0, 0, 0, 0.17);
+            box-shadow: 0px 13px 25px -5px rgba(0, 0, 0, 0.17);
             border-top-right-radius: 15px;
             border-top-left-radius: 15px;
 
@@ -24,6 +24,11 @@
             margin-right: 2%;
             margin-bottom: 2%;*/
             margin:2%;
+        }
+
+        .form-group-file{
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 {% endblock %}
@@ -158,7 +163,7 @@
                                 </div>
                             {% endif %}
 
-                            <div class="form-group">
+                            <div class="form-group-file">
                                 {{ form2.imagen.errors }}
                                 <label for="{{ form2.imagen.id_for_label }}">Imagen</label>
                                 {{ form2.imagen }}
@@ -249,7 +254,7 @@
             if (img_conf) {
                 $(document).ready(function () {
                     $.ajax({
-                        url: "{% url 'noticia:delete' %}",
+                        url: "{% url 'noticia:delete_imagen' %}",
                         type: "POST",
                         data: {
                             imagen_id: imagen_id,
@@ -261,10 +266,11 @@
                             $("img[data-id=" + imagen_id + "]").remove();
                         },
                         error: function (data) {
-                            alert('didnt work AJAX');
+                            alert('AJAX NO TRABAJA HOY');
+                            console.log(data);
                         }
                     });
-                })
+                });
             }
         }
 
