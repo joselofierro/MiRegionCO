@@ -2,6 +2,7 @@ from threading import Thread
 
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
+from django.db.models import Count
 from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -15,6 +16,7 @@ from rest_framework.views import APIView
 
 from MiRegionCO import settings
 from api.serializers import *
+from apps.activacion_youtuber.models import Youtuber
 from apps.categoria.models import Categoria
 from apps.categoria_mapa.models import CategoriaMapa
 from apps.noticia.models import Noticia
@@ -643,6 +645,15 @@ def FCM_CREATE(request):
             return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
 
 
+@api_view(['GET'])
+def ListadoConcursantes(request):
+    if request.method == 'GET':
+        concursantes = Youtuber.objects.all().values('codigo', 'foto', 'nombre').annotate(
+            votos=Count('votaciones__codigo')).order_by('votaciones__codigo', 'nombre')
+
+        return Response(concursantes, status=status.HTTP_200_OK)
+
+
 class VotarYoutuber(CreateAPIView):
     serializer_class = VotacionSerializer
 
@@ -655,37 +666,27 @@ class VotarYoutuber(CreateAPIView):
                     obj_votacion.save()
                     return Response({'data': True}, status=status.HTTP_201_CREATED)
                 else:
-                    try:
-                        obj_usuario = Usuario.objects.get(id=request.data['usuario'])
-                        obj_votacion_codigo = Votaciones.objects.filter(codigo=request.data['codigo'])
+                    # Validamos si el usuario existe
+                    if Usuario.objects.filter(id=request.data['usuario']).exists():
+                        # Validamos si existe el codigo
+                        if Youtuber.objects.filter(codigo=request.data['codigo']).exists():
+                            # Validamos si usuario ya votó
+                            if Votaciones.objects.filter(usuario__id=request.data['usuario']).exists():
+                                votacion = Votaciones.objects.filter(usuario__id=request.data['usuario'])
+                                return Response({'data': 'Este usuario ya votó por ' + votacion.first().codigo.nombre},
+                                                status=status.HTTP_400_BAD_REQUEST)
 
-                        if obj_votacion_codigo:
-                            try:
-                                obj_votacion_disp = Votaciones.objects.get(
-                                    dispositivo_id=request.data['dispositivo_id'])
-                                return Response(
-                                    {
-                                        'data': 'Este dispositivo ya ha votado por ' + obj_votacion_disp.codigo.nombre},
-                                    status=status.HTTP_400_BAD_REQUEST)
-                            except Votaciones.DoesNotExist:
-                                try:
-                                    obj_votacion_usuario = Votaciones.objects.get(usuario=request.data['usuario'])
-                                    return Response(
-                                        {
-                                            'data': 'Este usuario ya ha votado por ' + obj_votacion_usuario.codigo.nombre},
-                                        status=status.HTTP_400_BAD_REQUEST)
-                                except Votaciones.DoesNotExist:
-                                    try:
-                                        obj_votacion.save()
-                                        return Response({'data': True}, status=status.HTTP_201_CREATED)
-                                    except Usuario.DoesNotExist:
-                                        return Response({'data': 'Este usuario no existe'},
-                                                        status=status.HTTP_400_BAD_REQUEST)
+                            # Validamos si el dispositivo ya votó
+                            if Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id']).exists():
+                                votacion = Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id'])
+                                return Response({'data': 'Este dispositivo ya votó ' + votacion.first().codigo.nombre},
+                                                status=status.HTTP_400_BAD_REQUEST)
                         else:
                             return Response({'data': 'No existe participante con el código ingresado'},
                                             status=status.HTTP_400_BAD_REQUEST)
-                    except Usuario.DoesNotExist:
-                        return Response({'data': 'Este usuario no existe'}, status=status.HTTP_400_BAD_REQUEST)
+                    else:
+                        return Response({'data': 'El usuario que intenta votar no existe'},
+                                        status=status.HTTP_400_BAD_REQUEST)
             else:
                 return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
                                 status=status.HTTP_400_BAD_REQUEST)

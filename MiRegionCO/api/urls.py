@@ -62,5 +62,6 @@ urlpatterns = [
     url(r'^fcm_list/$', FCMDeviceViewSet.as_view({'get': 'list'}), name='fcm_list'),
     # Votaciones Youtuber
     url(r'^votar_youtuber/$', VotarYoutuber.as_view(), name='votar_youtuber'),
+    url(r'^listado_concursantes/$', ListadoConcursantes, name='listado_concursantes'),
 
 ]

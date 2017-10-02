@@ -191,7 +191,7 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="id_tags">Tags</label>
-                                {% if noticia.tag %}
+                                {% if noticia.tag%}
                                     <input id="id_tags" name="tags" class="form-control" maxlength="9999" required
                                            value="{{ noticia.tag.all|join:", " }}">
                                 {% else %}

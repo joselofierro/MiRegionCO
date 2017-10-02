@@ -34,6 +34,14 @@ class NotificacionCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVie
         # Enviamos la notificacion
         usuarios_ios.send_message(title=titulo, body=mensaje, sound='default')
 
+        # Obtenemos a cuantos dispositivos ha llegado la notificación
+        usuarios_notificados = FCMDevice.objects.filter(active=True).count()
+
+        self.success_message = "La notificación ha llegado a " + str(usuarios_notificados) + " usuario"
+
+        # Eliminamos los usuarios inactivos
+        FCMDevice.objects.filter(active=False).delete()
+
         return super(NotificacionCreate, self).form_valid(form)
 
 

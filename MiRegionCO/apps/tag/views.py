@@ -10,7 +10,7 @@ from apps.tag.forms import TagForm
 from apps.tag.models import Tag
 
 
-class TagCreate(PermissionRequiredMixin, SuccessMessageMixin,CreateView):
+class TagCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     model = Tag
     form_class = TagForm
     template_name = 'tag/tag_form.html'
@@ -22,7 +22,7 @@ class TagCreate(PermissionRequiredMixin, SuccessMessageMixin,CreateView):
     redirect_field_name = 'redirect_to'
 
 
-class TagList(PermissionRequiredMixin,ListView):
+class TagList(PermissionRequiredMixin, ListView):
     model = Tag
     template_name = 'tag/tag_list.html'
     permission_required = ('tag.add_tag', 'tag.change_tag')
@@ -31,7 +31,7 @@ class TagList(PermissionRequiredMixin,ListView):
     redirect_field_name = 'redirect_to'
 
 
-class TagUpdate(PermissionRequiredMixin, SuccessMessageMixin,UpdateView):
+class TagUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Tag
     form_class = TagForm
     template_name = 'tag/tag_form.html'
@@ -43,7 +43,7 @@ class TagUpdate(PermissionRequiredMixin, SuccessMessageMixin,UpdateView):
     redirect_field_name = 'redirect_to'
 
 
-class TagDelete(PermissionRequiredMixin, SuccessMessageMixin,DeleteView):
+class TagDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Tag
     template_name = 'tag/tag_delete.html'
     success_url = reverse_lazy('tag:listar_tag')
@@ -52,4 +52,3 @@ class TagDelete(PermissionRequiredMixin, SuccessMessageMixin,DeleteView):
     raise_exception = False
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
-

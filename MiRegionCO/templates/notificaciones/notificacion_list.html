@@ -69,3 +69,28 @@
         </div>
     </div>
 {% endblock %}
+
+{% block extra_js %}
+    <!-- Notificación -->
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                if ('{{ message.tags }}' === 'success') {
+                    new PNotify({
+                        title: 'Notificación',
+                        text: '{{ message }}',
+                        type: 'info',
+                        styling: 'fontawesome'
+                    });
+                } else {
+                    new PNotify({
+                        title: 'Notificación',
+                        text: 'Ha ocurrido un problema. Inténtelo mas tarde',
+                        type: 'error',
+                        styling: 'fontawesome'
+                    });
+                }
+            {% endfor %}
+        {% endif %}
+    </script>
+{% endblock %}
