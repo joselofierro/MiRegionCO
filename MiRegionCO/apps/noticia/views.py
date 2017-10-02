@@ -39,9 +39,9 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         context = super(NoticiaCreate, self).get_context_data(**kwargs)
 
         if 'form' not in context:
-            context['form'] = self.form_class(self.request.GET)
+            context['form'] = self.form_class()
         if 'form2' not in context:
-            context['form2'] = self.second_form_class(self.request.GET)
+            context['form2'] = self.second_form_class()
 
         return context
 
@@ -77,6 +77,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 
                     # busco si el Tag está creado
                     try:
+                        # si esta el tag creado en el modelo tag se lo agregamos a la noticia
                         tag_object = Tag.objects.get(nombre=tag)
                         noticia.tag.add(tag_object)
                     except Tag.DoesNotExist:

@@ -173,6 +173,7 @@ class NoticiasCategoriaListId2(ListAPIView):
 @method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
 class SitiosList(ListAPIView):
     serializer_class = SitioSerializer
+    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
