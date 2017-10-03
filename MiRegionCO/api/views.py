@@ -173,7 +173,6 @@ class NoticiasCategoriaListId2(ListAPIView):
 @method_decorator(cache_page(None, cache=settings.CACHE_API_SITIOS), name='dispatch')
 class SitiosList(ListAPIView):
     serializer_class = SitioSerializer
-    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
@@ -660,7 +659,8 @@ class VotarYoutuber(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         if 'accessToken' in request.data:
-            if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data['accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
+            if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data[
+                'accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
                 request.data.pop('accessToken')
                 obj_votacion = VotacionSerializer(data=request.data)
                 if obj_votacion.is_valid():
