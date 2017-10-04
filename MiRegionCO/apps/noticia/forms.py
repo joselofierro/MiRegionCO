@@ -31,7 +31,6 @@ class NoticiaForm(forms.ModelForm):
             'categoria': 'Categoria',
             'destacada': '¿Es destacada?',
 
-
         }
 
         widgets = {

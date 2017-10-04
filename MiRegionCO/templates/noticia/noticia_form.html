@@ -16,15 +16,15 @@
             box-shadow: 0 13px 25px -5px rgba(0, 0, 0, 0.17);
             /*border-top-right-radius: 15px;
             border-top-left-radius: 15px;*/
-            border: 1px solid rgba(0,0,0,0.10);
+            border: 1px solid rgba(0, 0, 0, 0.10);
 
         }
 
         .form-group-image .img-wrap {
-            margin:2%;
+            margin: 2%;
         }
 
-        .form-group-file{
+        .form-group-file {
             margin-top: 20px;
             margin-bottom: 20px;
         }
@@ -74,7 +74,6 @@
             );
         }
     </script>
-
 
     <div class="col-md-12">
         <div class="card">
@@ -191,7 +190,7 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="id_tags">Tags</label>
-                                {% if noticia.tag%}
+                                {% if noticia.tag %}
                                     <input id="id_tags" name="tags" class="form-control" maxlength="9999" required
                                            value="{{ noticia.tag.all|join:", " }}">
                                 {% else %}

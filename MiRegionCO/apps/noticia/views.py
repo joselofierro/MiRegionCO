@@ -147,8 +147,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(NoticiaUpdate, self).get_context_data(**kwargs)
-        # pk = self.kwargs.get('pk', 0)
-        # noticia = self.model.objects.get(id=pk)
+
         if 'form' not in context:
             context['form'] = self.form_class()
         if 'form2' not in context:
