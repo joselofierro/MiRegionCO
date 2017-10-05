@@ -649,7 +649,7 @@ def FCM_CREATE(request):
 def ListadoConcursantes(request):
     if request.method == 'GET':
         concursantes = Youtuber.objects.all().values('codigo', 'foto', 'nombre').annotate(
-            votos=Count('votaciones__codigo')).order_by('votaciones__codigo')
+            votos=Count('votaciones__codigo')).order_by('-votaciones__codigo')
 
         return Response(concursantes, status=status.HTTP_200_OK)
 
