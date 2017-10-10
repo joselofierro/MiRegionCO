@@ -1,5 +1,4 @@
 from threading import Thread
-
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.db.models import Count
@@ -595,54 +594,45 @@ def EnviarEmail(request):
 
 @api_view(['POST'])
 def FCM_CREATE(request):
-    # si el FCMDevice ya existe
-    try:
-        # si el usuario es null
-        if request.data['user'] is None:
-            fcm_devices_nuevo = FCMDevice(user=None, registration_id=request.data['registration_id'],
-                                          type=request.data['type'])
-            fcm_devices_nuevo.save()
-            return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
-        else:
-            # si el usuario existe
-            try:
-                # obtenemos el usuario por el id del user
-                usuario = Usuario.objects.get(id=request.data['user'])
-                # obtenemos el dispositivo por el usuario
-                fcm_devices = FCMDevice.objects.get(user=usuario)
-                # si el token es igual
-                if fcm_devices.registration_id == request.data['registration_id']:
-                    return Response({'data': 'usuario ya existe con este token'}, status=status.HTTP_200_OK)
-                # actualizamos el token
-                else:
-                    fcm_devices.registration_id = request.data['registration_id']
-                    fcm_devices.save()
-                    return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
-            # si el fcmdevice no existe
-            except FCMDevice.DoesNotExist:
-                # obtenemos el Usuario por el id del user
-                fcm_user = Usuario.objects.get(id=request.data['user'])
-                # instancia del Modelo FCMDevice
-                fcm_devices_nuevo = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
-                                              type=request.data['type'])
-                fcm_devices_nuevo.save()
-                return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
-    # si no existe lo creamos
-    except FCMDevice.DoesNotExist:
-        try:
-            # obtenemos el Usuario por el id del user
-            fcm_user = Usuario.objects.get(id=request.data['user'])
-            # instancia del Modelo FCMDevice
-            fcm_devices_nuevo = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
-                                          type=request.data['type'])
-            fcm_devices_nuevo.save()
-            return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
+    # si el usuario es nulo
+    if request.data['user'] is None:
+        # creamos la instancia del fcm
+        fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'], type=request.data['type'])
+        # guardamos la instancia
+        fcm_device_new.save()
+        return Response(data={'data:' 'FCM CREADO🙏'}, status=status.HTTP_200_OK)
 
-        except Usuario.DoesNotExist:
-            fcm_devices_nuevo = FCMDevice(user=None, registration_id=request.data['registration_id'],
-                                          type=request.data['type'])
-            fcm_devices_nuevo.save()
-            return Response({'data': 'Usuario creado'}, status=status.HTTP_200_OK)
+    else:
+        # si el usuario existe
+        if Usuario.objects.filter(id=request.data['user']).exists():
+            # obtenemos el usuario que viene del json
+            fcm_user = Usuario.objects.get(id=request.data['user'])
+            # si existe fcm_device con ese user y ese type
+            if FCMDevice.objects.filter(user=fcm_user,type=request.data['type']).exists():
+                # obtenemos el fcm_device segun el type
+                fcm_obj = FCMDevice.objects.get(user=request.data['user'], type=request.data['type'])
+                # si el token es igual
+                if fcm_obj.registration_id == request.data['registration_id']:
+                    fcm_obj.active = True
+                    fcm_obj.save()
+                    return Response({'data': 'ya existe este token'}, status=status.HTTP_200_OK)
+                else:
+                    # actualizamos el token
+                    fcm_obj.registration_id = request.data['registration_id']
+                    fcm_obj.active = True
+                    fcm_obj.save()
+                    return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
+            else:
+                fcm_user = Usuario.objects.get(id=request.data['user'])
+                fcm_device_new = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
+                                           type=request.data['type'])
+                fcm_device_new.save()
+                return Response(data={'data': 'FCM CREADO 👏'})
+        # si el usuario no existe
+        else:
+            fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'], type=request.data['type'])
+            fcm_device_new.save()
+            return Response(data={'data:' 'FCM CREADO👍'}, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
