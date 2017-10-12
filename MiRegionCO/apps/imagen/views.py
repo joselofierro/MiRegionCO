@@ -25,6 +25,7 @@ class ImagenCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 class ImagenList(PermissionRequiredMixin, ListView):
     model = Imagen
     template_name = 'imagen/imagen_list.html'
+    paginate_by = 10
     permission_required = ('imagen.add_imagen', 'imagen.change_imagen')
     raise_exception = False
     login_url = reverse_lazy('grupo:login')

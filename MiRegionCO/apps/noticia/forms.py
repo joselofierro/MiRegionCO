@@ -43,6 +43,6 @@ class NoticiaForm(forms.ModelForm):
             'url': forms.URLInput(attrs={'class': 'form-control'}),
             'video': forms.URLInput(attrs={'class': 'form-control'}),
             'duracion': forms.TextInput(attrs={'class': 'form-control'}),
-            'categoria': forms.SelectMultiple(attrs={'class': 'form-control'}),
+            'categoria': forms.SelectMultiple(attrs={'class': 'form-control', 'name': 'categorias'}),
             'destacada': forms.CheckboxInput(attrs={'class': 'form-control chkbox'})
         }

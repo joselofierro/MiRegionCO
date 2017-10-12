@@ -30,8 +30,8 @@
         }
     </style>
 {% endblock %}
-{% block content %}
 
+{% block content %}
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -207,6 +207,7 @@
                                 {{ form.categoria.errors }}
                                 <label for="{{ form.categoria.id_for_label }}">Categoria</label>
                                 {{ form.categoria }}
+                                <strong class="text-danger">{{ error }}</strong>
                             </div>
                         </div>
 

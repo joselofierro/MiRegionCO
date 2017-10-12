@@ -25,6 +25,7 @@ class TagCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 class TagList(PermissionRequiredMixin, ListView):
     model = Tag
     template_name = 'tag/tag_list.html'
+    paginate_by = 10
     permission_required = ('tag.add_tag', 'tag.change_tag')
     raise_exception = False
     login_url = reverse_lazy('grupo:login')

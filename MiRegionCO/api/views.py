@@ -608,9 +608,9 @@ def FCM_CREATE(request):
             # obtenemos el usuario que viene del json
             fcm_user = Usuario.objects.get(id=request.data['user'])
             # si existe fcm_device con ese user y ese type
-            if FCMDevice.objects.filter(user=fcm_user,type=request.data['type']).exists():
-                # obtenemos el fcm_device segun el type
-                fcm_obj = FCMDevice.objects.get(user=request.data['user'], type=request.data['type'])
+            if FCMDevice.objects.filter(user=fcm_user, type=request.data['type']).exists():
+                # obtenemos el fcm_device
+                fcm_obj = FCMDevice.objects.get(user=fcm_user, type=request.data['type'])
                 # si el token es igual
                 if fcm_obj.registration_id == request.data['registration_id']:
                     fcm_obj.active = True
@@ -623,9 +623,7 @@ def FCM_CREATE(request):
                     fcm_obj.save()
                     return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
             else:
-                fcm_user = Usuario.objects.get(id=request.data['user'])
-                fcm_device_new = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
-                                           type=request.data['type'])
+                fcm_device_new = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'], type=request.data['type'])
                 fcm_device_new.save()
                 return Response(data={'data': 'FCM CREADO 👏'})
         # si el usuario no existe

@@ -13,6 +13,8 @@ from django.views.generic import *
 from requests import Response
 
 from MiRegionCO import settings
+from apps.categoria.forms import CategoriaForm
+from apps.categoria.models import Categoria
 from apps.imagen.forms import ImagenForm
 from apps.imagen.models import Imagen
 from apps.noticia.forms import NoticiaForm
@@ -23,8 +25,10 @@ from apps.tag.models import Tag
 
 class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     model = Noticia
+    second_model = Categoria
     form_class = NoticiaForm
     second_form_class = ImagenForm
+    third_form_class = CategoriaForm
     template_name = 'noticia/noticia_form.html'
     success_url = reverse_lazy('noticia:listar')
     success_message = "Se ha creado la noticia satisfactoriamente."
@@ -54,6 +58,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 
         # si la noticia es valida
         if form.is_valid() and form2.is_valid():
+            print(request.POST.getlist('categoria'))
             # si tiene imagenes
             if len(request.FILES) != 0:
                 list_id_imagenes = []
