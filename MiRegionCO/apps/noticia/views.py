@@ -25,10 +25,8 @@ from apps.tag.models import Tag
 
 class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     model = Noticia
-    second_model = Categoria
     form_class = NoticiaForm
     second_form_class = ImagenForm
-    third_form_class = CategoriaForm
     template_name = 'noticia/noticia_form.html'
     success_url = reverse_lazy('noticia:listar')
     success_message = "Se ha creado la noticia satisfactoriamente."
@@ -46,7 +44,6 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
             context['form'] = self.form_class()
         if 'form2' not in context:
             context['form2'] = self.second_form_class()
-
         return context
 
     def post(self, request, *args, **kwargs):
@@ -55,12 +52,18 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         form2 = self.second_form_class(request.POST)
         # guardamos las imagenes del formulario
         files = request.FILES.getlist('imagen')
+        categorias = (request.POST.getlist('categoria'))
 
         # si la noticia es valida
         if form.is_valid() and form2.is_valid():
-            print(request.POST.getlist('categoria'))
             # si tiene imagenes
             if len(request.FILES) != 0:
+
+                list_categoria = []
+                for categoria in categorias:
+                    categoria_obj = Categoria.objects.get(id=categoria)
+                    list_categoria.append(categoria_obj)
+
                 list_id_imagenes = []
                 for index, f in enumerate(files):
                     imagen = Imagen(nombre=form.data['titular'] + "_" + str(index), imagen=f)
@@ -92,6 +95,9 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 
                 for imagen_id in list_id_imagenes:
                     noticia.imagenes.add(imagen_id)
+
+                for categoria_id in list_categoria:
+                    noticia.categoria.add(categoria_id)
 
                 caches[settings.CACHE_API_NOTICIAS].clear()
                 caches[settings.CACHE_API_NOTICIAS2].clear()

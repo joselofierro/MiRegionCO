@@ -1,4 +1,3 @@
-
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
@@ -16,6 +15,7 @@ from apps.imagen.forms import ImagenForm
 from apps.imagen.models import Imagen
 from apps.sitio.forms import SitioForm
 from apps.sitio.models import Sitio
+from apps.subcategoria_mapa.models import SubcategoriaMapa
 
 
 class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
@@ -43,20 +43,30 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         form = self.form_class(request.POST, request.FILES)
         form2 = self.second_form_class(request.POST)
         files = request.FILES.getlist('imagen')
+        subcategorias = request.POST.getlist('subcategoria')
+        list_subcategorias = []
+        list_img = []
 
         if form.is_valid() and form2.is_valid():
             if len(request.FILES) != 0:
-                list_img = []
+
                 for indx, file in enumerate(files):
                     imagen = Imagen(nombre=form.data['nombre'] + "_" + str(indx), imagen=file)
                     imagen.save()
                     list_img.append(imagen)
+
+                for subcategoria in subcategorias:
+                    subcategoria_obj = SubcategoriaMapa.objects.get(id=subcategoria)
+                    list_subcategorias.append(subcategoria_obj)
 
                 sitio = form.save(commit=False)
                 sitio.save()
 
                 for imagen in list_img:
                     sitio.imagenes.add(imagen)
+
+                for subcatg_id in list_subcategorias:
+                    sitio.subcategoria.add(subcatg_id)
 
                 caches[settings.CACHE_API_SITIOS].clear()
                 return HttpResponseRedirect(self.get_success_url())
