@@ -204,7 +204,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
             for tag in list_tags_bd:
                 noticia.tag.add(tag)
 
-            # las imagenes recien creadas
+            # las imagenes recien creadas (actualizaciòn)
             ultima_imagen = Imagen.objects.last()
             for index, f in enumerate(files):
                 imagen = Imagen(nombre=form_noticia.data['titular'] + "_" + str(ultima_imagen.id + (index + 1)),
