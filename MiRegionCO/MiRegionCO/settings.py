@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.elasticbeanstalk.com',
-    '192.168.10.252',
+    '192.168.10.3',
     '127.0.0.1'
 ]
 

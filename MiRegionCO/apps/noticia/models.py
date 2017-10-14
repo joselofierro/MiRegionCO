@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+
 from apps.categoria.models import Categoria
 from apps.imagen.models import Imagen
 from apps.tag.models import Tag
@@ -22,6 +23,8 @@ class Noticia(models.Model):
     categoria = models.ManyToManyField(Categoria, related_name='categoria')
     destacada = models.BooleanField(default=False, blank=False, null=False)
     visible = models.BooleanField(default=True)
+    mobile = models.BooleanField(default=True)
+    web = models.BooleanField(default=True)
 
     def __str__(self):
         return self.titular

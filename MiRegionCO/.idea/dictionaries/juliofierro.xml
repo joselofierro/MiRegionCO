@@ -181,6 +181,7 @@
       <w>instancia</w>
       <w>instancias</w>
       <w>inválido</w>
+      <w>isdesktop</w>
       <w>jssdk</w>
       <w>latitud</w>
       <w>lconf</w>
@@ -190,6 +191,7 @@
       <w>llamar</w>
       <w>llegado</w>
       <w>longitud</w>
+      <w>lugar</w>
       <w>maneras</w>
       <w>mapa</w>
       <w>mapalist</w>
@@ -201,6 +203,7 @@
       <w>menumovil</w>
       <w>miregionco</w>
       <w>modelo</w>
+      <w>modelos</w>
       <w>mostrar</w>
       <w>navbar</w>
       <w>necesitar</w>
@@ -252,6 +255,7 @@
       <w>rrct</w>
       <w>salir</w>
       <w>satisfactoriamente</w>
+      <w>savenews</w>
       <w>segun</w>
       <w>selecciona</w>
       <w>semanticui</w>
@@ -261,6 +265,9 @@
       <w>sesion</w>
       <w>sesión</w>
       <w>señor</w>
+      <w>sharefacebook</w>
+      <w>sharegoogle</w>
+      <w>sharetwitter</w>
       <w>siguiente</w>
       <w>sitio</w>
       <w>sitios</w>
@@ -284,6 +291,7 @@
       <w>touchlist</w>
       <w>touchstart</w>
       <w>trabaja</w>
+      <w>twitte</w>
       <w>uidb</w>
       <w>ultima</w>
       <w>urlpattern</w>
@@ -298,6 +306,10 @@
       <w>visita</w>
       <w>visitan</w>
       <w>visitar</w>
+      <w>visitindex</w>
+      <w>visitmap</w>
+      <w>visitnews</w>
+      <w>visitplace</w>
       <w>visualizacion</w>
       <w>visualizaciones</w>
       <w>visualizar</w>

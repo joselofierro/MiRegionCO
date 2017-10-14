@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
-
 # Create your views here.
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
@@ -49,7 +48,6 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 
         if form.is_valid() and form2.is_valid():
             if len(request.FILES) != 0:
-
                 for indx, file in enumerate(files):
                     imagen = Imagen(nombre=form.data['nombre'] + "_" + str(indx), imagen=file)
                     imagen.save()
