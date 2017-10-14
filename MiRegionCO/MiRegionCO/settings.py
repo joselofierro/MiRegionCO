@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'apps.ventas.vendedor',
     'apps.notificaciones',
     'apps.activacion_youtuber',
+    'apps.web',
     'rest_framework',
     'storages',
     'fcm_django',
