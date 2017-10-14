@@ -1,0 +1,23 @@
+{% for categoria in categorias %}
+    {% if forloop.last %}
+        <li class="li__btn ultimo-boton" style="background-color: #{{ categoria.color }}">
+            <ul class="ul__menu">
+                <li class="li__icon"><i
+                        class="glyphicon glyphicon-play icon-deportes icon__menu" style="background-color: #{{ categoria.color }}"></i>
+                </li>
+                <li><a href="{% url 'pagina_web:noticia_categoria' categoria.id %}">{{ categoria.nombre }}</a></li>
+                <hr class="hr">
+            </ul>
+        </li>
+    {% else %}
+        <li class="li__btn" style="background-color: #{{ categoria.color }}">
+            <ul class="ul__menu">
+                <li class="li__icon"><i
+                        class="glyphicon glyphicon-play icon-magazine icon__menu" style="background-color: #{{ categoria.color }}"></i>
+                </li>
+                <li><a href="{% url 'pagina_web:noticia_categoria' categoria.id %}">{{ categoria.nombre }}</a></li>
+                <hr class="hr">
+            </ul>
+        </li>
+    {% endif %}
+{% endfor %}

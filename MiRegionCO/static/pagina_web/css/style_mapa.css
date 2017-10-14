@@ -1,0 +1,440 @@
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
+    background: #FFf;
+}
+
+body a {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url(../fonts/Montserrat-Regular.ttf) format('truetype');
+}
+
+a:hover, h5.inner.two a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+input[type="button"], input[type="submit"], li.parallelogram {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: 'Montserrat-Regular';
+    font-weight: 700;
+
+}
+
+p {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    margin: 0;
+}
+
+/**********CONTENEDOR MAPA*************/
+
+#map {
+    height: 95vh;
+    width: 100%;
+}
+
+/**********MENU MAPA*************/
+#content {
+    margin-top: 3em;
+}
+
+.contenedor-menumapa {
+    overflow: auto;
+    overflow-x: hidden;
+    height: 75%;
+    direction: rtl;
+}
+
+.icon-menu {
+    width: 30px;
+    position: relative;
+    left: -0.8em;
+}
+
+.tittle-menu {
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 1em;
+    width: 100%;
+    text-align: left;
+}
+
+.tittle-menu h1 {
+    display: inline-block;
+    border-left: 4px solid;
+    font-size: 1em;
+    padding: 0.5em;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.tittle-menu img {
+    margin-right: 0.3em;
+}
+
+.nav {
+    display: flex;
+    position: absolute;
+    top: 2.5%;
+    left: -33.333%;
+    width: 33.333%;
+    height: 90vh;
+    transition: all 0.4s;
+    background-color: rgba(128, 180, 147, 0.9);
+    z-index: 1;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.contenedor-menu .menu-mapa .activado > a {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgb(128, 180, 147);
+}
+
+.menu-mapa {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    direction: ltr;
+}
+
+.mostrar {
+    left: 0;
+}
+
+.contenedor-menu {
+    width: 100%;
+}
+
+.contenedor-menu ul ul {
+    display: none;
+}
+
+.menu-item a, .submenu-item a {
+    display: block;
+    padding: 0.8em 0em;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    margin: 0em 1.5em;
+}
+
+.item_a {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.contenedor-menu a i {
+    position: absolute;
+    right: 0.5em;
+    font-size: 1.2em;
+    padding: 0.5em 0;
+}
+
+.search-mapa {
+    display: block;
+    margin: 1em 1.5em;
+}
+
+.b-search-mapa {
+    position: relative;
+    width: 100%;
+    border: 2px solid #fff;
+}
+
+.b-search-mapa input[type="text"] {
+    width: 90%;
+    padding: 0.7em 1em;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    position: relative;
+    border: none;
+    background: none;
+}
+
+.search {
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    width: 10%;
+}
+
+.b-search-mapa span {
+    font-size: 2em;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    top: .2em;
+}
+
+.b-search-mapa input[type="text"]:focus ~ span {
+    color: #80b493;
+    background: #ffffff;
+}
+
+.b-search-mapa input[type="text"]:focus ~ .b-search-mapa {
+    color: #80b493;
+    background: #ffffff;
+}
+
+.menu-item a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgb(128, 180, 147);
+}
+
+ul.menu-mapa li > a:hover > i {
+    transition: transform 0.5s ease;
+    transform: rotate(90deg);
+}
+
+.submenu-item {
+    font-size: 0.8em;
+    list-style: none;
+}
+
+.submenu-item a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-left: 3em;
+    border-left: 5px solid #ffffff;
+    color: #ffffff;
+    border-bottom: 1px solid #fff0f0;
+}
+
+.contenedor-icono {
+    width: 0;
+}
+
+.contenedor-icono span {
+    background-color: rgba(128, 180, 147, 0.7);
+    color: #ffffff;
+    transform: rotate(90deg);
+    font-size: 2.5em;
+    padding: 0 1em;
+    left: -1em;
+    top: 45%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+}
+
+.contenedor-icono span:hover {
+    background-color: rgba(128, 180, 147, 0.9);
+}
+
+/**********Info_Content*************/
+.info_content img {
+    border-radius: 50%;
+    width: 7em;
+    height: 7em;
+    margin: auto 1em;
+}
+
+.info_hr {
+    height: 2px;
+    width: 90%;
+    background-color: #333333;
+}
+
+.info_div {
+    margin-top: 1em;
+    display: flex;
+    line-height: 1.5em;
+}
+
+.info_sitio {
+    display: flex;
+    justify-content: space-around;
+}
+
+.info_descripcion h3 {
+    text-align: center;
+    margin-bottom: 0.25em;
+}
+
+.info_sitio p {
+    font-size: 1em;
+    margin-right: 1em;
+}
+
+.info_sitio span {
+    font-size: 1em;
+    margin-right: 0.2em;
+    font-weight: bold;
+}
+
+/**********sitios recomendados*************/
+contenedor-relacionada {
+    margin: 2em 1em;
+}
+
+.contenedor-noticia-relacionada {
+    border-top: 2px solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.5);
+    padding-top: 1em;
+}
+
+/***********************responsive************************/
+
+@media (max-width: 1200px) {
+    .b-search-mapa input[type="text"] {
+        padding: 0.5em .5em;
+    }
+
+    .b-search-mapa span {
+        font-size: 1.5em;
+        top: .3em;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .nav {
+        left: -50%;
+        width: 50%;
+    }
+
+    .mostrar {
+        left: 0;
+    }
+
+    .nav a {
+        font-size: 0.85em;
+    }
+
+    .contenedor-icono span {
+        font-size: 2em;
+    }
+
+    .contenedor-relacionada h3 {
+        font-size: 1.2em;
+    }
+
+    .noticia-descripcion a {
+        font-size: 0.7em;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .noticia-descripcion {
+        width: 2.35%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .nav {
+        left: -60%;
+        width: 60%;
+        height: 85vh;
+        top: 3%;
+    }
+
+    .mostrar {
+        left: 0;
+    }
+
+    .contenedor-menumapa {
+        height: 70%;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .b-search-mapa span {
+        font-size: 1.2em;
+        top: .5em;
+    }
+
+    .contenedor-icono span {
+        font-size: 1.5em;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 0 .85em;
+    }
+
+    .tittle-menu {
+        padding: .5em;
+    }
+
+    .nav {
+        left: -80%;
+        width: 80%;
+    }
+
+    .mostrar {
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #content {
+        margin-top: 34vh;
+        overflow-x: hidden;
+
+    }
+
+    .nav {
+        left: -95%;
+        width: 95%;
+    }
+
+    .mostrar {
+        left: 0;
+    }
+
+    .top-mapa ul li a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    contenedor-relacionada {
+        margin: 1em 0;
+    }
+
+    .flexslider .slides > li {
+        height: 200px;
+    }
+
+    .flexslider .slides img {
+        height: 200px;
+    }
+
+}
+
+@media (max-width: 414px) {
+
+    .noticia-descripcion {
+        width: 3.54%;
+    }
+
+}

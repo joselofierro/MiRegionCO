@@ -1,0 +1,242 @@
+{% extends 'base/base_pagina_web.html' %}
+{% load staticfiles %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'pagina_web/css/flexslider.css' %}" type="text/css" media="screen"/>
+    <link href="{% static 'pagina_web/css/style__noticia.css' %}" rel='stylesheet' type='text/css'/>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
+    <script src="{% static 'pagina_web/js/modernizr.js' %}"></script>
+    <script defer src="{% static 'pagina_web/js/jquery.flexslider.js' %}"></script>
+{% endblock %}
+
+{% block contenido_web %}
+    <div class="grid-section">
+        <div class="form-group margin">
+            <div class="row">
+                <div class="col-xs-11 noticia_titular">
+                    <h1 class="tittle">{{ noticia.titular }}</h1>
+                </div>
+                <div class="col-xs-1 icon-tittle">
+                    <i class="glyphicon glyphicon-minus"></i>
+                    <i class="glyphicon glyphicon-bookmark"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="tittle margin">{{ noticia.lead }}</h3>
+
+                    <!-- Imagenes de la noticia-->
+                    <div class="banner">
+                        <div class="callbacks_container">
+                            <ul class="rslides" id="slider4">
+                                {% for imagen in noticia.imagenes.all %}
+                                    <li>
+                                        <img src="{{ imagen.imagen.url }}" class="img-responsive" alt=""/>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!-- Imagenes de la noticia-->
+                        <script>
+                            // You can also use "$(window).load(function() {"
+                            $(function () {
+                                // Slideshow 4
+                                $("#slider4").responsiveSlides({
+                                    auto: true,
+                                    touch: true,
+                                    pager: true,
+                                    nav: true,
+                                    speed: 500,
+                                    namespace: "callbacks",
+                                    before: function () {
+                                        $('.events').append("<li>before event fired.</li>");
+                                    },
+                                    after: function () {
+                                        $('.events').append("<li>after event fired.</li>");
+                                    }
+                                });
+
+                            });
+                        </script>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                    <!--End//banner-section-->
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="form-group contenedor-noticia">
+            <div class="row">
+                <div class="col-sm-1 col-xs-1 col-md-2 grid_box1 perfil">
+                    <img src="images/sin1.jpg" alt="" class="perfil-img">
+                    <h5>Julito Fierro</h5>
+                    <h6>31.08.2017 - 9:35am</h6>
+                    <a href="#"><img class="icon-small" src="images/tw2.png" alt="">@ElViejoJulito</a>
+                </div>
+                <div class="col-sm-10 col-xs-10 col-md-8 social">
+                    <div class="row">
+                    <div class="col-xs-6 col-sm-4 col-md-3 social-text">
+                        <ul class="social-descripcion">
+                            <li class="categoria">{{ noticia.categoria.first.nombre }}</li>
+                            <li>{{ noticia.fecha}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-sm-8 col-md-9 social-button">
+                        <ul class="social-up">
+                            <li class="crop"><img src="{% static 'pagina_web/images/fb_social.png' %}" alt=""></li>
+                            <li class="crop"><img src="{% static 'pagina_web/images/tw_social.png' %}" alt=""></li>
+                            <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt=""></li>
+                        </ul>
+                    </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-12 contenido-noticia">
+                            <p class="noticia-text">{{ noticia.texto|linebreaksbr }}</p>
+                            <div class="noticia-video">
+                                <!--<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FMiRegion.co%2Fvideos%2F1461292963955819%2F&show_text=1&width=560"
+                                        width="100%" height="630" style="border:none;overflow:hidden" scrolling="no"
+                                        allowTransparency="true" allowFullScreen="true">
+                                </iframe>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="etiquetas">
+                            <li>
+                                <h4>Etiquetas: </h4>
+                            </li>
+                            <li>
+                                <h5>
+                                    {% for tag in noticia.tag.all %}
+                                        {% if forloop.last %}
+                                            <a href="#">{{ tag.nombre }}.</a>
+                                        {% else %}
+                                            <a href="#">{{ tag.nombre }},</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </h5>
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-tags tags_icon"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row social-button-down">
+                            <div class="col-xs-4 social-down">
+                                <img class="img-responsive" src="{% static 'pagina_web/images/fb_social.png' %}"
+                                     alt="">
+                            </div>
+                            <div class="col-xs-4 social-down">
+                                <img class="img-responsive" src="{% static 'pagina_web/images/tw_social.png' %}"
+                                     alt="">
+                            </div>
+                            <div class="col-xs-4 social-down">
+                                <img class="img-responsive" src="{% static 'pagina_web/images/go_social.png' %}"
+                                     alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-sm-1 col-xs-1 col-md-2 grid_box1 limpio">
+                </div>
+            </div>
+        </div>
+
+        <!--NOTICIA RELACIONADA-->
+
+        <div class="contenedor-relacionada">
+            <h3>Noticias Realacionadas</h3>
+
+            <!--carrusel-->
+
+            <div class="loading contenedor-noticia-relacionada">
+
+                <div id="container" class="cf">
+
+                    <div id="main" role="main">
+                        <section class="slider">
+                            <div class="flexslider carousel">
+                                <ul class="slides">
+                                    {% for noticia_destacada in noticias_destacadas %}
+                                        <li>
+                                            <div class="noticia-relacionada">
+                                                <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                                                    <img class="img-responsive"
+                                                         src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
+                                                </a>
+                                                <div class="noticia-descripcion">
+                                                    <h4><a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">{{ noticia_destacada.titular }}</a></h4>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+                <!-- FlexSlider -->
+                <script type="text/javascript">
+
+                    (function () {
+
+                        // store the slider in a local variable
+                        var $window = $(window),
+                            flexslider = {vars: {}};
+
+                        // tiny helper function to add breakpoints
+                        function getGridSize() {
+                            return (window.innerWidth < 480) ? 1 :
+                                (window.innerWidth <= 1024) ? 2 :
+                                (window.innerWidth > 1024) ? 3 : 3;
+                        }
+
+                        $(function () {
+                            SyntaxHighlighter.all();
+                        });
+
+                        $window.load(function () {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                animationSpeed: 400,
+                                animationLoop: true,
+                                itemWidth: 210,
+                                itemMargin: 15,
+                                minItems: getGridSize(), // use function to pull in initial value
+                                maxItems: getGridSize(), // use function to pull in initial value
+                                start: function (slider) {
+                                    $('div').removeClass('loading');
+                                    flexslider = slider;
+                                }
+                            });
+                        });
+
+                        // check grid size on resize event
+                        $window.resize(function () {
+                            var gridSize = getGridSize();
+
+                            flexslider.vars.minItems = gridSize;
+                            flexslider.vars.maxItems = gridSize;
+                        });
+                    }());
+
+                </script>
+                <!-- End-FlexSlider -->
+            </div>
+            <!--<!-End-carrusel-->
+        </div>
+        <!--<!-End-Noticia_Relacionada-->
+    </div>
+    <!--//Grid-section-->
+{% endblock %}

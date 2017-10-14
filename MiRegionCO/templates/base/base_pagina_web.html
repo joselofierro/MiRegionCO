@@ -1,0 +1,246 @@
+{% load staticfiles %}
+{% load categorias %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MiRegion.co</title>
+    <link rel="icon" type="image/png" href="{% static 'img/regionico.ico' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=""/>
+
+    <!--script para ocultar la url-->
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        if (window.scrollY == 0) window.scrollTo(0, 1);
+    } </script>
+
+    <link href="{% static 'pagina_web/css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:700,700italic,800,300,300italic,400italic,400,600,600italic'
+          rel='stylesheet' type='text/css'>
+    <!--Custom-Theme-files-->
+    <link href="{% static 'pagina_web/css/style_base.css' %}" rel='stylesheet' type='text/css'/>
+    {% block extra_css %}
+    {% endblock %}
+    <!-- Scripts -->
+    <script src="{% static 'pagina_web/js/jquery.min.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
+            });
+        });
+    </script>
+    <!-- Scrip Para agregar script 😎 -->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var ancho = $("body").prop("clientWidth");
+
+            if (ancho <= 480) {
+                var s = document.createElement('script');
+                s.src = "{% static 'pagina_web/js/scroll_top.js' %}";
+                s.type = "text/javascript";
+                s.async = false;                                 // <-- this is important
+                document.getElementsByTagName('head')[0].appendChild(s);
+            }
+
+        });
+    </script>
+    <script type="text/javascript">
+        var uAg = navigator.userAgent.toLowerCase();
+        var isAndroid = !!uAg.match(/android|nokia/i);
+        var isApple = !!uAg.match(/iphone|ipad|ipod/i);
+
+        if (isAndroid) {
+            document.write("<div class='gradient'><p>Mi Region.co App<br>Encuentrala gratis en la Play Store</p><a href='https://goo.gl/UPUCvR'><img class='btn_store' alt='Disponible en Google Play' src='{% static 'pagina_web/images/play_store.png' %}'/></a></div>");
+        } else if (isApple) {
+
+            document.write("<div class='gradient'><p>Mi Region.co App<br>Encuentrala gratis en la App Store</p><a href='https://goo.gl/fzaCMT'><img class='btn_store' alt='Disponible en App Store' src='{% static 'pagina_web/images/AppleStore.svg' %}'/></a></div>");
+        }
+    </script>
+    <!-- Archivos extra js -->
+    {% block extra_js %}
+    {% endblock %}
+    <!-- Scripts -->
+    <!--start-toTop-->
+
+    <script>
+        $(document).ready(function () {
+            $('#toTop').hide();
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 200) {
+                        $('#toTop').fadeIn();
+                    } else {
+                        $('#toTop').fadeOut();
+                    }
+
+                })
+                $('#toTop span').click(function () {
+                    $('body, html').animate({
+                        scrollTop: '0px'
+                    }, 1000);
+                    return false;
+
+                })
+            })
+        })
+    </script>
+
+</head>
+<body>
+<div id="toTop"><a href="javascript:void(0);"> <span></span></a></div>
+<div id="wrap">
+    <!-- header-section-starts -->
+    <nav id="header" class="navbar navbar-default navbar-static-top  top-header nav-down header">
+        <div id="navbar" class="navbar-collapse">
+            <ul class="cl-effect-16 top-nag">
+                <li><img src="{% static 'pagina_web/images/user.png' %}" alt="" class="icon-small"></li>
+                <li><a class="linea" href="#" data-hover="Login">Login</a></li>
+                <li><img src="{% static 'pagina_web/images/fb_white.png' %}" alt="" class="icon-small"></li>
+                <li><a href="#" data-hover="Registrate">Registrate</a></li>
+            </ul>
+            <div class="search-box">
+                <div class="b-search">
+                    <form>
+                        <input type="text" value="Search" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Buscar';}">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <!--/.nav-collapse -->
+    </nav>
+
+    <div class="full">
+        <div class="col-md-3 top-nav header">
+            <div class="contenedor_top-nav">
+                <div class="logo">
+                    <a href="{% url 'pagina_web:index' %}"><img class="img-responsive"
+                                                                src="{% static 'pagina_web/images/logo.png' %}" alt=""></a>
+                </div>
+                <div class="top-menu">
+
+                    <ul class="ul__top-menu">
+                        {% categorias_menu %}
+                    </ul>
+                </div>
+
+                <div class="top-mapa">
+                    <ul>
+                        <li class="btn-ciudad"><a href="{% url 'pagina_web:mapa' %}"><img
+                                src="{% static 'pagina_web/images/icon_miciudad.png' %}"
+                                class="icon-mediano">
+                            | Mi Ciudad</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="col-md-9 main" id="content">
+            {% block contenido_web %}
+            {% endblock %}
+            <div class="clearfix"></div>
+        </div>
+        <!-- Contenido -->
+
+        <div class="clearfix"></div>
+    </div>
+    <div id="footer" class="main">
+        <!--/banner ciudad-->
+        <div class="banner-ciudad">
+            <div class="container container_ciudad">
+
+                <div class="contenido-ciudad">
+                    <ul>
+                        <li class="text-ciudad">
+                            <h3>Descubre <span class="glyphicon glyphicon-globe"></span> Disfruta <span
+                                    class="glyphicon glyphicon-globe"></span> vive</h3>
+                        </li>
+                        <li><h4>lo mejor de nuestra regíon</h4></li>
+                        <li><a href="#">ver</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--/footer-->
+        <div class="footer">
+            <div class="footer-bottom">
+                <div class="col-md-3 col-sm-6 footer-grid">
+                    <img class="img-responsive img-center" src="{% static 'pagina_web/images/logo1.png' %}" alt="">
+                    <ul class="bottom">
+                        <li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eum tempora impedit minus
+                            amet.
+                            Adipisci beatae cum nostrum.</p></li>
+                    </ul>
+
+                </div>
+                <div class="col-md-3 col-sm-6 footer-grid footer-border footer-div">
+                    <h4>Escribenos</h4>
+                    <ul class="bottom side-icons">
+                        <li>
+                            <a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/tel_icon.png' %}"
+                                             alt=""> 038 - 877 77 77</a>
+                        </li>
+                        <li>
+                            <a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/locacion.png' %}"
+                                             alt=""> calle 8va No 7 -
+                                8</a>
+                        </li>
+                        <li>
+                            <a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/correo_icon.png' %}"
+                                             alt="">
+                                miregion@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 footer-grid footer-div">
+                    <h4>Siguenos</h4>
+
+                    <ul class="bottom side-icons">
+                        <li><a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/fb.png' %}" alt="">
+                            /MiRegion.co</a></li>
+                        <li><a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/tw.png' %}" alt="">
+                            @MiRegion</a></li>
+                        <li><a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/yt.png' %}" alt="">
+                            Mi Region</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 footer-grid suscribete_border">
+                    <h4>Suscribete <img class="icon-grande" src="{% static 'pagina_web/images/news_icon.png' %}" alt="">
+                    </h4>
+                    <ul class="bottom">
+                        <li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></li>
+                        <li>
+                            <form class="form-inline" role="form">
+                                <div class="form-group input-group input-group-lg" id="email-suscribete">
+                                    <input type="email" class="form-control" placeholder="escribe tu correo">
+                                </div>
+                                <button type="submit" id="btn-suscribete" class="btn btn-default btn-lg">Enviar</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="copy">
+            <p>&copy; 2017. All Rights Reserved | Design by <img src="{% static 'pagina_web/images/logo2.png' %}"
+                                                                 alt=""></p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+</div>
+</body>
+</html>

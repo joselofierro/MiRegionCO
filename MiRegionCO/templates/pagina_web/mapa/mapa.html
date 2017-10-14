@@ -1,0 +1,230 @@
+{% extends 'base/base_pagina_web.html' %}
+{% load escape_qoute %}
+{% load staticfiles %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'pagina_web/css/style_mapa.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pagina_web/css/flexslider.css' %}" type="text/css" media="screen"/>
+    <style>
+        #map {
+            height: 95vh;
+            width: 100%;
+        }
+    </style>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'pagina_web/js/menu-mapa.js' %}"></script>
+    <script src="{% static 'pagina_web/js/menu.js' %}"></script>
+    <script src="{% static 'pagina_web/js/modernizr.js' %}"></script>
+    <script defer src="{% static 'pagina_web/js/jquery.flexslider.js' %}"></script>
+    <!-- Scrip MapaInit -->
+    <script>
+        function initMap() {
+            var neiva = {lat: 2.936691, lng: -75.272161};
+            var ubicaciones = [];
+            var infoWindowContent = [];
+
+            {% for sitio in sitios %}
+                ubicaciones.push(['{{ sitio.nombre|escape }}', {{ sitio.latitud|escape }}, {{ sitio.longitud|escape }}, '{{ sitio.marcador }}']);
+                infoWindowContent.push([
+                    '<div class="info_content">' +
+                    '<div class="info_div">' +
+                    '<img src="{{ sitio.logo_e }}" alt="">' +
+                    '<div class="info_descripcion">' +
+                    '<h3>{{ sitio.nombre }}</h3>' +
+                    '<p>{{ sitio.descripcion|linebreaksbr }}</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '<hr class="info_hr">' +
+                    '<div class="info_sitio">' +
+                    '<p class="horario"><span class="glyphicon glyphicon-time"></span>{{ sitio.horario }}</p>' +
+                    '<p><span class="glyphicon glyphicon-phone-alt"></span>{{ sitio.telefono }}</p>' +
+                    '<p class="direccion"><span class="glyphicon glyphicon-map-marker"></span>{{ sitio.direccion }}</p>' +
+                    '</div>' +
+                    '</div>']);
+            {% endfor %}
+
+            var noPoi = [
+                {
+                    featureType: "poi",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                }
+            ];
+
+            var mapOptions = {
+                mapTypeId: 'roadmap',
+                zoom: 15,
+                center: neiva,
+                styles: noPoi
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            /*var marker = new google.maps.Marker({
+                position: neiva,
+                map: map
+            });*/
+
+            var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+            for (i = 0; i < ubicaciones.length; i++) {
+                var position = new google.maps.LatLng(ubicaciones[i][1], ubicaciones[i][2]);
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: ubicaciones[i][0],
+                    icon: ubicaciones[i][3]
+                });
+
+                // Allow each marker to have an info window
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infoWindow.setContent(infoWindowContent[i][0]);
+                        infoWindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXn0hPkB1IS6HRHnn2tBTXV-OdtxqXy7E&callback=initMap">
+    </script>
+{% endblock %}
+
+{% block contenido_web %}
+    <!----------nav-------->
+    <nav class="nav" id="nav">
+        <div class="contenedor-menu">
+            <div class="tittle-menu">
+                <img src="{% static 'pagina_web/images/icon_miciudad.png' %}" class="icon-mediano">
+                <h1>Mi Ciudad</h1>
+            </div>
+            <div class="search-mapa">
+                <div class="b-search-mapa">
+                    <form>
+                        <input type="text" placeholder="¿Que Sitio Buscas?" value="" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = '';}">
+                        <div class="search"><span   class="glyphicon glyphicon-search"></span></div>
+                    </form>
+                </div>
+            </div>
+            <div class="contenedor-menumapa">
+                <ul class="menu-mapa">
+                    {% for categoria in categorias_mapa %}
+                        <li class="menu-item">
+                            <a class="item_a" href="#">
+                                <img class="icon-mediano" src="{{ categoria.imagen.url }}">
+                                {{ categoria.nombre }} <i class="glyphicon glyphicon-chevron-right"></i>
+                            </a>
+                            <ul>
+                                {% for subcategoria in categoria.subcategoria_mapa.all %}
+                                    <li class="submenu-item"><a href="#">{{ subcategoria.nombre }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor-icono">
+            <span id="btn-menu" class="btn-menu glyphicon glyphicon-minus"></span>
+        </div>
+    </nav>
+    <!----------end nav-------->
+    <!----------map-------->
+    <div id="map"></div>
+    <!----------end map-------->
+
+     <!--SITIOS RECOMENDADOS -->
+
+    <div class="contenedor-relacionada">
+        <h3>Noticias Realacionadas</h3>
+
+        <!--carrusel-->
+
+        <div class="loading contenedor-noticia-relacionada">
+
+            <div id="container" class="cf">
+
+                <div id="main" role="main">
+                    <section class="slider">
+                        <div class="flexslider carousel">
+                            <ul class="slides">
+                                {% for sitio in sitios_recomendados.all %}
+                                    <li>
+                                        <div class="noticia-relacionada">
+                                            <a href="#">
+                                                <img class="img-responsive"
+                                                     src="{{ sitio.sitio__logo }}" alt="">
+                                            </a>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <!-- FlexSlider -->
+            <script type="text/javascript">
+
+                (function () {
+
+                    // store the slider in a local variable
+                    var $window = $(window),
+                        flexslider = {vars: {}};
+
+                    // tiny helper function to add breakpoints
+                    function getGridSize() {
+                        return (window.innerWidth < 480) ? 1 :
+                            (window.innerWidth < 600) ? 2 :
+                            (window.innerWidth < 900) ? 3 : 4;
+                    }
+
+                    $(function () {
+                        SyntaxHighlighter.all();
+                    });
+
+                    $window.load(function () {
+                        $('.flexslider').flexslider({
+                            animation: "slide",
+                            animationSpeed: 400,
+                            animationLoop: true,
+                            itemWidth: 210,
+                            itemMargin: 5,
+                            minItems: getGridSize(), // use function to pull in initial value
+                            maxItems: getGridSize(), // use function to pull in initial value
+                            start: function (slider) {
+                                $('div').removeClass('loading');
+                                flexslider = slider;
+                            }
+                        });
+                    });
+
+                    // check grid size on resize event
+                    $window.resize(function () {
+                        var gridSize = getGridSize();
+
+                        flexslider.vars.minItems = gridSize;
+                        flexslider.vars.maxItems = gridSize;
+                    });
+                }());
+
+            </script>
+            <!-- End-FlexSlider -->
+        </div>
+        <!--<!-End-carrusel-->
+    </div>
+    <!--<!-End-SITIOS RECOMENDADOS-->
+
+
+
+
+
+
+{% endblock %}

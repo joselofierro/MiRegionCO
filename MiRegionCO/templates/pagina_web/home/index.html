@@ -1,0 +1,212 @@
+{% extends 'base/base_pagina_web.html' %}
+{% load staticfiles %}
+{% load escape_qoute %}
+
+{% block extra_css %}
+    <link href="{% static 'pagina_web/css/style_content.css' %}" rel='stylesheet' type='text/css'/>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
+    <!-- Boton ver mas -->
+    <script>
+        $(document).ready(function () {
+            var page = 1;
+            var boton = document.getElementById('btn-ver-mas');
+            boton.onclick = function () {
+                page = page + 1;
+                // Ajax to more news
+                $.ajax({
+                    url: 'http://miregionco.us-east-1.elasticbeanstalk.com/api/pagination_news_feed?page=' + page,
+                    type: 'GET',
+                    dataType: 'application/json',
+                    complete: function (data) {
+                        console.log("complete", data)
+                    },
+                    success: function (data) {
+                        console.log("Data Success", data)
+                    }
+                })
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block contenido_web %}
+    <!-- Banner noticias destacadas -->
+    <div class="banner-section">
+        <h1 class="tittle">Titulares Regional</h1>
+        <div class="banner">
+            <!-- Slideshow 4 -->
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider4">
+                    {% for noticia_destacada in noticias_destacadas %}
+                        <li>
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                                <img src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
+                            </a>
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                                <p class="caption">{{ noticia_destacada.titular }}</p>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <script>
+                // You can also use "$(window).load(function() {"
+                $(document).ready(function () {
+                    // Slideshow 4
+                    $("#slider4").responsiveSlides({
+                        auto: true,
+                        touch:true,
+                        pager: false,
+                        nav: true,
+                        speed: 500,
+                        pause: true,
+                        namespace: "callbacks",
+                        before: function () {
+                            $('.events').append("<li>before event fired.</li>");
+                        },
+                        after: function () {
+                            $('.events').append("<li>after event fired.</li>");
+                        }
+                    });
+                });
+            </script>
+            <div class="clearfix"></div>
+        </div>
+        <!--  Banner noticias destacadas -->
+
+        <!--  Noticias  -->
+        <div class="top-news">
+            <div class="top-inner">
+                {% for noticia in noticias %}
+                    <div class="col-md-6 top-text">
+                        <div class="top-text_img">
+                            <a href="{% url 'pagina_web:noticia_id' noticia.id %}"><img
+                                    src="{{ noticia.imagenes.first.imagen.url }}" class="img-responsive"
+                                    alt=""></a>
+                        </div>
+                        <h5 class="top"><a href="{% url 'pagina_web:noticia_id' noticia.id %}">{{ noticia.titular }}</a>
+                        </h5>
+                        <p>{{ noticia.lead }}</p>
+                        <p class="top-text_fecha">
+                            {{ noticia.fecha }}
+                            <!--<a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0</a>-->
+                        </p>
+                    </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--  Noticias -->
+
+        <!-- Controles paginado -->
+
+        <img id="btn-ver-mas" src="{% static 'pagina_web/images/btn_ver_mas.jpg' %}">
+
+        <ul class="pagination pagination-sm">
+            {% if noticias.has_previous %}
+                <li><a href="?page={{ noticias.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+
+            <li>{{ noticias.number }}/{{ noticias.paginator.num_pages }}</li>
+
+            {% if noticias.has_next %}
+                <li><a href="?page={{ noticias.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+        </ul>
+        <!-- Controles paginado -->
+    </div>
+    <!--//banner-section-->
+
+    <div class="banner-right-text">
+        <h3 class="tittle">En Vivo <img src="images/envivoicon.png" alt="" class="icon-mediano"></h3>
+        <!--/general-news-->
+        <div class="general-news">
+            <div class="general-inner">
+                <div class="general-text">
+                    <a href="single.html"><img src="images/gen1.jpg" class="img-responsive" alt=""></a>
+                    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
+                    <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam
+                        eratsed diam justo duo dolores rebum.</p>
+                    <p>On Jun 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
+                    </p>
+                </div>
+                <div class="edit-pics">
+                    <div class="editor-pics">
+                        <div class="col-md-3 item-pic">
+                            <img src="images/f4.jpg" class="img-responsive" alt="">
+
+                        </div>
+                        <div class="col-md-9 item-details">
+                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
+                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="editor-pics">
+                        <div class="col-md-3 item-pic">
+                            <img src="images/f1.jpg" class="img-responsive" alt="">
+
+                        </div>
+                        <div class="col-md-9 item-details">
+                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
+                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="editor-pics">
+                        <div class="col-md-3 item-pic">
+                            <img src="images/f1.jpg" class="img-responsive" alt="">
+
+                        </div>
+                        <div class="col-md-9 item-details">
+                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
+                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="editor-pics">
+                        <div class="col-md-3 item-pic">
+                            <img src="images/f4.jpg" class="img-responsive" alt="">
+
+                        </div>
+                        <div class="col-md-9 item-details">
+                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
+                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="media">
+                    <h3 class="tittle media">Media <i class="glyphicon glyphicon-floppy-disk"></i></h3>
+                    <div class="general-text two">
+                        <a href="single.html"><img src="images/gen3.jpg" class="img-responsive" alt=""></a>
+                        <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
+                        <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna
+                            aliquyam eratsed diam justo duo dolores rebum.</p>
+                        <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0
+                        </a></p>
+                    </div>
+                </div>
+                <div class="general-text two">
+                    <a href="single.html"><img src="images/gen2.jpg" class="img-responsive" alt=""></a>
+                    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
+                    <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam
+                        eratsed diam justo duo dolores rebum.</p>
+                    <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--//general-news-->
+        <!--/news-->
+        <!--/news-->
+    </div>
+{% endblock %}
