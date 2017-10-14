@@ -11,20 +11,44 @@
     <!-- Boton ver mas -->
     <script>
         $(document).ready(function () {
-            var page = 1;
+            var next_page = 2;
             var boton = document.getElementById('btn-ver-mas');
             boton.onclick = function () {
-                page = page + 1;
                 // Ajax to more news
                 $.ajax({
-                    url: 'http://miregionco.us-east-1.elasticbeanstalk.com/api/pagination_news_feed?page=' + page,
+                    url: '{% url 'api:news_feed2_api' %}?page=' + next_page,
                     type: 'GET',
                     dataType: 'application/json',
                     complete: function (data) {
-                        console.log("complete", data)
-                    },
-                    success: function (data) {
-                        console.log("Data Success", data)
+                        var json = JSON.parse(data.responseText);
+                        if (json.next === null) {
+                            boton.style.display = 'none';
+                        } else {
+                            next_page = next_page + 1;
+                        }
+                        console.log(json);
+                        var contenedor_noticias = document.getElementById('div-noticias');
+
+                        // Armamos las 10 nuevas noticias
+                        var arr_noticias = json.results;
+                        arr_noticias.forEach(function (noticia) {
+                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+                            var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
+                            var noticia_html =
+                                '<div class="col-md-6 top-text">' +
+                                '<div class="top-text_img">' +
+                                '<a href="' + url_mask + '">' +
+                                '<img src="' + imagen_noticia + '" class="img-responsive" alt="">' +
+                                '</a>' +
+                                '</div>' +
+                                '<h5 class="top">' +
+                                '<a href="' + url_mask + '">' + noticia.titular + '</a>' +
+                                '</h5>' +
+                                '<p>' + noticia.lead + '</p>' +
+                                '<p class="top-text_fecha">' + noticia.fecha + '</p>' +
+                                '</div>';
+                            contenedor_noticias.innerHTML += noticia_html;
+                        });
                     }
                 })
             }
@@ -59,7 +83,7 @@
                     // Slideshow 4
                     $("#slider4").responsiveSlides({
                         auto: true,
-                        touch:true,
+                        touch: true,
                         pager: false,
                         nav: true,
                         speed: 500,
@@ -80,7 +104,7 @@
 
         <!--  Noticias  -->
         <div class="top-news">
-            <div class="top-inner">
+            <div id="div-noticias" class="top-inner">
                 {% for noticia in noticias %}
                     <div class="col-md-6 top-text">
                         <div class="top-text_img">
