@@ -8,6 +8,58 @@
 
 {% block extra_js %}
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
+    <script>
+        function init() {
+            FB.api(
+                '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
+                'GET',
+                {"fields": "status,title,description,creation_time,embed_html", "limit": "15"},
+                function (response) {
+                    var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
+                    response.data.forEach(function (video) {
+                        if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
+                            console.log(video);
+                            var video_html =
+                                '<div class="editor-pics">' +
+                                '<div class="col-md-6 item-pic">' +
+                                    video.embed_html +
+                                '</div>\n' +
+                                '<div class="col-md-6 item-details">\n' +
+                                '<h5 class="inner two">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
+                                '<div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>' + video.creation_time + '</div>\n' +
+                                '</div>\n' +
+                                '<div class="clearfix"></div>\n' +
+                                '</div>';
+                            contenedor_videos.innerHTML += video_html;
+                        }
+                    });
+                }
+            );
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '311007229311399',
+                autoLogAppEvents: false,
+                xfbml: false,
+                version: 'v2.10'
+            });
+            //FB.AppEvents.logPageView();
+
+            init();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 {% endblock %}
 
 {% block contenido_web %}
@@ -97,13 +149,14 @@
         </ul>
         <!-- Controles paginado -->
     </div>
-    <!--//banner-section-->
 
+    <!--//banner-section-->
     <div class="banner-right-text">
-        <h3 class="tittle">En Vivo <img src="images/envivoicon.png" alt="" class="icon-mediano"></h3>
+        <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
         <!--/general-news-->
         <div class="general-news">
             <div class="general-inner">
+                <!--
                 <div class="general-text">
                     <a href="single.html"><img src="images/gen1.jpg" class="img-responsive" alt=""></a>
                     <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
@@ -111,53 +164,13 @@
                         eratsed diam justo duo dolores rebum.</p>
                     <p>On Jun 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
                     </p>
+                </div>-->
+                <!-- Videos Live Facebook -->
+                <div id="contenedor-videos-facebook-live" class="edit-pics">
+
                 </div>
-                <div class="edit-pics">
-                    <div class="editor-pics">
-                        <div class="col-md-3 item-pic">
-                            <img src="images/f4.jpg" class="img-responsive" alt="">
 
-                        </div>
-                        <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
-                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="editor-pics">
-                        <div class="col-md-3 item-pic">
-                            <img src="images/f1.jpg" class="img-responsive" alt="">
-
-                        </div>
-                        <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
-                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="editor-pics">
-                        <div class="col-md-3 item-pic">
-                            <img src="images/f1.jpg" class="img-responsive" alt="">
-
-                        </div>
-                        <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
-                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="editor-pics">
-                        <div class="col-md-3 item-pic">
-                            <img src="images/f4.jpg" class="img-responsive" alt="">
-
-                        </div>
-                        <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">New iPad App to simulate your Guitar</a></h5>
-                            <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015</div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
+                <!--
                 <div class="media">
                     <h3 class="tittle media">Media <i class="glyphicon glyphicon-floppy-disk"></i></h3>
                     <div class="general-text two">
@@ -176,7 +189,7 @@
                         eratsed diam justo duo dolores rebum.</p>
                     <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
         <!--//general-news-->
