@@ -84,27 +84,29 @@
                 </div>
                 <div class="col-sm-10 col-xs-10 col-md-8 social">
                     <div class="row">
-                    <div class="col-xs-6 col-sm-4 col-md-3 social-text">
-                        <ul class="social-descripcion">
-                            <li class="categoria">{{ noticia.categoria.first.nombre }}</li>
-                            <li>{{ noticia.fecha}}</li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-6 col-sm-8 col-md-9 social-button">
-                        <ul class="social-up">
-                            <li class="crop"><img src="{% static 'pagina_web/images/fb_social.png' %}" alt=""></li>
-                            <li class="crop"><img src="{% static 'pagina_web/images/tw_social.png' %}" alt=""></li>
-                            <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt=""></li>
-                        </ul>
-                    </div>
+                        <div class="col-xs-6 col-sm-4 col-md-3 social-text">
+                            <ul class="social-descripcion">
+                                <li class="categoria">{{ noticia.categoria.first.nombre }}</li>
+                                <li>{{ noticia.fecha }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6 col-sm-8 col-md-9 social-button">
+                            <ul class="social-up">
+                                <li class="crop"><img src="{% static 'pagina_web/images/fb_social.png' %}" alt=""></li>
+                                <li class="crop"><img src="{% static 'pagina_web/images/tw_social.png' %}" alt=""></li>
+                                <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt=""></li>
+                            </ul>
+                        </div>
                         <div class="clearfix"></div>
                         <div class="col-md-12 contenido-noticia">
                             <p class="noticia-text">{{ noticia.texto|linebreaksbr }}</p>
                             <div class="noticia-video">
-                                <iframe src="https://video.xx.fbcdn.net/v/t43.1792-2/22421814_322441744887131_3116526418570248192_n.mp4?efg=eyJybHIiOjE1MDAsInJsYSI6MjY3NSwidmVuY29kZV90YWciOiJzdmVfaGQifQ%3D%3D&rl=1500&vabr=726&oh=a8a64f203f6a3f3ae154cdc1b5c4d4a6&oe=59E5DE08"
-                                        width="100%" style="border:none;overflow:hidden" scrolling="no"
-                                        allowTransparency="true" allowFullScreen="true">
-                                </iframe>
+                                {% if noticia.video %}
+                                    <iframe src="{{ noticia.video }}"
+                                            width="100%" style="border:none;overflow:hidden" scrolling="no"
+                                            allowTransparency="true" allowFullScreen="true">
+                                    </iframe>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -175,7 +177,9 @@
                                                          src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
                                                 </a>
                                                 <div class="noticia-descripcion">
-                                                    <h4><a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">{{ noticia_destacada.titular }}</a></h4>
+                                                    <h4>
+                                                        <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">{{ noticia_destacada.titular }}</a>
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </li>
@@ -199,7 +203,7 @@
                         function getGridSize() {
                             return (window.innerWidth < 480) ? 1 :
                                 (window.innerWidth <= 1024) ? 2 :
-                                (window.innerWidth > 1024) ? 3 : 3;
+                                    (window.innerWidth > 1024) ? 3 : 3;
                         }
 
                         $(function () {
