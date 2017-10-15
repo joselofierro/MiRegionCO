@@ -785,3 +785,201 @@ h5.inner.two a {
         font-size: 0.83em;
     }
 }
+
+.modal {
+    width: 85%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 50px;
+    left: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modal 2s 3s forwards;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.contenido_modal {
+    margin: auto;
+    width: 600px;
+    height: 400px;
+    background: cadetblue;
+    position: absolute;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    overflow: hidden;
+}
+
+.banner_modal {
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner_modal img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.banner_modal p {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.descripcion_modal {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo_modal {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15% auto;
+}
+
+.call_action {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 70%;
+    margin: 15% auto;
+    justify-content: center;
+}
+
+.call_action a {
+    display: block;
+    height: 45px;
+    font-size: 20px;
+}
+
+.call_action p {
+    font-size: 25px;
+    color: #ffffff;
+}
+
+#cerrar {
+    display: none;
+}
+
+#cerrar + label {
+    position: absolute;
+    color: #000000;
+    font-size: 20px;
+    z-index: 9999;
+    background: #fff;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    right: 10px;
+    cursor: pointer;
+    top: 10px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    /2s el tiempo en el que se demora en aparecer 3s retraso del efecto despues de cargar page/
+    animation: modal 2s 3s forwards;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#cerrar:checked ~ .modal {
+    display: none;
+}
+
+@keyframes modal {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}
+
+/* ==========================================================================
+   responsive design
+   ========================================================================== */
+
+@media (max-width: 991px) {
+
+    .contenido_modal {
+        width: 500px;
+        height: 300px;
+    }
+
+    .banner_modal {
+        height: 200px;
+
+    }
+
+    .descripcion_modal {
+        height: 100px;
+    }
+
+    .call_action {
+        margin: 0;
+    }
+
+    .logo_modal {
+        margin: 0;
+        height: auto;
+        width: 130px;
+    }
+
+}
+
+@media (max-width: 414px) {
+
+    .modal {
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .contenido_modal {
+        width: 350px;
+        height: 300px;
+    }
+
+    .call_action p {
+        font-size: 18px;
+    }
+
+    .call_action a {
+        height: auto;
+        font-size: 18px;
+    }
+}
+@media (max-width: 375px) {
+    .contenido_modal {
+        width: 300px;
+    }
+
+    .call_action p {
+        font-size: 15px;
+    }
+        .call_action {
+
+        height: 100%;
+    }
+
+    .logo_modal {
+    width: 100px;
+}
+}
+
+/* ==========================================================================
+   responsive
+   ========================================================================== */

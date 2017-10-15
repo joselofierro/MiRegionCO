@@ -27,20 +27,19 @@ body > #wrap {
    height: auto; /* Altura del footer
    clear: both;
 }*****/
-/***************ScrollTop*******
+/***************ScrollTop********************/
+
+.nav-up {
     -webkit-transform: translateY( -170% );
     -ms-transform: translateY( -170% );
-    transform: translateY( -170% );*************/
-.nav-up {
-    top:-100%;
+    transform: translateY( -170% );
     -webkit-transition: top .5s;
 }
 
 .header {
     -webkit-transition-duration: .8s;
     transition-duration: .8s;
-}
-/*
+
     -webkit-transition-timing-function: cubic-bezier(0,.41,1,-0.31);
     transition-timing-function: cubic-bezier(0,.41,1,-0.31);
 
@@ -48,7 +47,7 @@ body > #wrap {
     transition-property: transform;
 }
 
-**********************************/
+/***********************************/
 html, body {
     font-family: 'Open Sans', sans-serif;
     font-size: 100%;
