@@ -30,9 +30,9 @@ body > #wrap {
 /***************ScrollTop********************/
 
 .nav-up {
-    -webkit-transform: translateY( -170% );
-    -ms-transform: translateY( -170% );
-    transform: translateY( -170% );
+    -webkit-transform: translateY( -200% );
+    -ms-transform: translateY( -200% );
+    transform: translateY( -200% );
     -webkit-transition: top .5s;
 }
 

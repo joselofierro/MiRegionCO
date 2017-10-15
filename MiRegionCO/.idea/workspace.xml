@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" afterPath="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/home/index.html" afterPath="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,16 +24,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="79" column="55" lean-forward="true" selection-start-line="79" selection-start-column="55" selection-end-line="79" selection-end-column="55" />
+            <state relative-caret-position="526">
+              <caret line="57" column="88" lean-forward="false" selection-start-line="57" selection-start-column="88" selection-end-line="57" selection-end-column="88" />
               <folding>
-                <element signature="e#9345#9391#0#HTML" expanded="true" />
-                <element signature="e#9482#9517#0#HTML" expanded="true" />
-                <element signature="e#9721#9740#0#HTML" expanded="true" />
-                <marker date="1508029607000" expanded="false" signature="10687:11444" ph="..." />
+                <element signature="e#9435#9481#0#HTML" expanded="true" />
+                <element signature="e#9572#9607#0#HTML" expanded="true" />
+                <element signature="e#9811#9830#0#HTML" expanded="true" />
+                <marker date="1508031948000" expanded="false" signature="10777:11534" ph="..." />
               </folding>
             </state>
           </provider>
@@ -50,14 +52,14 @@
       <file leaf-file-name="style_base.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+            <state relative-caret-position="164">
+              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="noticia_id.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="noticia_id.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -217,9 +219,9 @@
         <option value="$PROJECT_DIR$/MiRegionCO/urls.py" />
         <option value="$PROJECT_DIR$/templates/base/base_pagina_web.html" />
         <option value="$PROJECT_DIR$/static/pagina_web/css/style_content.css" />
-        <option value="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
-        <option value="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
         <option value="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" />
+        <option value="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
+        <option value="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
       </list>
     </option>
   </component>
@@ -684,7 +686,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29268292" sideWeight="0.50532484" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825205" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31761006" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25406504" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25406504" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825205" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.4899225" order="0" side_tool="false" content_ui="combo" />
       <window_info id="manage.py@MiregionCO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29268292" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
@@ -1151,31 +1153,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="79" column="55" lean-forward="true" selection-start-line="79" selection-start-column="55" selection-end-line="79" selection-end-column="55" />
-          <folding>
-            <element signature="e#9345#9391#0#HTML" expanded="true" />
-            <element signature="e#9482#9517#0#HTML" expanded="true" />
-            <element signature="e#9721#9740#0#HTML" expanded="true" />
-            <marker date="1508029607000" expanded="false" signature="10687:11444" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_content.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
           <caret line="797" column="24" lean-forward="false" selection-start-line="797" selection-start-column="24" selection-end-line="797" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1186,6 +1167,27 @@
           <caret line="104" column="53" lean-forward="false" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
           <folding>
             <element signature="e#5196#5231#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="57" column="88" lean-forward="false" selection-start-line="57" selection-start-column="88" selection-end-line="57" selection-end-column="88" />
+          <folding>
+            <element signature="e#9435#9481#0#HTML" expanded="true" />
+            <element signature="e#9572#9607#0#HTML" expanded="true" />
+            <element signature="e#9811#9830#0#HTML" expanded="true" />
+            <marker date="1508031948000" expanded="false" signature="10777:11534" ph="..." />
           </folding>
         </state>
       </provider>
