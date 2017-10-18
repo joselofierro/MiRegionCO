@@ -63,56 +63,55 @@
     </script>
 
     <script>
-        function init() {
-            FB.api(
-                '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
-                'GET',
-                {"fields": "status,title,description,creation_time,embed_html", "limit": "15"},
-                function (response) {
-                    var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
-                    response.data.forEach(function (video) {
-                        if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
-                            console.log(video);
-                            var video_html =
-                                '<div class="editor-pics">' +
-                                '<div class="col-md-6 item-pic">' +
-                                    video.embed_html +
-                                '</div>\n' +
-                                '<div class="col-md-6 item-details">\n' +
-                                '<h5 class="inner two">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
-                                '<div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>' + video.creation_time + '</div>\n' +
-                                '</div>\n' +
-                                '<div class="clearfix"></div>\n' +
-                                '</div>';
-                            contenedor_videos.innerHTML += video_html;
-                        }
-                    });
-                }
-            );
-        }
-
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '311007229311399',
-                autoLogAppEvents: false,
-                xfbml: false,
-                version: 'v2.10'
-            });
-            //FB.AppEvents.logPageView();
-
-            init();
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
+        $(document).ready(function () {
+            function init() {
+                FB.api(
+                    '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
+                    'GET',
+                    {"fields": "status,title,description,creation_time,embed_html", "limit": "15"},
+                    function (response) {
+                        var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
+                        response.data.forEach(function (video) {
+                            if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
+                                console.log(video);
+                                var video_html =
+                                    '<div class="col-md-12 item-details">\n' +
+                                    '<h5 class="inner two">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
+                                    '<div class="container_embed">' + video.embed_html + '</div>\n' +
+                                    '<div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>' + (video.creation_time).split('T')[0] + '</div>\n' +
+                                    '</div>\n' +
+                                    '<div class="clearfix"></div>\n' +
+                                    '</div>';
+                                contenedor_videos.innerHTML += video_html;
+                            }
+                        });
+                    }
+                );
             }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '311007229311399',
+                    autoLogAppEvents: false,
+                    xfbml: false,
+                    version: 'v2.10'
+                });
+                //FB.AppEvents.logPageView();
+
+                init();
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        });
     </script>
 
     <!-- Script modal -->
@@ -127,7 +126,7 @@
 {% endblock %}
 
 {% block contenido_web %}
-    <!--
+
     <div class="modal" id="modal">
 
         <div class="contenido_modal">
@@ -136,20 +135,32 @@
             <label for="cerrar" id="btn_cerrar">x</label>
             <div class="banner_modal">
                 <p>Deliciosa carne de caballo</p>
-                <img src="{% static 'pagina_web/images/cover.jpeg' %}" alt="" class="img-responsive">
+                <img src="{% static 'pagina_web/images/banner-publicidad.png' %}" alt="" class="img-responsive">
             </div>
             <div class="descripcion_modal">
                 <div class="logo_modal">
-                    <img src="{% static 'pagina_web/images/logo_hacienda.jpeg' %}" alt="">
+                    <img class="img-responsive" src="{% static 'pagina_web/images/logo1.png' %}" alt="">
                 </div>
                 <div class="call_action">
-                    <p>Invitacion a la Acciòn</p>
-                    <a href="#" class="btn_modal btn-lg btn-success">contactar</a>
+                    <h1>Descarga la App ya!!<span>&#160;</span></h1>
+                    <div class="btn_store_banner">
+                        <a href='https://goo.gl/UPUCvR'><img class='img-responsive' alt='Disponible en Google Play'
+                                                             src='{% static 'pagina_web/images/btn_android.png' %}'/></a>
+                        <a href='https://goo.gl/fzaCMT'><img class='img-responsive' alt='Disponible en App Store'
+                                                             src='{% static 'pagina_web/images/btn_ios.png' %}'/></a>
+                    </div>
                 </div>
 
             </div>
         </div>
-    </div> -->
+    </div>
+    <!-- Banner cabecera index -->
+
+    <div class="banner_cabecera">
+        <div class="contenido_publicidad_cabecera">
+            <h5>Seccion Banner Publicitario</h5>
+        </div>
+    </div>
 
     <!-- Banner noticias destacadas -->
     <div class="banner-section">
@@ -222,7 +233,8 @@
 
         <!-- Controles paginado -->
         <div style="display: flex;justify-content: center;">
-            <img id="btn-ver-mas" src="{% static 'pagina_web/images/btn_ver_mas.jpg' %}" style="width: 200px; height: 100px">
+            <img id="btn-ver-mas" src="{% static 'pagina_web/images/btn_ver_mas.jpg' %}"
+                 style="width: 200px; height: 100px">
         </div>
         <!-- Controles paginado -->
     </div>
@@ -271,5 +283,12 @@
         <!--//general-news-->
         <!--/news-->
         <!--/news-->
+
+        <div class="banner_right" style="height:200px">
+            <div class="contenido_publicidad_right">
+                <h5>Seccion Banner Publicitario</h5>
+            </div>
+        </div>
     </div>
+
 {% endblock %}

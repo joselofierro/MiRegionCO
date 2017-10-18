@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.elasticbeanstalk.com',
-    '192.168.10.3',
+    '192.168.10.48',
     '127.0.0.1'
 ]
 
@@ -123,9 +123,9 @@ else:
 
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'miregionco',
+            'NAME': 'miregionco2',
             'USER': 'postgres',
-            'PASSWORD': 'backend17',
+            'PASSWORD': 'juandiego',
             'HOST': 'localhost',
             'PORT': 5432,
         }
