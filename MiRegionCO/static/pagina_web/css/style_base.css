@@ -17,80 +17,22 @@ body > #wrap {
     min-height: 100%;
 }
 
-/***ESTILOS DE LOS BANNER PUBLICITARIOS***/
-
-.banner_cabecera {
-    width: 98%;
-    margin: auto;
-    height: 100px;
-    box-sizing: border-box;
-    background: #333;
-    position: relative;
-    top: 60px;
+/* xxxxxxxxxxxx
+#content {
+   padding-bottom: 285px; /* Mis altura que el footer
 }
-
-.contenido_publicidad_cabecera {
-    height: 100px;
-    border: 3px #fff dashed;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenido_publicidad_cabecera h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 20px;
-}
-
-.banner_right {
-    height: 200px;
-    background: #333333;
-}
-
-.contenido_publicidad_right {
-    height: 200px;
-    border: 3px #fff dashed;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenido_publicidad_right h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 20px;
-}
-
-.banner_publicitario_noticia {
-    height: 150px;
-    background: #333333;
-    margin-bottom: 50px;
-}
-
-.contenido_publicidad_noticia {
-    height: 150px;
-    border: 3px #fff dashed;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenido_publicidad_noticia h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 20px;
-}
-
+#footer {
+   position: relative;
+   margin-top: 285px; /* Misma altura que el footer en negativo
+   height: auto; /* Altura del footer
+   clear: both;
+}*****/
 /***************ScrollTop********************/
 
 .nav-up {
-    -webkit-transform: translateY(-200%);
-    -ms-transform: translateY(-200%);
-    transform: translateY(-200%);
+    -webkit-transform: translateY( -200% );
+    -ms-transform: translateY( -200% );
+    transform: translateY( -200% );
     -webkit-transition: top .5s;
 }
 
@@ -98,8 +40,8 @@ body > #wrap {
     -webkit-transition-duration: .8s;
     transition-duration: .8s;
 
-    -webkit-transition-timing-function: cubic-bezier(0, .41, 1, -0.31);
-    transition-timing-function: cubic-bezier(0, .41, 1, -0.31);
+    -webkit-transition-timing-function: cubic-bezier(0,.41,1,-0.31);
+    transition-timing-function: cubic-bezier(0,.41,1,-0.31);
 
     -webkit-transition-property: -webkit-transform;
     transition-property: transform;
@@ -257,8 +199,7 @@ label {
 }
 
 ul.top-nag {
-    float: left;
-    display: none;
+    float: left
 }
 
 ul.top-nag li {
