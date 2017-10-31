@@ -34,7 +34,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '.elasticbeanstalk.com',
     '192.168.10.29',
-    '127.0.0.1'
+    '127.0.0.1',
+    'localhost'
 ]
 
 # Application definition
