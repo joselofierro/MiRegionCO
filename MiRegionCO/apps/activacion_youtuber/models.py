@@ -11,6 +11,7 @@ class Youtuber(models.Model):
     codigo = models.CharField(primary_key=True, default=uuid.uuid4, max_length=25)
     nombre = models.CharField(max_length=100, blank=False, null=False)
     foto = models.URLField(blank=False, null=False)
+    visible = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nombre

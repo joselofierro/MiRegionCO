@@ -636,7 +636,7 @@ def FCM_CREATE(request):
 @api_view(['GET'])
 def ListadoConcursantes(request):
     if request.method == 'GET':
-        concursantes = Youtuber.objects.all().values('codigo', 'foto', 'nombre').annotate(
+        concursantes = Youtuber.objects.filter(visible=True).values('codigo', 'foto', 'nombre').annotate(
             votos=Count('votaciones__codigo')).order_by('-votos', 'nombre')
 
         return Response(concursantes, status=status.HTTP_200_OK)
