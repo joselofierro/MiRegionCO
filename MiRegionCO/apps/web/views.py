@@ -79,8 +79,18 @@ def noticia_id(request, p_id):
             noticias_destacadas = Noticia.objects.filter(visible=True, destacada=True).order_by('-fecha', '-hora')
 
             noticia = Noticia.objects.get(id=p_id)
+
+            # Creamos las metas
+            dict_meta = '<meta property="og:title" content="' + noticia.titular + '">' + \
+                        '<meta property="og:url" content="' + request.build_absolute_uri() + '">' + \
+                        '<meta property="og:description" content="' + noticia.lead + '">' + \
+                        '<meta property="og:image" content="' + noticia.imagenes.first().imagen.url + '">' + \
+                        '<meta property="og:image:type" content="image/jpeg">'
+
             return render(request, 'pagina_web/noticia/noticia_id.html',
-                          {'noticia': noticia, 'categorias': categorias, 'noticias_destacadas': noticias_destacadas})
+                          {'noticia': noticia, 'categorias': categorias, 'noticias_destacadas': noticias_destacadas,
+                           'meta': dict_meta, 'full_url': request.build_absolute_uri()})
+
         except Noticia.DoesNotExist:
             return render(request, 'pagina_web/404.html', {})
 
