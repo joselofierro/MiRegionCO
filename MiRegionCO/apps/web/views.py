@@ -94,11 +94,14 @@ def noticia_id(request, p_id):
 
             list_tags = list_tags[:-1]
 
-            print(list_tags)
+            dict_meta_twitter = '<meta name="twitter:title" content="' + noticia.titular + '">' + \
+                                '<meta property="twitter:description" content="' + noticia.lead + '">' + \
+                                '<meta name="twitter:image" content="' + noticia.imagenes.first().imagen.url + '">'
 
             return render(request, 'pagina_web/noticia/noticia_id.html',
                           {'noticia': noticia, 'categorias': categorias, 'noticias_destacadas': noticias_destacadas,
-                           'meta': dict_meta, 'full_url': request.build_absolute_uri(), 'tags': list_tags})
+                           'meta': dict_meta, 'full_url': request.build_absolute_uri(), 'tags': list_tags,
+                           'meta_twitter': dict_meta_twitter})
 
         except Noticia.DoesNotExist:
             return render(request, 'pagina_web/404.html', {})
