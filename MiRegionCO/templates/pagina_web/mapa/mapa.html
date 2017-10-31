@@ -96,6 +96,44 @@
 {% endblock %}
 
 {% block contenido_web %}
+    <!--------------------- modal publicitario --------------------->
+
+    <div class="modal_publicitario" id="modal_publicitario">
+
+        <div class="contenido_modal">
+
+            <input type="checkbox" id="cerrar">
+            <label for="cerrar" id="btn_cerrar">x</label>
+            <div class="banner_modal">
+                <p>Deliciosa carne de caballo</p>
+                <img src="{% static 'pagina_web/images/banner-publicidad.png' %}" alt="" class="img-responsive">
+            </div>
+            <div class="descripcion_modal">
+                <div class="logo_modal">
+                    <img class="img-responsive" src="{% static 'pagina_web/images/logo1.png' %}" alt="">
+                </div>
+                <div class="call_action">
+                    <h1>Descarga la App ya!!<span>&#160;</span></h1>
+                    <div class="btn_store_banner">
+                        <a href='https://goo.gl/UPUCvR'><img class='img-responsive' alt='Disponible en Google Play'
+                                                             src='{% static 'pagina_web/images/btn_android.png' %}'/></a>
+                        <a href='https://goo.gl/fzaCMT'><img class='img-responsive' alt='Disponible en App Store'
+                                                             src='{% static 'pagina_web/images/btn_ios.png' %}'/></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Banner cabecera index -->
+
+    <div class="banner_cabecera_mapa">
+        <div class="contenido_publicidad_cabecera">
+            <h5>Seccion Banner Publicitario</h5>
+        </div>
+    </div>
+
+
     <!----------nav-------->
     <nav class="nav" id="nav">
         <div class="contenedor-menu">
@@ -108,7 +146,7 @@
                     <form>
                         <input type="text" placeholder="¿Que Sitio Buscas?" value="" onfocus="this.value = '';"
                                onblur="if (this.value == '') {this.value = '';}">
-                        <div class="search"><span   class="glyphicon glyphicon-search"></span></div>
+                        <div class="search"><span class="glyphicon glyphicon-search"></span></div>
                     </form>
                 </div>
             </div>
@@ -139,7 +177,7 @@
     <div id="map"></div>
     <!----------end map-------->
 
-     <!--SITIOS RECOMENDADOS -->
+    <!--SITIOS RECOMENDADOS -->
 
     <div class="contenedor-relacionada">
         <h3>Noticias Realacionadas</h3>
@@ -183,7 +221,7 @@
                     function getGridSize() {
                         return (window.innerWidth < 480) ? 1 :
                             (window.innerWidth < 600) ? 2 :
-                            (window.innerWidth < 900) ? 3 : 4;
+                                (window.innerWidth < 900) ? 3 : 4;
                     }
 
                     $(function () {

@@ -177,6 +177,7 @@ ul.social-up li, ul.social-descripcion li, ul.social-down li {
 
 ul.social-up li img {
     width: 10em;
+    cursor: pointer;
 }
 
 /***********************/
@@ -221,6 +222,7 @@ ul.etiquetas li {
 
 .social-down img {
     padding: 0 0.5em;
+    cursor: pointer;
 }
 
 /***********************/
@@ -235,7 +237,7 @@ ul.etiquetas li {
 .noticia-descripcion {
     position: absolute;
     bottom: 0;
-    width: 3.26%;
+    width: 2.72%;
 }
 
 .noticia-descripcion h4 {
@@ -420,14 +422,16 @@ ul.etiquetas li {
 
 .rslides img {
     display: block;
+    position: relative;
     height: auto;
     float: left;
     width: 100%;
     border: 0;
     top: 50%;
-    transform: translatey(-50%);
-    -webkit-transform: translatey(-50%);
-    -ms-transform: translatey(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
 ul.callbacks_tabs {
@@ -990,6 +994,10 @@ ul.callbacks_tabs {
         height: 375px;
     }
 
+    .flexslider .slides > li {
+        height: 200px;
+    }
+
 }
 
 @media (max-width: 414px) {
@@ -1036,7 +1044,7 @@ ul.callbacks_tabs {
 
 @media (max-width: 375px) {
     .main {
-        margin-top: 33vh;
+        margin-top: 210px;
         overflow-x: hidden;
 
     }
@@ -1079,7 +1087,7 @@ ul.callbacks_tabs {
     }
 
     .noticia-descripcion {
-        width: 12.5%;
+        width: 8.35%;
     }
 
 }

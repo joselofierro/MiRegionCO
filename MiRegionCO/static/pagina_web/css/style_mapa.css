@@ -51,6 +51,284 @@ label {
     margin: 0;
 }
 
+/* ==========================================================================
+   estilos modal publicitario index - mapa - noticia
+   ========================================================================== */
+
+.modal_publicitario {
+    width: 85%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .8);
+
+    position: fixed;
+    top: 50px;
+    left: 15%;
+    z-index: 1050;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*2s el tiempo en el que se demora en aparecer 3s retraso del efecto despues de cargar page*/
+
+    animation: modal_publicitario 2s 3s forwards;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.contenido_modal {
+    margin: auto;
+    width: 900px;
+    height: 550px;
+    background: #ffffff;
+    position: absolute;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    overflow: hidden;
+}
+
+.banner_modal {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner_modal img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.banner_modal p {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    font-size: 30px;
+    color: #fff;
+    display: none;
+}
+
+.descripcion_modal {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.call_action {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: center;
+    align-content: center;
+}
+
+.call_action h1 {
+    float: left;
+    position: relative;
+    font-size: 25px;
+    color: #00214D;
+    top: -10px;
+}
+
+.call_action h1 span {
+    position: absolute;
+    right: 0;
+    width: 0;
+    background: #ffffff;
+    border-left: 1px solid #00214D;
+
+    animation: machine 2s 3s alternate steps(20);
+}
+
+@keyframes machine {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+
+}
+
+.btn_store_banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn_store_banner img {
+    width: 150px;
+}
+
+#cerrar {
+    display: none;
+}
+
+#cerrar + label {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+
+    color: #00214D;
+    font-size: 30px;
+    z-index: 9999;
+    background: #fff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+@keyframes modal_publicitario {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}
+
+/* ==========================================================================
+   responsive design
+   ========================================================================== */
+
+@media (max-width: 1280px) {
+
+    .contenido_modal {
+        width: 700px;
+    }
+}
+
+@media (max-width: 991px) {
+    .modal_publicitario {
+        width: 75%;
+        left: 25%;
+    }
+
+    .contenido_modal {
+        width: 90%;
+        height: 450px;
+    }
+
+    .banner_modal {
+        height: 300px;
+    }
+
+    .call_action {
+        margin: 0;
+    }
+
+    .logo_modal {
+        width: 200px;
+    }
+
+    .btn_store_banner img {
+        width: 130px;
+    }
+
+    #cerrar + label {
+        right: 25px;
+        top: 20px;
+        font-size: 18px;
+        height: 30px;
+        width: 30px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .call_action {
+        width: 60%;
+    }
+
+    .call_action h1 {
+        font-size: 20px;
+    }
+
+    .btn_store_banner {
+        flex-wrap: wrap;
+    }
+
+    .logo_modal {
+        width: 150px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .modal_publicitario {
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .contenido_modal {
+        height: 350px;
+    }
+
+    .banner_modal {
+        height: 250px;
+    }
+
+    .descripcion_modal {
+        height: 100px;
+    }
+
+    .logo_modal {
+        padding: 15px;
+    }
+
+    .call_action h1 {
+        top: 0;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .btn_store_banner img {
+        width: 80px;
+    }
+
+}
+
+@media (max-width: 414px) {
+    .call_action h1 {
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 375px) {
+    .contenido_modal {
+        width: 95%;
+    }
+}
+
+/* ==========================================================================
+   estilos banner cabecera mapa
+   ========================================================================== */
+
+
+.banner_cabecera_mapa {
+    width: 98%;
+    margin: 15px auto;
+    height: 100px;
+    box-sizing: border-box;
+    background: #333;
+    position: relative;
+    top: 0;
+}
 /**********CONTENEDOR MAPA*************/
 
 #map {

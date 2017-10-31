@@ -14,11 +14,14 @@
 
 {% block extra_js %}
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
-    <!-- Boton ver mas -->
+
+    <!---------------------------- Boton ver mas ---------------------------->
     <script>
         $(document).ready(function () {
             var next_page = 2;
             var boton = document.getElementById('btn-ver-mas');
+            var contenedor_noticias = document.getElementById('div-noticias');
+            var noMasItems = false;
             boton.onclick = function () {
                 // Ajax to more news
                 $.ajax({
@@ -27,13 +30,13 @@
                     dataType: 'application/json',
                     complete: function (data) {
                         var json = JSON.parse(data.responseText);
-                        if (json.next === null) {
+                        if (json.next === null || json.hasOwnProperty('detail')) {
                             boton.style.display = 'none';
+                            noMasItems = true;
                         } else {
                             next_page = next_page + 1;
                         }
                         console.log(json);
-                        var contenedor_noticias = document.getElementById('div-noticias');
                         // Armamos las 10 nuevas noticias
                         var arr_noticias = json.results;
                         arr_noticias.forEach(function (noticia) {
@@ -55,12 +58,17 @@
                             contenedor_noticias.innerHTML += noticia_html;
                         });
 
+                        contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
                         contenedor_noticias.innerHTML += '<div class="clearfix"></div>';
                     }
                 })
             }
         });
     </script>
+    <!---------------------------- Boton ver mas ---------------------------->
+
+
+    <!------------------ banner right videos y banner publicitarios -------------------->
 
     <script>
         function init() {
@@ -70,21 +78,52 @@
                 {"fields": "status,title,description,creation_time,embed_html", "limit": "15"},
                 function (response) {
                     var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
+                    var aux = -1;
+                    var isFirst = true;
+                    var maxVideos = 0;
                     response.data.forEach(function (video) {
                         if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
-                            console.log(video);
-                            var video_html =
-                                '<div class="editor-pics">' +
-                                '<div class="col-md-6 item-pic">' +
-                                    video.embed_html +
-                                '</div>\n' +
-                                '<div class="col-md-6 item-details">\n' +
-                                '<h5 class="inner two">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
-                                '<div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>' + video.creation_time + '</div>\n' +
-                                '</div>\n' +
-                                '<div class="clearfix"></div>\n' +
-                                '</div>';
-                            contenedor_videos.innerHTML += video_html;
+                            aux += 1;
+                            maxVideos += 1;
+                            if (maxVideos <= 7) {
+                                if (isFirst) {
+                                    var video_html =
+                                        '<div class="col-md-12 item-details">\n' +
+                                        '<h5 class="inner one">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
+                                        '<div class="container_embed">' + video.embed_html + '</div>\n' +
+                                        '<div class="td-post-date one"><i class="glyphicon glyphicon-time"></i>' + (video.creation_time).split('T')[0] + '</div>\n' +
+                                        '</div>\n' +
+                                        '<div class="clearfix"></div>\n' +
+                                        '</div>';
+                                    contenedor_videos.innerHTML += video_html;
+                                    isFirst = false;
+                                } else {
+                                    var video_html =
+                                        '<div class="editor-pics item-details">' +
+                                        '<div class="col-md-6 item-pic container_embed_small">' +
+                                        video.embed_html +
+                                        '</div>\n' +
+                                        '<div class="col-md-6 descripcion_small">\n' +
+                                        '<h5 class="inner two">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
+                                        '<div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>' + (video.creation_time).split('T')[0] + '</div>\n' +
+                                        '</div>\n' +
+                                        '<div class="clearfix"></div>\n' +
+                                        '</div>';
+                                    contenedor_videos.innerHTML += video_html;
+                                }
+
+
+                                if (aux === 2) {
+                                    aux = 0;
+                                    var espacio_publicitario =
+                                        '<div class="banner_right item-details" style="height:200px">\n' +
+                                        '<div class="contenido_publicidad_right">\n' +
+                                        '<h5>PAUTE AQUI!!!<span class="glyphicon glyphicon-hand-down"></span></h5>\n' +
+                                        '</div>\n' +
+                                        '</div>';
+                                    contenedor_videos.innerHTML += espacio_publicitario;
+                                }
+                            }
                         }
                     });
                 }
@@ -102,33 +141,23 @@
 
             init();
         };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <!-- Script modal -->
+    <!---------------------- Script modal publicitario ---------------------->
     <script>
         $(document).ready(function () {
             $("#cerrar").click(function () {
-                $("#modal").css("display", "none")
+                $("#modal_publicitario").css("display", "none")
                 ;
             })
         });
     </script>
+
 {% endblock %}
 
 {% block contenido_web %}
-    <!--
-    <div class="modal" id="modal">
+
+    <div class="modal_publicitario" id="modal_publicitario">
 
         <div class="contenido_modal">
 
@@ -136,20 +165,32 @@
             <label for="cerrar" id="btn_cerrar">x</label>
             <div class="banner_modal">
                 <p>Deliciosa carne de caballo</p>
-                <img src="{% static 'pagina_web/images/cover.jpeg' %}" alt="" class="img-responsive">
+                <img src="{% static 'pagina_web/images/banner-publicidad.png' %}" alt="" class="img-responsive">
             </div>
             <div class="descripcion_modal">
                 <div class="logo_modal">
-                    <img src="{% static 'pagina_web/images/logo_hacienda.jpeg' %}" alt="">
+                    <img class="img-responsive" src="{% static 'pagina_web/images/logo1.png' %}" alt="">
                 </div>
                 <div class="call_action">
-                    <p>Invitacion a la Acciòn</p>
-                    <a href="#" class="btn_modal btn-lg btn-success">contactar</a>
+                    <h1>Descarga la App ya!!<span>&#160;</span></h1>
+                    <div class="btn_store_banner">
+                        <a href='https://goo.gl/UPUCvR'><img class='img-responsive' alt='Disponible en Google Play'
+                                                             src='{% static 'pagina_web/images/btn_android.png' %}'/></a>
+                        <a href='https://goo.gl/fzaCMT'><img class='img-responsive' alt='Disponible en App Store'
+                                                             src='{% static 'pagina_web/images/btn_ios.png' %}'/></a>
+                    </div>
                 </div>
 
             </div>
         </div>
-    </div> -->
+    </div>
+    <!-- Banner cabecera index -->
+
+    <div class="banner_cabecera">
+        <div class="contenido_publicidad_cabecera">
+            <h5>Seccion Banner Publicitario</h5>
+        </div>
+    </div>
 
     <!-- Banner noticias destacadas -->
     <div class="banner-section">
@@ -220,56 +261,36 @@
         </div>
         <!--  Noticias -->
 
-        <!-- Controles paginado -->
-        <div style="display: flex;justify-content: center;">
-            <img id="btn-ver-mas" src="{% static 'pagina_web/images/btn_ver_mas.jpg' %}" style="width: 200px; height: 100px">
+        <!----------------btn ver mas-------------------->
+        <div class="contenedor_btn_vermas">
+            <a id="btn-ver-mas" class="btn_ver_mas">Ver M&aacutes</a>
         </div>
-        <!-- Controles paginado -->
+        <!----------------btn ver mas-------------------->
+
+
+        <!-- banner_publicitario_down -->
+        <div class="banner_publicitario_noticia">
+            <div class="contenido_publicidad_noticia">
+                <h5>Seccion Banner Publicitario!!!<span>&#160;</span></h5>
+            </div>
+        </div>
     </div>
     <!--//banner-section-->
     <div class="banner-right-text">
+        <!-- contenedor publicitario -->
+        <div class="col-md-12 item-details container_embed banner_right_principal">
+            <div class="contenido_right_principal">
+                <h5>Seccion Banner Publicitario<span>&#160;</span></h5>
+            </div>
+        </div>
         <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
         <!--/general-news-->
         <div class="general-news">
             <div class="general-inner">
-                <!--
-                <div class="general-text">
-                    <a href="single.html"><img src="images/gen1.jpg" class="img-responsive" alt=""></a>
-                    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                    <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam
-                        eratsed diam justo duo dolores rebum.</p>
-                    <p>On Jun 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
-                    </p>
-                </div>-->
-                <!-- Videos Live Facebook -->
                 <div id="contenedor-videos-facebook-live" class="edit-pics">
-
                 </div>
-
-                <!--
-                <div class="media">
-                    <h3 class="tittle media">Media <i class="glyphicon glyphicon-floppy-disk"></i></h3>
-                    <div class="general-text two">
-                        <a href="single.html"><img src="images/gen3.jpg" class="img-responsive" alt=""></a>
-                        <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                        <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna
-                            aliquyam eratsed diam justo duo dolores rebum.</p>
-                        <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0
-                        </a></p>
-                    </div>
-                </div>
-                <div class="general-text two">
-                    <a href="single.html"><img src="images/gen2.jpg" class="img-responsive" alt=""></a>
-                    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                    <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam
-                        eratsed diam justo duo dolores rebum.</p>
-                    <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
-                    </p>
-                </div> -->
             </div>
         </div>
-        <!--//general-news-->
-        <!--/news-->
-        <!--/news-->
     </div>
+
 {% endblock %}

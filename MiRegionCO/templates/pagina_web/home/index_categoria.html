@@ -14,61 +14,148 @@
 
 {% block extra_js %}
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
+    <!-- Boton ver mas -->
     <script>
-        function init() {
-            FB.api(
-                '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
-                'GET',
-                {"fields": "status,title,description,creation_time,embed_html", "limit": "15"},
-                function (response) {
-                    var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
-                    response.data.forEach(function (video) {
-                        if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
-                            console.log(video);
-                            var video_html =
-                                '<div class="editor-pics">' +
-                                '<div class="col-md-6 item-pic">' +
-                                    video.embed_html +
-                                '</div>\n' +
-                                '<div class="col-md-6 item-details">\n' +
-                                '<h5 class="inner two">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
-                                '<div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>' + video.creation_time + '</div>\n' +
-                                '</div>\n' +
-                                '<div class="clearfix"></div>\n' +
-                                '</div>';
-                            contenedor_videos.innerHTML += video_html;
+        $(document).ready(function () {
+            var next_page = 2;
+            var boton = document.getElementById('btn-ver-mas');
+            var contenedor_noticias = document.getElementById('div-noticias');
+            var noMasItems = false;
+
+            boton.onclick = function () {
+                // Ajax to more news
+                $.ajax({
+                    url: '{% url 'api:noticias2_api' categoria.id %}?page=' + next_page,
+                    type: 'GET',
+                    dataType: 'application/json',
+                    complete: function (data) {
+                        var json = JSON.parse(data.responseText);
+                        if (json.next === null || json.hasOwnProperty('detail')) {
+                            boton.style.display = 'none';
+                            noMasItems = true;
+                        } else {
+                            next_page = next_page + 1;
                         }
-                    });
-                }
-            );
-        }
+                        // Armamos las 10 nuevas noticias
+                        var arr_noticias = json.results;
+                        arr_noticias.forEach(function (noticia) {
+                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+                            var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
+                            var noticia_html =
+                                '<div class="col-md-6 top-text">' +
+                                '<div class="top-text_img">' +
+                                '<a href="' + url_mask + '">' +
+                                '<img src="' + imagen_noticia + '" class="img-responsive" alt="">' +
+                                '</a>' +
+                                '</div>' +
+                                '<h5 class="top">' +
+                                '<a href="' + url_mask + '">' + noticia.titular + '</a>' +
+                                '</h5>' +
+                                '<p>' + noticia.lead + '</p>' +
+                                '<p class="top-text_fecha">' + noticia.fecha + '</p>' +
+                                '</div>';
+                            contenedor_noticias.innerHTML += noticia_html;
+                        });
 
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '311007229311399',
-                autoLogAppEvents: false,
-                xfbml: false,
-                version: 'v2.10'
-            });
-            //FB.AppEvents.logPageView();
-
-            init();
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
+                        contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
+                        contenedor_noticias.innerHTML += '<div class="clearfix"></div>';
+                    }
+                })
             }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            function init() {
+                FB.api(
+                    '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
+                    'GET',
+                    {"fields": "status,title,description,creation_time,embed_html", "limit": "7"},
+                    function (response) {
+                        var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
+                        var aux = -1;
+                        var isFirst = true;
+                        response.data.forEach(function (video) {
+                            if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
+                                aux += 1;
+                                console.log(video);
+                                if (isFirst) {
+                                    var video_html =
+                                        '<div class="col-md-12 item-details">\n' +
+                                        '<h5 class="inner one">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
+                                        '<div class="container_embed">' + video.embed_html + '</div>\n' +
+                                        '<div class="td-post-date one"><i class="glyphicon glyphicon-time"></i>' + (video.creation_time).split('T')[0] + '</div>\n' +
+                                        '</div>\n' +
+                                        '<div class="clearfix"></div>\n' +
+                                        '</div>';
+                                    contenedor_videos.innerHTML += video_html;
+                                    isFirst = false;
+                                } else {
+                                    var video_html =
+                                        '<div class="editor-pics item-details">' +
+                                        '<div class="col-md-6 item-pic container_embed_small">' +
+                                        video.embed_html +
+                                        '</div>\n' +
+                                        '<div class="col-md-6 descripcion_small">\n' +
+                                        '<h5 class="inner two">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
+                                        '<div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>' + (video.creation_time).split('T')[0] + '</div>\n' +
+                                        '</div>\n' +
+                                        '<div class="clearfix"></div>\n' +
+                                        '</div>';
+                                    contenedor_videos.innerHTML += video_html;
+                                }
+
+
+                                if (aux === 2) {
+                                    console.log("Entro a if ", aux);
+                                    aux = 0;
+                                    var espacio_publicitario =
+                                        '<div class="banner_right item-details" style="height:200px">\n' +
+                                        '<div class="contenido_publicidad_right">\n' +
+                                        '<h5>PAUTE AQUI!!!<span class="glyphicon glyphicon-hand-down"></span></h5>\n' +
+                                        '</div>\n' +
+                                        '</div>';
+                                    contenedor_videos.innerHTML += espacio_publicitario;
+                                }
+                            }
+                        });
+                    }
+                );
+            }
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '311007229311399',
+                    autoLogAppEvents: false,
+                    xfbml: false,
+                    version: 'v2.10'
+                });
+                //FB.AppEvents.logPageView();
+
+                init();
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        });
     </script>
 {% endblock %}
 
 {% block contenido_web %}
+    <div class="banner_cabecera">
+        <div class="contenido_publicidad_cabecera">
+            <h5>Seccion Banner Publicitario</h5>
+        </div>
+    </div>
+
     <!-- Banner noticias destacadas -->
     <div class="banner-section">
         <h1 class="tittle">{{ categoria.nombre }} destacadas</h1>
@@ -115,7 +202,7 @@
 
         <!--  Noticias  -->
         <div class="top-news">
-            <div class="top-inner">
+            <div id="div-noticias" class="top-inner">
                 {% for noticia in noticias %}
                     <div class="col-md-6 top-text">
                         <div class="top-text_img">
@@ -138,68 +225,37 @@
         <!--  Noticias -->
 
         <!-- Controles paginado -->
-        <ul class="pagination pagination-sm">
-            {% if noticias.has_previous %}
-                <li><a href="?page={{ noticias.previous_page_number }}">&laquo;</a></li>
-            {% else %}
-                <li class="disabled"><span>&laquo;</span></li>
-            {% endif %}
-
-            <li>{{ noticias.number }}/{{ noticias.paginator.num_pages }}</li>
-
-            {% if noticias.has_next %}
-                <li><a href="?page={{ noticias.next_page_number }}">&raquo;</a></li>
-            {% else %}
-                <li class="disabled"><span>&raquo;</span></li>
-            {% endif %}
-        </ul>
+        <div style="display: flex;justify-content: center;">
+            <img id="btn-ver-mas" src="{% static 'pagina_web/images/btn_ver_mas.jpg' %}"
+                 style="width: 200px; height: 100px">
+        </div>
         <!-- Controles paginado -->
+
+        <!-- banner_publicitario_down -->
+        <div class="banner_publicitario_noticia">
+            <div class="contenido_publicidad_noticia">
+                <h5>Seccion Banner Publicitario</h5>
+            </div>
+        </div>
     </div>
 
     <!--//banner-section-->
     <div class="banner-right-text">
+        <!-- contenedor publicitario -->
+        <div class="col-md-12 item-details container_embed banner_right_principal">
+            <div class="contenido_right_principal">
+                <h5>Seccion Banner Publicitario</h5>
+            </div>
+        </div>
         <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
         <!--/general-news-->
         <div class="general-news">
             <div class="general-inner">
-                <!--
-                <div class="general-text">
-                    <a href="single.html"><img src="images/gen1.jpg" class="img-responsive" alt=""></a>
-                    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                    <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam
-                        eratsed diam justo duo dolores rebum.</p>
-                    <p>On Jun 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
-                    </p>
-                </div>-->
                 <!-- Videos Live Facebook -->
                 <div id="contenedor-videos-facebook-live" class="edit-pics">
 
                 </div>
-
-                <!--
-                <div class="media">
-                    <h3 class="tittle media">Media <i class="glyphicon glyphicon-floppy-disk"></i></h3>
-                    <div class="general-text two">
-                        <a href="single.html"><img src="images/gen3.jpg" class="img-responsive" alt=""></a>
-                        <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                        <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna
-                            aliquyam eratsed diam justo duo dolores rebum.</p>
-                        <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0
-                        </a></p>
-                    </div>
-                </div>
-                <div class="general-text two">
-                    <a href="single.html"><img src="images/gen2.jpg" class="img-responsive" alt=""></a>
-                    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                    <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam
-                        eratsed diam justo duo dolores rebum.</p>
-                    <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>0 </a>
-                    </p>
-                </div> -->
             </div>
         </div>
-        <!--//general-news-->
-        <!--/news-->
-        <!--/news-->
     </div>
 {% endblock %}
