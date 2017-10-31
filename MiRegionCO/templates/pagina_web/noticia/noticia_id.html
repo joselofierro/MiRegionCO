@@ -166,11 +166,21 @@
                                 <a target="_blank"
                                    href="https://www.facebook.com/sharer/sharer.php?u={{ full_url }}">
                                     <li id="shareBtn" class="crop"><img
-                                            src="{% static 'pagina_web/images/fb_social.png' %}"
-                                            alt=""></li>
+                                            src="{% static 'pagina_web/images/fb_social.png' %}" alt="">
+                                    </li>
                                 </a>
-                                <li class="crop"><img src="{% static 'pagina_web/images/tw_social.png' %}"
-                                                      alt=""></li>
+                                <a target="_blank"
+                                   href="https://twitter.com/share"
+                                   data-size="large"
+                                   data-text="{{ noticia.titular }}"
+                                   data-url="{{ full_url }}"
+                                   data-hashtags="{{ tags }}"
+                                   data-via="MiRegionCO"
+                                   data-related="twitterapi,twitter">
+                                    <li class="crop">
+                                        <img src="{% static 'pagina_web/images/tw_social.png' %}" alt="">
+                                    </li>
+                                </a>
                                 <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt=""></li>
                             </ul>
                         </div>

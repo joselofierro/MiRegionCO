@@ -87,9 +87,18 @@ def noticia_id(request, p_id):
                         '<meta property="og:image" content="' + noticia.imagenes.first().imagen.url + '">' + \
                         '<meta property="og:image:type" content="image/jpeg">'
 
+            list_tags = ""
+
+            for tag in noticia.tag.all():
+                list_tags += tag.nombre + ","
+
+            list_tags = list_tags[:-1]
+
+            print(list_tags)
+
             return render(request, 'pagina_web/noticia/noticia_id.html',
                           {'noticia': noticia, 'categorias': categorias, 'noticias_destacadas': noticias_destacadas,
-                           'meta': dict_meta, 'full_url': request.build_absolute_uri()})
+                           'meta': dict_meta, 'full_url': request.build_absolute_uri(), 'tags': list_tags})
 
         except Noticia.DoesNotExist:
             return render(request, 'pagina_web/404.html', {})
