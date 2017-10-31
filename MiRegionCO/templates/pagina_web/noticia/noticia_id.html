@@ -171,7 +171,11 @@
                                         <img src="{% static 'pagina_web/images/tw_social.png' %}" alt="">
                                     </li>
                                 </a>
-                                <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt=""></li>
+                                <a href="https://plus.google.com/share?url={{ full_url }}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                                    <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt="">
+                                    </li>
+                                </a>
                             </ul>
                         </div>
                         <div class="clearfix"></div>
