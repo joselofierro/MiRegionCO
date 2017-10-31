@@ -7,6 +7,14 @@
 
 {% block extracss %}
     <style type="text/css">
+        div.buscar{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        div.buscar form{
+            margin-right: 20px;
+        }
         @media screen and (max-width: 1446px ) {
             .btn-group, .btn-group-vertical {
                 position: relative;
@@ -25,6 +33,13 @@
             <div class="header">
                 <h4 style="margin-bottom: 22px;">Listado de noticias</h4>
             </div>
+            <!--<div class="buscar">
+                <form action="" method="GET">
+                    <label for="q"></label>
+                    <input type="text" name="q" id="q">
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>-->
             <a href="{% url 'noticia:crear' %}" class="btn btn-primary active">Crear noticia</a>
             <div id="datatable-responsive_wrapper" class="content table-responsive table-full-width">
                 <table id="boxes" class="table table-striped table-bordered table-hover"
@@ -60,7 +75,7 @@
                                         <div class="carousel-inner" role="listbox">
                                             {% for imagen in noticia.imagenes.all %}
                                                 <div class="item {% if forloop.first %} active {% endif %}">
-                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url}}"
+                                                    <img src="{{ MEDIA_URL }} {{ imagen.imagen.url }}"
                                                          class="d-block img-fluid" name="imagen_{{ imagen.id }}"
                                                          style="display: block; max-width: 200px; height:auto;">
                                                 </div>
@@ -91,7 +106,7 @@
 
                                 <td>
                                     <ul>{% for categoria in noticia.categoria.all %}
-                                        <li>{{categoria.nombre}}</li>
+                                        <li>{{ categoria.nombre }}</li>
                                     {% endfor %}
                                     </ul>
                                 </td>

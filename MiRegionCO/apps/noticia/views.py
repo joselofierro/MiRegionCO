@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
+from django.db.models import Q
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
@@ -13,7 +14,6 @@ from django.views.generic import *
 from requests import Response
 
 from MiRegionCO import settings
-from apps.categoria.forms import CategoriaForm
 from apps.categoria.models import Categoria
 from apps.imagen.forms import ImagenForm
 from apps.imagen.models import Imagen

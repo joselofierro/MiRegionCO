@@ -646,38 +646,42 @@ class VotarYoutuber(CreateAPIView):
     serializer_class = VotacionSerializer
 
     def post(self, request, *args, **kwargs):
+        votar = False
         if 'accessToken' in request.data:
-            if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data['accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
-                request.data.pop('accessToken')
-                obj_votacion = VotacionSerializer(data=request.data)
-                if obj_votacion.is_valid():
-                    obj_votacion.save()
-                    return Response({'data': True}, status=status.HTTP_201_CREATED)
-                else:
-                    # Validamos si el usuario existe
-                    if Usuario.objects.filter(id=request.data['usuario']).exists():
-                        # Validamos si existe el codigo
-                        if Youtuber.objects.filter(codigo=request.data['codigo']).exists():
-                            # Validamos si usuario ya votó
-                            if Votaciones.objects.filter(usuario__id=request.data['usuario']).exists():
-                                votacion = Votaciones.objects.filter(usuario__id=request.data['usuario'])
-                                return Response({'data': 'Este usuario ya votó por ' + votacion.first().codigo.nombre},
-                                                status=status.HTTP_400_BAD_REQUEST)
+            if votar:
+                if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data['accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
+                    request.data.pop('accessToken')
+                    obj_votacion = VotacionSerializer(data=request.data)
+                    if obj_votacion.is_valid():
+                        obj_votacion.save()
+                        return Response({'data': True}, status=status.HTTP_201_CREATED)
+                    else:
+                        # Validamos si el usuario existe
+                        if Usuario.objects.filter(id=request.data['usuario']).exists():
+                            # Validamos si existe el codigo
+                            if Youtuber.objects.filter(codigo=request.data['codigo']).exists():
+                                # Validamos si usuario ya votó
+                                if Votaciones.objects.filter(usuario__id=request.data['usuario']).exists():
+                                    votacion = Votaciones.objects.filter(usuario__id=request.data['usuario'])
+                                    return Response({'data': 'Este usuario ya votó por ' + votacion.first().codigo.nombre},
+                                                    status=status.HTTP_400_BAD_REQUEST)
 
-                            # Validamos si el dispositivo ya votó
-                            if Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id']).exists():
-                                votacion = Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id'])
-                                return Response({'data': 'Este dispositivo ya votó ' + votacion.first().codigo.nombre},
+                                # Validamos si el dispositivo ya votó
+                                if Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id']).exists():
+                                    votacion = Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id'])
+                                    return Response({'data': 'Este dispositivo ya votó ' + votacion.first().codigo.nombre},
+                                                    status=status.HTTP_400_BAD_REQUEST)
+                            else:
+                                return Response({'data': 'No existe participante con el código ingresado'},
                                                 status=status.HTTP_400_BAD_REQUEST)
                         else:
-                            return Response({'data': 'No existe participante con el código ingresado'},
+                            return Response({'data': 'El usuario que intenta votar no existe'},
                                             status=status.HTTP_400_BAD_REQUEST)
-                    else:
-                        return Response({'data': 'El usuario que intenta votar no existe'},
-                                        status=status.HTTP_400_BAD_REQUEST)
+                else:
+                    return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
+                                    status=status.HTTP_400_BAD_REQUEST)
             else:
-                return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
-                                status=status.HTTP_400_BAD_REQUEST)
+                return Response({'data': 'Las votaciones han sido cerradas 🙂'}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
                             status=status.HTTP_400_BAD_REQUEST)
