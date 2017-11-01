@@ -292,9 +292,43 @@
                                                                 src="{% static 'pagina_web/images/logo.png' %}" alt=""></a>
                 </div>
                 <div class="top-menu">
-
                     <ul class="ul__top-menu">
-                        {% categorias_menu %}
+                        <li class="li__btn" style="background-color: #76A8D9">
+                            <ul class="ul__menu">
+                                <li class="li__icon"><i
+                                        class="glyphicon glyphicon-play icon-magazine icon__menu"
+                                        style="background-color: #76A8D9"></i>
+                                </li>
+                                <li>
+                                    <a href="{% url 'pagina_web:noticia_categoria' 6 %}">Noticias</a>
+                                </li>
+                                <hr class="hr">
+                            </ul>
+                        </li>
+                        <li class="li__btn" style="background-color: #F3CC7F">
+                            <ul class="ul__menu">
+                                <li class="li__icon"><i
+                                        class="glyphicon glyphicon-play icon-magazine icon__menu"
+                                        style="background-color: #F3CC7F"></i>
+                                </li>
+                                <li>
+                                    <a href="{% url 'pagina_web:noticia_categoria' 6 %}">Comunidad</a>
+                                </li>
+                                <hr class="hr">
+                            </ul>
+                        </li>
+                        <li class="li__btn ultimo-boton" style="background-color: #F66666">
+                            <ul class="ul__menu">
+                                <li class="li__icon"><i
+                                        class="glyphicon glyphicon-play icon-deportes icon__menu"
+                                        style="background-color: #F66666"></i>
+                                </li>
+                                <li>
+                                    <a href="{% url 'pagina_web:noticia_categoria' 6 %}">Deportes</a>
+                                </li>
+                                <hr class="hr">
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 

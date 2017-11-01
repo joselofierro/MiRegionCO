@@ -45,8 +45,7 @@ class NoticiaSerializer(ModelSerializer):
         model = Noticia
         fields = (
             'id', 'fecha', 'hora', 'titular', 'lead', 'texto', 'imagen_video', 'url', 'video', 'duracion', 'imagenes',
-            'autor',
-            'tag',)
+            'autor', 'tag')
 
 
 class NoticiasSerializerPOST(ModelSerializer):

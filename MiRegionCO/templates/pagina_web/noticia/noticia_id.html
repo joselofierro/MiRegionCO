@@ -214,18 +214,28 @@
                     </div>
                     <div class="col-md-12">
                         <div class="row social-button-down">
-                            <div class="col-xs-4 social-down">
-                                <img class="img-responsive" src="{% static 'pagina_web/images/fb_social.png' %}"
-                                     alt="">
-                            </div>
-                            <div class="col-xs-4 social-down">
-                                <img class="img-responsive" src="{% static 'pagina_web/images/tw_social.png' %}"
-                                     alt="">
-                            </div>
-                            <div class="col-xs-4 social-down">
-                                <img class="img-responsive" src="{% static 'pagina_web/images/go_social.png' %}"
-                                     alt="">
-                            </div>
+                            <a target="_blank"
+                               href="https://www.facebook.com/sharer/sharer.php?u={{ full_url }}">
+                                <div class="col-xs-4 social-down">
+                                    <img class="img-responsive" src="{% static 'pagina_web/images/fb_social.png' %}"
+                                         alt="">
+                                </div>
+                            </a>
+                            <a target="_blank"
+                               href="https://twitter.com/intent/tweet?text={{ noticia.titular }}&url={{ full_url }}&via=MiRegionCO"
+                               data-size="large">
+                                <div class="col-xs-4 social-down">
+                                    <img class="img-responsive" src="{% static 'pagina_web/images/tw_social.png' %}"
+                                         alt="">
+                                </div>
+                            </a>
+                            <a href="https://plus.google.com/share?url={{ full_url }}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                                <div class="col-xs-4 social-down">
+                                    <img class="img-responsive" src="{% static 'pagina_web/images/go_social.png' %}"
+                                         alt="">
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="clearfix"></div>

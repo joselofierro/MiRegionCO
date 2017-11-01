@@ -68,6 +68,32 @@ def noticias_categoria(request, p_categoria_id):
             return render(request, 'pagina_web/404.html', {})
 
 
+"""def noticia_tag(request, p_tag):
+    if request.method == 'GET':
+        # Obtenemos las noticias destacadas por el tag que viene por parametro
+        noticias_destacadas = Noticia.objects.filter(tag__nombre=p_tag, visible=True, destacada=True).order_by('-fecha', '-hora')
+
+        noticias_list = Noticia.objects.filter(visible=True, tag__nombre=p_tag).order_by('-fecha', '-hora')
+
+        paginator = Paginator(noticias_list, 10)  # Mostramos paginas de 10 imagenes
+        page = request.GET.get('page')
+
+            try:
+                # Si hay noticias
+                noticias = paginator.page(page)
+            except PageNotAnInteger:
+                # If page is not an integer, deliver first page.
+                noticias = paginator.page(1)
+            except EmptyPage:
+                # Si la pagina esta fuera del rango, entrega la ultima pagina
+                noticias = paginator.page(paginator.num_pages)
+
+            return render(request, 'pagina_web/home/index_categoria.html',
+                          {'noticias_destacadas': noticias_destacadas, 'noticias': noticias, 'categoria': categoria})
+            except Categoria.DoesNotExist:
+                return render(request, 'pagina_web/404.html', {})"""
+
+
 def noticia_id(request, p_id):
     if request.method == 'GET':
         # Consultamos la noticia por id
