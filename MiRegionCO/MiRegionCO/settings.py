@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '54.165.204.105',
     '34.231.1.194',
+    '192.168.10.35'
 ]
 
 # Application definition
@@ -122,12 +123,11 @@ if 'RDS_DB_NAME' in os.environ:
     }
 else:
     DATABASES = {
-
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'miregionco',
             'USER': 'postgres',
-            'PASSWORD': 'backend17',
+            'PASSWORD': 'juandiego',
             'HOST': 'localhost',
             'PORT': 5432,
         }
