@@ -143,7 +143,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Categoria.objects.all().order_by('orden')
+        return Categoria.objects.filter(visibleApp=True).order_by('orden')
 
 
 # 2 maneras de obtener parametros de url con clases basadas en vistas
