@@ -17,8 +17,8 @@ urlpatterns = [
     url(r'^pagination_noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId2.as_view(), name='noticias2_api'),
     # listado de todos los sitios
     url(r'^sitios', SitiosList.as_view(), name='list_sitio_api'),
-    # listado de sitios por el id de la categoria del mapa
-    # url(r'^mapa/(?P<id_categoria>.+)$', MapaCategoriaList.as_view(), name='noticias_api'),
+    # listado de sitios por el id de la subcategoria del mapa
+    url(r'^subcategoria_sitios/(?P<id_subcategoria>.+)$', SitiosXSubcategoria, name='sitios_by_subcategoria'),
     # noticias destacadas
     url(r'^noticias_destacadas', NoticiasDestacadasAPI.as_view(), name='noticias_destacadas_api'),
     # noticias destacadas por el id de la categoria

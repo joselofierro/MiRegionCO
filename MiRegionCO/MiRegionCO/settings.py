@@ -232,6 +232,7 @@ CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
 CACHE_API_NOTICIASXCATEGORIA2 = 'api_noticiasxcategoria2'
 CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA = 'api_noticias_destacadas_categoria'
 CACHE_API_SITIOS = 'api_sitios'
+CACHE_API_SITIOSXSUBCATEGORIA = 'api_sitiosxsubcategoria'
 CACHE_API_PORTAFOLIO = 'api_portafolio'
 CACHE_API_COTIZACIONES = 'api_cotizaciones'
 CACHE_API_USUARIOS = 'api_usuarios'
@@ -289,6 +290,13 @@ CACHES = {
     CACHE_API_SITIOS: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/sitios',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_SITIOSXSUBCATEGORIA: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/sitiosxsubcategoria',
         'TIMEOUT': None
 
     },

@@ -2,6 +2,7 @@ from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.db.models import Count
+from django.db.models.functions import Concat
 from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -22,6 +23,7 @@ from apps.noticia.models import Noticia
 from apps.sitio.models import Sitio
 from apps.usuario.models import Usuario
 from apps.ventas.detalle.models import Detalle
+from django.db.models import Count, Value
 
 # API CREAR USUARIO POST
 from apps.ventas.subcategoria_producto.models import Subcategoria
@@ -185,6 +187,20 @@ class MapaListAPI(ListAPIView):
     def get_queryset(self):
         print('Aun no se ha cacheado')
         return CategoriaMapa.objects.order_by('nombre')
+
+
+@cache_page(None, cache=settings.CACHE_API_SITIOSXSUBCATEGORIA)
+@api_view(['GET'])
+def SitiosXSubcategoria(request, id_subcategoria):
+    if request.method == 'GET':
+        print("sitios por categoria no cacheados")
+        sitios = Sitio.objects.filter(subcategoria=id_subcategoria).values('nombre', 'latitud', 'longitud',
+                                                                           'descripcion', 'horario',
+                                                                           'telefono', 'direccion').annotate(
+            marcador=Concat(Value(settings.MEDIA_URL), 'subcategoria__categoriamapa__icono_marcador'),
+            logo_e=Concat(Value(settings.MEDIA_URL), 'logo')).order_by(
+            'nombre')
+        return Response(sitios, status=status.HTTP_200_OK)
 
 
 # Se hace el cambio para que solo aparezcan las categorias que tengan subcategorias y sus subcategorias tengan sitios
