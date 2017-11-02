@@ -319,20 +319,18 @@ label {
    estilos banner cabecera mapa
    ========================================================================== */
 
-
 .banner_cabecera_mapa {
     width: 98%;
-    margin: 15px auto;
+    margin: 10px auto;
     height: 100px;
     box-sizing: border-box;
-    background: #333;
+    background: #afafaf;
     position: relative;
     top: 0;
 }
 /**********CONTENEDOR MAPA*************/
-
 #map {
-    height: 95vh;
+    height: 83vh;
     width: 100%;
 }
 
@@ -344,7 +342,7 @@ label {
 .contenedor-menumapa {
     overflow: auto;
     overflow-x: hidden;
-    height: 75%;
+    height: 85%;
     direction: rtl;
 }
 
@@ -377,10 +375,10 @@ label {
 .nav {
     display: flex;
     position: absolute;
-    top: 2.5%;
+    top: 120px;
     left: -33.333%;
     width: 33.333%;
-    height: 90vh;
+    height: 83vh;
     transition: all 0.4s;
     background-color: rgba(128, 180, 147, 0.9);
     z-index: 1;
