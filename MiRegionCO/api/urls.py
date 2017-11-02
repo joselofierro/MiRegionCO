@@ -17,8 +17,8 @@ urlpatterns = [
     url(r'^pagination_noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId2.as_view(), name='noticias2_api'),
     # listado de todos los sitios
     url(r'^sitios', SitiosList.as_view(), name='list_sitio_api'),
-    # listado de sitios por el id de la categoria del mapa
-    # url(r'^mapa/(?P<id_categoria>.+)$', MapaCategoriaList.as_view(), name='noticias_api'),
+    # listado de sitios por el id de la subcategoria del mapa
+    url(r'^subcategoria_sitios/(?P<id_subcategoria>.+)$', SitiosXSubcategoria, name='sitios_by_subcategoria'),
     # noticias destacadas
     url(r'^noticias_destacadas', NoticiasDestacadasAPI.as_view(), name='noticias_destacadas_api'),
     # noticias destacadas por el id de la categoria
@@ -48,6 +48,8 @@ urlpatterns = [
     url(r'^facebook_sitio', FacebookAPI.as_view(), name='ingreso_api'),
     url(r'^instagram_sitio', InstagramAPI.as_view(), name='ingreso_api'),
     url(r'^usuario_vista_login/$', LoginUserAPI.as_view(), name='usuario_vista_login'),
+    # Buscar noticias por texto (Buscador pagina web)
+    url(r'^noticias_text/(?P<p_texto>.*)$', noticiaByText.as_view(), name='search_noticia_text'),
 
     # urls de Apis mi region_ventas
     url(r'^login/(?P<p_correo>.+)/(?P<p_pass>.+)$', login, name='login_vendedor'),
