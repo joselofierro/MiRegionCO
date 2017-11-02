@@ -70,7 +70,7 @@
                 FB.api(
                     '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
                     'GET',
-                    {"fields": "status,title,description,creation_time,embed_html", "limit": "7"},
+                    {"fields": "status,title,description,creation_time,embed_html", "limit": "50"},
                     function (response) {
                         var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
                         var aux = -1;
