@@ -30,6 +30,7 @@
     {% block extra_css %}
     {% endblock %}
     <!-- Scripts -->
+    <script src="{% static 'pagina_web/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'pagina_web/js/jquery.min.js' %}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
@@ -89,6 +90,71 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <!-- Search -->
+    <script>
+        $(document).ready(function () {
+            var searchInput = document.getElementById('inputSearch');
+
+            //setup before functions
+            var typingTimer;                //timer identifier
+            var doneTypingInterval = 1000;  //time in ms, 1 second for example
+            var $input = $('#inputSearch');
+
+            //on keyup, start the countdown
+            $input.on('keyup', function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            });
+
+            //on keydown, clear the countdown
+            $input.on('keydown', function () {
+                clearTimeout(typingTimer);
+            });
+
+            //user is "finished typing," do something
+            function doneTyping() {
+                if ($input.val() !== '') {
+                    var url_mask = "{% url 'api:search_noticia_text' '1' %}".replace('1', $input.val());
+                    $.ajax({
+                        url: url_mask,
+                        type: 'GET',
+                        dataType: 'application/json',
+                        complete: function (data) {
+                            var json = JSON.parse(data.responseText);
+                            var arr_noticias = json;
+                            var contenedor_noticias_search = document.getElementById('contenedor-noticias-search');
+                            contenedor_noticias_search.innerHTML = "";
+
+                            arr_noticias.forEach(function (noticia) {
+                                var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
+                                var noticia_url = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+
+                                var card_noticia =
+                                    '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card_noticia">' +
+                                    '<div class="contenedor_img_card">' +
+                                    '<a href="' + noticia_url + '"><img src="' + imagen_noticia + '" class="img_card" alt=""></a>' +
+                                    '</div>' +
+                                    '<h5 class="top_card"><a href="' + noticia_url + '">' + noticia.titular + '</a></h5>' +
+                                    '<p>' + noticia.lead + '</p>' +
+                                    '<p class="card_fecha">' + noticia.fecha + '</p>' +
+                                    '</div>';
+
+                                contenedor_noticias_search.innerHTML += card_noticia;
+                            })
+                        }
+                    })
+                }
+            }
+
+            $('#form-buscador-ppal').on('keyup keypress', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (keyCode === 13) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        })
+    </script>
     <!-- Archivos extra js -->
     {% block extra_js %}
     {% endblock %}
@@ -120,8 +186,46 @@
 
 </head>
 <body>
+
+
+<!-------------------modal buscar-------------------->
+<div class="modal modal1" tabindex="-1" id="modal_buscar"
+     data-keyboard="false">
+    <div class="modal-dialog tamaño_modal">
+        <!---modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <form id="form-buscador-ppal" class="buscador">
+                    <button type="button" class="close btn_close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <div class="form-group buscador">
+                        <label for="inputUserName">Busca noticias, eventos y ofertas...</label>
+                        <input class="form-control" type="text"
+                               placeholder="¿que buscas?" id="inputSearch"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-body">
+                <div id="contenedor-noticias-search" class="row">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnHideModal" class="btn btn-primary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------modal buscar------------------->
+
+<!-------------------btn to top------------------->
 <div id="toTop"><a href="javascript:void(0);"> <span></span></a></div>
+
 <div id="wrap">
+
     <!-- header-section-starts -->
     <nav id="header" class="navbar navbar-default navbar-static-top  top-header nav-down header">
         <div id="navbar" class="navbar-collapse">
@@ -134,8 +238,8 @@
             <div class="search-box">
                 <div class="b-search">
                     <form>
-                        <input type="text" value="Search" onfocus="this.value = '';"
-                               onblur="if (this.value == '') {this.value = 'Buscar';}" data-toggle="modal"
+                        <input type="text" value="Buscar" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = '';}" data-toggle="modal"
                                data-target="#modal_buscar">
                         <input type="submit" value="">
                     </form>
@@ -149,142 +253,6 @@
 
     <div class="full">
 
-        <!-------------------modal buscar-------------------->
-        <div class="modal fade modal1" tabindex="-1" id="modal_buscar"
-             data-keyboard="false">
-            <div class="modal-dialog tamaño_modal">
-                <!---modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <form class=" buscador">
-                            <button type="button" class="close btn_close" data-dismiss="modal">
-                                &times;
-                            </button>
-                            <div class="form-group buscador">
-                                <label for="inputUserName">Busca noticias, eventos y ofertas...</label>
-                                <input class="form-control" type="text"
-                                       placeholder="¿que buscas?" id="inputSearch"/>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="btnHideModal" class="btn btn-primary" data-dismiss="modal">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-------------------modal buscar------------------->
         <div class="col-md-3 top-nav header">
             <div class="contenedor_top-nav">
                 <div class="logo">

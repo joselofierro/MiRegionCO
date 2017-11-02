@@ -597,7 +597,8 @@ def FCM_CREATE(request):
     # si el usuario es nulo
     if request.data['user'] is None:
         # creamos la instancia del fcm
-        fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'], type=request.data['type'])
+        fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'],
+                                   type=request.data['type'])
         # guardamos la instancia
         fcm_device_new.save()
         return Response(data={'data:' 'FCM CREADO🙏'}, status=status.HTTP_200_OK)
@@ -623,12 +624,14 @@ def FCM_CREATE(request):
                     fcm_obj.save()
                     return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
             else:
-                fcm_device_new = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'], type=request.data['type'])
+                fcm_device_new = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
+                                           type=request.data['type'])
                 fcm_device_new.save()
                 return Response(data={'data': 'FCM CREADO 👏'})
         # si el usuario no existe
         else:
-            fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'], type=request.data['type'])
+            fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'],
+                                       type=request.data['type'])
             fcm_device_new.save()
             return Response(data={'data:' 'FCM CREADO👍'}, status=status.HTTP_200_OK)
 
@@ -649,7 +652,8 @@ class VotarYoutuber(CreateAPIView):
         votar = False
         if 'accessToken' in request.data:
             if votar:
-                if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data['accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
+                if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data[
+                    'accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
                     request.data.pop('accessToken')
                     obj_votacion = VotacionSerializer(data=request.data)
                     if obj_votacion.is_valid():
@@ -663,14 +667,16 @@ class VotarYoutuber(CreateAPIView):
                                 # Validamos si usuario ya votó
                                 if Votaciones.objects.filter(usuario__id=request.data['usuario']).exists():
                                     votacion = Votaciones.objects.filter(usuario__id=request.data['usuario'])
-                                    return Response({'data': 'Este usuario ya votó por ' + votacion.first().codigo.nombre},
-                                                    status=status.HTTP_400_BAD_REQUEST)
+                                    return Response(
+                                        {'data': 'Este usuario ya votó por ' + votacion.first().codigo.nombre},
+                                        status=status.HTTP_400_BAD_REQUEST)
 
                                 # Validamos si el dispositivo ya votó
                                 if Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id']).exists():
                                     votacion = Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id'])
-                                    return Response({'data': 'Este dispositivo ya votó ' + votacion.first().codigo.nombre},
-                                                    status=status.HTTP_400_BAD_REQUEST)
+                                    return Response(
+                                        {'data': 'Este dispositivo ya votó ' + votacion.first().codigo.nombre},
+                                        status=status.HTTP_400_BAD_REQUEST)
                             else:
                                 return Response({'data': 'No existe participante con el código ingresado'},
                                                 status=status.HTTP_400_BAD_REQUEST)
@@ -685,3 +691,10 @@ class VotarYoutuber(CreateAPIView):
         else:
             return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
                             status=status.HTTP_400_BAD_REQUEST)
+
+
+class noticiaByText(ListAPIView):
+    serializer_class = NoticiaSerializer
+
+    def get_queryset(self):
+        return Noticia.objects.filter(titular__icontains=self.kwargs['p_texto']).order_by('-fecha', '-hora')
