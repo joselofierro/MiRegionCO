@@ -18,7 +18,10 @@
                     <tr>
                         <th style="text-align: center;">ID</th>
                         <th style="text-align: center;">Nombre</th>
+                        <th style="text-align: center;">App</th>
+                        <th style="text-align: center;">Web</th>
                         <th style="text-align: center;">Acciones</th>
+
                     </tr>
                     </thead>
 
@@ -28,6 +31,8 @@
                             <tr>
                                 <td>{{ categoria.id }}</td>
                                 <td>{{ categoria.nombre }}</td>
+                                <td>{{ categoria.visibleApp }}</td>
+                                <td>{{ categoria.visibleWeb }}</td>
                                 <td>
                                     <a class="btn btn-primary active"
                                        href="{% url 'categorias:categoria_editar' categoria.id %}">Editar</a>

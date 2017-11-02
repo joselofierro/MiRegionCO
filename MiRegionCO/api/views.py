@@ -2,6 +2,7 @@ from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
 from django.db.models import Count
+from django.db.models.functions import Concat
 from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -22,6 +23,7 @@ from apps.noticia.models import Noticia
 from apps.sitio.models import Sitio
 from apps.usuario.models import Usuario
 from apps.ventas.detalle.models import Detalle
+from django.db.models import Count, Value
 
 # API CREAR USUARIO POST
 from apps.ventas.subcategoria_producto.models import Subcategoria
@@ -143,7 +145,7 @@ class CategoriaNoticiasAPI(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Categoria.objects.all().order_by('orden')
+        return Categoria.objects.filter(visibleApp=True).order_by('orden')
 
 
 # 2 maneras de obtener parametros de url con clases basadas en vistas
@@ -185,6 +187,20 @@ class MapaListAPI(ListAPIView):
     def get_queryset(self):
         print('Aun no se ha cacheado')
         return CategoriaMapa.objects.order_by('nombre')
+
+
+@cache_page(None, cache=settings.CACHE_API_SITIOSXSUBCATEGORIA)
+@api_view(['GET'])
+def SitiosXSubcategoria(request, id_subcategoria):
+    if request.method == 'GET':
+        print("sitios por categoria no cacheados")
+        sitios = Sitio.objects.filter(subcategoria=id_subcategoria).values('nombre', 'latitud', 'longitud',
+                                                                           'descripcion', 'horario',
+                                                                           'telefono', 'direccion').annotate(
+            marcador=Concat(Value(settings.MEDIA_URL), 'subcategoria__categoriamapa__icono_marcador'),
+            logo_e=Concat(Value(settings.MEDIA_URL), 'logo')).order_by(
+            'nombre')
+        return Response(sitios, status=status.HTTP_200_OK)
 
 
 # Se hace el cambio para que solo aparezcan las categorias que tengan subcategorias y sus subcategorias tengan sitios
@@ -597,7 +613,8 @@ def FCM_CREATE(request):
     # si el usuario es nulo
     if request.data['user'] is None:
         # creamos la instancia del fcm
-        fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'], type=request.data['type'])
+        fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'],
+                                   type=request.data['type'])
         # guardamos la instancia
         fcm_device_new.save()
         return Response(data={'data:' 'FCM CREADO🙏'}, status=status.HTTP_200_OK)
@@ -623,12 +640,14 @@ def FCM_CREATE(request):
                     fcm_obj.save()
                     return Response({'data': 'Token actualizado'}, status=status.HTTP_200_OK)
             else:
-                fcm_device_new = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'], type=request.data['type'])
+                fcm_device_new = FCMDevice(user=fcm_user, registration_id=request.data['registration_id'],
+                                           type=request.data['type'])
                 fcm_device_new.save()
                 return Response(data={'data': 'FCM CREADO 👏'})
         # si el usuario no existe
         else:
-            fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'], type=request.data['type'])
+            fcm_device_new = FCMDevice(user=None, registration_id=request.data['registration_id'],
+                                       type=request.data['type'])
             fcm_device_new.save()
             return Response(data={'data:' 'FCM CREADO👍'}, status=status.HTTP_200_OK)
 
@@ -649,7 +668,8 @@ class VotarYoutuber(CreateAPIView):
         votar = False
         if 'accessToken' in request.data:
             if votar:
-                if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data['accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
+                if request.data['accessToken'] == 'ba517f21210bdf8e9e594f0f28257b020d9c0923' or request.data[
+                    'accessToken'] == 'dbc6821f13c30a91738f280456f32513310c8aa4':
                     request.data.pop('accessToken')
                     obj_votacion = VotacionSerializer(data=request.data)
                     if obj_votacion.is_valid():
@@ -663,14 +683,16 @@ class VotarYoutuber(CreateAPIView):
                                 # Validamos si usuario ya votó
                                 if Votaciones.objects.filter(usuario__id=request.data['usuario']).exists():
                                     votacion = Votaciones.objects.filter(usuario__id=request.data['usuario'])
-                                    return Response({'data': 'Este usuario ya votó por ' + votacion.first().codigo.nombre},
-                                                    status=status.HTTP_400_BAD_REQUEST)
+                                    return Response(
+                                        {'data': 'Este usuario ya votó por ' + votacion.first().codigo.nombre},
+                                        status=status.HTTP_400_BAD_REQUEST)
 
                                 # Validamos si el dispositivo ya votó
                                 if Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id']).exists():
                                     votacion = Votaciones.objects.filter(dispositivo_id=request.data['dispositivo_id'])
-                                    return Response({'data': 'Este dispositivo ya votó ' + votacion.first().codigo.nombre},
-                                                    status=status.HTTP_400_BAD_REQUEST)
+                                    return Response(
+                                        {'data': 'Este dispositivo ya votó ' + votacion.first().codigo.nombre},
+                                        status=status.HTTP_400_BAD_REQUEST)
                             else:
                                 return Response({'data': 'No existe participante con el código ingresado'},
                                                 status=status.HTTP_400_BAD_REQUEST)
@@ -685,3 +707,10 @@ class VotarYoutuber(CreateAPIView):
         else:
             return Response({'Error': 'No estas autorizado para hacer este POST 😜'},
                             status=status.HTTP_400_BAD_REQUEST)
+
+
+class noticiaByText(ListAPIView):
+    serializer_class = NoticiaSerializer
+
+    def get_queryset(self):
+        return Noticia.objects.filter(titular__icontains=self.kwargs['p_texto']).order_by('-fecha', '-hora')
