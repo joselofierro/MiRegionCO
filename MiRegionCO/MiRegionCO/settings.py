@@ -29,7 +29,7 @@ PASSWORD_HASHERS = [
 SECRET_KEY = '9v2rrct&d)!7-b97u7md2u7cb7!cb%%k^ls+1s1s7mxt4k6m4r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '.elasticbeanstalk.com',
