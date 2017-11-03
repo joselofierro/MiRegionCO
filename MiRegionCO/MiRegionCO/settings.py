@@ -38,7 +38,8 @@ ALLOWED_HOSTS = [
     '54.165.204.105',
     '34.231.1.194',
     '192.168.10.35',
-    'miregion.co'
+    'miregion.co',
+    'www.miregion.co'
 ]
 
 # Application definition
