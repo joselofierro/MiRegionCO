@@ -18,6 +18,9 @@
     <!---------------------------- Boton ver mas ---------------------------->
     <script>
         $(document).ready(function () {
+            //Send statisct
+            send_statistics('{% url 'api:visita_index_web' %}');
+
             var next_page = 2;
             var boton = document.getElementById('btn-ver-mas');
             var contenedor_noticias = document.getElementById('div-noticias');
@@ -153,7 +156,6 @@
             })
         });
     </script>
-
 {% endblock %}
 
 {% block contenido_web %}

@@ -139,7 +139,7 @@ def mapa(request):
         categorias = Categoria.objects.all()
 
         # Obtener todos los sitios
-        sitios = Sitio.objects.all().values('nombre', 'latitud', 'longitud', 'descripcion', 'horario',
+        sitios = Sitio.objects.all().values('id', 'nombre', 'latitud', 'longitud', 'descripcion', 'horario',
                                             'telefono', 'direccion').annotate(
             marcador=Concat(Value(settings.MEDIA_URL), 'subcategoria__categoriamapa__icono_marcador'),
             logo_e=Concat(Value(settings.MEDIA_URL), 'logo')).order_by(

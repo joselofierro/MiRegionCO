@@ -20,10 +20,9 @@ from django.contrib.auth.views import password_reset, password_reset_done, passw
     password_reset_complete
 
 from MiRegionCO import settings
-
 urlpatterns = [
-    url(r'^login', include('apps.grupo.urls', namespace='grupo')),
     url(r'^', include('apps.web.urls', namespace='pagina_web')),
+    url(r'^user/', include('apps.grupo.urls', namespace='user')),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('api.urls', namespace='api')),
     url(r'^categoria/', include('apps.categoria.urls', namespace='categorias')),
@@ -60,6 +59,7 @@ urlpatterns = [
         name='password_reset_complete'),
 
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

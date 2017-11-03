@@ -45,6 +45,7 @@
       <w>cambio</w>
       <w>cancelar</w>
       <w>cantidad</w>
+      <w>cargar</w>
       <w>caso</w>
       <w>categoriamapa</w>
       <w>categoriaproducto</w>
@@ -65,6 +66,7 @@
       <w>concursantes</w>
       <w>confirmar</w>
       <w>confirme</w>
+      <w>consultado</w>
       <w>consultando</w>
       <w>consultar</w>
       <w>consultas</w>
@@ -138,6 +140,7 @@
       <w>estoy</w>
       <w>existe</w>
       <w>existen</w>
+      <w>existentes</w>
       <w>exito</w>
       <w>exitosamente</w>
       <w>falso</w>

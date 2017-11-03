@@ -90,6 +90,36 @@ class LoginUserAPI(CreateAPIView):
     serializer_class = IngresoLoginSerializer
 
 
+# APIS DE ESTADISTICAS DE LA WEB
+
+class VisitIndexAPI(CreateAPIView):
+    serializer_class = VisitIndexSerializer
+
+
+class VisitNewsAPI(CreateAPIView):
+    serializer_class = VisitNewsSerializer
+
+
+class ShareFacebookAPI(CreateAPIView):
+    serializer_class = ShareFacebookSerializer
+
+
+class ShareTwitterAPI(CreateAPIView):
+    serializer_class = ShareTwitterSerializer
+
+
+class ShareGoogleAPI(CreateAPIView):
+    serializer_class = ShareGoogleSerializer
+
+
+class VisitPlaceAPI(CreateAPIView):
+    serializer_class = MapVisitPlaceSerializer
+
+
+class VisitMapAPI(CreateAPIView):
+    serializer_class = VisitMapaSerializer
+
+
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
@@ -124,7 +154,8 @@ class NewsFeedWeb(ListAPIView):
 
     def get_queryset(self):
         print('Aun no se ha cacheado')
-        return Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora').distinct()
+        return Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha',
+                                                                                                   '-hora').distinct()
 
 
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS_DESTACADAS), name='dispatch')
@@ -204,7 +235,7 @@ class MapaListAPI(ListAPIView):
 def SitiosXSubcategoria(request, id_subcategoria):
     if request.method == 'GET':
         print("sitios por categoria no cacheados")
-        sitios = Sitio.objects.filter(subcategoria=id_subcategoria).values('nombre', 'latitud', 'longitud',
+        sitios = Sitio.objects.filter(subcategoria=id_subcategoria).values('id', 'nombre', 'latitud', 'longitud',
                                                                            'descripcion', 'horario',
                                                                            'telefono', 'direccion').annotate(
             marcador=Concat(Value(settings.MEDIA_URL), 'subcategoria__categoriamapa__icono_marcador'),
