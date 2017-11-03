@@ -37,7 +37,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '54.165.204.105',
     '34.231.1.194',
-    '192.168.10.35'
+    '192.168.10.35',
+    'miregion.co'
 ]
 
 # Application definition
