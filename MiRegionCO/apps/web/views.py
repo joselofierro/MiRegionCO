@@ -14,10 +14,10 @@ from apps.sitio.models import Sitio
 def index(request):
     if request.method == 'GET':
         # Consultar las noticias destacadas
-        noticias_destacadas = Noticia.objects.filter(visible=True, destacada=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora')
+        noticias_destacadas = Noticia.objects.filter(visible=True, destacada=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora').distinct()
 
         # Consultar todas las noticias en order cronológico descendente
-        noticias_list = Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora')
+        noticias_list = Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora').distinct()
 
         paginator = Paginator(noticias_list, 10)  # Mostramos paginas de 10 imagenes
         page = request.GET.get('page')

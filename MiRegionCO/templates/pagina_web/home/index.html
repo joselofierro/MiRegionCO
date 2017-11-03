@@ -21,7 +21,6 @@
             var next_page = 2;
             var boton = document.getElementById('btn-ver-mas');
             var contenedor_noticias = document.getElementById('div-noticias');
-            var noMasItems = false;
             boton.onclick = function () {
                 // Ajax to more news
                 $.ajax({
@@ -32,7 +31,7 @@
                         var json = JSON.parse(data.responseText);
                         if (json.next === null || json.hasOwnProperty('detail')) {
                             boton.style.display = 'none';
-                            noMasItems = true;
+                            contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
                         } else {
                             next_page = next_page + 1;
                         }
@@ -57,8 +56,6 @@
                                 '</div>';
                             contenedor_noticias.innerHTML += noticia_html;
                         });
-
-                        contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
                         contenedor_noticias.innerHTML += '<div class="clearfix"></div>';
                     }
                 })
