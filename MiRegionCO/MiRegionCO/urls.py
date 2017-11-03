@@ -22,8 +22,8 @@ from django.contrib.auth.views import password_reset, password_reset_done, passw
 from MiRegionCO import settings
 
 urlpatterns = [
-    url(r'^', include('apps.grupo.urls', namespace='grupo')),
-    url(r'^web/', include('apps.web.urls', namespace='pagina_web')),
+    url(r'^login', include('apps.grupo.urls', namespace='grupo')),
+    url(r'^', include('apps.web.urls', namespace='pagina_web')),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('api.urls', namespace='api')),
     url(r'^categoria/', include('apps.categoria.urls', namespace='categorias')),
