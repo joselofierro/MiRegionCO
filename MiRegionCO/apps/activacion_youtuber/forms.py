@@ -10,11 +10,13 @@ class YoutuberForm(forms.ModelForm):
         fields = [
             'codigo',
             'nombre',
-            'foto'
+            'foto',
+            'visible'
         ]
 
         widgets = {
             'codigo': forms.TextInput(attrs={'class': 'form-control'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'foto': forms.URLInput(attrs={'class': 'form-control'}),
+            'visible': forms.CheckboxInput(attrs={'class': 'form-control'})
         }
