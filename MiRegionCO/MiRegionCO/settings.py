@@ -29,7 +29,7 @@ PASSWORD_HASHERS = [
 SECRET_KEY = '9v2rrct&d)!7-b97u7md2u7cb7!cb%%k^ls+1s1s7mxt4k6m4r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '.elasticbeanstalk.com',
@@ -165,7 +165,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 25
@@ -230,6 +229,7 @@ CACHE_API_CATEGORIA_MAPA = 'api_categoria_mapa'
 CACHE_API_CATEGORIA_NOTICIAS = 'api_categoria_noticias'
 CACHE_API_NOTICIAS = 'api_noticias'
 CACHE_API_NOTICIAS2 = 'api_noticias2'
+CACHE_API_NOTICIASWEB = 'api_noticias_web'
 CACHE_API_NOTICIAS_DESTACADAS = 'api_noticias_destacadas'
 CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
 CACHE_API_NOTICIASXCATEGORIA2 = 'api_noticiasxcategoria2'
@@ -263,6 +263,13 @@ CACHES = {
     CACHE_API_NOTICIAS2: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/noticias2',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_NOTICIASWEB: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias_web',
         'TIMEOUT': None
 
     },

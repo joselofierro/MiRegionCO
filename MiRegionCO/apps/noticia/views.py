@@ -101,6 +101,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
 
                 caches[settings.CACHE_API_NOTICIAS].clear()
                 caches[settings.CACHE_API_NOTICIAS2].clear()
+                caches[settings.CACHE_API_NOTICIASWEB].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
                 caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
@@ -217,6 +218,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
             caches[settings.CACHE_API_NOTICIAS].clear()
             caches[settings.CACHE_API_NOTICIAS2].clear()
+            caches[settings.CACHE_API_NOTICIASWEB].clear()
             caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
             caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
             caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
@@ -245,6 +247,7 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_NOTICIAS].clear()
         caches[settings.CACHE_API_NOTICIAS2].clear()
+        caches[settings.CACHE_API_NOTICIASWEB].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
         caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
@@ -263,6 +266,7 @@ def eliminarnoticia(request, pk):
     if request.method == 'POST':
         caches[settings.CACHE_API_NOTICIAS].clear()
         caches[settings.CACHE_API_NOTICIAS2].clear()
+        caches[settings.CACHE_API_NOTICIASWEB].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
         caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()

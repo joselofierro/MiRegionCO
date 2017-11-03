@@ -117,6 +117,16 @@ class NewsFeed2(ListAPIView):
         return Noticia.objects.filter(visible=True).order_by('-fecha', '-hora')
 
 
+@method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIASWEB), name='dispatch')
+class NewsFeedWeb(ListAPIView):
+    serializer_class = NoticiaSerializer
+    pagination_class = StandardResultsSetPagination
+
+    def get_queryset(self):
+        print('Aun no se ha cacheado')
+        return Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora').distinct()
+
+
 @method_decorator(cache_page(None, cache=settings.CACHE_API_NOTICIAS_DESTACADAS), name='dispatch')
 class NoticiasDestacadasAPI(ListAPIView):
     serializer_class = NoticiaSerializer

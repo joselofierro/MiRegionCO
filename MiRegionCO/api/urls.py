@@ -12,6 +12,7 @@ urlpatterns = [
     # listado de todas las noticias
     url(r'^news_feed', NewsFeed.as_view(), name='news_feed_api'),
     url(r'^pagination_news_feed', NewsFeed2.as_view(), name='news_feed2_api'),
+    url(r'^pagination_news_web', NewsFeedWeb.as_view(), name='web_news_feed2_api'),
     # listado de noticias por id de la categoria
     url(r'^noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId.as_view(), name='noticias_api'),
     url(r'^pagination_noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId2.as_view(), name='noticias2_api'),
