@@ -12,6 +12,20 @@
     </style>
 {% endblock %}
 
+{% block extra_head %}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@MiRegionCO"/>
+    <meta name="twitter:creator" content="@MiRegionCO"/>
+    {{ meta_twitter|safe }}
+    <meta property="fb:app_id" content="311007229311399">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:site_name" content="Mi Region.co"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image:width" content="450"/>
+    <meta property="og:image:height" content="300"/>
+    {{ meta|safe }}
+{% endblock %}
+
 {% block extra_js %}
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
 
