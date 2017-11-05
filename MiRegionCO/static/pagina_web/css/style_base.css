@@ -198,6 +198,7 @@ body > #wrap {
     -webkit-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
     -moz-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
+    color: #ffffff;
 }
 
 /***************ScrollTop********************/
@@ -1907,7 +1908,7 @@ ul.side-icons li a:hover {
 @media (max-width: 375px) {
 
     .contenido_modal {
-        height: 300px;
+        height: 225px;
     }
 
     .banner_modal {

@@ -49,6 +49,7 @@
                             noMasItems = true;
                         } else {
                             next_page = next_page + 1;
+                            noMasItems = false;
                         }
                         console.log(json);
                         // Armamos las 10 nuevas noticias
@@ -72,8 +73,11 @@
                             contenedor_noticias.innerHTML += noticia_html;
                         });
 
-                        contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
                         contenedor_noticias.innerHTML += '<div class="clearfix"></div>';
+                        if(noMasItems) {
+                            contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
+                        }
+
                     }
                 })
             }
