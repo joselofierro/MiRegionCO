@@ -4,30 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/apps/categoria/urls.py" line="9" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows-dark.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-basic.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-basic.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/js/tether.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/js/tether.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/settings.py" afterPath="$PROJECT_DIR$/MiRegionCO/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/web/views.py" afterPath="$PROJECT_DIR$/apps/web/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/bootstrap.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_content.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_content.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base_pagina_web.html" afterPath="$PROJECT_DIR$/templates/base/base_pagina_web.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/home/index.html" afterPath="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
-    </list>
+    <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_content.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-17">
-              <caret line="1136" column="4" lean-forward="false" selection-start-line="1136" selection-start-column="4" selection-end-line="1136" selection-end-column="4" />
+              <caret line="1136" column="0" lean-forward="false" selection-start-line="1136" selection-start-column="0" selection-end-line="1136" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -722,16 +699,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29268292" sideWeight="0.50532484" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32770607" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16869919" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24528302" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23932473" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23932473" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20820022" sideWeight="0.4899225" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="manage.py@MiregionCO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2919563" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@MiregionCO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2919563" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23148148" sideWeight="0.51007754" order="2" side_tool="true" content_ui="tabs" />
@@ -1214,7 +1190,7 @@
     <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_content.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-17">
-          <caret line="1136" column="4" lean-forward="false" selection-start-line="1136" selection-start-column="4" selection-end-line="1136" selection-end-column="4" />
+          <caret line="1136" column="0" lean-forward="false" selection-start-line="1136" selection-start-column="0" selection-end-line="1136" selection-end-column="0" />
           <folding />
         </state>
       </provider>
