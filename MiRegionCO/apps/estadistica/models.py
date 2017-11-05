@@ -89,6 +89,7 @@ class VisitNews(models.Model):
     hora = models.TimeField(auto_now_add=True, blank=False)
     usuario = models.ForeignKey(Usuario, blank=True, null=True)
     isdesktop = models.BooleanField(default=True)
+    noticia = models.ForeignKey(Noticia, blank=False, null=False)
 
 
 class ShareFacebook(models.Model):
@@ -96,6 +97,7 @@ class ShareFacebook(models.Model):
     hora = models.TimeField(auto_now_add=True, blank=False)
     usuario = models.ForeignKey(Usuario, blank=True, null=True)
     isdesktop = models.BooleanField(default=True)
+    noticia = models.ForeignKey(Noticia, blank=False, null=False)
 
 
 class ShareTwitter(models.Model):
@@ -103,6 +105,7 @@ class ShareTwitter(models.Model):
     hora = models.TimeField(auto_now_add=True, blank=False)
     usuario = models.ForeignKey(Usuario, blank=True, null=True)
     isdesktop = models.BooleanField(default=True)
+    noticia = models.ForeignKey(Noticia, blank=False, null=False)
 
 
 class ShareGoogle(models.Model):
@@ -110,6 +113,7 @@ class ShareGoogle(models.Model):
     hora = models.TimeField(auto_now_add=True, blank=False)
     usuario = models.ForeignKey(Usuario, blank=True, null=True)
     isdesktop = models.BooleanField(default=True)
+    noticia = models.ForeignKey(Noticia, blank=False, null=False)
 
 
 class VisitMap(models.Model):
@@ -124,6 +128,7 @@ class VisitPlace(models.Model):
     hora = models.TimeField(auto_now_add=True, blank=False)
     usuario = models.ForeignKey(Usuario, blank=True, null=True)
     isdesktop = models.BooleanField(default=True)
+    sitio = models.ForeignKey(Sitio, default=False, null=False)
 
 
 class SaveNews(models.Model):

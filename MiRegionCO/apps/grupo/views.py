@@ -4,12 +4,12 @@ from MiRegionCO import settings
 
 
 # si no estoy autentificado me manda al login
-def index(request):
+"""def index(request):
     if request.user.is_authenticated():
         # login_view(request)
         return redirect('noticia:listar')
     else:
-        return redirect('grupo:login')
+        return redirect('grupo:login')"""
 
 
 def login_view(request):
@@ -40,9 +40,14 @@ def login_view(request):
         else:
             return render(request, 'index.html', {'error': 'Datos incorrectos'}, content_type='text/html')
     else:
-        return render(request, 'index.html', {}, content_type='text/html')
+        # si es consultado por url
+        if request.user.is_authenticated():
+            # login_view(request)
+            return redirect('noticia:listar')
+        else:
+            return render(request, 'index.html', {}, content_type='text/html')
 
 
 def logout_view(request):
     logout(request)
-    return redirect('grupo:login')
+    return redirect('user:index')

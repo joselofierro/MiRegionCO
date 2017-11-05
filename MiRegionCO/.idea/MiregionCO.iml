@@ -12,11 +12,12 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.6.2 virtualenv at ~/Documents/Proyectos/MiRegionCo/ent_virtualMiRegionCO" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6.1 virtualenv at ~/Documents/Entornos/entMiregionCO_deploy" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="af" level="application" />
+    <orderEntry type="library" name="js.cookie" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

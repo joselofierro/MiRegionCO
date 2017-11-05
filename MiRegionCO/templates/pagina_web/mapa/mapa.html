@@ -38,8 +38,8 @@
             styles: noPoi
         };
 
-        function ubicacionesYinfoWindow(nombre, latitud, longitud, marcador, logo_e, descripcion, horario, telefono, direccion) {
-            ubicaciones.push([nombre, latitud, longitud, marcador]);
+        function ubicacionesYinfoWindow(nombre, latitud, longitud, marcador, logo_e, descripcion, horario, telefono, direccion, id) {
+            ubicaciones.push([nombre, latitud, longitud, marcador, id]);
             infoWindowContent.push([
                 '<div class="info_content">' +
                 '<div class="info_div">' +
@@ -73,7 +73,8 @@
                     position: position,
                     map: map,
                     title: ubicaciones[i][0],
-                    icon: ubicaciones[i][3]
+                    icon: ubicaciones[i][3],
+                    id: ubicaciones[i][4]
                 });
 
                 markers.push(marker);
@@ -83,6 +84,8 @@
                     return function () {
                         infoWindow.setContent(infoWindowContent[i][0]);
                         infoWindow.open(map, marker);
+
+                        send_statistics('{% url 'api:visita_sitio_web' %}', marker.id, false);
                     }
                 })(marker, i));
             }
@@ -91,7 +94,7 @@
         function initMap() {
             {% for sitio in sitios %}
                 ubicacionesYinfoWindow(
-                    '{{ sitio.nombre|escape }}', {{ sitio.latitud|escape }}, {{ sitio.longitud|escape }}, '{{ sitio.marcador }}', '{{ sitio.logo_e }}', '{{ sitio.descripcion|linebreaksbr }}', '{{ sitio.horario }}', '{{ sitio.telefono }}', '{{ sitio.direccion }}');
+                    '{{ sitio.nombre|escape }}', {{ sitio.latitud|escape }}, {{ sitio.longitud|escape }}, '{{ sitio.marcador }}', '{{ sitio.logo_e }}', '{{ sitio.descripcion|linebreaksbr }}', '{{ sitio.horario }}', '{{ sitio.telefono }}', '{{ sitio.direccion }}', {{ sitio.id }});
             {% endfor %}
             addMarkers();
         }
@@ -116,7 +119,7 @@
                     removeMarkers(null);
                     var arr_sitios = JSON.parse(data.responseText);
                     arr_sitios.forEach(function (sitio) {
-                        ubicacionesYinfoWindow(sitio.nombre, sitio.latitud, sitio.longitud, sitio.marcador, sitio.logo_e, sitio.descripcion, sitio.horario, sitio.telefono, sitio.direccion);
+                        ubicacionesYinfoWindow(sitio.nombre, sitio.latitud, sitio.longitud, sitio.marcador, sitio.logo_e, sitio.descripcion, sitio.horario, sitio.telefono, sitio.direccion, sitio.id);
                         addMarkers();
                         $("#nav").removeClass("mostrar");
                     });
@@ -126,6 +129,11 @@
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXn0hPkB1IS6HRHnn2tBTXV-OdtxqXy7E&callback=initMap">
+    </script>
+    <script>
+        $(document).ready(function () {
+            send_statistics('{% url 'api:visita_mapa_web' %}');
+        })
     </script>
 {% endblock %}
 

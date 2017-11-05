@@ -37,7 +37,9 @@ ALLOWED_HOSTS = [
     'localhost',
     '54.165.204.105',
     '34.231.1.194',
-    '192.168.10.82'
+    '192.168.10.35',
+    'miregion.co',
+    'www.miregion.co'
 ]
 
 # Application definition
@@ -126,7 +128,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'miregionco',
             'USER': 'postgres',
-            'PASSWORD': 'juandiego',
+            'PASSWORD': 'backend17',
             'HOST': 'localhost',
             'PORT': 5432,
         }
@@ -163,15 +165,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'jfierro985@gmail.com'
 EMAIL_HOST_PASSWORD = 'eugenio985'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
@@ -227,6 +229,7 @@ CACHE_API_CATEGORIA_MAPA = 'api_categoria_mapa'
 CACHE_API_CATEGORIA_NOTICIAS = 'api_categoria_noticias'
 CACHE_API_NOTICIAS = 'api_noticias'
 CACHE_API_NOTICIAS2 = 'api_noticias2'
+CACHE_API_NOTICIASWEB = 'api_noticias_web'
 CACHE_API_NOTICIAS_DESTACADAS = 'api_noticias_destacadas'
 CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
 CACHE_API_NOTICIASXCATEGORIA2 = 'api_noticiasxcategoria2'
@@ -260,6 +263,13 @@ CACHES = {
     CACHE_API_NOTICIAS2: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/noticias2',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_NOTICIASWEB: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias_web',
         'TIMEOUT': None
 
     },

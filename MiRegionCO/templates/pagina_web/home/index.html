@@ -12,44 +12,30 @@
     </style>
 {% endblock %}
 
-{% block extra_head%}
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@MiRegionCO"/>
-    <meta name="twitter:creator" content="@MiRegionCO"/>
-    {{ meta_twitter|safe }}
-    <meta property="fb:app_id" content="311007229311399">
-    <meta property="og:locale" content="es_CO">
-    <meta property="og:site_name" content="Mi Region.co"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:image:width" content="450"/>
-    <meta property="og:image:height" content="300"/>
-    {{ meta|safe }}
-{% endblock %}
-
 {% block extra_js %}
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
 
     <!---------------------------- Boton ver mas ---------------------------->
     <script>
         $(document).ready(function () {
+            //Send statisct
+            send_statistics('{% url 'api:visita_index_web' %}');
+
             var next_page = 2;
             var boton = document.getElementById('btn-ver-mas');
             var contenedor_noticias = document.getElementById('div-noticias');
-            var noMasItems = false;
             boton.onclick = function () {
                 // Ajax to more news
                 $.ajax({
-                    url: '{% url 'api:news_feed2_api' %}?page=' + next_page,
+                    url: '{% url 'api:web_news_feed2_api' %}?page=' + next_page,
                     type: 'GET',
                     dataType: 'application/json',
                     complete: function (data) {
                         var json = JSON.parse(data.responseText);
                         if (json.next === null || json.hasOwnProperty('detail')) {
                             boton.style.display = 'none';
-                            noMasItems = true;
                         } else {
                             next_page = next_page + 1;
-                            noMasItems = false;
                         }
                         console.log(json);
                         // Armamos las 10 nuevas noticias
@@ -72,12 +58,7 @@
                                 '</div>';
                             contenedor_noticias.innerHTML += noticia_html;
                         });
-
                         contenedor_noticias.innerHTML += '<div class="clearfix"></div>';
-                        if(noMasItems) {
-                            contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
-                        }
-
                     }
                 })
             }
@@ -170,7 +151,6 @@
             })
         });
     </script>
-
 {% endblock %}
 
 {% block contenido_web %}

@@ -24,7 +24,7 @@ class Noticia(models.Model):
     destacada = models.BooleanField(default=False, blank=False, null=False)
     visible = models.BooleanField(default=True)
     mobile = models.BooleanField(default=True)
-    web = models.BooleanField(default=True)
+    web = models.BooleanField(default=False)
 
     def __str__(self):
         return self.titular
