@@ -194,6 +194,12 @@ body > #wrap {
     box-shadow: 0px 10px 48px -10px rgba(175, 175, 175, 0.6);
 }
 
+.btn_ver_mas:hover {
+    -webkit-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
+}
+
 /***************ScrollTop********************/
 
 .nav-up {
@@ -538,8 +544,6 @@ nav a:focus {
 .modal-header {
     justify-content: flex-end;
     flex-wrap: wrap;
-    max-width: 95%;
-    margin: .5em 5%;
 }
 
 .buscador {
@@ -1270,6 +1274,15 @@ ul.side-icons li a:hover {
         height: 240px;
     }
 
+    .buscador label {
+        font-size: .85em;
+    }
+
+    #inputSearch {
+        height: 30px;
+        font-size: 25px;
+    }
+
 }
 
 @media (max-width: 736px) {
@@ -1381,12 +1394,11 @@ ul.side-icons li a:hover {
 
 @media (max-width: 480px) {
     /********publicidad top noticia***********/
-
     .banner_cabecera {
         top: 0;
     }
-    /********store btn***********/
 
+    /********store btn***********/
     div.logo a {
         position: absolute;
         width: 100%;
@@ -1800,7 +1812,7 @@ ul.side-icons li a:hover {
     }
 
     .contenido_modal {
-        width: 90%;
+        width: 80%;
         height: 450px;
     }
 
@@ -1857,15 +1869,15 @@ ul.side-icons li a:hover {
     }
 
     .contenido_modal {
-        height: 350px;
+        height: 300px;
     }
 
     .banner_modal {
-        height: 250px;
+        height: 225px;
     }
 
     .descripcion_modal {
-        height: 100px;
+        height: 75px;
     }
 
     .logo_modal {
@@ -1875,25 +1887,39 @@ ul.side-icons li a:hover {
     .call_action h1 {
         top: 0;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .btn_store_banner img {
         width: 80px;
     }
 
-}
-
-@media (max-width: 414px) {
-    .call_action h1 {
-        font-size: 18px;
+    #cerrar + label {
+        right: 20px;
+        top: 15px;
+        font-size: 15px;
+        height: 25px;
+        width: 25px;
     }
 
 }
 
 @media (max-width: 375px) {
+
     .contenido_modal {
-        width: 95%;
+        height: 300px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+    }
+
+    .call_action h1 {
+        font-size: 14px;
     }
 }
 

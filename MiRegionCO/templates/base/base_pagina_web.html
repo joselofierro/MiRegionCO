@@ -22,6 +22,7 @@
         if (window.scrollY == 0) window.scrollTo(0, 1);
     } </script>
 
+
     <link href="{% static 'pagina_web/css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:700,700italic,800,300,300italic,400italic,400,600,600italic'
           rel='stylesheet' type='text/css'>
@@ -29,9 +30,11 @@
     <link href="{% static 'pagina_web/css/style_base.css' %}" rel='stylesheet' type='text/css'/>
     {% block extra_css %}
     {% endblock %}
-    <!-- Scripts -->
-    <script src="{% static 'pagina_web/js/bootstrap.min.js' %}"></script>
+    <!-- Scripts-->
     <script src="{% static 'pagina_web/js/jquery.min.js' %}"></script>
+
+
+
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
@@ -338,11 +341,16 @@
                     <h4>Siguenos</h4>
 
                     <ul class="bottom side-icons">
-                        <li><a target="_blank" href="https://www.facebook.com/MiRegion.co"><img class="icon-mediano" src="{% static 'pagina_web/images/fb.png' %}" alt="">
+                        <li><a target="_blank" href="https://www.facebook.com/MiRegion.co"><img class="icon-mediano"
+                                                                                                src="{% static 'pagina_web/images/fb.png' %}"
+                                                                                                alt="">
                             /MiRegion.co</a></li>
-                        <li><a target="_blank" href="https://twitter.com/miregionco"><img class="icon-mediano" src="{% static 'pagina_web/images/tw.png' %}" alt="">
+                        <li><a target="_blank" href="https://twitter.com/miregionco"><img class="icon-mediano"
+                                                                                          src="{% static 'pagina_web/images/tw.png' %}"
+                                                                                          alt="">
                             @MiRegion</a></li>
-                        <li><a target="_blank" href="https://www.youtube.com/channel/UCbJzhK5xKxJoE4fE1ZBwAtQ"><img class="icon-mediano" src="{% static 'pagina_web/images/yt.png' %}" alt="">
+                        <li><a target="_blank" href="https://www.youtube.com/channel/UCbJzhK5xKxJoE4fE1ZBwAtQ"><img
+                                class="icon-mediano" src="{% static 'pagina_web/images/yt.png' %}" alt="">
                             Mi Region</a></li>
                     </ul>
                 </div>

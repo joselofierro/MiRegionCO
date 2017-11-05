@@ -1134,6 +1134,7 @@ h5.inner.one {
 }
 
 @media (max-width: 480px) {
+
     .modal_publicitario {
         width: 100%;
         left: 0;
@@ -1141,15 +1142,15 @@ h5.inner.one {
     }
 
     .contenido_modal {
-        height: 350px;
+        height: 300px;
     }
 
     .banner_modal {
-        height: 250px;
+        height: 225px;
     }
 
     .descripcion_modal {
-        height: 100px;
+        height: 75px;
     }
 
     .logo_modal {
@@ -1159,25 +1160,38 @@ h5.inner.one {
     .call_action h1 {
         top: 0;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .btn_store_banner img {
         width: 80px;
     }
 
-}
-
-@media (max-width: 414px) {
-    .call_action h1 {
-        font-size: 18px;
+    #cerrar + label {
+        right: 20px;
+        top: 15px;
+        font-size: 15px;
+        height: 25px;
+        width: 25px;
     }
 
 }
 
 @media (max-width: 375px) {
     .contenido_modal {
-        width: 95%;
+        height: 300px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+    }
+
+    .call_action h1 {
+        font-size: 14px;
     }
 }
 

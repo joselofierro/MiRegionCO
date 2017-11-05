@@ -302,16 +302,21 @@ label {
 
 }
 
-@media (max-width: 414px) {
-    .call_action h1 {
-        font-size: 18px;
-    }
-
-}
-
 @media (max-width: 375px) {
     .contenido_modal {
-        width: 95%;
+        height: 300px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+    }
+
+    .call_action h1 {
+        font-size: 14px;
     }
 }
 
@@ -328,6 +333,7 @@ label {
     position: relative;
     top: 0;
 }
+
 /**********CONTENEDOR MAPA*************/
 #map {
     height: 83vh;
@@ -627,19 +633,12 @@ contenedor-relacionada {
 
 @media (max-width: 768px) {
 
-    .nav {
-        left: -60%;
-        width: 60%;
-        height: 85vh;
-        top: 3%;
-    }
-
     .mostrar {
         left: 0;
     }
 
     .contenedor-menumapa {
-        height: 70%;
+        height: 80%;
     }
 }
 
@@ -677,11 +676,6 @@ contenedor-relacionada {
         margin-top: 34vh;
         overflow-x: hidden;
 
-    }
-
-    .nav {
-        left: -95%;
-        width: 95%;
     }
 
     .mostrar {
