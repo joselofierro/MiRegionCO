@@ -24,159 +24,88 @@ body > #wrap {
     margin: auto;
     height: 100px;
     box-sizing: border-box;
-    background: #afafaf;
     position: relative;
     top: 60px;
 }
 
 .contenido_publicidad_cabecera {
-    height: 100px;
-    border: 3px #fff dashed;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenido_publicidad_cabecera h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1.2em;
+    height: 100%;
+    background-image: url("../images/banners/nonna@2x.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }
 
 .banner_right_principal {
-    background: #afafaf;
-    border: 3px #fff dashed;
     box-sizing: border-box;
-}
-
-.contenido_right_principal {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    margin-top: 25%;
-}
-
-.contenido_right_principal h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1em;
-
-    position: relative;
-}
-
-.contenido_right_principal h5 span {
-    position: absolute;
-    right: 0;
-    width: 0;
-    background: #afafaf;
-
-    -webkit-animation: machine1 1s 2s alternate infinite steps(2);
-    -o-animation: machine1 1s 2s alternate infinite steps(2);
-    animation: machine1 1s 2s alternate infinite steps(2);
-}
-
-@keyframes machine1 {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-
+    background-image: url("../images/banners/poteSeguros@2x.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }
 
 .banner_right {
     height: 200px;
-    background: #afafaf;
 }
 
-.contenido_publicidad_right {
+.contenido_publicidad_right_0 {
     height: 200px;
-    border: 3px #fff dashed;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url("../images/banners/Banner_BurguerMania.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
 
-.contenido_publicidad_right h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1em;
-
-    position: relative;
-    float: left;
+.contenido_publicidad_right_1 {
+    height: 200px;
+    box-sizing: border-box;
+    background-image: url("../images/banners/Banner_ColorVerano.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
 
-.contenido_publicidad_right h5 span {
-    position: absolute;
-    right: 0;
-    width: 0;
-    background: #afafaf;
-    font-size: 1.5em;
-
-    animation: machine 5s 3s alternate-reverse infinite;
+.contenido_publicidad_right_2 {
+    height: 200px;
+    box-sizing: border-box;
+    background-image: url("../images/banners/Banner_Pote.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
-
-@keyframes machine2 {
-    from {
-        width: 100%;
-    }
-    to {
-        width: 0;
-    }
 
 }
 
 .banner_publicitario_noticia {
     height: 150px;
-    background: #afafaf;
     margin: 50px 0;
 }
 
 .contenido_publicidad_noticia {
     height: 150px;
-    border: 3px #fff dashed;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenido_publicidad_noticia h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1.2em;
-
-    position: relative;
-    float: left;
-}
-
-.contenido_publicidad_noticia h5 span {
-    position: absolute;
-    right: 0;
-    width: 0;
-    background: #afafaf;
-    border-left: 1px solid #f7f7f7;
-
-    animation: machine 5s 3s infinite steps(27);
-}
-
-@keyframes machine {
-    from {
-        width: 100%;
-    }
-    to {
-        width: 0;
-    }
-
+    background-image: url("../images/banners/OasisPlaza@2x.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
 
 /***************btn ver mas********************/
 .contenedor_btn_vermas {
     display: flex;
     justify-content: center;
+    margin-bottom: 3em;
 }
 
 .btn_ver_mas {
@@ -1037,7 +966,7 @@ ul.side-icons li a:hover {
         font-size: .85em;
     }
 
-    .contenido_publicidad_right h5 {
+    .contenido_publicidad_right_0 h5 {
         letter-spacing: 3px;
         font-size: .75em;
     }

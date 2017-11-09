@@ -4,7 +4,29 @@
     <bookmark url="file://$PROJECT_DIR$/apps/categoria/urls.py" line="9" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas" />
+    <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Banner_BurguerMania.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Banner_ColorVerano.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Banner_Pote.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Burguemania0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/OasisPlaza0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/OasisPlaza@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/colorVerano0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/nonna0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/nonna@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/poteSeguros@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MiregionCO.iml" afterPath="$PROJECT_DIR$/.idea/MiregionCO.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/settings.py" afterPath="$PROJECT_DIR$/MiRegionCO/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/home/index.html" afterPath="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html" afterPath="$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html" afterPath="$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" afterPath="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,18 +41,102 @@
     <favorites_list name="MiRegionCO" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="notificacion_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/notificaciones/notificacion_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-206">
-              <caret line="22" column="109" lean-forward="false" selection-start-line="22" selection-start-column="109" selection-end-line="22" selection-end-column="109" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="notificacion_list.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/notificaciones/notificacion_list.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="22" column="109" lean-forward="false" selection-start-line="22" selection-start-column="109" selection-end-line="22" selection-end-column="109" />
+                  <folding>
+                    <element signature="e#927#954#0#HTML" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1800">
+                  <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="250" column="82" lean-forward="true" selection-start-line="250" selection-start-column="82" selection-end-line="250" selection-end-column="82" />
+                  <folding>
+                    <element signature="e#13119#13138#0#HTML" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="noticia_id.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="254">
+                  <caret line="239" column="54" lean-forward="true" selection-start-line="239" selection-start-column="54" selection-end-line="239" selection-end-column="54" />
+                  <folding>
+                    <element signature="e#9615#9650#0#HTML" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mapa.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2218">
+                  <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="style_base.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="192">
+                  <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="style__noticia.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style__noticia.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="177">
+                  <caret line="235" column="25" lean-forward="true" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index_categoria.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="202" column="34" lean-forward="true" selection-start-line="202" selection-start-column="34" selection-end-line="202" selection-end-column="34" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,14 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>staticfiles</find>
-      <find>noticiasde</find>
-      <find>MEDIA_URL</find>
-      <find>categoria</find>
-      <find>noticiasxc</find>
-      <find>p</find>
-      <find>def for</find>
-      <find>sitios</find>
       <find>form</find>
       <find>android</find>
       <find>Tag</find>
@@ -74,6 +172,14 @@
       <find>csrf</find>
       <find>grupo</find>
       <find>no hgat</find>
+      <find>publici</find>
+      <find>banner_right</find>
+      <find>contenido_publicidad_cabecera</find>
+      <find>banner_cabecera</find>
+      <find>contenedor-relacionada</find>
+      <find>noticia-relacionada</find>
+      <find>ver</find>
+      <find>banner_publicitario_noticia</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -100,7 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/noticia/noticia_update.html" />
         <option value="$PROJECT_DIR$/apps/imagen/models.py" />
         <option value="$PROJECT_DIR$/templates/youtuber/tag_delete.html" />
         <option value="$PROJECT_DIR$/templates/youtuber/tag_form.html" />
@@ -120,8 +225,6 @@
         <option value="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
         <option value="$PROJECT_DIR$/apps/estadistica/views.py" />
         <option value="$PROJECT_DIR$/static/pagina_web/css/style_content.css" />
-        <option value="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
-        <option value="$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html" />
         <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
         <option value="$PROJECT_DIR$/apps/activacion_youtuber/models.py" />
         <option value="$PROJECT_DIR$/apps/noticia/models.py" />
@@ -135,22 +238,25 @@
         <option value="$PROJECT_DIR$/MiRegionCO/urls.py" />
         <option value="$PROJECT_DIR$/apps/grupo/views.py" />
         <option value="$PROJECT_DIR$/templates/base/base.html" />
-        <option value="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" />
         <option value="$PROJECT_DIR$/apps/sitio/views.py" />
-        <option value="$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html" />
         <option value="$PROJECT_DIR$/api/serializers.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/apps/web/views.py" />
         <option value="$PROJECT_DIR$/apps/activacion_youtuber/forms.py" />
         <option value="$PROJECT_DIR$/apps/activacion_youtuber/views.py" />
-        <option value="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
         <option value="$PROJECT_DIR$/apps/notificaciones/views.py" />
-        <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
         <option value="$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/fcm_django/models.py" />
         <option value="$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/fcm_django/admin.py" />
         <option value="$PROJECT_DIR$/apps/notificaciones/models.py" />
         <option value="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" />
+        <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
+        <option value="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" />
+        <option value="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
+        <option value="$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html" />
+        <option value="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" />
+        <option value="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
+        <option value="$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html" />
       </list>
     </option>
   </component>
@@ -168,8 +274,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1103" />
-    <option name="width" value="817" />
+    <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -224,8 +329,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -236,13 +341,20 @@
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="notificaciones" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="pagina_web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="pagina_web" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
@@ -253,7 +365,28 @@
               <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="notificaciones" type="462c0819:PsiDirectoryNode" />
+              <item name="pagina_web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pagina_web" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pagina_web" type="462c0819:PsiDirectoryNode" />
+              <item name="mapa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiRegionCO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiRegionCO" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pagina_web" type="462c0819:PsiDirectoryNode" />
+              <item name="noticia" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -274,19 +407,19 @@
     <property name="two.files.diff.last.used.folder" value="$USER_HOME$/Desktop/MiRegion.co/MIREGIONCOGL/MiRegionCO" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/pagina_web/noticia" />
+      <recent name="$PROJECT_DIR$/static/pagina_web/images/banners" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/templates/base" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/css" />
       <recent name="$PROJECT_DIR$/templates/ventas" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/apps/ventas" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/templates/base" />
-      <recent name="$PROJECT_DIR$/static" />
-      <recent name="$PROJECT_DIR$/static/pagina_web/images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -306,8 +439,8 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="MiRegionCO.settings" />
+        <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -317,7 +450,7 @@
       <module name="MiregionCO" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
-      <option name="host" value="192.168.10.29" />
+      <option name="host" value="192.168.10.137" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -591,16 +724,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19542067" sideWeight="0.4899225" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286991" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29268292" sideWeight="0.50532484" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825205" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24796748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24593496" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24726911" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24528302" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33763653" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12193823" sideWeight="0.4899225" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="manage.py@MiregionCO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2919563" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33763653" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23148148" sideWeight="0.51007754" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3160569" sideWeight="0.49307775" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -609,8 +745,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="manage.py@MiregionCO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29268292" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="manage.py@MiRegionCO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -667,28 +801,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/datatable/jquery.dataTables.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="166" column="173" lean-forward="false" selection-start-line="166" selection-start-column="173" selection-end-line="166" selection-end-column="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="552" column="22" lean-forward="false" selection-start-line="552" selection-start-column="22" selection-end-line="552" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/django/db/models/query_utils.py" />
-    <entry file="file://$PROJECT_DIR$/static/datatable/spanish.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/pagina_web/js/menu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -709,13 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base/categorias_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -823,13 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="30" column="47" lean-forward="true" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/sitio/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
@@ -847,13 +945,6 @@
           <folding>
             <element signature="e#0#32#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="87" column="57" lean-forward="false" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -876,13 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="185" column="29" lean-forward="false" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="38" column="90" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="90" />
         </state>
       </provider>
     </entry>
@@ -942,20 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base/base_pagina_web.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/selectors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1004,19 +1074,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/notificaciones/notificacion_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="22" column="109" lean-forward="false" selection-start-line="22" selection-start-column="109" selection-end-line="22" selection-end-column="109" />
+          <folding>
+            <element signature="e#927#954#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="1800">
+          <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/notificaciones/notificacion_list.html">
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_mapa.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-206">
-          <caret line="22" column="109" lean-forward="false" selection-start-line="22" selection-start-column="109" selection-end-line="22" selection-end-column="109" />
+        <state relative-caret-position="791">
+          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/Banner_BurguerMania.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base/categorias_menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="77" lean-forward="true" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base/base_pagina_web.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-324">
+          <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style__noticia.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="235" column="25" lean-forward="true" selection-start-line="235" selection-start-column="25" selection-end-line="235" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="202" column="34" lean-forward="true" selection-start-line="202" selection-start-column="34" selection-end-line="202" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="250" column="82" lean-forward="true" selection-start-line="250" selection-start-column="82" selection-end-line="250" selection-end-column="82" />
+          <folding>
+            <element signature="e#13119#13138#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2218">
+          <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="239" column="54" lean-forward="true" selection-start-line="239" selection-start-column="54" selection-end-line="239" selection-end-column="54" />
+          <folding>
+            <element signature="e#9615#9650#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

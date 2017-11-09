@@ -93,9 +93,10 @@
     <!-- Banner cabecera index -->
 
     <div class="banner_cabecera">
-        <div class="contenido_publicidad_cabecera">
-            <h5>Seccion Banner Publicitario</h5>
-        </div>
+        <a href="https://www.facebook.com/LaNonnaArtesana/">
+            <div class="contenido_publicidad_cabecera">
+            </div>
+        </a>
     </div>
 
 
@@ -191,7 +192,8 @@
                                         <img src="{% static 'pagina_web/images/tw_social.png' %}" alt="">
                                     </li>
                                 </a>
-                                <a id="btn-share-go" target="_blank" href="https://plus.google.com/share?url={{ full_url }}">
+                                <a id="btn-share-go" target="_blank"
+                                   href="https://plus.google.com/share?url={{ full_url }}">
                                     <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt="">
                                     </li>
                                 </a>
@@ -200,14 +202,15 @@
                         <div class="clearfix"></div>
                         <div class="col-md-12 contenido-noticia">
                             <p class="noticia-text">{{ noticia.texto|linebreaksbr }}</p>
-                            <div class="noticia-video">
-                                {% if noticia.video %}
+                            {% if noticia.video %}
+                                <div class="noticia-video">
+
                                     <iframe src="{{ noticia.video }}"
                                             width="100%" style="border:none;overflow:hidden" scrolling="no"
                                             allowTransparency="true" allowFullScreen="true">
                                     </iframe>
-                                {% endif %}
-                            </div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -263,10 +266,14 @@
                 </div>
             </div>
         </div>
+
+        <!-- BANNER PUBLICITARIO DOWN NOTICIA-->
+
         <div class="banner_publicitario_noticia">
-            <div class="contenido_publicidad_noticia">
-                <h5>Seccion Banner Publicitario</h5>
-            </div>
+            <a href="https://www.facebook.com/OasisPlazaCentroComercial/">
+                <div class="contenido_publicidad_noticia">
+                </div>
+            </a>
         </div>
         <!--NOTICIA RELACIONADA-->
 
