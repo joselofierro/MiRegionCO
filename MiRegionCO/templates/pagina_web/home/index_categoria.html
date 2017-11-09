@@ -67,20 +67,23 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
-            function init() {
-                FB.api(
-                    '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
-                    'GET',
-                    {"fields": "status,title,description,creation_time,embed_html", "limit": "50"},
-                    function (response) {
-                        var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
-                        var aux = -1;
-                        var isFirst = true;
-                        response.data.forEach(function (video) {
-                            if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
-                                aux += 1;
-                                console.log(video);
+        function init() {
+            FB.api(
+                '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
+                'GET',
+                {"fields": "status,title,description,creation_time,embed_html", "limit": "50"},
+                function (response) {
+                    var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
+                    var aux = -1;
+                    var isFirst = true;
+                    var maxVideos = 0;
+                    var banner = 0;
+
+                    response.data.forEach(function (video) {
+                        if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
+                            aux += 1;
+                            maxVideos += 1;
+                            if (maxVideos <= 7) {
                                 if (isFirst) {
                                     var video_html =
                                         '<div class="col-md-12 item-details">\n' +
@@ -107,54 +110,41 @@
                                     contenedor_videos.innerHTML += video_html;
                                 }
 
-
                                 if (aux === 2) {
-                                    console.log("Entro a if ", aux);
                                     aux = 0;
                                     var espacio_publicitario =
                                         '<div class="banner_right item-details" style="height:200px">\n' +
-                                        '<div class="contenido_publicidad_right">\n' +
-                                        '<h5>PAUTE AQUI!!!<span class="glyphicon glyphicon-hand-down"></span></h5>\n' +
+                                        '<div class="contenido_publicidad_right_' + banner + '">\n' +
                                         '</div>\n' +
                                         '</div>';
+
+                                    banner = banner + 1;
                                     contenedor_videos.innerHTML += espacio_publicitario;
                                 }
                             }
-                        });
-                    }
-                );
-            }
-
-            window.fbAsyncInit = function () {
-                FB.init({
-                    appId: '311007229311399',
-                    autoLogAppEvents: false,
-                    xfbml: false,
-                    version: 'v2.10'
-                });
-                //FB.AppEvents.logPageView();
-
-                init();
-            };
-
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
+                        }
+                    });
                 }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        });
+            );
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '311007229311399',
+                autoLogAppEvents: false,
+                xfbml: false,
+                version: 'v2.10'
+            });
+            //FB.AppEvents.logPageView();
+
+            init();
+        };
     </script>
 {% endblock %}
 
 {% block contenido_web %}
     <div class="banner_cabecera">
         <div class="contenido_publicidad_cabecera">
-            <h5>Seccion Banner Publicitario</h5>
         </div>
     </div>
 
@@ -234,20 +224,21 @@
 
         <!-- banner_publicitario_down -->
         <div class="banner_publicitario_noticia">
-            <div class="contenido_publicidad_noticia">
-                <h5>Seccion Banner Publicitario</h5>
-            </div>
+            <a href="https://www.facebook.com/OasisPlazaCentroComercial/">
+                <div class="contenido_publicidad_noticia">
+                </div>
+            </a>
         </div>
     </div>
 
     <!--//banner-section-->
     <div class="banner-right-text">
         <!-- contenedor publicitario -->
-        <div class="col-md-12 item-details container_embed banner_right_principal">
-            <div class="contenido_right_principal">
-                <h5>Seccion Banner Publicitario</h5>
+        <a href="https://www.facebook.com/Pote.Seguros.Neiva/">
+            <div class="col-md-12 item-details container_embed banner_right_principal">
             </div>
-        </div>
+        </a>
+
         <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
         <!--/general-news-->
         <div class="general-news">

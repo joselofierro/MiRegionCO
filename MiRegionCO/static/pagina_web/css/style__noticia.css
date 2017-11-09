@@ -234,6 +234,9 @@ ul.etiquetas li {
 }
 
 /***********************/
+.contenedor-relacionada{
+    margin-top: 5em;
+}
 
 .contenedor-noticia-relacionada {
     border-top: 2px solid;

@@ -34,7 +34,12 @@ DEBUG = True
 ALLOWED_HOSTS = [
 
     '.elasticbeanstalk.com',
+<<<<<<< HEAD
     '192.168.10.99',
+=======
+    '192.168.10.137',
+    'localhost',
+>>>>>>> 9b229a06cdbcd3fb068b72d4618c61c5e5b2fd58
     '54.165.204.105',
     '34.231.1.194',
     '192.168.10.35',

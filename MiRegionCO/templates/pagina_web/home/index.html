@@ -94,6 +94,8 @@
                     var aux = -1;
                     var isFirst = true;
                     var maxVideos = 0;
+                    var banner = 0;
+
                     response.data.forEach(function (video) {
                         if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
                             aux += 1;
@@ -125,15 +127,15 @@
                                     contenedor_videos.innerHTML += video_html;
                                 }
 
-
                                 if (aux === 2) {
                                     aux = 0;
                                     var espacio_publicitario =
                                         '<div class="banner_right item-details" style="height:200px">\n' +
-                                        '<div class="contenido_publicidad_right">\n' +
-                                        '<h5>PAUTE AQUI!!!<span class="glyphicon glyphicon-hand-down"></span></h5>\n' +
+                                        '<div class="contenido_publicidad_right_' + banner + '">\n' +
                                         '</div>\n' +
                                         '</div>';
+
+                                    banner = banner + 1;
                                     contenedor_videos.innerHTML += espacio_publicitario;
                                 }
                             }
@@ -199,9 +201,10 @@
     <!-- Banner cabecera index -->
 
     <div class="banner_cabecera">
-        <div class="contenido_publicidad_cabecera">
-            <h5>Seccion Banner Publicitario</h5>
-        </div>
+        <a href="https://www.facebook.com/LaNonnaArtesana/">
+            <div class="contenido_publicidad_cabecera">
+            </div>
+        </a>
     </div>
 
     <!-- Banner noticias destacadas -->
@@ -282,27 +285,28 @@
 
         <!-- banner_publicitario_down -->
         <div class="banner_publicitario_noticia">
-            <div class="contenido_publicidad_noticia">
-                <h5>Seccion Banner Publicitario!!!<span>&#160;</span></h5>
-            </div>
+            <a href="https://www.facebook.com/OasisPlazaCentroComercial/">
+                <div class="contenido_publicidad_noticia">
+                </div>
+            </a>
         </div>
     </div>
-    <!--//banner-section-->
-    <div class="banner-right-text">
-        <!-- contenedor publicitario -->
-        <div class="col-md-12 item-details container_embed banner_right_principal">
-            <div class="contenido_right_principal">
-                <h5>Seccion Banner Publicitario<span>&#160;</span></h5>
-            </div>
-        </div>
-        <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
-        <!--/general-news-->
-        <div class="general-news">
-            <div class="general-inner">
-                <div id="contenedor-videos-facebook-live" class="edit-pics">
+
+
+        <!--//banner-section-->
+        <div class="banner-right-text">
+            <!-- contenedor publicitario -->
+            <a href="https://www.facebook.com/Pote.Seguros.Neiva/"><div class="col-md-12 item-details container_embed banner_right_principal">
+            </div></a>
+
+            <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
+            <!--/general-news-->
+            <div class="general-news">
+                <div class="general-inner">
+                    <div id="contenedor-videos-facebook-live" class="edit-pics">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 {% endblock %}
