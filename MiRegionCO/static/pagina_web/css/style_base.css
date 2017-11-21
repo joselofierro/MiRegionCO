@@ -30,9 +30,7 @@ body > #wrap {
 
 .contenido_publicidad_cabecera {
     height: 100%;
-    background-image: url("../images/banners/nonna@2x.png");
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background: url("../images/banners/nonna@2x.png") no-repeat;
     background-size: 100% 100%;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -41,9 +39,7 @@ body > #wrap {
 
 .banner_right_principal {
     box-sizing: border-box;
-    background-image: url("../images/banners/poteSeguros@2x.png");
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background: url("../images/banners/poteSeguros@2x.png") no-repeat;
     background-size: 100% 100%;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -57,9 +53,7 @@ body > #wrap {
 .contenido_publicidad_right_0 {
     height: 200px;
     box-sizing: border-box;
-    background-image: url("../images/banners/Banner_BurguerMania.png");
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background: url("../images/banners/Banner_BurguerMania.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -67,9 +61,7 @@ body > #wrap {
 .contenido_publicidad_right_1 {
     height: 200px;
     box-sizing: border-box;
-    background-image: url("../images/banners/Banner_ColorVerano.png");
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background: url("../images/banners/Banner_ColorVerano.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -77,13 +69,9 @@ body > #wrap {
 .contenido_publicidad_right_2 {
     height: 200px;
     box-sizing: border-box;
-    background-image: url("../images/banners/Banner_Pote.png");
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background: url("../images/banners/Banner_Pote.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
-}
-
 }
 
 .banner_publicitario_noticia {
@@ -94,9 +82,7 @@ body > #wrap {
 .contenido_publicidad_noticia {
     height: 150px;
     box-sizing: border-box;
-    background-image: url("../images/banners/OasisPlaza@2x.png");
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background: url("../images/banners/OasisPlaza@2x.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -1124,12 +1110,17 @@ ul.side-icons li a:hover {
         padding: 3px 25px;
     }
 
+    .text_miregion {
+        max-width: 80%;
+        margin: 0 10%;
+    }
+
     .footer-border {
-        border-right: none;
+        border-left: none;
     }
 
     ul.side-icons {
-        margin-left: 5em;
+        margin-left: 3em;
     }
 
     .footer-grid h4 {
@@ -1160,13 +1151,6 @@ ul.side-icons li a:hover {
         margin-bottom: 1em;
         display: table-cell;
         left: 5%;
-    }
-
-    ul.side-icons {
-        display: grid;
-        margin-top: 1em;
-        margin-left: 4em;
-        margin-bottom: 1em;
     }
 
     .footer-border {
@@ -1225,7 +1209,12 @@ ul.side-icons li a:hover {
     }
 
     ul.side-icons {
-        margin-left: 2em;
+        margin-left: 0em;
+    }
+
+    .text_miregion {
+        max-width: 90%;
+        margin: 0 5%;
     }
 
 }
