@@ -54,6 +54,16 @@ label {
 /* ==========================================================================
    estilos modal publicitario index - mapa - noticia
    ========================================================================== */
+.contenido_publicidad_cabecera {
+    height: 100%;
+    background-image: url(../images/banners/nonna@2x.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
 
 .modal_publicitario {
     width: 85%;
@@ -338,6 +348,7 @@ label {
 #map {
     height: 83vh;
     width: 100%;
+    margin-top: 30px;
 }
 
 /**********MENU MAPA*************/
@@ -390,6 +401,7 @@ label {
     z-index: 1;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    margin-top: 30px;
 }
 
 .contenedor-menu .menu-mapa .activado > a {
