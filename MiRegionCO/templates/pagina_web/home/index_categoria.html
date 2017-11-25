@@ -53,7 +53,7 @@
                         // Armamos las 10 nuevas noticias
                         var arr_noticias = json.results;
                         arr_noticias.forEach(function (noticia) {
-                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.slug);
                             var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
                             var noticia_html =
                                 '<div class="col-md-6 top-text">' +
@@ -171,10 +171,10 @@
                 <ul class="rslides" id="slider4">
                     {% for noticia_destacada in noticias_destacadas %}
                         <li>
-                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                 <img src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
                             </a>
-                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                 <p class="caption">{{ noticia_destacada.titular }}</p>
                             </a>
                         </li>
@@ -212,11 +212,11 @@
                 {% for noticia in noticias %}
                     <div class="col-md-6 top-text">
                         <div class="top-text_img">
-                            <a href="{% url 'pagina_web:noticia_id' noticia.id %}"><img
+                            <a href="{% url 'pagina_web:noticia_id' noticia.slug %}"><img
                                     src="{{ noticia.imagenes.first.imagen.url }}" class="img-responsive"
                                     alt=""></a>
                         </div>
-                        <h5 class="top"><a href="{% url 'pagina_web:noticia_id' noticia.id %}">{{ noticia.titular }}</a>
+                        <h5 class="top"><a href="{% url 'pagina_web:noticia_id' noticia.slug %}">{{ noticia.titular }}</a>
                         </h5>
                         <p>{{ noticia.lead }}</p>
                         <p class="top-text_fecha">

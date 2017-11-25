@@ -293,13 +293,13 @@
                                     {% for noticia_destacada in noticias_destacadas %}
                                         <li>
                                             <div class="noticia-relacionada">
-                                                <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                                                <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                                     <img class="img-responsive"
                                                          src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
                                                 </a>
                                                 <div class="noticia-descripcion">
                                                     <h4>
-                                                        <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">{{ noticia_destacada.titular }}</a>
+                                                        <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">{{ noticia_destacada.titular }}</a>
                                                     </h4>
                                                 </div>
                                             </div>

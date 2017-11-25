@@ -43,7 +43,7 @@
             });
         });
     </script>
-    <!-- Scrip Para agregar script 😎 -->
+    <!-- script Para agregar script 😎 -->
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             var ancho = $("body").prop("clientWidth");
@@ -156,7 +156,7 @@
 
                             arr_noticias.forEach(function (noticia) {
                                 var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
-                                var noticia_url = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+                                var noticia_url = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.slug);
 
                                 var card_noticia =
                                     '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card_noticia">' +
