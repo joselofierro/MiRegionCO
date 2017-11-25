@@ -14,7 +14,7 @@ class Noticia(models.Model):
     fecha = models.DateField(blank=False)
     hora = models.TimeField(blank=False)
     titular = models.CharField(max_length=150)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200)
     lead = models.CharField(max_length=220)
     texto = models.TextField(blank=False, null=False)
     imagen_video = models.ImageField(blank=True, null=False)
