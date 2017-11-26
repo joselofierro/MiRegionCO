@@ -313,7 +313,17 @@ def deleteimage(request):
 
 def updateSlug(request):
     if request.method == 'POST':
-        Noticia.objects.all().update(slug=slugify(F('titular') + " " + str(F('id'))))
+        noticias = Noticia.objects.all()
+        for noticia in noticias:
+            noticia.slug = slugify(noticia.titular + " " + str(noticia.id))
+            caches[settings.CACHE_API_NOTICIAS].clear()
+            caches[settings.CACHE_API_NOTICIAS2].clear()
+            caches[settings.CACHE_API_NOTICIASWEB].clear()
+            caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
+            caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+            caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+            caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
+            noticia.save()
         return redirect('noticia:listar')
     else:
         return redirect('noticia:crear')
