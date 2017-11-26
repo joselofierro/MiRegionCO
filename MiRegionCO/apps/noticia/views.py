@@ -1,10 +1,7 @@
-from uuid import UUID
-
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
-from django.db.models import Q
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.template.defaultfilters import slugify
@@ -12,8 +9,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.generic import *
-from requests import Response
-
+from django.db.models import F
 from MiRegionCO import settings
 from apps.categoria.models import Categoria
 from apps.imagen.forms import ImagenForm
@@ -313,3 +309,11 @@ def deleteimage(request):
 
         except Imagen.DoesNotExist or Noticia.DoesNotExist:
             return HttpResponse("Error! Imagen o Noticia incorrecta")
+
+
+def updateSlug(request):
+    if request.method == 'POST':
+        Noticia.objects.all().update(slug=slugify(F('titular') + " " + str(F('id'))))
+        return redirect('noticia:listar')
+    else:
+        return redirect('noticia:crear')
