@@ -43,7 +43,7 @@ class NoticiaForm(forms.ModelForm):
             'titular': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe el titular'}),
             'lead': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escribe el lead'}),
             'texto': forms.Textarea(attrs={'class': 'form-control'}),
-            'url': forms.URLInput(attrs={'class': 'form-control'}),
+            'url': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Solo esriba aquí si es un evento o una oferta... 🙏🏻'}),
             'video': forms.URLInput(attrs={'class': 'form-control'}),
             'duracion': forms.TextInput(attrs={'class': 'form-control'}),
             'categoria': forms.SelectMultiple(attrs={'class': 'form-control'}),

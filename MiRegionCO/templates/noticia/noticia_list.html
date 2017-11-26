@@ -61,7 +61,8 @@
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">autor</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">categoria</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">destacada</th>
-                        <th class="col-md-2 col-sm-2 col-xs-2" style="text-align: center;">Acciones</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">URL</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">Acciones</th>
                     </tr>
                     </thead>
 
@@ -108,6 +109,7 @@
                                     </ul>
                                 </td>
                                 <td>{{ noticia.destacada }}</td>
+                                <td><a target="_blank" href="{{ noticia.url }}">{{ noticia.url }}</a></td>
                                 <td>
                                     {% if perms.noticia.delete_noticia %}
                                         <div class="btn-group">

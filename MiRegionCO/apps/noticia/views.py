@@ -100,7 +100,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 # recorremos los objetos categoria
                 for categoria_name in list_categoria:
                     # si esta Noticia o Magazine en el arreglo de categorias
-                    if str(categoria_name) == 'Noticias' or str(categoria_name) == 'Magazine':
+                    if str(categoria_name) == 'Noticias' or str(categoria_name) == 'Comunidad' or str(categoria_name) == 'Deportes':
                         # obtenemos el objeto noticia
                         obj_noticia = Noticia.objects.get(id=noticia.id)
                         # armamos la url
@@ -315,15 +315,19 @@ def updateSlug(request):
     if request.method == 'POST':
         noticias = Noticia.objects.all()
         for noticia in noticias:
-            noticia.slug = slugify(noticia.titular + " " + str(noticia.id))
-            caches[settings.CACHE_API_NOTICIAS].clear()
-            caches[settings.CACHE_API_NOTICIAS2].clear()
-            caches[settings.CACHE_API_NOTICIASWEB].clear()
-            caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
-            caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
-            caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
-            caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
-            noticia.save()
+            for categoria_noticia in noticia.categoria.all():
+                if categoria_noticia.nombre == "Noticias" or categoria_noticia.nombre == "Comunidad" or categoria_noticia.nombre == "Deportes":
+                    url = 'http://{}/noticias/{}'.format(request.get_host(), noticia.slug)
+                    noticia.url = url
+                    caches[settings.CACHE_API_NOTICIAS].clear()
+                    caches[settings.CACHE_API_NOTICIAS2].clear()
+                    caches[settings.CACHE_API_NOTICIASWEB].clear()
+                    caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
+                    caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
+                    caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
+                    caches[settings.CACHE_API_NOTICIASXCATEGORIA2].clear()
+                    noticia.save()
+                    break
         return redirect('noticia:listar')
     else:
         return redirect('noticia:crear')
