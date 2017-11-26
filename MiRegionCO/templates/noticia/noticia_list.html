@@ -42,13 +42,6 @@
                 </form>
             </div>-->
             <a href="{% url 'noticia:crear' %}" class="btn btn-primary active">Crear noticia</a>
-            <form method="POST" action="{% url 'noticia:update_slug' %}">
-                {% csrf_token %}
-                <div class="botones" style="margin-top: 30px;">
-                    <input type="submit" value="Update Slug" class="btn btn-primary active">
-                </div>
-
-            </form>
             <div id="datatable-responsive_wrapper" class="content table-responsive table-full-width">
                 <table id="boxes" class="table table-striped table-bordered table-hover"
                        cellspacing="0" role="grid" width="100%">
@@ -109,7 +102,7 @@
                                     </ul>
                                 </td>
                                 <td>{{ noticia.destacada }}</td>
-                                <td><a target="_blank" href="{{ noticia.url }}">{{ noticia.url }}</a></td>
+                                <td><a target="_blank" href="{{ noticia.url }}">Link noticia</a></td>
                                 <td>
                                     {% if perms.noticia.delete_noticia %}
                                         <div class="btn-group">

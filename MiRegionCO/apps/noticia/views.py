@@ -311,7 +311,7 @@ def deleteimage(request):
             return HttpResponse("Error! Imagen o Noticia incorrecta")
 
 
-def updateSlug(request):
+"""def updateSlug(request):
     if request.method == 'POST':
         noticias = Noticia.objects.all()
         for noticia in noticias:
@@ -330,4 +330,4 @@ def updateSlug(request):
                     break
         return redirect('noticia:listar')
     else:
-        return redirect('noticia:crear')
+        return redirect('noticia:crear')"""
