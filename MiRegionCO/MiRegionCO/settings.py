@@ -32,12 +32,11 @@ SECRET_KEY = '9v2rrct&d)!7-b97u7md2u7cb7!cb%%k^ls+1s1s7mxt4k6m4r'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+
     '.elasticbeanstalk.com',
-    '192.168.10.137',
-    'localhost',
     '54.165.204.105',
     '34.231.1.194',
-    '192.168.10.158',
+    '127.0.0.1',
     'miregion.co',
     'www.miregion.co'
 ]
@@ -128,7 +127,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'miregionco',
             'USER': 'postgres',
-            'PASSWORD': 'juandiego',
+            'PASSWORD': 'backend17',
             'HOST': 'localhost',
             'PORT': 5432,
         }
@@ -337,4 +336,4 @@ CACHES = {
 
 }
 
-LOGIN_URL = reverse_lazy('grupo:login')
+LOGIN_URL = reverse_lazy('user:index')

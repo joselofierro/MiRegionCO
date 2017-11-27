@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="descripcion" content="Mi region.co es un portal de noticias a nivel regional">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content=""/>
     {% block extra_head %}
     {% endblock %}
 
@@ -44,7 +43,7 @@
             });
         });
     </script>
-    <!-- Scrip Para agregar script 😎 -->
+    <!-- script Para agregar script 😎 -->
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             var ancho = $("body").prop("clientWidth");
@@ -157,7 +156,7 @@
 
                             arr_noticias.forEach(function (noticia) {
                                 var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
-                                var noticia_url = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+                                var noticia_url = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.slug);
 
                                 var card_noticia =
                                     '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card_noticia">' +

@@ -44,7 +44,8 @@ class NoticiaSerializer(ModelSerializer):
     class Meta:
         model = Noticia
         fields = (
-            'id', 'fecha', 'hora', 'titular', 'lead', 'texto', 'imagen_video', 'url', 'video', 'duracion', 'imagenes',
+            'id', 'fecha', 'hora', 'titular', 'slug', 'lead', 'texto', 'imagen_video', 'url', 'video', 'duracion',
+            'imagenes',
             'autor', 'tag')
 
 

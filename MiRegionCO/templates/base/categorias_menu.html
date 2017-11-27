@@ -5,7 +5,7 @@
                 <li class="li__icon"><i
                         class="glyphicon glyphicon-play icon-deportes icon__menu" style="background-color: #{{ categoria.color }}"></i>
                 </li>
-                <li><a href="{% url 'pagina_web:noticia_categoria' categoria.id %}">{{ categoria.nombre }}</a></li>
+                <li><a href="{% url 'pagina_web:noticia_categoria' categoria.nombre %}">{{ categoria.nombre }}</a></li>
                 <hr class="hr">
             </ul>
         </li>
@@ -15,7 +15,7 @@
                 <li class="li__icon"><i
                         class="glyphicon glyphicon-play icon-magazine icon__menu" style="background-color: #{{ categoria.color }}"></i>
                 </li>
-                <li><a href="{% url 'pagina_web:noticia_categoria' categoria.id %}">{{ categoria.nombre }}</a></li>
+                <li><a href="{% url 'pagina_web:noticia_categoria' categoria.nombre %}">{{ categoria.nombre }}</a></li>
                 <hr class="hr">
             </ul>
         </li>

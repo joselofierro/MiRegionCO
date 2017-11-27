@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count, Value
 from django.db.models.functions import Concat
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from MiRegionCO import settings
 from apps.categoria_mapa.models import CategoriaMapa
@@ -14,10 +14,12 @@ from apps.sitio.models import Sitio
 def index(request):
     if request.method == 'GET':
         # Consultar las noticias destacadas
-        noticias_destacadas = Noticia.objects.filter(visible=True, destacada=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora').distinct()
+        noticias_destacadas = Noticia.objects.filter(visible=True, destacada=True, categoria__visibleWeb=True,
+                                                     web=True).order_by('-fecha', '-hora').distinct()
 
         # Consultar todas las noticias en order cronológico descendente
-        noticias_list = Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora').distinct()
+        noticias_list = Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha',
+                                                                                                            '-hora').distinct()
 
         paginator = Paginator(noticias_list, 10)  # Mostramos paginas de 10 imagenes
         page = request.GET.get('page')
@@ -26,7 +28,9 @@ def index(request):
                     '<meta property="og:url" content="www.miregion.co">' + \
                     '<meta property="og:description" content="Medio de comunicación e infromación digital del departamento del Huila. Nuestra impronta es la responsabilidad e inmediatez a la hora de informar. - MiRegión.co">' + \
                     '<meta property="og:image" content="https://miregionco.s3.amazonaws.com/static/pagina_web/images/banner-publicidad.png">' + \
-                    '<meta property="og:image:type" content="image/jpeg">'
+                    '<meta property="og:image:type" content="image/jpeg">' + \
+                    '<meta name="keywords" content="noticias, opitas, neiva, garzon, huila, ultimas noticias, noticias principales, agencias, marketing, marketing digital, publicidad, periodico, gobernacion, alcaldia, prensa, noticias de hoy, actualidad"/>' + \
+                    '<meta name="new_keywords" content="noticias, opitas, neiva, garzon, huila, ultimas noticias, noticias principales, agencias, marketing, marketing digital, publicidad, periodico, gobernacion, alcaldia, prensa, noticias de hoy, actualidad"/>'
 
         dict_meta_twitter = '<meta name="twitter:title" content="Mi Región mi ciudad en mi celular - MiRegión.CO">' + \
                             '<meta property="twitter:description" content="Medio de comunicación e infromación digital del departamento del Huila. Nuestra impronta es la responsabilidad e inmediatez a la hora de informar. - MiRegión.co">' + \
@@ -47,21 +51,33 @@ def index(request):
                        'meta_twitter': dict_meta_twitter, 'meta': dict_meta})
 
 
-def noticias_categoria(request, p_categoria_id):
+def noticias_categoria(request, categoria_nombre):
     if request.method == 'GET':
         try:
-            # Obtengo la categoria
-            categoria = Categoria.objects.get(id=p_categoria_id)
+            # Obtengo la categoria por el nombre
+            categoria = Categoria.objects.get(nombre=categoria_nombre)
 
             # Consultar las noticias destacadas por categoria
             noticias_destacadas = Noticia.objects.filter(visible=True, destacada=True,
-                                                         categoria=p_categoria_id).order_by('-fecha', '-hora')
+                                                         categoria__nombre=categoria_nombre).order_by('-fecha', '-hora')
 
             # Consultar todas las noticias en order cronológico descendente
-            noticias_list = Noticia.objects.filter(visible=True, categoria=p_categoria_id).order_by('-fecha', '-hora')
+            noticias_list = Noticia.objects.filter(visible=True, categoria__nombre=categoria_nombre).order_by('-fecha', '-hora')
 
             paginator = Paginator(noticias_list, 10)  # Mostramos paginas de 10 imagenes
             page = request.GET.get('page')
+
+            dict_meta = '<meta property="og:title" content="Mi Región mi ciudad en mi celular - MiRegión.CO">' + \
+                        '<meta property="og:url" content="www.miregion.co">' + \
+                        '<meta property="og:description" content="Medio de comunicación e infromación digital del departamento del Huila. Nuestra impronta es la responsabilidad e inmediatez a la hora de informar. - MiRegión.co">' + \
+                        '<meta property="og:image" content="https://miregionco.s3.amazonaws.com/static/pagina_web/images/banner-publicidad.png">' + \
+                        '<meta property="og:image:type" content="image/jpeg">' + \
+                        '<meta name="keywords" content="noticias, opitas, neiva, garzon, huila, ultimas noticias, noticias principales, agencias, marketing, marketing digital, publicidad, periodico, gobernacion, alcaldia, prensa, noticias de hoy, actualidad"/>' + \
+                        '<meta name="new_keywords" content="noticias, opitas, neiva, garzon, huila, ultimas noticias, noticias principales, agencias, marketing, marketing digital, publicidad, periodico, gobernacion, alcaldia, prensa, noticias de hoy, actualidad"/>'
+
+            dict_meta_twitter = '<meta name="twitter:title" content="Mi Región mi ciudad en mi celular - MiRegión.CO">' + \
+                                '<meta property="twitter:description" content="Medio de comunicación e infromación digital del departamento del Huila. Nuestra impronta es la responsabilidad e inmediatez a la hora de informar. - MiRegión.co">' + \
+                                '<meta name="twitter:image" content="https://miregionco.s3.amazonaws.com/static/pagina_web/images/banner-publicidad.png">'
 
             try:
                 # Si hay noticias
@@ -74,12 +90,13 @@ def noticias_categoria(request, p_categoria_id):
                 noticias = paginator.page(paginator.num_pages)
 
             return render(request, 'pagina_web/home/index_categoria.html',
-                          {'noticias_destacadas': noticias_destacadas, 'noticias': noticias, 'categoria': categoria})
+                          {'noticias_destacadas': noticias_destacadas, 'noticias': noticias, 'categoria': categoria,
+                           'meta_twitter': dict_meta_twitter, 'meta': dict_meta})
         except Categoria.DoesNotExist:
             return render(request, 'pagina_web/404.html', {})
 
 
-def noticia_id(request, p_id):
+def noticia_id(request, slug):
     if request.method == 'GET':
         # Consultamos la noticia por id
         try:
@@ -88,15 +105,9 @@ def noticia_id(request, p_id):
 
             # Consultar las noticias destacadas
             noticias_destacadas = Noticia.objects.filter(visible=True, destacada=True).order_by('-fecha', '-hora')
-
-            noticia = Noticia.objects.get(id=p_id)
-
-            # Creamos las metas
-            dict_meta = '<meta property="og:title" content="' + noticia.titular + '">' + \
-                        '<meta property="og:url" content="' + request.build_absolute_uri() + '">' + \
-                        '<meta property="og:description" content="' + noticia.lead + '">' + \
-                        '<meta property="og:image" content="' + noticia.imagenes.first().imagen.url + '">' + \
-                        '<meta property="og:image:type" content="image/jpeg">'
+            print(slug)
+            # obtenemos la noticia por el slug
+            noticia = Noticia.objects.get(slug=slug)
 
             list_tags = ""
 
@@ -104,6 +115,15 @@ def noticia_id(request, p_id):
                 list_tags += tag.nombre + ","
 
             list_tags = list_tags[:-1]
+
+            # Creamos las metas
+            dict_meta = '<meta property="og:title" content="' + noticia.titular + '">' + \
+                        '<meta property="og:url" content="' + request.build_absolute_uri() + '">' + \
+                        '<meta property="og:description" content="' + noticia.lead + '">' + \
+                        '<meta property="og:image" content="' + noticia.imagenes.first().imagen.url + '">' + \
+                        '<meta property="og:image:type" content="image/jpeg">' + \
+                        '<meta name="keywords" content="' + list_tags + '">' + \
+                        '<meta name="new_keywords" content="' + list_tags + '">'
 
             dict_meta_twitter = '<meta name="twitter:title" content="' + noticia.titular + '">' + \
                                 '<meta property="twitter:description" content="' + noticia.lead + '">' + \

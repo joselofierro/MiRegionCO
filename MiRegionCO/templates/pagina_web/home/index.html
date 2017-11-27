@@ -12,6 +12,20 @@
     </style>
 {% endblock %}
 
+{% block extra_head %}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@MiRegionCO"/>
+    <meta name="twitter:creator" content="@MiRegionCO"/>
+    {{ meta_twitter|safe }}
+    <meta property="fb:app_id" content="311007229311399">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:site_name" content="Mi Region.co"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image:width" content="450"/>
+    <meta property="og:image:height" content="300"/>
+    {{ meta|safe }}
+{% endblock %}
+
 {% block extra_js %}
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
 
@@ -41,7 +55,7 @@
                         // Armamos las 10 nuevas noticias
                         var arr_noticias = json.results;
                         arr_noticias.forEach(function (noticia) {
-                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.slug);
                             var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
                             var noticia_html =
                                 '<div class="col-md-6 top-text">' +
@@ -81,6 +95,7 @@
                     var isFirst = true;
                     var maxVideos = 0;
                     var banner = 0;
+                    var video_html;
 
                     response.data.forEach(function (video) {
                         if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
@@ -88,7 +103,7 @@
                             maxVideos += 1;
                             if (maxVideos <= 7) {
                                 if (isFirst) {
-                                    var video_html =
+                                    video_html =
                                         '<div class="col-md-12 item-details">\n' +
                                         '<h5 class="inner one">' + ((video.hasOwnProperty('title')) ? video.title : video.description) + '</h5>\n' +
                                         '<div class="container_embed">' + video.embed_html + '</div>\n' +
@@ -99,7 +114,7 @@
                                     contenedor_videos.innerHTML += video_html;
                                     isFirst = false;
                                 } else {
-                                    var video_html =
+                                    video_html =
                                         '<div class="editor-pics item-details">' +
                                         '<div class="col-md-6 item-pic container_embed_small">' +
                                         video.embed_html +
@@ -202,10 +217,10 @@
                 <ul class="rslides" id="slider4">
                     {% for noticia_destacada in noticias_destacadas %}
                         <li>
-                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                 <img src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
                             </a>
-                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                 <p class="caption">{{ noticia_destacada.titular }}</p>
                             </a>
                         </li>
@@ -244,12 +259,12 @@
                 {% for noticia in noticias %}
                     <div class="col-md-6 top-text">
                         <div class="top-text_img">
-                            <a href="{% url 'pagina_web:noticia_id' noticia.id %}"><img
+                            <a href="{% url 'pagina_web:noticia_id' noticia.slug %}"><img
                                     src="{{ noticia.imagenes.first.imagen.url }}" class="img-responsive"
                                     alt=""></a>
                         </div>
-                        <h5 class="top"><a href="{% url 'pagina_web:noticia_id' noticia.id %}">{{ noticia.titular }}</a>
-                        </h5>
+                        <h5 class="top"><a
+                                href="{% url 'pagina_web:noticia_id' noticia.slug %}">{{ noticia.titular }}</a></h5>
                         <p>{{ noticia.lead }}</p>
                         <p class="top-text_fecha">
                             {{ noticia.fecha }}
@@ -279,20 +294,22 @@
     </div>
 
 
-        <!--//banner-section-->
-        <div class="banner-right-text">
-            <!-- contenedor publicitario -->
-            <a href="https://www.facebook.com/Pote.Seguros.Neiva/"><div class="col-md-12 item-details container_embed banner_right_principal">
-            </div></a>
+    <!--//banner-section-->
+    <div class="banner-right-text">
+        <!-- contenedor publicitario -->
+        <a href="https://www.facebook.com/Pote.Seguros.Neiva/">
+            <div class="col-md-12 item-details container_embed banner_right_principal">
+            </div>
+        </a>
 
-            <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
-            <!--/general-news-->
-            <div class="general-news">
-                <div class="general-inner">
-                    <div id="contenedor-videos-facebook-live" class="edit-pics">
-                    </div>
+        <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
+        <!--/general-news-->
+        <div class="general-news">
+            <div class="general-inner">
+                <div id="contenedor-videos-facebook-live" class="edit-pics">
                 </div>
             </div>
         </div>
+    </div>
 
 {% endblock %}
