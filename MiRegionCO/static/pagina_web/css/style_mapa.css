@@ -312,11 +312,19 @@ label {
         width: 80px;
     }
 
+    .banner_cabecera {
+        top: 0px;
+    }
+
+    .contenido_publicidad_cabecera {
+        background-image: url(../images/banners/nonnaMovil.png);
+    }
+
 }
 
 @media (max-width: 375px) {
     .contenido_modal {
-        height: 300px;
+        height: 250px;
     }
 
     .banner_modal {
