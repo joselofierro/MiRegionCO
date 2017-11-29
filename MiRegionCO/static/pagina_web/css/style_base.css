@@ -37,6 +37,19 @@ body > #wrap {
     border-radius: 15px;
 }
 
+.banner_publicitario_noticia {
+    height: 150px;
+    margin: 50px 0;
+}
+
+.contenido_publicidad_noticia {
+    height: 150px;
+    box-sizing: border-box;
+    background: url("../images/banners/OasisPlaza@2x.png") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
+}
+
 .banner_right_principal {
     box-sizing: border-box;
     background: url("../images/banners/poteSeguros@2x.png") no-repeat;
@@ -53,7 +66,7 @@ body > #wrap {
 .contenido_publicidad_right_0 {
     height: 200px;
     box-sizing: border-box;
-    background: url("../images/banners/Banner_BurguerMania.png") no-repeat;
+    background: url("../images/banners/Burguemania0.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -61,7 +74,7 @@ body > #wrap {
 .contenido_publicidad_right_1 {
     height: 200px;
     box-sizing: border-box;
-    background: url("../images/banners/Banner_ColorVerano.png") no-repeat;
+    background: url("../images/banners/colorVerano0.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -74,17 +87,8 @@ body > #wrap {
     border-radius: 15px;
 }
 
-.banner_publicitario_noticia {
-    height: 150px;
-    margin: 50px 0;
-}
-
-.contenido_publicidad_noticia {
-    height: 150px;
-    box-sizing: border-box;
-    background: url("../images/banners/OasisPlaza@2x.png") no-repeat;
-    background-size: 100% 100%;
-    border-radius: 15px;
+.banner_movil {
+    display: none;
 }
 
 /***************btn ver mas********************/
@@ -1140,6 +1144,39 @@ ul.side-icons li a:hover {
 
     .contenedor_img_card {
         height: 60%;
+    }
+
+    /*_________banner publicitarios movil_____________*/
+    .banner_right {
+        height: 200px;
+    }
+
+    .contenido_publicidad_right_0 {
+        height: 200px;
+        box-sizing: border-box;
+        background: url("../images/banners/Burguemania0.png") no-repeat;
+        background-size: 100% 100%;
+        border-radius: 15px;
+    }
+
+    .contenido_publicidad_right_1 {
+        height: 200px;
+        box-sizing: border-box;
+        background: url("../images/banners/colorVerano0.png") no-repeat;
+        background-size: 100% 100%;
+        border-radius: 15px;
+    }
+
+    .contenido_publicidad_right_2 {
+        height: 200px;
+        box-sizing: border-box;
+        background: url("../images/banners/Banner_Pote.png") no-repeat;
+        background-size: 100% 100%;
+        border-radius: 15px;
+    }
+
+    .banner_movil {
+        display: none;
     }
 
 }
