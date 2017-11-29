@@ -274,18 +274,8 @@
                     </li>
                 </ul>
 
-            {% elif request.user|has_group:'Escritor notificaciones' %}
-                <ul class="nav">
-                    <li>
-                        <a href="{% url 'notificacion:crear_notificacion' %}" class="titulo">
-                            <i class="fa fa-newspaper-o"></i>
-                            <p>NOTIFICACIONES</p>
-                        </a>
-                    </li>
-                </ul>
 
-
-            {% elif request.user|has_group:'SupervisorEscritor' %}
+            {% elif request.user|has_group:'SupervisorEscritor' and request.user|has_group:'EscritorNotificaciones' %}
 
                 <ul class="nav">
                     <li>
@@ -323,6 +313,13 @@
                                 <a href="{% url 'imagen:imagen_listar' %}" class="titulo" style="display: inherit">
                                     <i class="fa fa-picture-o"></i>
                                     <p>IMAGENES</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'notificacion:crear_notificacion' %}" class="titulo">
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <p>NOTIFICACIONES</p>
                                 </a>
                             </li>
 
