@@ -30,7 +30,7 @@ def login_view(request):
 
                     return redirect('noticia:listar')
 
-                elif user_auth.groups.filter(name='administrador').exists():
+                elif user_auth.groups.filter(name='Administrador').exists():
                     return redirect('noticia:listar')
 
                 elif user_auth.groups.filter(name='SupervisorVendedor').exists():
