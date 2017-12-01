@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MiregionCO.iml" afterPath="$PROJECT_DIR$/.idea/MiregionCO.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/sorprendiendo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/sorprendiendo@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/themes.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/settings.py" afterPath="$PROJECT_DIR$/MiRegionCO/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_content.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_content.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/home/index.html" afterPath="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,14 +35,29 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="298" column="18" lean-forward="true" selection-start-line="298" selection-start-column="18" selection-end-line="298" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#13181#13201#0#HTML" expanded="true" />
-                    <element signature="e#13339#13359#0#HTML" expanded="true" />
-                    <element signature="e#13497#13517#0#HTML" expanded="true" />
-                    <element signature="e#14270#14289#0#HTML" expanded="true" />
-                  </folding>
+                <state relative-caret-position="454">
+                  <caret line="282" column="14" lean-forward="true" selection-start-line="282" selection-start-column="14" selection-end-line="282" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="style_base.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="441">
+                  <caret line="1385" column="19" lean-forward="true" selection-start-line="1385" selection-start-column="19" selection-end-line="1385" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="style__noticia.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style__noticia.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -47,12 +65,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="style_base.css" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="style_content.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_content.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="611">
-                  <caret line="1178" column="21" lean-forward="false" selection-start-line="1178" selection-start-column="17" selection-end-line="1178" selection-end-column="21" />
+                <state relative-caret-position="438">
+                  <caret line="813" column="5" lean-forward="true" selection-start-line="813" selection-start-column="5" selection-end-line="813" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -61,8 +79,8 @@
           <file leaf-file-name="style_mapa.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_mapa.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1185">
-                  <caret line="301" column="22" lean-forward="false" selection-start-line="301" selection-start-column="22" selection-end-line="301" selection-end-column="22" />
+                <state relative-caret-position="80">
+                  <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -84,11 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pnotify</find>
-      <find>autor</find>
-      <find>tag</find>
-      <find>video</find>
-      <find>login</find>
       <find>noMasItems</find>
       <find>vi</find>
       <find>Noticia.objects.filter(visible=True, categoria__visibleWeb=True, web=True).order_by('-fecha', '-hora').distinct()</find>
@@ -98,7 +111,6 @@
       <find>no hgat</find>
       <find>publici</find>
       <find>banner_right</find>
-      <find>contenido_publicidad_cabecera</find>
       <find>contenedor-relacionada</find>
       <find>noticia-relacionada</find>
       <find>ver</find>
@@ -108,12 +120,18 @@
       <find>border-ri</find>
       <find>modal publicitario</find>
       <find>modal_pu</find>
-      <find>banner_cabecera</find>
-      <find>cabecera</find>
       <find>wrap</find>
-      <find>480</find>
-      <find>movil</find>
       <find>991</find>
+      <find>movil</find>
+      <find>grid-section</find>
+      <find>cabecera</find>
+      <find>cabecer</find>
+      <find>contenido</find>
+      <find>banner_cabecera</find>
+      <find>contenido_publicidad_right_2</find>
+      <find>embed</find>
+      <find>contenido_publicidad_cabecera</find>
+      <find>480</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -157,7 +175,6 @@
         <option value="$PROJECT_DIR$/apps/tag/views.py" />
         <option value="$PROJECT_DIR$/templates/sitio/sitio_list.html" />
         <option value="$PROJECT_DIR$/apps/estadistica/views.py" />
-        <option value="$PROJECT_DIR$/static/pagina_web/css/style_content.css" />
         <option value="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
         <option value="$PROJECT_DIR$/apps/activacion_youtuber/models.py" />
         <option value="$PROJECT_DIR$/apps/noticia/models.py" />
@@ -182,15 +199,16 @@
         <option value="$PROJECT_DIR$/../../../Entornos/entMiregionCO_deploy/lib/python3.6/site-packages/fcm_django/admin.py" />
         <option value="$PROJECT_DIR$/apps/notificaciones/models.py" />
         <option value="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" />
-        <option value="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" />
         <option value="$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html" />
         <option value="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" />
         <option value="$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html" />
         <option value="$PROJECT_DIR$/templates/base/base_pagina_web.html" />
-        <option value="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" />
         <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
-        <option value="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
+        <option value="$PROJECT_DIR$/static/pagina_web/css/style_content.css" />
+        <option value="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" />
+        <option value="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" />
         <option value="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
+        <option value="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
       </list>
     </option>
   </component>
@@ -263,6 +281,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -318,7 +337,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -335,19 +353,19 @@
     <property name="two.files.diff.last.used.folder" value="$USER_HOME$/Desktop/MiRegion.co/MIREGIONCOGL/MiRegionCO" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/pagina_web/css" />
+      <recent name="$PROJECT_DIR$/static/pagina_web/images/banners" />
+      <recent name="$PROJECT_DIR$/static/pagina_web/images" />
+      <recent name="$PROJECT_DIR$/templates/pagina_web/noticia" />
+      <recent name="$PROJECT_DIR$/static/js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/css" />
       <recent name="$PROJECT_DIR$/templates/ventas" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/apps/ventas" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/pagina_web/images/banners" />
-      <recent name="$PROJECT_DIR$/templates/pagina_web/noticia" />
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/templates/base" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -367,8 +385,8 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="DJANGO_SETTINGS_MODULE" value="MiRegionCO.settings" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="MiRegionCO.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -652,6 +670,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286991" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29268292" sideWeight="0.50532484" order="7" side_tool="true" content_ui="tabs" />
@@ -659,7 +678,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24726911" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24528302" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27110228" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.4899225" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1485623" sideWeight="0.4899225" order="0" side_tool="false" content_ui="combo" />
       <window_info id="manage.py@MiregionCO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20059583" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -728,58 +747,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/sitio/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/tag/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/noticia/noticia_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="244" column="109" lean-forward="false" selection-start-line="244" selection-start-column="109" selection-end-line="244" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/urllib/request.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="932" column="8" lean-forward="false" selection-start-line="932" selection-start-column="8" selection-end-line="932" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_cdn.jsdelivr.net_npm_js-cookie@2_src_js.cookie.js" />
     <entry file="file://$PROJECT_DIR$/static/js/src_js.cookie.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1018,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,25 +996,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style__noticia.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="274" column="10" lean-forward="false" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="683">
           <caret line="202" column="19" lean-forward="false" selection-start-line="202" selection-start-column="19" selection-end-line="202" selection-end-column="19" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/Burguemania0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/Banner_Pote.png">
@@ -1066,36 +1019,82 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/OasisPlaza@2x.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/OasisPlaza0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/nonna0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/nonna@2x.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/Banner_BurguerMania.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/Burguemania0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/oasisMovil.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/images/banners/nonnaMovil.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style__noticia.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="298" column="18" lean-forward="true" selection-start-line="298" selection-start-column="18" selection-end-line="298" selection-end-column="18" />
-          <folding>
-            <element signature="e#13181#13201#0#HTML" expanded="true" />
-            <element signature="e#13339#13359#0#HTML" expanded="true" />
-            <element signature="e#13497#13517#0#HTML" expanded="true" />
-            <element signature="e#14270#14289#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_mapa.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="301" column="22" lean-forward="false" selection-start-line="301" selection-start-column="22" selection-end-line="301" selection-end-column="22" />
+        <state relative-caret-position="80">
+          <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="1178" column="21" lean-forward="false" selection-start-line="1178" selection-start-column="17" selection-end-line="1178" selection-end-column="21" />
+        <state relative-caret-position="441">
+          <caret line="1385" column="19" lean-forward="true" selection-start-line="1385" selection-start-column="19" selection-end-line="1385" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/pagina_web/css/style_content.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="813" column="5" lean-forward="true" selection-start-line="813" selection-start-column="5" selection-end-line="813" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="282" column="14" lean-forward="true" selection-start-line="282" selection-start-column="14" selection-end-line="282" selection-end-column="14" />
           <folding />
         </state>
       </provider>

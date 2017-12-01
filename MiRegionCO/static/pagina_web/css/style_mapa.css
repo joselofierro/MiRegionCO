@@ -258,6 +258,11 @@ label {
         width: 30px;
     }
 
+    /*_________banner publicitarios cabecera_____________*/
+    .contenido_publicidad_cabecera {
+        background: url("../images/banners/nonna0.png");
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -287,15 +292,17 @@ label {
     }
 
     .contenido_modal {
-        height: 350px;
+        height: 250px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 25px;
     }
 
     .banner_modal {
-        height: 250px;
+        height: 160px;
     }
 
     .descripcion_modal {
-        height: 100px;
+        height: 75px;
     }
 
     .logo_modal {
@@ -305,26 +312,38 @@ label {
     .call_action h1 {
         top: 0;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .btn_store_banner img {
         width: 80px;
     }
 
-    .banner_cabecera {
-        top: 0px;
+    #cerrar + label {
+        right: 7px;
+        top: 8px;
+        font-size: 15px;
+        height: 25px;
+        width: 25px;
     }
 
+    /*_________banner publicitarios cabecera_____________*/
     .contenido_publicidad_cabecera {
-        background-image: url(../images/banners/nonnaMovil.png);
+        background: url("../images/banners/nonnaMovil.png");
+        background-size: 100% 100%;
+        height: 70px;
+    }
+
+    .banner_cabecera {
+        top: 50px;
     }
 
 }
 
 @media (max-width: 375px) {
+
     .contenido_modal {
-        height: 250px;
+        height: 240px;
     }
 
     .banner_modal {
@@ -358,7 +377,7 @@ label {
 #map {
     height: 83vh;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 /**********MENU MAPA*************/
@@ -411,7 +430,7 @@ label {
     z-index: 1;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .contenedor-menu .menu-mapa .activado > a {
