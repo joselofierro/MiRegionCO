@@ -234,7 +234,7 @@ ul.etiquetas li {
 }
 
 /***********************/
-.contenedor-relacionada{
+.contenedor-relacionada {
     margin-top: 5em;
 }
 
@@ -482,7 +482,6 @@ ul.callbacks_tabs {
 
 /*------------------------------Responsive------------------------------*/
 @media (max-width: 1700px) {
-
 
     ul.social-up li img {
         width: 9em;
@@ -912,7 +911,7 @@ ul.callbacks_tabs {
     }
 
     .grid-section {
-        padding: 1em 0;
+        padding: 3em 1em;
     }
 
     h1.tittle {
@@ -939,6 +938,15 @@ ul.callbacks_tabs {
 
     .flexslider .slides > li {
         height: 200px;
+    }
+
+    .contenedor-relacionada {
+        margin-top: 3em;
+    }
+
+    .banner_cabecera {
+        top: 20px;
+        height: 70px;
     }
 
 }
