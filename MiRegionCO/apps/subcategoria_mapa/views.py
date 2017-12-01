@@ -18,7 +18,7 @@ class SubcategoriaMapaCreate(PermissionRequiredMixin, SuccessMessageMixin, Creat
     success_message = 'Se ha creado la subcategoria del mapa exitosamente'
     permission_required = ('subcategoriamapa.add_subcategoriamapa', 'subcategoriamapa.change_subcategoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -27,7 +27,7 @@ class SubcategoriaMapaList(PermissionRequiredMixin, ListView):
     template_name = 'subcategoria_mapa/subcategoria_mapa_list.html'
     permission_required = ('subcategoriamapa.add_subcategoriamapa', 'subcategoriamapa.change_subcategoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -39,7 +39,7 @@ class SubcategoriaMapaUpdate(PermissionRequiredMixin, SuccessMessageMixin, Updat
     success_message = 'Se ha actualizado la subcategoria del mapa exitosamente'
     permission_required = ('subcategoriamapa.add_subcategoriamapa', 'subcategoriamapa.change_subcategoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -50,6 +50,6 @@ class SubcategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, Delet
     success_message = 'Se ha eliminado la subcategoria del mapa exitosamente'
     permission_required = ('subcategoriamapa.add_subcategoriamapa', 'subcategoriamapa.change_subcategoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 

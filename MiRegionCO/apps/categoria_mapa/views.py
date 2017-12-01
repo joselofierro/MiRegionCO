@@ -20,7 +20,7 @@ class CategoriaMapaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVi
     permission_required = (
         'categoriamapa.add_categoriamapa', 'categoriamapa.change_categoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def form_valid(self, form):
@@ -34,7 +34,7 @@ class CategoriaMapaList(PermissionRequiredMixin, ListView):
     permission_required = (
         'categoriamapa.add_categoriamapa', 'categoriamapa.change_categoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
@@ -50,7 +50,7 @@ class CategoriaMapaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateVi
     permission_required = (
         'categoriamapa.add_categoriamapa', 'categoriamapa.change_categoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def form_valid(self, form):
@@ -66,7 +66,7 @@ class CategoriaMapaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteVi
     permission_required = (
         'categoriamapa.add_categoriamapa', 'categoriamapa.change_categoriamapa')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def post(self, request, *args, **kwargs):

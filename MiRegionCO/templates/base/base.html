@@ -272,11 +272,23 @@
                             <p>NOTICIAS</p>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{% url 'imagen:imagen_listar' %}" class="titulo">
+                            <i class="fa fa-picture-o"></i>
+                            <p>IMAGENES</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'tag:listar_tag' %}" class="titulo" style="display: inherit;">
+                            <i class="fa fa-tag"></i>
+                            <p>TAG'S</p>
+                        </a>
+                    </li>
                 </ul>
 
-
-            {% elif request.user|has_group:'SupervisorEscritor' and request.user|has_group:'EscritorNotificaciones' %}
-
+            {% elif request.user|has_group:'SupervisorEscritor' %}
                 <ul class="nav">
                     <li>
                         <a class="titulo">
@@ -315,16 +327,20 @@
                                     <p>IMAGENES</p>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                </ul>
 
-                <ul class="nav">
-                    <li>
-                        <a href="{% url 'notificacion:crear_notificacion' %}" class="titulo">
-                            <i class="fa fa-newspaper-o"></i>
-                            <p>NOTIFICACIONES</p>
-                        </a>
+                        </ul>
+                        {% if perms.notificaciones %}
+                            {% if perms.notificaciones.add_notificacion %}
+                                <li>
+                                    <a href="{% url 'notificacion:crear_notificacion' %}" class="titulo">
+                                        <i class="fa fa-bell-o"></i>
+                                        <p>NOTIFICACIONES</p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% else %}
+                            <p>no hay permiso </p>
+                        {% endif %}
                     </li>
                 </ul>
 
@@ -357,7 +373,8 @@
 
 
                             <li>
-                                <a href="{% url 'producto:listar_producto' %}" class="titulo" style="display: inherit;">
+                                <a href="{% url 'producto:listar_producto' %}" class="titulo"
+                                   style="display: inherit;">
                                     <i class="fa fa-suitcase"></i>
                                     <p>PRODUCTOS</p>
                                 </a>
@@ -365,7 +382,8 @@
 
 
                             <li>
-                                <a href="{% url 'detalle:listar_detalle' %}" class="titulo" style="display: inherit;">
+                                <a href="{% url 'detalle:listar_detalle' %}" class="titulo"
+                                   style="display: inherit;">
                                     <i class="fa fa-info"></i>
                                     <p>DETALLES-PRODUCTOS</p>
                                 </a>
@@ -382,7 +400,8 @@
 
 
                             <li>
-                                <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo" style="display: inherit;">
+                                <a href="{% url 'vendedor:listar_vendedor' %}" class="titulo"
+                                   style="display: inherit;">
                                     <i class="fa fa-male"></i>
                                     <p>VENDEDOR</p>
                                 </a>
@@ -390,7 +409,8 @@
 
 
                             <li>
-                                <a href="{% url 'cliente:listar_cliente' %}" class="titulo" style="display: inherit;">
+                                <a href="{% url 'cliente:listar_cliente' %}" class="titulo"
+                                   style="display: inherit;">
                                     <i class="fa fa-users"></i>
                                     <p>CLIENTES</p>
                                 </a>
@@ -412,7 +432,8 @@
                         <ul class="ul-child" style="display:none;">
 
                             <li>
-                                <a href="{% url 'mapa:categoria_listar' %}" class="titulo" style="display: inherit">
+                                <a href="{% url 'mapa:categoria_listar' %}" class="titulo"
+                                   style="display: inherit">
                                     <i class="fa fa-map-marker"></i>
                                     <p>CATEGORIA DE MAPAS</p>
                                 </a>
@@ -435,7 +456,8 @@
                             </li>
 
                             <li>
-                                <a href="{% url 'imagen:imagen_listar' %}" class="titulo" style="display: inherit">
+                                <a href="{% url 'imagen:imagen_listar' %}" class="titulo"
+                                   style="display: inherit">
                                     <i class="fa fa-picture-o"></i>
                                     <p>IMAGENES</p>
                                 </a>

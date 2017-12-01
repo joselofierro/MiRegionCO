@@ -18,7 +18,7 @@ class ImagenCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = 'Se ha creado la imagen satisfactoriamente.'
     permission_required = ('imagen.add_imagen', 'imagen.change_imagen')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -28,7 +28,7 @@ class ImagenList(PermissionRequiredMixin, ListView):
     paginate_by = 10
     permission_required = ('imagen.add_imagen', 'imagen.change_imagen')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -40,7 +40,7 @@ class ImagenUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'Se ha creado la imagen satisfactoriamente.'
     permission_required = ('imagen.add_imagen', 'imagen.change_imagen')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -51,5 +51,5 @@ class ImagenDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     success_message = 'Se ha creado la imagen satisfactoriamente.'
     permission_required = ('imagen.add_imagen', 'imagen.change_imagen')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'

@@ -17,7 +17,7 @@ class CategoriaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = 'Se ha creado la categoria.'
     permission_required = ('categoria.add_categoria', 'categoria.change_categoria')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def form_valid(self, form):
@@ -30,7 +30,7 @@ class CategoriaList(ListView):
     template_name = 'categoria/categoria_list.html'
     permission_required = ('categoria.add_categoria', 'categoria.change_categoria')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
@@ -45,7 +45,7 @@ class CategoriaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'Se ha actualizado la categoria.'
     permission_required = ('categoria.add_categoria', 'categoria.change_categoria')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def form_valid(self, form):
@@ -60,7 +60,7 @@ class CategoriaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     success_message = 'Se ha eliminado la categoria.'
     permission_required = ('categoria.add_categoria', 'categoria.change_categoria')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def post(self, request, *args, **kwargs):

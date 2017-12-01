@@ -20,7 +20,7 @@ class ProductoCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -31,7 +31,7 @@ class ProductoList(PermissionRequiredMixin, ListView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -45,7 +45,7 @@ class ProductoUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -58,5 +58,5 @@ class ProductoDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'

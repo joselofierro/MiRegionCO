@@ -4,7 +4,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.core.cache import caches
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
-from django.template.defaultfilters import slugify
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -31,7 +30,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_context_data(self, **kwargs):
@@ -139,7 +138,7 @@ class NoticiaList(PermissionRequiredMixin, ListView):
     paginate_by = 10
     permission_required = ('noticia.add_noticia', 'noticia.change_noticia')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
@@ -169,7 +168,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_context_data(self, **kwargs):
@@ -256,7 +255,7 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def post(self, request, *args, **kwargs):

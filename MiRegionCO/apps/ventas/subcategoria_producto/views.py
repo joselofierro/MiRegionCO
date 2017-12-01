@@ -20,7 +20,7 @@ class SubcategoriaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVie
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -31,7 +31,7 @@ class SubcategoriaList(SuccessMessageMixin, ListView):
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -45,7 +45,7 @@ class SubcategoriaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateVie
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
 
@@ -58,6 +58,6 @@ class SubcategoriaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteVie
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 

@@ -26,7 +26,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = 'Se ha creado el sitio correctamente.'
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_context_data(self, **kwargs):
@@ -87,7 +87,7 @@ class SitioList(PermissionRequiredMixin, ListView):
     paginate_by = 10
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_queryset(self):
@@ -104,7 +104,7 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'Se ha actualizado el sitio correctamente.'
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def get_context_data(self, **kwargs):
@@ -156,7 +156,7 @@ class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     success_message = 'Se ha eliminado el sitio correctamente.'
     permission_required = ('sitio.add_sitio', 'sitio.change_sitio')
     raise_exception = False
-    login_url = reverse_lazy('grupo:login')
+    login_url = reverse_lazy('user:index')
     redirect_field_name = 'redirect_to'
 
     def post(self, request, *args, **kwargs):

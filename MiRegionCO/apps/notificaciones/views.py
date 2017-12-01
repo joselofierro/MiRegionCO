@@ -14,7 +14,7 @@ class NotificacionCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVie
     template_name = 'notificaciones/notificacion_form.html'
     success_url = reverse_lazy('notificacion:listar_notificacion')
     success_message = 'Se ha creado la notificación con exito'
-    permission_required = ('notificacion.add_notificacion', 'notificacion.change_notificacion')
+    permission_required = ('notificaciones.add_notificacion', 'notificaciones.change_notificacion')
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
@@ -26,6 +26,7 @@ class NotificacionCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateVie
         mensaje = form.data['mensaje']
         # Obtenemos los usuarios Android
         usuarios_android = FCMDevice.objects.filter(type='android')
+
         # Enviamos la notificacion
         usuarios_android.send_message(data={'titulo': titulo, 'mensaje': mensaje})
 
@@ -49,7 +50,7 @@ class NotificacionList(PermissionRequiredMixin, ListView):
     model = Notificacion
     paginate_by = 10
     template_name = 'notificaciones/notificacion_list.html'
-    permission_required = ('notificacion.add_notificacion', 'notificacion.change_notificacion')
+    permission_required = ('notificaciones.add_notificacion', 'notificaciones.change_notificacion')
     # me devuelve al login si es falso y si es true arroja un exceptionError
     raise_exception = False
     # si no tengo los permisos me redirige al login
