@@ -7,14 +7,15 @@
 
 {% block extracss %}
     <style type="text/css">
-        div.buscar{
+        div.buscar {
             display: flex;
             justify-content: flex-end;
         }
 
-        div.buscar form{
+        div.buscar form {
             margin-right: 20px;
         }
+
         @media screen and (max-width: 1446px ) {
             .btn-group, .btn-group-vertical {
                 position: relative;
@@ -46,13 +47,11 @@
                        cellspacing="0" role="grid" width="100%">
                     <thead>
                     <tr role="row">
-                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">ID</th>
-                        <th style="text-align: center;">fecha</th>
-                        <th style="text-align: center;">Hora</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">fecha</th>
+                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">Hora</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">titular</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">imagenes</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">autor</th>
-                        <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">tag</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">categoria</th>
                         <th class="col-md-1 col-sm-1 col-xs-1" style="text-align: center;">destacada</th>
                         <th class="col-md-2 col-sm-2 col-xs-2" style="text-align: center;">Acciones</th>
@@ -63,11 +62,9 @@
                     {% if object_list %}
                         {% for noticia in object_list %}
                             <tr role="row">
-                                <td>{{ noticia.id }}</td>
                                 <td>{{ noticia.fecha }}</td>
-                                <th>{{ noticia.hora }}</th>
+                                <td>{{ noticia.hora }}</td>
                                 <td>{{ noticia.titular }}</td>
-
                                 <td>
                                     <div id="CarouselExampleControls{{ noticia.id }}" class="carousel slide"
                                          data-ride="carousel">
@@ -97,13 +94,6 @@
                                 </td>
 
                                 <td>{{ noticia.autor.first_name }}</td>
-                                <td>
-                                    <ul>{% for tag in noticia.tag.all %}
-                                        <li>{{ tag.nombre }}</li>
-                                    {% endfor %}
-                                    </ul>
-                                </td>
-
                                 <td>
                                     <ul>{% for categoria in noticia.categoria.all %}
                                         <li>{{ categoria.nombre }}</li>
@@ -176,5 +166,30 @@
 {% endblock %}
 
 
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            {% if messages %}
+                {% for message in messages %}
+                    if ('{{ message.tags }}' === 'success') {
+                        new PNotify({
+                            title: 'Noticia',
+                            text: '{{ message }}',
+                            type: 'info',
+                            styling: 'fontawesome'
+                        });
+                    } else {
+                        new PNotify({
+                            title: 'Noticia',
+                            text: 'Ha ocurrido un problema. Inténtelo mas tarde',
+                            type: 'error',
+                            styling: 'fontawesome'
+                        });
+                    }
+                {% endfor %}
+            {% endif %}
+        });
 
+    </script>
+{% endblock %}
 

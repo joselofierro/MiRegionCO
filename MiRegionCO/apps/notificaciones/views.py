@@ -55,3 +55,6 @@ class NotificacionList(PermissionRequiredMixin, ListView):
     # si no tengo los permisos me redirige al login
     login_url = reverse_lazy('grupo:login')
     redirect_field_name = 'redirect_to'
+
+    def get_queryset(self):
+        return Notificacion.objects.order_by('-fecha')

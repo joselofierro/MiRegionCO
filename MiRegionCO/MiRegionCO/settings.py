@@ -32,11 +32,14 @@ SECRET_KEY = '9v2rrct&d)!7-b97u7md2u7cb7!cb%%k^ls+1s1s7mxt4k6m4r'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+
     '.elasticbeanstalk.com',
-    '192.168.10.29',
-    'localhost',
     '54.165.204.105',
     '34.231.1.194',
+    '192.168.10.158',
+    '127.0.0.1',
+    'miregion.co',
+    'www.miregion.co'
 ]
 
 # Application definition
@@ -72,7 +75,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'storages',
     'fcm_django',
-    'watermarker'
 
 ]
 
@@ -122,7 +124,6 @@ if 'RDS_DB_NAME' in os.environ:
     }
 else:
     DATABASES = {
-
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'miregionco',
@@ -164,15 +165,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'jfierro985@gmail.com'
 EMAIL_HOST_PASSWORD = 'eugenio985'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
@@ -228,11 +229,13 @@ CACHE_API_CATEGORIA_MAPA = 'api_categoria_mapa'
 CACHE_API_CATEGORIA_NOTICIAS = 'api_categoria_noticias'
 CACHE_API_NOTICIAS = 'api_noticias'
 CACHE_API_NOTICIAS2 = 'api_noticias2'
+CACHE_API_NOTICIASWEB = 'api_noticias_web'
 CACHE_API_NOTICIAS_DESTACADAS = 'api_noticias_destacadas'
 CACHE_API_NOTICIASXCATEGORIA = 'api_noticiasxcategoria'
 CACHE_API_NOTICIASXCATEGORIA2 = 'api_noticiasxcategoria2'
 CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA = 'api_noticias_destacadas_categoria'
 CACHE_API_SITIOS = 'api_sitios'
+CACHE_API_SITIOSXSUBCATEGORIA = 'api_sitiosxsubcategoria'
 CACHE_API_PORTAFOLIO = 'api_portafolio'
 CACHE_API_COTIZACIONES = 'api_cotizaciones'
 CACHE_API_USUARIOS = 'api_usuarios'
@@ -260,6 +263,13 @@ CACHES = {
     CACHE_API_NOTICIAS2: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/noticias2',
+        'TIMEOUT': None
+
+    },
+
+    CACHE_API_NOTICIASWEB: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/noticias_web',
         'TIMEOUT': None
 
     },
@@ -294,6 +304,13 @@ CACHES = {
 
     },
 
+    CACHE_API_SITIOSXSUBCATEGORIA: {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache/api/sitiosxsubcategoria',
+        'TIMEOUT': None
+
+    },
+
     CACHE_API_PORTAFOLIO: {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache/api/portafolio',
@@ -320,4 +337,4 @@ CACHES = {
 
 }
 
-LOGIN_URL = reverse_lazy('grupo:login')
+LOGIN_URL = reverse_lazy('user:index')

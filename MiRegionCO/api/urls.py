@@ -12,13 +12,14 @@ urlpatterns = [
     # listado de todas las noticias
     url(r'^news_feed', NewsFeed.as_view(), name='news_feed_api'),
     url(r'^pagination_news_feed', NewsFeed2.as_view(), name='news_feed2_api'),
+    url(r'^pagination_news_web', NewsFeedWeb.as_view(), name='web_news_feed2_api'),
     # listado de noticias por id de la categoria
     url(r'^noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId.as_view(), name='noticias_api'),
     url(r'^pagination_noticias/(?P<id_categoria>.+)$', NoticiasCategoriaListId2.as_view(), name='noticias2_api'),
     # listado de todos los sitios
     url(r'^sitios', SitiosList.as_view(), name='list_sitio_api'),
-    # listado de sitios por el id de la categoria del mapa
-    # url(r'^mapa/(?P<id_categoria>.+)$', MapaCategoriaList.as_view(), name='noticias_api'),
+    # listado de sitios por el id de la subcategoria del mapa
+    url(r'^subcategoria_sitios/(?P<id_subcategoria>.+)$', SitiosXSubcategoria, name='sitios_by_subcategoria'),
     # noticias destacadas
     url(r'^noticias_destacadas', NoticiasDestacadasAPI.as_view(), name='noticias_destacadas_api'),
     # noticias destacadas por el id de la categoria
@@ -48,6 +49,16 @@ urlpatterns = [
     url(r'^facebook_sitio', FacebookAPI.as_view(), name='ingreso_api'),
     url(r'^instagram_sitio', InstagramAPI.as_view(), name='ingreso_api'),
     url(r'^usuario_vista_login/$', LoginUserAPI.as_view(), name='usuario_vista_login'),
+    # ESTADISTICAS PAGINA WEB
+    url(r'^visita_index_web/$', VisitIndexAPI.as_view(), name='visita_index_web'),
+    url(r'^visita_noticia_web/$', VisitNewsAPI.as_view(), name='visita_noticia_web'),
+    url(r'^comparte_facebook_web/$', ShareFacebookAPI.as_view(), name='comparte_facebook_web'),
+    url(r'^comparte_twitter_web/$', ShareTwitterAPI.as_view(), name='comparte_twitter_web'),
+    url(r'^comparte_google_web/$', ShareGoogleAPI.as_view(), name='comparte_google_web'),
+    url(r'^visita_mapa_web/$', VisitMapAPI.as_view(), name='visita_mapa_web'),
+    url(r'^web_visita_sitio/$', VisitPlaceAPI.as_view(), name='visita_sitio_web'),
+    # Buscar noticias por texto (Buscador pagina web)
+    url(r'^noticias_text/(?P<p_texto>.*)$', noticiaByText.as_view(), name='search_noticia_text'),
 
     # urls de Apis mi region_ventas
     url(r'^login/(?P<p_correo>.+)/(?P<p_pass>.+)$', login, name='login_vendedor'),

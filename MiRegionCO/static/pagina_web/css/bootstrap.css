@@ -6252,6 +6252,16 @@ button.close {
     transform: translate(0, 0);
 }
 
+.modal.efect .modal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -moz-transition: -moz-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+}
+
 .modal-dialog {
     position: relative;
     width: auto;
@@ -6277,7 +6287,6 @@ button.close {
     bottom: 0;
     left: 0;
     z-index: 1040;
-    background-color: #000;
 }
 
 .modal-backdrop.fade {

@@ -384,7 +384,6 @@ h3.tittle i {
     height: 0;
     padding-bottom: 56.25%;
     overflow: hidden;
-
 }
 
 .container_embed iframe {
@@ -802,7 +801,8 @@ h5.inner.one {
 @media (max-width: 480px) {
 
     .banner_cabecera {
-        display: none;
+        top: 210px;
+        height: 70px;
     }
 
     /********MAIN***********/
@@ -920,6 +920,8 @@ h5.inner.one {
         font-size: 0.83em;
     }
 }
+
+/****************** STYLES MODAL EMERGENTE ********************/
 
 .modal_publicitario {
     width: 85%;
@@ -1084,7 +1086,7 @@ h5.inner.one {
     }
 
     .contenido_modal {
-        width: 90%;
+        width: 80%;
         height: 450px;
     }
 
@@ -1141,15 +1143,17 @@ h5.inner.one {
     }
 
     .contenido_modal {
-        height: 350px;
+        height: 250px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 25px;
     }
 
     .banner_modal {
-        height: 250px;
+        height: 160px;
     }
 
     .descripcion_modal {
-        height: 100px;
+        height: 75px;
     }
 
     .logo_modal {
@@ -1159,25 +1163,38 @@ h5.inner.one {
     .call_action h1 {
         top: 0;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .btn_store_banner img {
         width: 80px;
     }
 
-}
-
-@media (max-width: 414px) {
-    .call_action h1 {
-        font-size: 18px;
+    #cerrar + label {
+        right: 7px;
+        top: 8px;
+        font-size: 15px;
+        height: 25px;
+        width: 25px;
     }
 
 }
 
 @media (max-width: 375px) {
     .contenido_modal {
-        width: 95%;
+        height: 240px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+    }
+
+    .call_action h1 {
+        font-size: 14px;
     }
 }
 

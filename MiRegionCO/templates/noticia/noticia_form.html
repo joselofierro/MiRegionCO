@@ -1,6 +1,5 @@
 {% extends 'base/base.html' %}
 {% load staticfiles %}
-{% load watermark %}
 
 {% block extracss %}
     <style type="text/css">
@@ -226,6 +225,24 @@
                                     {{ form.destacada.errors }}
                                     {{ form.destacada }}<label for="{{ form.destacada.id_for_label }}">¿Es<br>
                                     destacada?</label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 2%;">
+                            <div class="form-group">
+                                <div class="checkbox-inline">
+                                    {{ form.web.errors }}
+                                    {{ form.web }}<label for="{{ form.web.id_for_label }}">¿Visible página web?</label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 2%;">
+                            <div class="form-group">
+                                <div class="checkbox-inline">
+                                    {{ form.mobile.errors }}
+                                    {{ form.mobile }}<label for="{{ form.mobile.id_for_label }}">¿Visible App?</label>
 
                                 </div>
                             </div>

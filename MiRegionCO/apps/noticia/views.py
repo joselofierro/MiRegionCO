@@ -7,6 +7,7 @@ from django.core.cache import caches
 from django.db.models import Q
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
+from django.template.defaultfilters import slugify
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
@@ -58,23 +59,27 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
         if form.is_valid() and form2.is_valid():
             # si tiene imagenes
             if len(request.FILES) != 0:
-
                 list_categoria = []
-                for categoria in categorias:
-                    categoria_obj = Categoria.objects.get(id=categoria)
+                # recorremos la categorias
+                for categoria_name in categorias:
+                    # obtenemos las categorias
+                    categoria_obj = Categoria.objects.get(id=categoria_name)
+                    # agregamos las categorias a un arreglo
                     list_categoria.append(categoria_obj)
 
                 list_id_imagenes = []
+                # recorremos las imagenes
                 for index, f in enumerate(files):
+                    # instanciamos las imagenes
                     imagen = Imagen(nombre=form.data['titular'] + "_" + str(index), imagen=f)
                     imagen.save()
-
                     list_id_imagenes.append(imagen)
 
                 noticia = form.save(commit=False)
                 usuario_sesion = request.user
                 noticia.autor = usuario_sesion
 
+                # guardamos la noticia
                 noticia.save()
 
                 tags = request.POST['tags']
@@ -82,7 +87,6 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 list_tags = tags.split(', ')
                 for tag in list_tags:
                     tag = tag.title()
-
                     # busco si el Tag está creado
                     try:
                         # si esta el tag creado en el modelo tag se lo agregamos a la noticia
@@ -93,14 +97,29 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                         tag_creado.save()
                         noticia.tag.add(tag_creado)
 
+                # recorremos las imagenes y las agregamos a la noticia
                 for imagen_id in list_id_imagenes:
                     noticia.imagenes.add(imagen_id)
 
-                for categoria_id in list_categoria:
-                    noticia.categoria.add(categoria_id)
+                # recorremos los objetos categoria
+                for categoria_name in list_categoria:
+                    # si esta Noticia o Magazine en el arreglo de categorias
+                    if str(categoria_name) == 'Noticias' or str(categoria_name) == 'Magazine':
+                        # obtenemos el objeto noticia
+                        obj_noticia = Noticia.objects.get(id=noticia.id)
+                        # armamos la url
+                        url = 'http://{}/noticias/{}'.format(request.get_host(), obj_noticia.slug)
+                        print(url)
+                        obj_noticia.url = url
+                        obj_noticia.save()
+                        # agregamos la categoria a la noticia
+                        noticia.categoria.add(categoria_name)
+                    else:
+                        noticia.categoria.add(categoria_name)
 
                 caches[settings.CACHE_API_NOTICIAS].clear()
                 caches[settings.CACHE_API_NOTICIAS2].clear()
+                caches[settings.CACHE_API_NOTICIASWEB].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
                 caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
                 caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
@@ -108,7 +127,7 @@ class NoticiaCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                 return HttpResponseRedirect(self.get_success_url())
             else:
                 return render(request, self.template_name,
-                              {'form': form, 'form2': form2, 'error': '¡La noticia no tiene imagen!'})
+                              context={'form': form, 'form2': form2, 'error': '¡La noticia no tiene imagen!'})
         else:
             return render(request, self.template_name, {'form': form, 'form2': form2})
 
@@ -217,6 +236,7 @@ class NoticiaUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
 
             caches[settings.CACHE_API_NOTICIAS].clear()
             caches[settings.CACHE_API_NOTICIAS2].clear()
+            caches[settings.CACHE_API_NOTICIASWEB].clear()
             caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
             caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
             caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
@@ -245,6 +265,7 @@ class NoticiaDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_NOTICIAS].clear()
         caches[settings.CACHE_API_NOTICIAS2].clear()
+        caches[settings.CACHE_API_NOTICIASWEB].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
         caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()
@@ -263,6 +284,7 @@ def eliminarnoticia(request, pk):
     if request.method == 'POST':
         caches[settings.CACHE_API_NOTICIAS].clear()
         caches[settings.CACHE_API_NOTICIAS2].clear()
+        caches[settings.CACHE_API_NOTICIASWEB].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS].clear()
         caches[settings.CACHE_API_NOTICIAS_DESTACADAS_CATEGORIA].clear()
         caches[settings.CACHE_API_NOTICIASXCATEGORIA].clear()

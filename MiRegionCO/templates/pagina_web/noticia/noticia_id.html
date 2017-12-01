@@ -24,7 +24,6 @@
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
     <script src="{% static 'pagina_web/js/modernizr.js' %}"></script>
     <script defer src="{% static 'pagina_web/js/jquery.flexslider.js' %}"></script>
-
     <script>
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -34,6 +33,27 @@
             js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+        $(document).ready(function () {
+            //Send statisct
+            send_statistics('{% url 'api:visita_noticia_web' %}', {{ noticia.id }}, true);
+
+            var btn_share_fb = document.getElementById('btn-share-fb');
+            btn_share_fb.onclick = function () {
+                send_statistics('{% url 'api:comparte_facebook_web' %}', {{ noticia.id }}, true);
+            };
+
+            var btn_share_tw = document.getElementById('btn-share-tw');
+            btn_share_tw.onclick = function () {
+                send_statistics('{% url 'api:comparte_twitter_web' %}', {{ noticia.id }}, true);
+            };
+
+            var btn_share_go = document.getElementById('btn-share-go');
+            btn_share_go.onclick = function () {
+                send_statistics('{% url 'api:comparte_google_web' %}', {{ noticia.id }}, true);
+            };
+
+        })
     </script>
 
 {% endblock %}
@@ -73,9 +93,10 @@
     <!-- Banner cabecera index -->
 
     <div class="banner_cabecera">
-        <div class="contenido_publicidad_cabecera">
-            <h5>Seccion Banner Publicitario</h5>
-        </div>
+        <a href="https://www.facebook.com/LaNonnaArtesana/">
+            <div class="contenido_publicidad_cabecera">
+            </div>
+        </a>
     </div>
 
 
@@ -158,21 +179,21 @@
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-9 social-button">
                             <ul class="social-up">
-                                <a target="_blank"
+                                <a id="btn-share-fb" target="_blank"
                                    href="https://www.facebook.com/sharer/sharer.php?u={{ full_url }}">
                                     <li id="shareBtn" class="crop"><img
                                             src="{% static 'pagina_web/images/fb_social.png' %}" alt="">
                                     </li>
                                 </a>
-                                <a target="_blank"
+                                <a id="btn-share-tw" target="_blank"
                                    href="https://twitter.com/intent/tweet?text={{ noticia.titular }}&url={{ full_url }}&via=MiRegionCO"
                                    data-size="large">
                                     <li class="crop">
                                         <img src="{% static 'pagina_web/images/tw_social.png' %}" alt="">
                                     </li>
                                 </a>
-                                <a href="https://plus.google.com/share?url={{ full_url }}" onclick="javascript:window.open(this.href,
-  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                                <a id="btn-share-go" target="_blank"
+                                   href="https://plus.google.com/share?url={{ full_url }}">
                                     <li class="crop"><img src="{% static 'pagina_web/images/go_social.png' %}" alt="">
                                     </li>
                                 </a>
@@ -181,14 +202,15 @@
                         <div class="clearfix"></div>
                         <div class="col-md-12 contenido-noticia">
                             <p class="noticia-text">{{ noticia.texto|linebreaksbr }}</p>
-                            <div class="noticia-video">
-                                {% if noticia.video %}
+                            {% if noticia.video %}
+                                <div class="noticia-video">
+
                                     <iframe src="{{ noticia.video }}"
                                             width="100%" style="border:none;overflow:hidden" scrolling="no"
                                             allowTransparency="true" allowFullScreen="true">
                                     </iframe>
-                                {% endif %}
-                            </div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -244,10 +266,14 @@
                 </div>
             </div>
         </div>
+
+        <!-- BANNER PUBLICITARIO DOWN NOTICIA-->
+
         <div class="banner_publicitario_noticia">
-            <div class="contenido_publicidad_noticia">
-                <h5>Seccion Banner Publicitario</h5>
-            </div>
+            <a href="https://www.facebook.com/OasisPlazaCentroComercial/">
+                <div class="contenido_publicidad_noticia">
+                </div>
+            </a>
         </div>
         <!--NOTICIA RELACIONADA-->
 
@@ -267,13 +293,13 @@
                                     {% for noticia_destacada in noticias_destacadas %}
                                         <li>
                                             <div class="noticia-relacionada">
-                                                <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                                                <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                                     <img class="img-responsive"
                                                          src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
                                                 </a>
                                                 <div class="noticia-descripcion">
                                                     <h4>
-                                                        <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">{{ noticia_destacada.titular }}</a>
+                                                        <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">{{ noticia_destacada.titular }}</a>
                                                     </h4>
                                                 </div>
                                             </div>

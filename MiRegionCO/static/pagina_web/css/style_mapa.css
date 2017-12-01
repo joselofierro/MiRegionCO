@@ -51,9 +51,21 @@ label {
     margin: 0;
 }
 
+#wrap {
+    overflow-x: hidden;
+}
+
 /* ==========================================================================
    estilos modal publicitario index - mapa - noticia
    ========================================================================== */
+
+.banner_cabecera {
+    top: 16px;
+}
+
+.contenido_publicidad_cabecera {
+    background-image: url(../images/banners/nonna@2x.png);
+}
 
 .modal_publicitario {
     width: 85%;
@@ -246,6 +258,11 @@ label {
         width: 30px;
     }
 
+    /*_________banner publicitarios cabecera_____________*/
+    .contenido_publicidad_cabecera {
+        background: url("../images/banners/nonna0.png");
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -275,15 +292,17 @@ label {
     }
 
     .contenido_modal {
-        height: 350px;
+        height: 250px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 25px;
     }
 
     .banner_modal {
-        height: 250px;
+        height: 160px;
     }
 
     .descripcion_modal {
-        height: 100px;
+        height: 75px;
     }
 
     .logo_modal {
@@ -293,25 +312,50 @@ label {
     .call_action h1 {
         top: 0;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .btn_store_banner img {
         width: 80px;
     }
 
-}
+    #cerrar + label {
+        right: 7px;
+        top: 8px;
+        font-size: 15px;
+        height: 25px;
+        width: 25px;
+    }
 
-@media (max-width: 414px) {
-    .call_action h1 {
-        font-size: 18px;
+    /*_________banner publicitarios cabecera_____________*/
+    .contenido_publicidad_cabecera {
+        background: url("../images/banners/nonnaMovil.png");
+        background-size: 100% 100%;
+        height: 70px;
+    }
+
+    .banner_cabecera {
+        top: 50px;
     }
 
 }
 
 @media (max-width: 375px) {
+
     .contenido_modal {
-        width: 95%;
+        height: 240px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+    }
+
+    .call_action h1 {
+        font-size: 14px;
     }
 }
 
@@ -319,21 +363,21 @@ label {
    estilos banner cabecera mapa
    ========================================================================== */
 
-
 .banner_cabecera_mapa {
     width: 98%;
-    margin: 15px auto;
+    margin: 10px auto;
     height: 100px;
     box-sizing: border-box;
-    background: #333;
+    background: #afafaf;
     position: relative;
     top: 0;
 }
-/**********CONTENEDOR MAPA*************/
 
+/**********CONTENEDOR MAPA*************/
 #map {
-    height: 95vh;
+    height: 83vh;
     width: 100%;
+    margin-top: 60px;
 }
 
 /**********MENU MAPA*************/
@@ -344,7 +388,7 @@ label {
 .contenedor-menumapa {
     overflow: auto;
     overflow-x: hidden;
-    height: 75%;
+    height: 85%;
     direction: rtl;
 }
 
@@ -377,15 +421,16 @@ label {
 .nav {
     display: flex;
     position: absolute;
-    top: 2.5%;
+    top: 100px;
     left: -33.333%;
     width: 33.333%;
-    height: 90vh;
+    height: 83vh;
     transition: all 0.4s;
     background-color: rgba(128, 180, 147, 0.9);
     z-index: 1;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    margin-top: 60px;
 }
 
 .contenedor-menu .menu-mapa .activado > a {
@@ -566,15 +611,15 @@ ul.menu-mapa li > a:hover > i {
 }
 
 /**********sitios recomendados*************/
-contenedor-relacionada {
-    margin: 2em 1em;
+.contenedor-relacionada {
+    margin: 3em 1em;
 }
 
 .contenedor-noticia-relacionada {
     border-top: 2px solid;
     border-color: rgba(0, 0, 0, 0.5);
     box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.5);
-    padding-top: 1em;
+    padding-top: 2em;
 }
 
 /***********************responsive************************/
@@ -629,19 +674,12 @@ contenedor-relacionada {
 
 @media (max-width: 768px) {
 
-    .nav {
-        left: -60%;
-        width: 60%;
-        height: 85vh;
-        top: 3%;
-    }
-
     .mostrar {
         left: 0;
     }
 
     .contenedor-menumapa {
-        height: 70%;
+        height: 80%;
     }
 }
 
@@ -679,11 +717,6 @@ contenedor-relacionada {
         margin-top: 34vh;
         overflow-x: hidden;
 
-    }
-
-    .nav {
-        left: -95%;
-        width: 95%;
     }
 
     .mostrar {

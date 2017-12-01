@@ -44,7 +44,8 @@ class NoticiaSerializer(ModelSerializer):
     class Meta:
         model = Noticia
         fields = (
-            'id', 'fecha', 'hora', 'titular', 'lead', 'texto', 'imagen_video', 'url', 'video', 'duracion', 'imagenes',
+            'id', 'fecha', 'hora', 'titular', 'slug', 'lead', 'texto', 'imagen_video', 'url', 'video', 'duracion',
+            'imagenes',
             'autor', 'tag')
 
 
@@ -145,6 +146,54 @@ class LoginSerializer(ModelSerializer):
     class Meta:
         model = Ingreso
         fields = ('usuario', 'dispositivo')
+
+
+class VisitIndexSerializer(ModelSerializer):
+    class Meta:
+        model = VisitIndex
+        fields = ('isdesktop',)
+
+
+class VisitNewsSerializer(ModelSerializer):
+    class Meta:
+        model = VisitNews
+        fields = ('isdesktop', 'noticia')
+
+
+class ShareFacebookSerializer(ModelSerializer):
+    class Meta:
+        model = ShareFacebook
+        fields = ('isdesktop', 'noticia')
+
+
+class ShareTwitterSerializer(ModelSerializer):
+    class Meta:
+        model = ShareTwitter
+        fields = ('isdesktop', 'noticia')
+
+
+class ShareGoogleSerializer(ModelSerializer):
+    class Meta:
+        model = ShareGoogle
+        fields = ('isdesktop', 'noticia')
+
+
+class VisitMapaSerializer(ModelSerializer):
+    class Meta:
+        model = VisitMap
+        fields = ('isdesktop',)
+
+
+class MapVisitPlaceSerializer(ModelSerializer):
+    class Meta:
+        model = VisitPlace
+        fields = ('isdesktop', 'sitio')
+
+
+class SaveNewsSerializer(ModelSerializer):
+    class Meta:
+        model = SaveNewsSerializer
+        fields = ('isdesktop',)
 
 
 # Serializers de MiregionVentas

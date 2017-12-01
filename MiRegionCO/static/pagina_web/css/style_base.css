@@ -22,161 +22,79 @@ body > #wrap {
 .banner_cabecera {
     width: 98%;
     margin: auto;
-    height: 100px;
+    height: 80px;
     box-sizing: border-box;
-    background: #afafaf;
     position: relative;
     top: 60px;
 }
 
 .contenido_publicidad_cabecera {
-    height: 100px;
-    border: 3px #fff dashed;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    background: url("../images/banners/nonna@2x.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }
 
-.contenido_publicidad_cabecera h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1.2em;
+.banner_publicitario_noticia {
+    height: 120px;
+}
+
+.contenido_publicidad_noticia {
+    height: 120px;
+    box-sizing: border-box;
+    background: url("../images/banners/OasisPlaza@2x.png") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
 
 .banner_right_principal {
-    background: #afafaf;
-    border: 3px #fff dashed;
     box-sizing: border-box;
-}
-
-.contenido_right_principal {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    margin-top: 25%;
-}
-
-.contenido_right_principal h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1em;
-
-    position: relative;
-}
-
-.contenido_right_principal h5 span {
-    position: absolute;
-    right: 0;
-    width: 0;
-    background: #afafaf;
-
-    -webkit-animation: machine1 1s 2s alternate infinite steps(2);
-    -o-animation: machine1 1s 2s alternate infinite steps(2);
-    animation: machine1 1s 2s alternate infinite steps(2);
-}
-
-@keyframes machine1 {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-
+    background: url("../images/banners/poteSeguros@2x.png") no-repeat;
+    background-size: 100% 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }
 
 .banner_right {
     height: 200px;
-    background: #afafaf;
 }
 
-.contenido_publicidad_right {
+.contenido_publicidad_right_0 {
     height: 200px;
-    border: 3px #fff dashed;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: url("../images/banners/Burguemania0.png") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
 
-.contenido_publicidad_right h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1em;
-
-    position: relative;
-    float: left;
-}
-
-.contenido_publicidad_right h5 span {
-    position: absolute;
-    right: 0;
-    width: 0;
-    background: #afafaf;
-    font-size: 1.5em;
-
-    animation: machine 5s 3s alternate-reverse infinite;
-}
-
-@keyframes machine2 {
-    from {
-        width: 100%;
-    }
-    to {
-        width: 0;
-    }
-
-}
-
-.banner_publicitario_noticia {
-    height: 150px;
-    background: #afafaf;
-    margin: 50px 0;
-}
-
-.contenido_publicidad_noticia {
-    height: 150px;
-    border: 3px #fff dashed;
+.contenido_publicidad_right_1 {
+    height: 200px;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: url("../images/banners/colorVerano0.png") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
 
-.contenido_publicidad_noticia h5 {
-    color: #fff;
-    letter-spacing: 5px;
-    font-size: 1.2em;
-
-    position: relative;
-    float: left;
+.contenido_publicidad_right_2 {
+    height: 200px;
+    box-sizing: border-box;
+    background: url("../images/banners/sorprendiendo.png") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
 }
 
-.contenido_publicidad_noticia h5 span {
-    position: absolute;
-    right: 0;
-    width: 0;
-    background: #afafaf;
-    border-left: 1px solid #f7f7f7;
-
-    animation: machine 5s 3s infinite steps(27);
-}
-
-@keyframes machine {
-    from {
-        width: 100%;
-    }
-    to {
-        width: 0;
-    }
-
+.contenedor_publicitario_movil {
+    display: none;
 }
 
 /***************btn ver mas********************/
 .contenedor_btn_vermas {
     display: flex;
     justify-content: center;
+    margin-bottom: 3em;
 }
 
 .btn_ver_mas {
@@ -192,6 +110,13 @@ body > #wrap {
     -webkit-box-shadow: 0px 10px 48px -10px rgba(175, 175, 175, 0.6);
     -moz-box-shadow: 0px 10px 48px -10px rgba(175, 175, 175, 0.6);
     box-shadow: 0px 10px 48px -10px rgba(175, 175, 175, 0.6);
+}
+
+.btn_ver_mas:hover {
+    -webkit-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.16);
+    color: #ffffff;
 }
 
 /***************ScrollTop********************/
@@ -547,17 +472,53 @@ nav a:focus {
 
 #inputSearch {
     padding: 0;
-    margin: 0;
+    margin: .3em auto 0;
     border: none;
-    height: 45px;
-    font-size: 35px;
+    height: 60px;
+    font-size: 50px;
     box-shadow: none;
 }
 
+.card_noticia {
+    height: 450px;
+    margin-bottom: .5em;
+    overflow: hidden;
+}
+
 .contenedor_img_card {
-    height: 50%;
+    height: 60%;
     width: 100%;
     overflow: hidden;
+    margin-bottom: .3em;
+}
+
+.contenedor_img_card img {
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+h5.top_card a {
+    line-height: 1.2em;
+    font-size: 1.2em;
+    color: #00214D;
+    font-weight: 600;
+}
+
+.card_noticia p {
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #777;
+    margin: 0.5em 0;
+}
+
+.card_noticia .card_fecha {
+    font-size: 0.7em;
+    margin: 0;
+    font-weight: 800;
+    color: #00214D;
 }
 
 /************END***************/
@@ -988,14 +949,34 @@ ul.side-icons li a:hover {
         padding: 10px 5px;
     }
 
+    /*__________publicidad_____________*/
     .contenido_right_principal h5 {
         letter-spacing: 3px;
         font-size: .85em;
     }
 
-    .contenido_publicidad_right h5 {
+    .contenido_publicidad_right_0 h5 {
         letter-spacing: 3px;
         font-size: .75em;
+    }
+
+    /*__________modal buscar_____________*/
+    .contenedor_img_card {
+        height: 55%;
+    }
+
+    h5.top_card a {
+        font-size: 1.1em;
+    }
+
+    .card_noticia p {
+        font-size: 0.85em;
+    }
+
+    .card_noticia .card_fecha {
+        font-size: 0.7em;
+        margin: 0;
+        font-weight: 800;
     }
 
 }
@@ -1047,6 +1028,14 @@ ul.side-icons li a:hover {
     .icon-mediano {
         width: 30px;
         height: 30px;
+    }
+
+}
+
+@media (max-width: 1200px) {
+
+    .card_noticia {
+        height: 360px;
     }
 
 }
@@ -1124,12 +1113,17 @@ ul.side-icons li a:hover {
         padding: 3px 25px;
     }
 
+    .text_miregion {
+        max-width: 80%;
+        margin: 0 10%;
+    }
+
     .footer-border {
-        border-right: none;
+        border-left: none;
     }
 
     ul.side-icons {
-        margin-left: 5em;
+        margin-left: 3em;
     }
 
     .footer-grid h4 {
@@ -1141,6 +1135,55 @@ ul.side-icons li a:hover {
         border-left: 2px solid;
         border-color: rgba(0, 0, 0, 0.3);
     }
+
+    /*_________modal buscar_____________*/
+    .card_noticia {
+        height: 400px;
+    }
+
+    .contenedor_img_card {
+        height: 60%;
+    }
+
+    /*_________banner publicitarios movil_____________*/
+    .banner_movil {
+        width: 250px;
+        display: inline-block;
+    }
+
+    .contenedor_publicitario_movil {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    /*_________banner publicitarios cabecera_____________*/
+    .contenido_publicidad_cabecera {
+        background: url("../images/banners/nonna0.png");
+        background-size: 100% 100%;
+    }
+
+    /*_________banner publicitarios cabecera_____________*/
+    .contenido_publicidad_noticia {
+        background: url("../images/banners/OasisPlaza0.png");
+        background-size: 100% 100%;
+        height: 90px;
+    }
+
+    .banner_publicitario_noticia {
+
+        height: 90px;
+
+    }
+
+    .banner_right_principal {
+        background: url("../images/banners/Banner_Pote.png");
+        background-size: 100% 100%;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -1150,13 +1193,6 @@ ul.side-icons li a:hover {
         margin-bottom: 1em;
         display: table-cell;
         left: 5%;
-    }
-
-    ul.side-icons {
-        display: grid;
-        margin-top: 1em;
-        margin-left: 4em;
-        margin-bottom: 1em;
     }
 
     .footer-border {
@@ -1176,6 +1212,33 @@ ul.side-icons li a:hover {
     #toTop span {
         display: none;
     }
+
+    /*_________modal buscar_____________*/
+    #contenedor-noticias-search {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card_noticia {
+        max-width: 475px;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    .contenedor_img_card {
+        height: 240px;
+    }
+
+    .buscador label {
+        font-size: .85em;
+    }
+
+    #inputSearch {
+        height: 30px;
+        font-size: 25px;
+    }
+
 }
 
 @media (max-width: 736px) {
@@ -1188,7 +1251,12 @@ ul.side-icons li a:hover {
     }
 
     ul.side-icons {
-        margin-left: 2em;
+        margin-left: 0em;
+    }
+
+    .text_miregion {
+        max-width: 90%;
+        margin: 0 5%;
     }
 
 }
@@ -1287,6 +1355,41 @@ ul.side-icons li a:hover {
 
 @media (max-width: 480px) {
 
+    /*_________banner publicitarios movil_____________*/
+    .contenedor_publicitario_movil {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        margin: 1em auto;
+    }
+
+    /*_________banner publicitarios cabecera_____________*/
+    .contenido_publicidad_cabecera {
+        background: url("../images/banners/nonnaMovil.png");
+        background-size: 100% 100%;
+        height: 70px;
+    }
+
+    /*_________banner publicitarios down_____________*/
+    .contenido_publicidad_noticia {
+        background: url("../images/banners/oasisMovil.png");
+        height: 60px;
+        background-size: 100% 100%;
+    }
+
+    .banner_publicitario_noticia {
+        height: 60px;
+        margin: 0px;
+    }
+
+    .banner_right {
+
+        height: 150px;
+
+    }
+
+    /********store btn***********/
     div.logo a {
         position: absolute;
         width: 100%;
@@ -1700,7 +1803,7 @@ ul.side-icons li a:hover {
     }
 
     .contenido_modal {
-        width: 90%;
+        width: 80%;
         height: 450px;
     }
 
@@ -1757,15 +1860,17 @@ ul.side-icons li a:hover {
     }
 
     .contenido_modal {
-        height: 350px;
+        height: 250px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 25px;
     }
 
     .banner_modal {
-        height: 250px;
+        height: 160px;
     }
 
     .descripcion_modal {
-        height: 100px;
+        height: 75px;
     }
 
     .logo_modal {
@@ -1775,25 +1880,39 @@ ul.side-icons li a:hover {
     .call_action h1 {
         top: 0;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .btn_store_banner img {
         width: 80px;
     }
 
-}
-
-@media (max-width: 414px) {
-    .call_action h1 {
-        font-size: 18px;
+    #cerrar + label {
+        right: 7px;
+        top: 8px;
+        font-size: 15px;
+        height: 25px;
+        width: 25px;
     }
 
 }
 
 @media (max-width: 375px) {
+
     .contenido_modal {
-        width: 95%;
+        height: 240px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+    }
+
+    .call_action h1 {
+        font-size: 14px;
     }
 }
 

@@ -4,7 +4,92 @@
     <bookmark url="file://$PROJECT_DIR$/apps/categoria/urls.py" line="9" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas" />
+    <list default="true" id="e2235cf6-4d7a-4408-99ae-b94f23ea72ba" name="Default" comment="Nuevas estadisticas para la página web listas">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Banner_BurguerMania.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Banner_ColorVerano.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Banner_Pote.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/Burguemania0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/OasisPlaza0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/OasisPlaza@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/colorVerano0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/nonna0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/nonna@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/nonnaMovil.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/oasisMovil.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/poteSeguros@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/sorprendiendo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/banners/sorprendiendo@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/images/themes.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/categoria/migrations/0006_auto_20171101_1620.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/estadistica/migrations/0010_auto_20171103_1443.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/noticia/migrations/0017_auto_20171103_1115.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/noticia/migrations/0018_noticia_slug.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/noticia/migrations/0019_auto_20171123_1908.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/noticia/migrations/0020_auto_20171123_1908.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/noticia/migrations/0021_auto_20171123_1933.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/noticia/migrations/0022_auto_20171123_1936.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/noticia/migrations/0023_auto_20171124_1808.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/src_js.cookie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows-dark.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-arrows.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-basic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether-theme-basic.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/css/tether.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/js/tether.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pagina_web/js/tether/js/tether.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MiregionCO.iml" afterPath="$PROJECT_DIR$/.idea/MiregionCO.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/juliofierro.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/juliofierro.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/settings.py" afterPath="$PROJECT_DIR$/MiRegionCO/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiRegionCO/urls.py" afterPath="$PROJECT_DIR$/MiRegionCO/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/serializers.py" afterPath="$PROJECT_DIR$/api/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/urls.py" afterPath="$PROJECT_DIR$/api/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/activacion_youtuber/forms.py" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/activacion_youtuber/views.py" afterPath="$PROJECT_DIR$/apps/activacion_youtuber/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/categoria/forms.py" afterPath="$PROJECT_DIR$/apps/categoria/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/categoria/models.py" afterPath="$PROJECT_DIR$/apps/categoria/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/estadistica/models.py" afterPath="$PROJECT_DIR$/apps/estadistica/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/grupo/urls.py" afterPath="$PROJECT_DIR$/apps/grupo/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/grupo/views.py" afterPath="$PROJECT_DIR$/apps/grupo/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/forms.py" afterPath="$PROJECT_DIR$/apps/noticia/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/models.py" afterPath="$PROJECT_DIR$/apps/noticia/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/noticia/views.py" afterPath="$PROJECT_DIR$/apps/noticia/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/notificaciones/views.py" afterPath="$PROJECT_DIR$/apps/notificaciones/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/sitio/views.py" afterPath="$PROJECT_DIR$/apps/sitio/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/web/templatetags/categorias.py" afterPath="$PROJECT_DIR$/apps/web/templatetags/categorias.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/web/urls.py" afterPath="$PROJECT_DIR$/apps/web/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/web/views.py" afterPath="$PROJECT_DIR$/apps/web/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/bootstrap.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style__noticia.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_content.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_content.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" afterPath="$PROJECT_DIR$/static/pagina_web/css/style_mapa.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/pagina_web/js/menu.js" afterPath="$PROJECT_DIR$/static/pagina_web/js/menu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base.html" afterPath="$PROJECT_DIR$/templates/base/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base_pagina_web.html" afterPath="$PROJECT_DIR$/templates/base/base_pagina_web.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/categorias_menu.html" afterPath="$PROJECT_DIR$/templates/base/categorias_menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/categoria/categoria_list.html" afterPath="$PROJECT_DIR$/templates/categoria/categoria_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noticia/noticia_form.html" afterPath="$PROJECT_DIR$/templates/noticia/noticia_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noticia/noticia_list.html" afterPath="$PROJECT_DIR$/templates/noticia/noticia_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" afterPath="$PROJECT_DIR$/templates/notificaciones/notificacion_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/home/index.html" afterPath="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html" afterPath="$PROJECT_DIR$/templates/pagina_web/home/index_categoria.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html" afterPath="$PROJECT_DIR$/templates/pagina_web/mapa/mapa.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" afterPath="$PROJECT_DIR$/templates/pagina_web/noticia/noticia_id.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,11 +133,9 @@
           <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2593">
-                  <caret line="128" column="26" lean-forward="false" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
-                  <folding>
-                    <marker date="1512145729000" expanded="true" signature="1009:1010" ph="..." />
-                  </folding>
+                <state relative-caret-position="171">
+                  <caret line="127" column="46" lean-forward="true" selection-start-line="127" selection-start-column="46" selection-end-line="127" selection-end-column="46" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -60,10 +143,14 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="302">
-                  <caret line="276" column="10" lean-forward="false" selection-start-line="276" selection-start-column="10" selection-end-line="276" selection-end-column="10" />
+                <state relative-caret-position="547">
+                  <caret line="319" column="0" lean-forward="true" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
                   <folding>
-                    <element signature="e#13246#13265#0#HTML" expanded="true" />
+                    <element signature="e#13521#13541#0#HTML" expanded="true" />
+                    <element signature="e#13720#13740#0#HTML" expanded="true" />
+                    <element signature="e#13925#13945#0#HTML" expanded="true" />
+                    <element signature="e#14130#14150#0#HTML" expanded="true" />
+                    <element signature="e#14687#14706#0#HTML" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -88,7 +175,7 @@
                   <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#59#0" expanded="true" />
-                    <marker date="1512145729000" expanded="true" signature="1904:1906" ph="..." />
+                    <marker date="1512146125000" expanded="true" signature="2086:2088" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -97,12 +184,12 @@
           <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="855">
-                  <caret line="57" column="35" lean-forward="false" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+                <state relative-caret-position="870">
+                  <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
                   <folding>
-                    <marker date="1512145729000" expanded="false" signature="0:5" ph="import ..." />
-                    <marker date="1512145729000" expanded="true" signature="12007:12076" ph="..." />
-                    <marker date="1512145729000" expanded="true" signature="12007:12207" ph="..." />
+                    <marker date="1512146126000" expanded="false" signature="0:5" ph="import ..." />
+                    <marker date="1512146126000" expanded="true" signature="13427:13496" ph="..." />
+                    <marker date="1512146126000" expanded="true" signature="13427:13627" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -286,7 +373,6 @@
         <option value="$PROJECT_DIR$/apps/ventas/producto/views.py" />
         <option value="$PROJECT_DIR$/apps/ventas/subcategoria_producto/views.py" />
         <option value="$PROJECT_DIR$/apps/ventas/vendedor/views.py" />
-        <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
         <option value="$PROJECT_DIR$/apps/noticia/views.py" />
         <option value="$PROJECT_DIR$/apps/notificaciones/admin.py" />
         <option value="$PROJECT_DIR$/apps/notificaciones/urls.py" />
@@ -294,6 +380,7 @@
         <option value="$PROJECT_DIR$/templates/base/base.html" />
         <option value="$PROJECT_DIR$/apps/notificaciones/views.py" />
         <option value="$PROJECT_DIR$/templates/pagina_web/home/index.html" />
+        <option value="$PROJECT_DIR$/MiRegionCO/settings.py" />
       </list>
     </option>
   </component>
@@ -1008,16 +1095,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15388711" sideWeight="0.4899225" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286991" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3160569" sideWeight="0.5079872" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2449187" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2449187" sideWeight="0.48828542" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825205" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24695122" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26422763" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26422763" sideWeight="0.49041533" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3160569" sideWeight="0.49201277" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23148148" sideWeight="0.51007754" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1475,22 +1563,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/noticia/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="35" lean-forward="false" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        <state relative-caret-position="870">
+          <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
           <folding>
-            <marker date="1512145729000" expanded="false" signature="0:5" ph="import ..." />
-            <marker date="1512145729000" expanded="true" signature="12007:12076" ph="..." />
-            <marker date="1512145729000" expanded="true" signature="12007:12207" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2593">
-          <caret line="128" column="26" lean-forward="false" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
-          <folding>
-            <marker date="1512145729000" expanded="true" signature="1009:1010" ph="..." />
+            <marker date="1512146126000" expanded="false" signature="0:5" ph="import ..." />
+            <marker date="1512146126000" expanded="true" signature="13427:13496" ph="..." />
+            <marker date="1512146126000" expanded="true" signature="13427:13627" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1501,7 +1579,7 @@
           <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
-            <marker date="1512145729000" expanded="true" signature="1904:1906" ph="..." />
+            <marker date="1512146125000" expanded="true" signature="2086:2088" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1552,12 +1630,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MiRegionCO/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="127" column="46" lean-forward="true" selection-start-line="127" selection-start-column="46" selection-end-line="127" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pagina_web/home/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="276" column="10" lean-forward="false" selection-start-line="276" selection-start-column="10" selection-end-line="276" selection-end-column="10" />
+        <state relative-caret-position="547">
+          <caret line="319" column="0" lean-forward="true" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
           <folding>
-            <element signature="e#13246#13265#0#HTML" expanded="true" />
+            <element signature="e#13521#13541#0#HTML" expanded="true" />
+            <element signature="e#13720#13740#0#HTML" expanded="true" />
+            <element signature="e#13925#13945#0#HTML" expanded="true" />
+            <element signature="e#14130#14150#0#HTML" expanded="true" />
+            <element signature="e#14687#14706#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

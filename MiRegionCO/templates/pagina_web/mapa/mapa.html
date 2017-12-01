@@ -6,12 +6,6 @@
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'pagina_web/css/style_mapa.css' %}"/>
     <link rel="stylesheet" href="{% static 'pagina_web/css/flexslider.css' %}" type="text/css" media="screen"/>
-    <style>
-        #map {
-            height: 95vh;
-            width: 100%;
-        }
-    </style>
 
 {% endblock %}
 
@@ -22,48 +16,50 @@
     <script defer src="{% static 'pagina_web/js/jquery.flexslider.js' %}"></script>
     <!-- Scrip MapaInit -->
     <script>
-        function initMap() {
-            var neiva = {lat: 2.936691, lng: -75.272161};
-            var ubicaciones = [];
-            var infoWindowContent = [];
+        var map;
+        var markers = [];
+        var neiva = {lat: 2.936691, lng: -75.272161};
+        var ubicaciones = [];
+        var infoWindowContent = [];
 
-            {% for sitio in sitios %}
-                ubicaciones.push(['{{ sitio.nombre|escape }}', {{ sitio.latitud|escape }}, {{ sitio.longitud|escape }}, '{{ sitio.marcador }}']);
-                infoWindowContent.push([
-                    '<div class="info_content">' +
-                    '<div class="info_div">' +
-                    '<img src="{{ sitio.logo_e }}" alt="">' +
-                    '<div class="info_descripcion">' +
-                    '<h3>{{ sitio.nombre }}</h3>' +
-                    '<p>{{ sitio.descripcion|linebreaksbr }}</p>' +
-                    '</div>' +
-                    '</div>' +
-                    '<hr class="info_hr">' +
-                    '<div class="info_sitio">' +
-                    '<p class="horario"><span class="glyphicon glyphicon-time"></span>{{ sitio.horario }}</p>' +
-                    '<p><span class="glyphicon glyphicon-phone-alt"></span>{{ sitio.telefono }}</p>' +
-                    '<p class="direccion"><span class="glyphicon glyphicon-map-marker"></span>{{ sitio.direccion }}</p>' +
-                    '</div>' +
-                    '</div>']);
-            {% endfor %}
+        var noPoi = [
+            {
+                featureType: "poi",
+                stylers: [
+                    {visibility: "off"}
+                ]
+            }
+        ];
 
-            var noPoi = [
-                {
-                    featureType: "poi",
-                    stylers: [
-                        {visibility: "off"}
-                    ]
-                }
-            ];
+        var mapOptions = {
+            mapTypeId: 'roadmap',
+            zoom: 15,
+            center: neiva,
+            styles: noPoi
+        };
 
-            var mapOptions = {
-                mapTypeId: 'roadmap',
-                zoom: 15,
-                center: neiva,
-                styles: noPoi
-            };
+        function ubicacionesYinfoWindow(nombre, latitud, longitud, marcador, logo_e, descripcion, horario, telefono, direccion, id) {
+            ubicaciones.push([nombre, latitud, longitud, marcador, id]);
+            infoWindowContent.push([
+                '<div class="info_content">' +
+                '<div class="info_div">' +
+                '<img src="' + logo_e + '" alt="">' +
+                '<div class="info_descripcion">' +
+                '<h3>' + nombre + '</h3>' +
+                '<p>' + descripcion + '</p>' +
+                '</div>' +
+                '</div>' +
+                '<hr class="info_hr">' +
+                '<div class="info_sitio">' +
+                '<p class="horario"><span class="glyphicon glyphicon-time"></span>' + horario + '</p>' +
+                '<p><span class="glyphicon glyphicon-phone-alt"></span>' + telefono + '</p>' +
+                '<p class="direccion"><span class="glyphicon glyphicon-map-marker"></span>' + direccion + '</p>' +
+                '</div>' +
+                '</div>']);
+        }
 
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        function addMarkers() {
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
             /*var marker = new google.maps.Marker({
                 position: neiva,
                 map: map
@@ -77,21 +73,67 @@
                     position: position,
                     map: map,
                     title: ubicaciones[i][0],
-                    icon: ubicaciones[i][3]
+                    icon: ubicaciones[i][3],
+                    id: ubicaciones[i][4]
                 });
+
+                markers.push(marker);
 
                 // Allow each marker to have an info window
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
                         infoWindow.setContent(infoWindowContent[i][0]);
                         infoWindow.open(map, marker);
+
+                        send_statistics('{% url 'api:visita_sitio_web' %}', marker.id, false);
                     }
                 })(marker, i));
             }
         }
+
+        function initMap() {
+            {% for sitio in sitios %}
+                ubicacionesYinfoWindow(
+                    '{{ sitio.nombre|escape }}', {{ sitio.latitud|escape }}, {{ sitio.longitud|escape }}, '{{ sitio.marcador }}', '{{ sitio.logo_e }}', '{{ sitio.descripcion|linebreaksbr }}', '{{ sitio.horario }}', '{{ sitio.telefono }}', '{{ sitio.direccion }}', {{ sitio.id }});
+            {% endfor %}
+            addMarkers();
+        }
+
+        // Sets the map on all markers in the array.
+        function removeMarkers(map) {
+            ubicaciones = [];
+            markers = [];
+            infoWindowContent = [];
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+        function sitiosSubcategoria(idCategoria) {
+            var url_mask = "{% url 'api:sitios_by_subcategoria' 1 %}".replace(/1/, idCategoria);
+            $.ajax({
+                url: url_mask,
+                type: 'GET',
+                dataType: 'application/json',
+                complete: function (data) {
+                    removeMarkers(null);
+                    var arr_sitios = JSON.parse(data.responseText);
+                    arr_sitios.forEach(function (sitio) {
+                        ubicacionesYinfoWindow(sitio.nombre, sitio.latitud, sitio.longitud, sitio.marcador, sitio.logo_e, sitio.descripcion, sitio.horario, sitio.telefono, sitio.direccion, sitio.id);
+                        addMarkers();
+                        $("#nav").removeClass("mostrar");
+                    });
+                }
+            })
+        }
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXn0hPkB1IS6HRHnn2tBTXV-OdtxqXy7E&callback=initMap">
+    </script>
+    <script>
+        $(document).ready(function () {
+            send_statistics('{% url 'api:visita_mapa_web' %}');
+        })
     </script>
 {% endblock %}
 
@@ -127,10 +169,11 @@
     </div>
     <!-- Banner cabecera index -->
 
-    <div class="banner_cabecera_mapa">
-        <div class="contenido_publicidad_cabecera">
-            <h5>Seccion Banner Publicitario</h5>
-        </div>
+    <div class="banner_cabecera">
+        <a href="https://www.facebook.com/LaNonnaArtesana/">
+            <div class="contenido_publicidad_cabecera">
+            </div>
+        </a>
     </div>
 
 
@@ -141,7 +184,7 @@
                 <img src="{% static 'pagina_web/images/icon_miciudad.png' %}" class="icon-mediano">
                 <h1>Mi Ciudad</h1>
             </div>
-            <div class="search-mapa">
+            <div class="search-mapa" style="display: none">
                 <div class="b-search-mapa">
                     <form>
                         <input type="text" placeholder="¿Que Sitio Buscas?" value="" onfocus="this.value = '';"
@@ -160,7 +203,9 @@
                             </a>
                             <ul>
                                 {% for subcategoria in categoria.subcategoria_mapa.all %}
-                                    <li class="submenu-item"><a href="#">{{ subcategoria.nombre }}</a></li>
+                                    <li id="subcategoria-mapa" class="submenu-item" idCategoria="{{ subcategoria.id }}"
+                                        onclick="sitiosSubcategoria(this.getAttribute('idCategoria', 0))"><a
+                                            href="#">{{ subcategoria.nombre }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>

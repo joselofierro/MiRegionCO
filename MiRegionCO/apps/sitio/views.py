@@ -67,6 +67,7 @@ class SitioCreate(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
                     sitio.subcategoria.add(subcatg_id)
 
                 caches[settings.CACHE_API_SITIOS].clear()
+                caches[settings.CACHE_API_SITIOSXSUBCATEGORIA].clear()
                 return HttpResponseRedirect(self.get_success_url())
             else:
                 return render(request, self.template_name,
@@ -138,6 +139,7 @@ class SitioUpdate(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
             form_sitio.save()
 
             caches[settings.CACHE_API_SITIOS].clear()
+            caches[settings.CACHE_API_SITIOSXSUBCATEGORIA].clear()
             return HttpResponseRedirect(self.get_success_url())
         else:
             return render(request, self.template_name, {'form': form_sitio, 'form2': form_imagen})
@@ -159,6 +161,7 @@ class SitioDelete(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
 
     def post(self, request, *args, **kwargs):
         caches[settings.CACHE_API_SITIOS].clear()
+        caches[settings.CACHE_API_SITIOSXSUBCATEGORIA].clear()
         return super(SitioDelete, self).post(args, kwargs)
 
     @method_decorator(cache_page(None))

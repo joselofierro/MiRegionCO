@@ -12,6 +12,20 @@
     </style>
 {% endblock %}
 
+{% block extra_head %}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@MiRegionCO"/>
+    <meta name="twitter:creator" content="@MiRegionCO"/>
+    {{ meta_twitter|safe }}
+    <meta property="fb:app_id" content="311007229311399">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:site_name" content="Mi Region.co"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image:width" content="450"/>
+    <meta property="og:image:height" content="300"/>
+    {{ meta|safe }}
+{% endblock %}
+
 {% block extra_js %}
     <script src="{% static 'pagina_web/js/responsiveslides.min.js' %}"></script>
     <!-- Boton ver mas -->
@@ -21,7 +35,6 @@
             var boton = document.getElementById('btn-ver-mas');
             var contenedor_noticias = document.getElementById('div-noticias');
             var noMasItems = false;
-
             boton.onclick = function () {
                 // Ajax to more news
                 $.ajax({
@@ -35,11 +48,12 @@
                             noMasItems = true;
                         } else {
                             next_page = next_page + 1;
+                            noMasItems = false;
                         }
                         // Armamos las 10 nuevas noticias
                         var arr_noticias = json.results;
                         arr_noticias.forEach(function (noticia) {
-                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.id);
+                            var url_mask = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.slug);
                             var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
                             var noticia_html =
                                 '<div class="col-md-6 top-text">' +
@@ -57,7 +71,9 @@
                             contenedor_noticias.innerHTML += noticia_html;
                         });
 
-                        contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
+                        if (noMasItems) {
+                            contenedor_noticias.innerHTML += '<h1 style="text-align: center">No hay más {{ categoria.nombre }}</h1>';
+                        }
                         contenedor_noticias.innerHTML += '<div class="clearfix"></div>';
                     }
                 })
@@ -65,20 +81,23 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
-            function init() {
-                FB.api(
-                    '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
-                    'GET',
-                    {"fields": "status,title,description,creation_time,embed_html", "limit": "7"},
-                    function (response) {
-                        var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
-                        var aux = -1;
-                        var isFirst = true;
-                        response.data.forEach(function (video) {
-                            if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
-                                aux += 1;
-                                console.log(video);
+        function init() {
+            FB.api(
+                '/me/live_videos?access_token=EAAEa3ANsZBacBAELBoNaMNZC74ZBk2ZCY5hEi5VVZAaU7OWI0VEVpNZC0LYmv8jiZBSnBBjFXfnw9nU6Qtma18qYveBZCq15hw0ZBmfLoBLQK3t92uzmF0Yip4NeRowSU0gZBqXzu5zsFLQ4BqqvbbZCo5iJqflZADPK8A1YEIA9xbawJQZDZD',
+                'GET',
+                {"fields": "status,title,description,creation_time,embed_html", "limit": "50"},
+                function (response) {
+                    var contenedor_videos = document.getElementById('contenedor-videos-facebook-live');
+                    var aux = -1;
+                    var isFirst = true;
+                    var maxVideos = 0;
+                    var banner = 0;
+
+                    response.data.forEach(function (video) {
+                        if (video.status !== "UNPUBLISHED" && video.status !== "LIVE_STOPPED") {
+                            aux += 1;
+                            maxVideos += 1;
+                            if (maxVideos <= 7) {
                                 if (isFirst) {
                                     var video_html =
                                         '<div class="col-md-12 item-details">\n' +
@@ -105,54 +124,41 @@
                                     contenedor_videos.innerHTML += video_html;
                                 }
 
-
                                 if (aux === 2) {
-                                    console.log("Entro a if ", aux);
                                     aux = 0;
                                     var espacio_publicitario =
                                         '<div class="banner_right item-details" style="height:200px">\n' +
-                                        '<div class="contenido_publicidad_right">\n' +
-                                        '<h5>PAUTE AQUI!!!<span class="glyphicon glyphicon-hand-down"></span></h5>\n' +
+                                        '<div class="contenido_publicidad_right_' + banner + '">\n' +
                                         '</div>\n' +
                                         '</div>';
+
+                                    banner = banner + 1;
                                     contenedor_videos.innerHTML += espacio_publicitario;
                                 }
                             }
-                        });
-                    }
-                );
-            }
-
-            window.fbAsyncInit = function () {
-                FB.init({
-                    appId: '311007229311399',
-                    autoLogAppEvents: false,
-                    xfbml: false,
-                    version: 'v2.10'
-                });
-                //FB.AppEvents.logPageView();
-
-                init();
-            };
-
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
+                        }
+                    });
                 }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        });
+            );
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '311007229311399',
+                autoLogAppEvents: false,
+                xfbml: false,
+                version: 'v2.10'
+            });
+            //FB.AppEvents.logPageView();
+
+            init();
+        };
     </script>
 {% endblock %}
 
 {% block contenido_web %}
     <div class="banner_cabecera">
         <div class="contenido_publicidad_cabecera">
-            <h5>Seccion Banner Publicitario</h5>
         </div>
     </div>
 
@@ -165,10 +171,10 @@
                 <ul class="rslides" id="slider4">
                     {% for noticia_destacada in noticias_destacadas %}
                         <li>
-                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                 <img src="{{ noticia_destacada.imagenes.first.imagen.url }}" alt="">
                             </a>
-                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.id %}">
+                            <a href="{% url 'pagina_web:noticia_id' noticia_destacada.slug %}">
                                 <p class="caption">{{ noticia_destacada.titular }}</p>
                             </a>
                         </li>
@@ -206,11 +212,11 @@
                 {% for noticia in noticias %}
                     <div class="col-md-6 top-text">
                         <div class="top-text_img">
-                            <a href="{% url 'pagina_web:noticia_id' noticia.id %}"><img
+                            <a href="{% url 'pagina_web:noticia_id' noticia.slug %}"><img
                                     src="{{ noticia.imagenes.first.imagen.url }}" class="img-responsive"
                                     alt=""></a>
                         </div>
-                        <h5 class="top"><a href="{% url 'pagina_web:noticia_id' noticia.id %}">{{ noticia.titular }}</a>
+                        <h5 class="top"><a href="{% url 'pagina_web:noticia_id' noticia.slug %}">{{ noticia.titular }}</a>
                         </h5>
                         <p>{{ noticia.lead }}</p>
                         <p class="top-text_fecha">
@@ -225,28 +231,28 @@
         <!--  Noticias -->
 
         <!-- Controles paginado -->
-        <div style="display: flex;justify-content: center;">
-            <img id="btn-ver-mas" src="{% static 'pagina_web/images/btn_ver_mas.jpg' %}"
-                 style="width: 200px; height: 100px">
+        <div class="contenedor_btn_vermas">
+            <a id="btn-ver-mas" class="btn_ver_mas">Ver M&aacutes</a>
         </div>
         <!-- Controles paginado -->
 
         <!-- banner_publicitario_down -->
         <div class="banner_publicitario_noticia">
-            <div class="contenido_publicidad_noticia">
-                <h5>Seccion Banner Publicitario</h5>
-            </div>
+            <a href="https://www.facebook.com/OasisPlazaCentroComercial/">
+                <div class="contenido_publicidad_noticia">
+                </div>
+            </a>
         </div>
     </div>
 
     <!--//banner-section-->
     <div class="banner-right-text">
         <!-- contenedor publicitario -->
-        <div class="col-md-12 item-details container_embed banner_right_principal">
-            <div class="contenido_right_principal">
-                <h5>Seccion Banner Publicitario</h5>
+        <a href="https://www.facebook.com/Pote.Seguros.Neiva/">
+            <div class="col-md-12 item-details container_embed banner_right_principal">
             </div>
-        </div>
+        </a>
+
         <h3 class="tittle"><span class="glyphicon glyphicon-facetime-video" style="color: red;"></span> Videos</h3>
         <!--/general-news-->
         <div class="general-news">

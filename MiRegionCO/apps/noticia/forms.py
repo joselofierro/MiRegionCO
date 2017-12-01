@@ -17,6 +17,8 @@ class NoticiaForm(forms.ModelForm):
             'duracion',
             'categoria',
             'destacada',
+            'web',
+            'mobile'
         ]
 
         labels = {
@@ -30,7 +32,8 @@ class NoticiaForm(forms.ModelForm):
             'duracion': 'Duracion',
             'categoria': 'Categoria',
             'destacada': '¿Es destacada?',
-
+            'web': '¿Visible en página?',
+            'mobile': '¿Visible en App?'
         }
 
         widgets = {
@@ -44,5 +47,7 @@ class NoticiaForm(forms.ModelForm):
             'video': forms.URLInput(attrs={'class': 'form-control'}),
             'duracion': forms.TextInput(attrs={'class': 'form-control'}),
             'categoria': forms.SelectMultiple(attrs={'class': 'form-control'}),
-            'destacada': forms.CheckboxInput(attrs={'class': 'form-control chkbox'})
+            'destacada': forms.CheckboxInput(attrs={'class': 'form-control chkbox'}),
+            'web': forms.CheckboxInput(attrs={'class': 'form-control chkbox'}),
+            'mobile': forms.CheckboxInput(attrs={'class': 'form-control chkbox'}),
         }

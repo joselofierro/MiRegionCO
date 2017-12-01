@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="descripcion" content="Mi region.co es un portal de noticias a nivel regional">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content=""/>
     {% block extra_head %}
     {% endblock %}
 
@@ -30,7 +29,12 @@
     {% block extra_css %}
     {% endblock %}
     <!-- Scripts -->
+
+    <script src="{% static 'pagina_web/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'pagina_web/js/jquery.min.js' %}"></script>
+    <script src="{% static 'pagina_web/js/tether.min.js' %}"></script>
+    <script src="{% static 'js/src_js.cookie.js' %}"></script>
+
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
@@ -39,7 +43,7 @@
             });
         });
     </script>
-    <!-- Scrip Para agregar script 😎 -->
+    <!-- script Para agregar script 😎 -->
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             var ancho = $("body").prop("clientWidth");
@@ -53,6 +57,32 @@
             }
 
         });
+    </script>
+    <script>
+        function send_statistics(url, id, isNoticia) {
+            var mobile = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+            var json = {
+                'isdesktop': mobile,
+                'csrfmiddlewaretoken': Cookies.get('csrftoken')
+            };
+
+            if (id !== null && isNoticia) {
+                json['noticia'] = id
+            } else if (id !== null && !isNoticia) {
+                json['sitio'] = id
+            }
+
+            console.log(json);
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: json,
+                dataType: 'application/json',
+                complete: function (data) {
+                }
+            });
+        }
     </script>
     <script type="text/javascript">
         var uAg = navigator.userAgent.toLowerCase();
@@ -73,7 +103,7 @@
             $("#cerrar").click(function () {
                 $("#modal_publicitario").css("display", "none")
                 ;
-            })
+            });
         });
     </script>
     <!-- SDK Facebook -->
@@ -88,6 +118,71 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Search -->
+    <script>
+        $(document).ready(function () {
+            var searchInput = document.getElementById('inputSearch');
+
+            //setup before functions
+            var typingTimer;                //timer identifier
+            var doneTypingInterval = 1000;  //time in ms, 1 second for example
+            var $input = $('#inputSearch');
+
+            //on keyup, start the countdown
+            $input.on('keyup', function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            });
+
+            //on keydown, clear the countdown
+            $input.on('keydown', function () {
+                clearTimeout(typingTimer);
+            });
+
+            //user is "finished typing," do something
+            function doneTyping() {
+                if ($input.val() !== '') {
+                    var url_mask = "{% url 'api:search_noticia_text' '1' %}".replace('1', $input.val());
+                    $.ajax({
+                        url: url_mask,
+                        type: 'GET',
+                        dataType: 'application/json',
+                        complete: function (data) {
+                            var json = JSON.parse(data.responseText);
+                            var arr_noticias = json;
+                            var contenedor_noticias_search = document.getElementById('contenedor-noticias-search');
+                            contenedor_noticias_search.innerHTML = "";
+
+                            arr_noticias.forEach(function (noticia) {
+                                var imagen_noticia = noticia.imagenes[0].imagen.replace('/', '\\/');
+                                var noticia_url = "{% url 'pagina_web:noticia_id' 1 %}".replace(/1/, noticia.slug);
+
+                                var card_noticia =
+                                    '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card_noticia">' +
+                                    '<div class="contenedor_img_card">' +
+                                    '<a href="' + noticia_url + '"><img src="' + imagen_noticia + '" class="img_card" alt=""></a>' +
+                                    '</div>' +
+                                    '<h5 class="top_card"><a href="' + noticia_url + '">' + noticia.titular + '</a></h5>' +
+                                    '<p>' + noticia.lead + '</p>' +
+                                    '<p class="card_fecha">' + noticia.fecha + '</p>' +
+                                    '</div>';
+
+                                contenedor_noticias_search.innerHTML += card_noticia;
+                            })
+                        }
+                    })
+                }
+            }
+
+            $('#form-buscador-ppal').on('keyup keypress', function (e) {
+                var keyCode = e.keyCode || e.which;
+                if (keyCode === 13) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        })
     </script>
     <!-- Archivos extra js -->
     {% block extra_js %}
@@ -120,8 +215,46 @@
 
 </head>
 <body>
+
+
+<!-------------------modal buscar-------------------->
+<div class="modal modal1" tabindex="-1" id="modal_buscar"
+     data-keyboard="false">
+    <div class="modal-dialog tamaño_modal">
+        <!---modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <form id="form-buscador-ppal" class="buscador">
+                    <button type="button" class="close btn_close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <div class="form-group buscador">
+                        <label for="inputUserName">Busca noticias, eventos y ofertas...</label>
+                        <input class="form-control" type="text"
+                               placeholder="¿que buscas?" id="inputSearch"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-body">
+                <div id="contenedor-noticias-search" class="row">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnHideModal" class="btn btn-primary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------modal buscar------------------->
+
+<!-------------------btn to top------------------->
 <div id="toTop"><a href="javascript:void(0);"> <span></span></a></div>
+
 <div id="wrap">
+
     <!-- header-section-starts -->
     <nav id="header" class="navbar navbar-default navbar-static-top  top-header nav-down header">
         <div id="navbar" class="navbar-collapse">
@@ -134,8 +267,8 @@
             <div class="search-box">
                 <div class="b-search">
                     <form>
-                        <input type="text" value="Search" onfocus="this.value = '';"
-                               onblur="if (this.value == '') {this.value = 'Buscar';}" data-toggle="modal"
+                        <input type="text" value="Buscar" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = '';}" data-toggle="modal"
                                data-target="#modal_buscar">
                         <input type="submit" value="">
                     </form>
@@ -149,142 +282,6 @@
 
     <div class="full">
 
-        <!-------------------modal buscar-------------------->
-        <div class="modal fade modal1" tabindex="-1" id="modal_buscar"
-             data-keyboard="false">
-            <div class="modal-dialog tamaño_modal">
-                <!---modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <form class=" buscador">
-                            <button type="button" class="close btn_close" data-dismiss="modal">
-                                &times;
-                            </button>
-                            <div class="form-group buscador">
-                                <label for="inputUserName">Busca noticias, eventos y ofertas...</label>
-                                <input class="form-control" type="text"
-                                       placeholder="¿que buscas?" id="inputSearch"/>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <div class="contenedor_img_card">
-                                    <a href="#"><img src="{% static 'pagina_web/images/1.jpg' %}" class="img_card"
-                                                     alt=""></a>
-                                </div>
-                                <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-                                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore
-                                    magna aliquyam
-                                    eratsed diam justo duo dolores rebum.</p>
-                                <p>On Jun 25 <a class="span_link" href="#"><span
-                                        class="glyphicon glyphicon-eye-open"></span>0 </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="btnHideModal" class="btn btn-primary" data-dismiss="modal">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-------------------modal buscar------------------->
         <div class="col-md-3 top-nav header">
             <div class="contenedor_top-nav">
                 <div class="logo">
@@ -293,42 +290,7 @@
                 </div>
                 <div class="top-menu">
                     <ul class="ul__top-menu">
-                        <li class="li__btn" style="background-color: #76A8D9">
-                            <ul class="ul__menu">
-                                <li class="li__icon"><i
-                                        class="glyphicon glyphicon-play icon-magazine icon__menu"
-                                        style="background-color: #76A8D9"></i>
-                                </li>
-                                <li>
-                                    <a href="{% url 'pagina_web:noticia_categoria' 6 %}">Noticias</a>
-                                </li>
-                                <hr class="hr">
-                            </ul>
-                        </li>
-                        <li class="li__btn" style="background-color: #F3CC7F">
-                            <ul class="ul__menu">
-                                <li class="li__icon"><i
-                                        class="glyphicon glyphicon-play icon-magazine icon__menu"
-                                        style="background-color: #F3CC7F"></i>
-                                </li>
-                                <li>
-                                    <a href="{% url 'pagina_web:noticia_categoria' 6 %}">Comunidad</a>
-                                </li>
-                                <hr class="hr">
-                            </ul>
-                        </li>
-                        <li class="li__btn ultimo-boton" style="background-color: #F66666">
-                            <ul class="ul__menu">
-                                <li class="li__icon"><i
-                                        class="glyphicon glyphicon-play icon-deportes icon__menu"
-                                        style="background-color: #F66666"></i>
-                                </li>
-                                <li>
-                                    <a href="{% url 'pagina_web:noticia_categoria' 6 %}">Deportes</a>
-                                </li>
-                                <hr class="hr">
-                            </ul>
-                        </li>
+                        {% categorias_menu %}
                     </ul>
                 </div>
 
@@ -373,47 +335,48 @@
         <!--/footer-->
         <div class="footer">
             <div class="footer-bottom">
-                <div class="col-md-3 col-sm-6 footer-grid">
+                <div class="col-md-4 col-sm-12 footer-grid">
                     <img class="img-responsive img-center" src="{% static 'pagina_web/images/logo1.png' %}" alt="">
                     <ul class="bottom">
-                        <li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eum tempora impedit minus
-                            amet.
-                            Adipisci beatae cum nostrum.</p></li>
+                        <li><p class="text_miregion">Medio de comunicación e informacíon del departamento del Huila. Nuestra impronta es la responsabilidad e inmediatez a la hora de informar. Nuestro fuerte, la producción de contenidos informativos audiovisuales.</p></li>
                     </ul>
 
                 </div>
-                <div class="col-md-3 col-sm-6 footer-grid footer-border footer-div">
-                    <h4>Escribenos</h4>
+                <div class="col-md-4 col-sm-6 footer-grid footer-border footer-div">
+                    <h4>Escribénos</h4>
                     <ul class="bottom side-icons">
                         <li>
                             <a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/tel_icon.png' %}"
-                                             alt=""> 038 - 877 77 77</a>
+                                             alt=""> 038 - 871 84 12</a>
                         </li>
                         <li>
                             <a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/locacion.png' %}"
-                                             alt=""> calle 8va No 7 -
-                                8</a>
+                                             alt=""> calle 8va No 7 - 63 Piso 2</a>
                         </li>
                         <li>
                             <a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/correo_icon.png' %}"
-                                             alt="">
-                                miregion@gmail.com</a>
+                                             alt="">escribenos@miregion.co</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-6 footer-grid footer-div">
-                    <h4>Siguenos</h4>
+                <div class="col-md-4 col-sm-6 footer-grid footer-div">
+                    <h4>Siguénos</h4>
 
                     <ul class="bottom side-icons">
-                        <li><a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/fb.png' %}" alt="">
+                        <li><a target="_blank" href="https://www.facebook.com/MiRegion.co"><img class="icon-mediano"
+                                                                                                src="{% static 'pagina_web/images/fb.png' %}"
+                                                                                                alt="">
                             /MiRegion.co</a></li>
-                        <li><a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/tw.png' %}" alt="">
+                        <li><a target="_blank" href="https://twitter.com/miregionco"><img class="icon-mediano"
+                                                                                          src="{% static 'pagina_web/images/tw.png' %}"
+                                                                                          alt="">
                             @MiRegion</a></li>
-                        <li><a href="#"><img class="icon-mediano" src="{% static 'pagina_web/images/yt.png' %}" alt="">
+                        <li><a target="_blank" href="https://www.youtube.com/channel/UCbJzhK5xKxJoE4fE1ZBwAtQ"><img
+                                class="icon-mediano" src="{% static 'pagina_web/images/yt.png' %}" alt="">
                             Mi Region</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-6 footer-grid suscribete_border">
+                <div class="col-md-3 col-sm-6 footer-grid suscribete_border" style="display: none">
                     <h4>Suscribete <img class="icon-grande" src="{% static 'pagina_web/images/news_icon.png' %}" alt="">
                     </h4>
                     <ul class="bottom">
