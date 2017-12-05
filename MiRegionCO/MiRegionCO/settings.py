@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
     '.elasticbeanstalk.com',
     '54.165.204.105',
     '34.231.1.194',
-    '192.168.10.158',
+    '192.168.10.126',
     '127.0.0.1',
     'miregion.co',
     'www.miregion.co'
