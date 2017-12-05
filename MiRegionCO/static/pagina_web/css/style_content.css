@@ -933,6 +933,11 @@ h5.inner.one {
     left: 15%;
     z-index: 1050;
 
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -949,7 +954,7 @@ h5.inner.one {
     width: 900px;
     height: 550px;
     background: #ffffff;
-    position: absolute;
+    position: relative;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
     overflow: hidden;
