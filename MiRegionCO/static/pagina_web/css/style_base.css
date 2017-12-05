@@ -59,29 +59,26 @@ body > #wrap {
 }
 
 .banner_right {
-    height: 200px;
+    height: auto;
 }
 
 .contenido_publicidad_right_0 {
-    height: 200px;
     box-sizing: border-box;
-    background: url("../images/banners/Burguemania0.png") no-repeat;
+    background: url("../images/banners/Banner_BurguerMania.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
 
 .contenido_publicidad_right_1 {
-    height: 200px;
     box-sizing: border-box;
-    background: url("../images/banners/colorVerano0.png") no-repeat;
+    background: url("../images/banners/Banner_ColorVerano.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
 
 .contenido_publicidad_right_2 {
-    height: 200px;
     box-sizing: border-box;
-    background: url("../images/banners/sorprendiendo.png") no-repeat;
+    background: url("../images/banners/sorprendiendo@2x.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -1149,6 +1146,11 @@ ul.side-icons li a:hover {
     .banner_movil {
         width: 250px;
         display: inline-block;
+        margin-bottom: 1em;
+    }
+
+    .banner_right {
+        height: auto;
     }
 
     .contenedor_publicitario_movil {
@@ -1156,8 +1158,7 @@ ul.side-icons li a:hover {
         flex-wrap: wrap;
         justify-content: space-around;
         align-content: center;
-        margin: 0 auto;
-        width: 80%;
+        margin: 1em auto;
     }
 
     /*_________banner publicitarios cabecera_____________*/
@@ -1383,12 +1384,6 @@ ul.side-icons li a:hover {
         margin: 0px;
     }
 
-    .banner_right {
-
-        height: 150px;
-
-    }
-
     /********store btn***********/
     div.logo a {
         position: absolute;
@@ -1563,7 +1558,7 @@ ul.side-icons li a:hover {
     }
 
     ul.side-icons {
-        margin-left: 2em;
+        margin-left: 0em;
     }
 }
 

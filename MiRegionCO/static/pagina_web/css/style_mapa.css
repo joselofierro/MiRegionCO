@@ -335,7 +335,16 @@ label {
     }
 
     .banner_cabecera {
-        top: 50px;
+        top:15px;
+        height: 70px;
+    }
+
+    #map {
+        margin-top: 35px;
+
+    }
+    .nav{
+        margin-top: 5px;
     }
 
 }
@@ -366,7 +375,7 @@ label {
 .banner_cabecera_mapa {
     width: 98%;
     margin: 10px auto;
-    height: 100px;
+    height: 80px;
     box-sizing: border-box;
     background: #afafaf;
     position: relative;
@@ -377,7 +386,7 @@ label {
 #map {
     height: 83vh;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 /**********MENU MAPA*************/
@@ -430,7 +439,7 @@ label {
     z-index: 1;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    margin-top: 60px;
+    margin-top: 0px;
 }
 
 .contenedor-menu .menu-mapa .activado > a {
@@ -714,7 +723,7 @@ ul.menu-mapa li > a:hover > i {
 @media (max-width: 480px) {
 
     #content {
-        margin-top: 34vh;
+        margin-top: 30vh;
         overflow-x: hidden;
 
     }

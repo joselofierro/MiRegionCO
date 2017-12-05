@@ -398,12 +398,14 @@ ul.etiquetas li {
     left: auto;
     background-position: right top;
     right: 0;
+    display: none;
 }
 
 .callbacks_nav.prev {
     right: auto;
     background-position: left top;
     left: -140px;
+    display: none;
 }
 
 .rslides {
@@ -911,7 +913,7 @@ ul.callbacks_tabs {
     }
 
     .grid-section {
-        padding: 3em 1em;
+        padding: 1em 1em;
     }
 
     h1.tittle {
@@ -945,7 +947,7 @@ ul.callbacks_tabs {
     }
 
     .banner_cabecera {
-        top: 20px;
+        top: 5px;
         height: 70px;
     }
 
@@ -990,11 +992,6 @@ ul.callbacks_tabs {
 }
 
 @media (max-width: 375px) {
-    .main {
-        margin-top: 210px;
-        overflow-x: hidden;
-
-    }
 
     h1.tittle {
         font-size: 1.5em;
@@ -1017,9 +1014,6 @@ ul.callbacks_tabs {
 }
 
 @media (max-width: 360px) {
-    .main {
-        margin-top: 34vh;
-    }
 
 }
 
