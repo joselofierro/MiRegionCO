@@ -937,7 +937,6 @@ h5.inner.one {
     -webkit-justify-content: center;
     -webkit-align-items: center;
 
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -993,7 +992,8 @@ h5.inner.one {
 .logo_modal {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 20px;
+    align-items: end;
 }
 
 .call_action {
@@ -1036,6 +1036,16 @@ h5.inner.one {
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 50%;
+    align-items: baseline;
+}
+
+.contenedor_text {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .btn_store_banner img {
@@ -1148,7 +1158,7 @@ h5.inner.one {
     }
 
     .contenido_modal {
-        height: 250px;
+        height: 240px;
         border-bottom-left-radius: 25px;
         border-top-right-radius: 25px;
     }
@@ -1162,7 +1172,9 @@ h5.inner.one {
     }
 
     .logo_modal {
-        padding: 15px;
+        width: 150px;
+        padding: 5px 10px;
+        align-items: end;
     }
 
     .call_action h1 {
@@ -1183,11 +1195,25 @@ h5.inner.one {
         width: 25px;
     }
 
+    .contenedor_text {
+        height: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .btn_store_banner {
+        height: 50%;
+        align-items: center;
+    }
+
 }
 
 @media (max-width: 375px) {
+
     .contenido_modal {
-        height: 240px;
+        height: 235px;
     }
 
     .banner_modal {
@@ -1196,11 +1222,45 @@ h5.inner.one {
 
     .logo_modal {
         width: 120px;
+        padding: 10px;
+        align-items: end;
     }
 
-    .call_action h1 {
+    .contenedor_text h1 {
         font-size: 14px;
     }
+
+    .btn_store_banner {
+        height: 50%;
+        align-items: end;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .contenido_modal {
+        height: 220px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .btn_store_banner {
+        height: 50%;
+        align-items: center;
+    }
+
+    .btn_store_banner img {
+        width: 70px;
+    }
+
 }
 
 /* ==========================================================================

@@ -988,6 +988,14 @@ ul.callbacks_tabs {
         padding: 1em;
     }
 
+    .main {
+        margin-top: 32vh;
+    }
+
+    .banner_cabecera {
+        top: 15px;
+    }
+
 }
 
 @media (max-width: 360px) {
@@ -995,6 +1003,10 @@ ul.callbacks_tabs {
 }
 
 @media (max-width: 320px) {
+
+    .main {
+        margin-top: 34vh;
+    }
 
     .banner {
         margin: 0;
