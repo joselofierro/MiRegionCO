@@ -1,7 +1,6 @@
 from threading import Thread
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail
-from django.db.models import Count
 from django.db.models.functions import Concat
 from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
@@ -750,7 +749,7 @@ class VotarYoutuber(CreateAPIView):
                             status=status.HTTP_400_BAD_REQUEST)
 
 
-class noticiaByText(ListAPIView):
+class NoticiaByText(ListAPIView):
     serializer_class = NoticiaSerializer
 
     def get_queryset(self):

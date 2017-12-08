@@ -58,7 +58,7 @@ urlpatterns = [
     url(r'^visita_mapa_web/$', VisitMapAPI.as_view(), name='visita_mapa_web'),
     url(r'^web_visita_sitio/$', VisitPlaceAPI.as_view(), name='visita_sitio_web'),
     # Buscar noticias por texto (Buscador pagina web)
-    url(r'^noticias_text/(?P<p_texto>.*)$', noticiaByText.as_view(), name='search_noticia_text'),
+    url(r'^noticias_text/(?P<p_texto>.*)$', NoticiaByText.as_view(), name='search_noticia_text'),
 
     # urls de Apis mi region_ventas
     url(r'^login/(?P<p_correo>.+)/(?P<p_pass>.+)$', login, name='login_vendedor'),
