@@ -132,7 +132,8 @@ label {
 .logo_modal {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 20px;
+    align-items: end;
 }
 
 .call_action {
@@ -175,6 +176,16 @@ label {
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 50%;
+    align-items: baseline;
+}
+
+.contenedor_text {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .btn_store_banner img {
@@ -292,7 +303,7 @@ label {
     }
 
     .contenido_modal {
-        height: 250px;
+        height: 240px;
         border-bottom-left-radius: 25px;
         border-top-right-radius: 25px;
     }
@@ -306,7 +317,9 @@ label {
     }
 
     .logo_modal {
-        padding: 15px;
+        width: 150px;
+        padding: 5px 10px;
+        align-items: end;
     }
 
     .call_action h1 {
@@ -335,7 +348,7 @@ label {
     }
 
     .banner_cabecera {
-        top:15px;
+        top: 15px;
         height: 70px;
     }
 
@@ -343,7 +356,8 @@ label {
         margin-top: 35px;
 
     }
-    .nav{
+
+    .nav {
         margin-top: 5px;
     }
 
@@ -352,7 +366,7 @@ label {
 @media (max-width: 375px) {
 
     .contenido_modal {
-        height: 240px;
+        height: 235px;
     }
 
     .banner_modal {
@@ -361,11 +375,45 @@ label {
 
     .logo_modal {
         width: 120px;
+        padding: 10px;
+        align-items: end;
     }
 
-    .call_action h1 {
+    .contenedor_text h1 {
         font-size: 14px;
     }
+
+    .btn_store_banner {
+        height: 50%;
+        align-items: end;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .contenido_modal {
+        height: 220px;
+    }
+
+    .banner_modal {
+        height: 150px;
+    }
+
+    .logo_modal {
+        width: 120px;
+        padding: 10px;
+        align-items: end;
+    }
+
+    .btn_store_banner {
+        height: 50%;
+        align-items: center;
+    }
+
+    .btn_store_banner img {
+        width: 70px;
+    }
+
 }
 
 /* ==========================================================================
@@ -737,7 +785,7 @@ ul.menu-mapa li > a:hover > i {
         height: 20px;
     }
 
-    contenedor-relacionada {
+    .contenedor-relacionada {
         margin: 1em 0;
     }
 
@@ -752,9 +800,36 @@ ul.menu-mapa li > a:hover > i {
 }
 
 @media (max-width: 414px) {
-
-    .noticia-descripcion {
-        width: 3.54%;
+    .banner_cabecera {
+        top: 5px;
     }
 
+    #map {
+        margin-top: 15px;
+    }
+
+}
+
+@media (max-width: 375px) {
+    #content {
+        margin-top: 32vh;
+    }
+
+    .banner_cabecera {
+        top: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    #content {
+        margin-top: 34vh;
+    }
+
+    .banner_cabecera {
+        top: 20px;
+    }
+
+    #map {
+        margin-top: 30px;
+    }
 }

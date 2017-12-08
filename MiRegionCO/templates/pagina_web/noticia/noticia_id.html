@@ -68,7 +68,6 @@
             <input type="checkbox" id="cerrar">
             <label for="cerrar" id="btn_cerrar">x</label>
             <div class="banner_modal">
-                <p>Deliciosa carne de caballo</p>
                 <img src="{% static 'pagina_web/images/banner-publicidad.png' %}" alt="" class="img-responsive">
             </div>
             <div class="descripcion_modal">
@@ -76,7 +75,9 @@
                     <img class="img-responsive" src="{% static 'pagina_web/images/logo1.png' %}" alt="">
                 </div>
                 <div class="call_action">
-                    <h1>Descarga la App ya!!<span>&#160;</span></h1>
+                    <div class="contenedor_text">
+                        <h1>Descarga la App ya!!<span>&#160;</span></h1>
+                    </div>
                     <div class="btn_store_banner">
                         <a href='https://goo.gl/UPUCvR'><img class='img-responsive' alt='Disponible en Google Play'
                                                              src='{% static 'pagina_web/images/btn_android.png' %}'/></a>
@@ -164,10 +165,10 @@
         <div class="form-group contenedor-noticia">
             <div class="row">
                 <div class="col-sm-1 col-xs-1 col-md-2 grid_box1 perfil">
-                    <img src="images/sin1.jpg" alt="" class="perfil-img">
-                    <h5>Julito Fierro</h5>
-                    <h6>31.08.2017 - 9:35am</h6>
-                    <a href="#"><img class="icon-small" src="images/tw2.png" alt="">@ElViejoJulito</a>
+                    <!-- <img src="images/sin1.jpg" alt="" class="perfil-img">
+                     <h5>Julito Fierro</h5>
+                     <h6>31.08.2017 - 9:35am</h6>
+                     <a href="#"><img class="icon-small" src="images/tw2.png" alt="">@ElViejoJulito</a>-->
                 </div>
                 <div class="col-sm-10 col-xs-10 col-md-8 social">
                     <div class="row">
@@ -322,7 +323,7 @@
 
                         // tiny helper function to add breakpoints
                         function getGridSize() {
-                            return (window.innerWidth < 480) ? 1 :
+                            return (window.innerWidth < 481) ? 1 :
                                 (window.innerWidth <= 1024) ? 2 :
                                     (window.innerWidth > 1024) ? 3 : 3;
                         }
