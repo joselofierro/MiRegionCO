@@ -44,7 +44,7 @@ body > #wrap {
 .contenido_publicidad_noticia {
     height: 120px;
     box-sizing: border-box;
-    background: url("../images/banners/OasisPlaza@2x.png") no-repeat;
+    background: url("../images/banners/oasisPlaza@2x.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -64,14 +64,14 @@ body > #wrap {
 
 .contenido_publicidad_right_0 {
     box-sizing: border-box;
-    background: url("../images/banners/Banner_BurguerMania.png") no-repeat;
+    background: url("../images/banners/burguermania@2x.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
 
 .contenido_publicidad_right_1 {
     box-sizing: border-box;
-    background: url("../images/banners/Banner_ColorVerano.png") no-repeat;
+    background: url("../images/banners/colorVerano@2x.png") no-repeat;
     background-size: 100% 100%;
     border-radius: 15px;
 }
@@ -1163,13 +1163,13 @@ ul.side-icons li a:hover {
 
     /*_________banner publicitarios cabecera_____________*/
     .contenido_publicidad_cabecera {
-        background: url("../images/banners/nonna0.png");
+        background: url("../images/banners/nonna.png");
         background-size: 100% 100%;
     }
 
     /*_________banner publicitarios cabecera_____________*/
     .contenido_publicidad_noticia {
-        background: url("../images/banners/OasisPlaza0.png");
+        background: url("../images/banners/oasisPlaza.png");
         background-size: 100% 100%;
         height: 90px;
     }
@@ -1181,7 +1181,7 @@ ul.side-icons li a:hover {
     }
 
     .banner_right_principal {
-        background: url("../images/banners/Banner_Pote.png");
+        background: url("../images/banners/poteSeguros.png");
         background-size: 100% 100%;
     }
 
