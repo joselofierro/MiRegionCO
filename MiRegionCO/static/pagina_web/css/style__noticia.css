@@ -51,6 +51,18 @@ label {
     margin: 0;
 }
 
+/*--flexslider--*/
+
+.flex-viewport {
+    height: 300px;
+}
+
+.flexslider .slides img {
+    width: 100%;
+    display: block;
+    height: 300px;
+}
+
 /*-- /grids--*/
 .form-control1 {
     border: 1px solid #e0e0e0;

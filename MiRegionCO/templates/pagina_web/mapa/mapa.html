@@ -14,6 +14,15 @@
     <script src="{% static 'pagina_web/js/menu.js' %}"></script>
     <script src="{% static 'pagina_web/js/modernizr.js' %}"></script>
     <script defer src="{% static 'pagina_web/js/jquery.flexslider.js' %}"></script>
+
+    <!---------------------------- Script para ocultar el oncontextmenu ---------------------------->
+    <script type="text/javascript">
+        document.oncontextmenu = function () {
+            return false;
+        }
+    </script>
+    <!---------------------------- Script para ocultar el oncontextmenu ---------------------------->
+
     <!-- Scrip MapaInit -->
     <script>
         var map;

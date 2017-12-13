@@ -83,6 +83,14 @@ body > #wrap {
     border-radius: 15px;
 }
 
+.contenido_publicidad_right_3 {
+    box-sizing: border-box;
+    background: url("../images/banners/gobernacion.gif") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 15px;
+}
+
+
 .contenedor_publicitario_movil {
     display: none;
 }
