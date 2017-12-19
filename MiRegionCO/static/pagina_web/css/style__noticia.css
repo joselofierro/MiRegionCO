@@ -54,13 +54,11 @@ label {
 /*--flexslider--*/
 
 .flex-viewport {
-    height: 300px;
+    height: 250px;
 }
 
 .flexslider .slides img {
-    width: 100%;
-    display: block;
-    height: 300px;
+    height: 250px;
 }
 
 /*-- /grids--*/
