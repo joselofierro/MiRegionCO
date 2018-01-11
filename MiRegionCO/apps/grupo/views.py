@@ -27,7 +27,6 @@ def login_view(request):
 
                 if user_auth.groups.filter(name='Escritor').exists() or user_auth.groups.filter(
                         name='SupervisorEscritor').exists():
-
                     return redirect('noticia:listar')
 
                 elif user_auth.groups.filter(name='Administrador').exists():
