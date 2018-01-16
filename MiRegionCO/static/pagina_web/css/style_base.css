@@ -37,6 +37,15 @@ body > #wrap {
     border-radius: 15px;
 }
 
+.contenido_publicidad_cabecera_2 {
+    height: 100%;
+    background: url("../images/banners/banner_esperanza_andrade.jpeg") no-repeat;
+    background-size: 100% 100%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
 .banner_publicitario_noticia {
     height: 120px;
 }
@@ -1172,6 +1181,12 @@ ul.side-icons li a:hover {
     /*_________banner publicitarios cabecera_____________*/
     .contenido_publicidad_cabecera {
         background: url("../images/banners/nonna.png");
+        background-size: 100% 100%;
+    }
+
+    /*_________banner publicitario 2 cabecera_____________*/
+    .contenido_publicidad_cabecera_2 {
+        background: url("../images/banners/banner_esperanza_andrade.jpeg");
         background-size: 100% 100%;
     }
 

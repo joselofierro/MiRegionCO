@@ -32,7 +32,7 @@ SECRET_KEY = '9v2rrct&d)!7-b97u7md2u7cb7!cb%%k^ls+1s1s7mxt4k6m4r'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-
+    'localhost',
     '.elasticbeanstalk.com',
     '54.165.204.105',
     '34.231.1.194',
